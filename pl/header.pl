@@ -11,7 +11,7 @@ sub PackHeader()
 	return $header;
 }
 
-sub UnpackHeader()
+sub UnpackReply()
 {
 	my $header = $_[0];
 	my $len = $_[1];
@@ -33,12 +33,13 @@ sub UnpackHeader()
 	print "msg_sub_type: $list[2]\n";
 	print "msg_order:    $list[3]\n";
 	print "msg_retcode:  $list[4]\n";
+	print "msg_body:     $list[5]\n" if($content_len gt 0);
 }
 
 sub Usage()
 {
 	print "Usage : \n";
-	print "./client -s server -t [evms|ib|handshake] msg_body\n";
+	print "./client -t main_msg_type -s sub_msg_type msg_body\n";
 	exit 1;
 }
 

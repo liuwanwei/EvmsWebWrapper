@@ -14,36 +14,20 @@ my $server = '127.0.0.1';
 my $port = '6018';
 
 my $addr;
-my $msg_type; 
-my $msg_sub_type = 0x00;
+my $main_msg_type; 
+my $sub_msg_type = 0x00;
 my $msg_content = "";
 
 while($#ARGV != -1)
 {
 	if($ARGV[0] =~ /-t/i)
 	{
-		if($ARGV[1] =~ /h|ha|han|hand|handshake/i)
-		{
-			$msg_type = 0x01;
-		}
-		elsif($ARGV[1] =~ /e|ev|evm|evms|/i)
-		{
-			$msg_type = 0x02;
-		}
-		elsif($ARGV[1] =~ /i|ib|/i)
-		{
-			$msg_type = 0x03;
-		}
-		else
-		{
-			&Usage();
-		}
-
+		$main_msg_type = $ARGV[1];
 		shift;
 	}
 	elsif($ARGV[0] =~ /-s/i)
 	{
-		$server = $ARGV[1];
+		$sub_msg_type = $ARGV[1];
 		shift;
 	}
 	else
@@ -65,7 +49,7 @@ connect(SOCK, $dest)		      or die "Can't connect: $!";
 my $header;
 
 # Send header
-$header = &PackHeader($msg_type, $msg_sub_type, length($msg_content));
+$header = &PackHeader($main_msg_type, $sub_msg_type, length($msg_content));
 syswrite(SOCK, $header, length($header));
 
 # Send content
@@ -79,5 +63,4 @@ my $bs = sysread(SOCK, $buf, 2048);
 &UnpackReply($buf, $bs);
 
 close(SOCK);
-
 

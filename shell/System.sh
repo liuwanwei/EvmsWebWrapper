@@ -1,8 +1,9 @@
 #!/bin/bash
 
 tmp_dir_file="/tmp/tmp_dir_file"
+result_dir_file="/tmp/dir_content_list"
 
-GetSubDirectoriesAndFiles()
+GetDirContent()
 {
 	shift
 
@@ -16,16 +17,22 @@ GetSubDirectoriesAndFiles()
 
 	ls -l -h $dir > $tmp_dir_file
 
-	cat $tmp_dir_file | while read LINE
-	do
-	done
+	# omit the first line the format as "total xxx"
+	# using perl style regular express(-P)
+	# start with "total",
+	# then a ' ',
+	# then one or multi numbers,
+	# then a '.' or not,
+	# then one or multi numbers,
+	# then a letter.
+	cat $tmp_dir_file | grep -v -P "^total \d+.?\d+\w+" >  $result_dir_file
 
 	return $error_ok
 }
 
 case "$1" in
-	GetSubDirectoriesAndFiles)
-		GetSubDirectoriesAndFiles $@
+	GetDirContent)
+		GetDirContent $@
 		;;
 	*)
 		echo "param : $1 error."

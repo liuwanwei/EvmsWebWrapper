@@ -8,8 +8,11 @@
 #include <sys/wait.h>
 #include <sys/socket.h>
 
-// 
+// shell scripts used here.
 static const char * s_system_cmd_script = "shell/System.sh";
+
+// directory content file
+static const char * list_dir_file = "/tmp/dir_content_list";
 
 int ListDirectory(char *, int, char **, int *);
 
@@ -72,11 +75,12 @@ int ListDirectory(char * msg_body, int msg_body_len, char ** reply, int * reply_
                 char *argument[4];
                 char command[64];
                 extern char **environ;
-                snprintf(command, 64, "%s GetSubDirectoriesAndFiles %s", s_system_cmd_script, msg_body);
+                snprintf(command, 64, "%s GetDirContent %s", s_system_cmd_script, msg_body);
                 argument[0] = "sh";
                 argument[1] = "-c";
                 argument[2] = command;
                 argument[3] = NULL;
+		printf("cmd : %s\n", command);
                 execve("/bin/sh", argument, environ);
                 exit(1);
         }
@@ -86,7 +90,6 @@ int ListDirectory(char * msg_body, int msg_body_len, char ** reply, int * reply_
                 int status;
 		char line_buffer[256];
 		FILE * file_p = NULL;
-		const char * list_dir_file = "/tmp/list_dir";
 
                 waitpid(pid, &status, 0);
                 ret = WEXITSTATUS(status);
