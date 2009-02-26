@@ -199,7 +199,7 @@ GetAllIBPorts()
 	# cat $inter_file | grep port_guid | grep -v grep | awk '{print $2}' > $result_file
 
 	# now use perl scripts to get all ib ports
-	./GetConnectedPorts.pl $port1_guid $port2_guid
+	../pl/GetConnectedPorts.pl $port1_guid $port2_guid
 
 	return $error_ok
 }

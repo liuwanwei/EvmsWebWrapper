@@ -1,5 +1,7 @@
 #!/bin/perl
 
+# called by ../shell/ResourceMapping.sh
+
 use strict;
 
 # The intermidiate file for parsing, has the original messages printed by 'osmtest' tool
