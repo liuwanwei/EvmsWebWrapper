@@ -61,7 +61,8 @@ typedef enum
 
 typedef enum
 {
-	SYSTEM_LS_DIR = 1		// list subdirs and files, almost the same as "ls -l" command
+	SYSTEM_LS_DIR = 0x01,		// list subdirs and files, almost the same as "ls -l" command
+	SYSTEM_CR_DIR = 0x02		// create a directory, the dir must has the format of absolute path.
 }SYSTEM_RELATED_OPERATIONS;
 
 #define DEFAULT_RETCODE	      	0

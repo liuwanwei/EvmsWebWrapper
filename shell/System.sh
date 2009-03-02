@@ -3,6 +3,15 @@
 # history
 # 20090323, replace "-P" param with "-E" param used for grep
 
+include_file="Defines.sh"
+
+if [ ! -e $include_file ]
+then
+	cd shell
+fi
+
+. Defines.sh
+
 tmp_dir_file="/tmp/tmp_dir_file"
 result_dir_file="/tmp/dir_content_list"
 
@@ -15,7 +24,7 @@ GetDirContent()
 	if [ -z $dir ]
 	then
 		echo "GetSubDirectoriesAndFiles: empty param!"
-		return $error_param
+		exit $error_param
 	fi
 
 	ls -l -h $dir > $tmp_dir_file
@@ -34,12 +43,40 @@ GetDirContent()
 	# now we use this regular express
 	cat $tmp_dir_file | grep -E "^[-dl]([r-][w-][x-]){3}" >  $result_dir_file
 
-	return $error_ok
+	exit $error_ok
+}
+
+CreateDirectory()
+{
+	shift
+
+	dir=$1
+
+	exist=`echo $dir | grep -E "^$mount_dir" | wc -l`
+
+	if [ $exist -ne 1 ]
+	then
+		echo "Invalid directory: $dir"
+		exit $error_param
+	fi
+
+	if [ -d $dir ]
+	then
+		echo "Directory $dir already exist!"
+		exit $error_exist
+	fi
+
+	mkdir $dir 
+
+	exit $error_ok
 }
 
 case "$1" in
 	GetDirContent)
 		GetDirContent $@
+		;;
+	CreateDirectory)
+		CreateDirectory $@
 		;;
 	*)
 		echo "param : $1 error."
