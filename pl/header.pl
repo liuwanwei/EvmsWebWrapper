@@ -28,6 +28,7 @@ sub UnpackReply()
 		@list = unpack("S C C S S", $header);
 	}
 
+	print "Received message: \n";
 	print "msg_len:      $list[0]\n";
 	print "msg_type:     $list[1]\n";
 	print "msg_sub_type: $list[2]\n";

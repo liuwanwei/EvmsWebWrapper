@@ -23,11 +23,24 @@ while($#ARGV != -1)
 	if($ARGV[0] =~ /-t/i)
 	{
 		$main_msg_type = $ARGV[1];
+		if($main_msg_type =~ /evm|evms/i)
+		{
+			$main_msg_type = 0x02;
+		}
+		elsif($main_msg_type =~ /ib/i)
+		{
+			$main_msg_type = 0x03;
+		}
+
 		shift;
 	}
 	elsif($ARGV[0] =~ /-s/i)
 	{
 		$sub_msg_type = $ARGV[1];
+		if($sub_msg_type =~ /cmd/i)
+		{
+			$sub_msg_type = 0x26;
+		}
 		shift;
 	}
 	else
@@ -52,7 +65,8 @@ while($#ARGV != -1)
 my $dest = sockaddr_in($port, inet_aton($server));
 my $buf  = undef;
 
-print "$server : $port\n";
+print "net_server: $server:$port\n";
+print "Send message: \n";
 print "main_msg_type : $main_msg_type\n";
 print "sub_msg_type  : $sub_msg_type\n";
 print "msg_content   : $msg_content\n";
