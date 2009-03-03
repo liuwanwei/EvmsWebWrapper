@@ -27,5 +27,5 @@ then
 	killall -9 net_server
 fi
 
-$net_server &
+$net_server
 
