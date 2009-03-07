@@ -24,6 +24,10 @@ group_backup_script=$shell_scripts_dir/"GroupInfoBackup.sh"
 group_restore_script=$shell_scripts_dir/"GroupInfoRestore.sh"
 vdisk_bk_file=$shell_scripts_dir"vdisk"
 
+iscsi_proc_dir="/proc/net/iet/"
+iscsi_proc_volume_ctrl_file=$iscsi_proc_dir"volume"
+iscsi_proc_session_ctrl_file=$iscsi_proc_dir"session"
+
 mount_dir="/mnt/"
 
 startup_log="/tmp/sanager_startup"

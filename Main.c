@@ -4,20 +4,21 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <sys/stat.h>
 #include <signal.h>
 #include <errno.h>
 #include <unistd.h>
 	
-// #include "ServerCtrl.h"
-	
-// #include "Log.h"
 #include "Debuger.h"
 #include "NetServer.h"
 #include "Infiniband.h"
 #include "evms/PrivateData.h"
 
 #define SANAGER_WORKING_DIR 	"/usr/sbin/sanager/"
+
+// 工作环境检测脚本文件名
+static const char *s_check_modules_script = "/usr/sbin/sanager/CheckRunningEnv.sh";
 
 int g_debug_level = 0;
 char g_pidfile[256];
@@ -107,6 +108,45 @@ int daemon_start(void)
 
 	return(0);
 }
+
+/*
+ * 1， 检查邋IB相关驱动是否被正确加载
+ * 2， 检查/PROC 目录下SRPT相关目录是否正确
+ * 3， 检查服务进程是否已经启动
+ */
+
+int CheckRunningEnvironment()
+{
+        int pid;
+
+        pid = fork();
+
+        if (pid < 0)
+        {
+                return  - 1;
+        }
+        else if (pid == 0)
+        {
+                char *argument[4];
+                char command[64];
+                extern char **environ;
+                snprintf(command, 64, "%s all", s_check_modules_script);
+                argument[0] = "sh";
+                argument[1] = "-c";
+                argument[2] = command;
+                argument[3] = NULL;
+                execve("/bin/sh", argument, environ);
+                exit(1);
+        }
+        else
+        {
+                int status;
+                waitpid(pid, &status, 0);
+                return WEXITSTATUS(status);
+        }
+}
+
+
 	
 //-- 主程序 --//
 	int
@@ -130,10 +170,7 @@ main (int argc, char *argv[])
 		}
 	}
 
-	if(0 != CheckRunningEnvironment())
-	{
-		printf("*** IB working environment not ready! ***\n\n");
-	}
+	CheckRunningEnvironment();
 
 	// start as daemon process
 	if(! running_foreground)

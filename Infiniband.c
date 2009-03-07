@@ -7,8 +7,6 @@
 
 #include "Protocol.h"
 
-// 工作环境检测脚本文件名
-static const char *s_check_modules_script = "/usr/sbin/sanager/CheckIBRunningEnv.sh";
 
 // 资源映射脚本文件名
 static const char *s_resource_mapping_script = "/usr/sbin/sanager/ResourceMapping.sh";
@@ -28,43 +26,6 @@ static const char *s_lun_param = "lun=";
 static const char *s_group_param = "group=";
 static const char *s_port_param = "port=";
 
-
-/*
- * 1， 检查邋IB相关驱动是否被正确加载
- * 2， 检查/PROC 目录下SRPT相关目录是否正确
- * 3， 检查服务进程是否已经启动
- */
-
-int CheckRunningEnvironment()
-{
-        int pid;
-
-        pid = fork();
-
-        if (pid < 0)
-        {
-                return  - 1;
-        }
-        else if (pid == 0)
-        {
-                char *argument[4];
-                char command[64];
-                extern char **environ;
-                snprintf(command, 64, "%s all", s_check_modules_script);
-                argument[0] = "sh";
-                argument[1] = "-c";
-                argument[2] = command;
-                argument[3] = NULL;
-                execve("/bin/sh", argument, environ);
-                exit(1);
-        }
-        else
-        {
-                int status;
-                waitpid(pid, &status, 0);
-                return WEXITSTATUS(status);
-        }
-}
 
 
 /*

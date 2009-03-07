@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$scst_driver="scst_vdisk"
+scst_driver="scst_vdisk"
 
 . /usr/sbin/sanager/Defines.sh
 
@@ -43,7 +43,7 @@ fi
 
 
 # Get IB card's node guid(command "bc" requires Uppercase hex number)
-$ibv_devinfo="/usr/bin/ibv_devinfo"
+ibv_devinfo="/usr/bin/ibv_devinfo"
 if [ -e $ibv_devinfo ]
 then
 	node_guid=`$ibv_devinfo | grep node_guid | awk '{print $2}' \
@@ -56,8 +56,8 @@ fi
 
 
 # load opensm on at most two ib ports
-$opensm="/usr/sbin/opensm"
-if [ ! -e $opensm ]
+opensm="/usr/sbin/opensm"
+if [ -e $opensm ]
 then
 	# Get first port's guid on the card and run opensm on it.
 	port1_guid=` echo "ibase=16;$node_guid + 1" | bc`
@@ -79,6 +79,14 @@ then
 	fi
 else
 	echo "$opensm not exist!"
+fi
+
+# Starting up iscsi driver and daemon
+modprobe iscsi_trgt
+ps ax | grep ietd | grep -v grep 2>&1 > /dev/null
+if [ $? -ne 0 ]
+then
+	ietd
 fi
 
 # Restore vdisk info on the server

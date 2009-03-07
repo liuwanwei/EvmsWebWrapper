@@ -22,6 +22,13 @@ real_file_name=$1
 vlun_name="lun$2"
 vdisk_name=""
 
+# echo "$real_file_name"
+if [ ! -e $real_file_name ]
+then
+	exit $error_param
+fi
+
+
 # get current maximum vdisk index, and use it to generate vdisk name
 max_vdisk_index=0
 cat $vdisk_ctrl_file | while read LINE
@@ -45,7 +52,7 @@ max_vdisk_index=`expr $max_vdisk_index + 1`
 vdisk_name="vdisk$max_vdisk_index"
 
 # create vdisk
-# echo "$real_file_name"
+
 is_file=`ls -l -h $real_file_name | grep -E "^-([r-][w-][x-]){3}" | wc -l`
 if [ 1 -eq  $is_file ]
 then

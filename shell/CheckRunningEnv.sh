@@ -1,5 +1,6 @@
 #! /bin/bash
 
+. /etc/init.d/functions
 . /usr/sbin/sanager/Defines.sh
 
 # Chekd if the specific driver module exists.
@@ -20,9 +21,9 @@ CheckModule()
 # Check if all IB-dependent driver modules exist.
 CheckModules()
 {
-	printf "Checking Modules ...					"
+	#printf "Checking Modules ...					"
 
-	modules_list="scst ib_srpt"
+	modules_list="scst ib_srpt iscsi_trgt"
 
 	for i in $modules_list
 	do
@@ -31,7 +32,7 @@ CheckModules()
 
 		if [ ! $ret -eq 0 ]
 		then
-			echo "Error while Checking $i"
+			#echo "Error while Checking $i"
 			return $ret
 		fi
 	done
@@ -43,15 +44,16 @@ CheckModules()
 
 CannotFind()
 {
-	echo "Can't find $1"
+	# echo "Can't find $1"
 
 	return $error_ok
 }
 
 CheckDirectories()
 {
-	printf "Checking Directories ...				"
+	#printf "Checking Directories ...				"
 
+	# Firstly, IB related directories.
 	if [ ! -d $base_srpt_dir ]
 	then
 		CannotFind $base_srpt_dir
@@ -82,16 +84,31 @@ CheckDirectories()
 		return $error_fail
 	fi
 
-	printf "[OK]\n"
+	# Secondly, iSCSI related directories
+	if [ ! -d $iscsi_proc_dir ]
+	then
+		CannotFind $iscsi_proc_dir
+		return $error_fail
+	fi
+
+	if [ ! -e $iscsi_proc_volume_ctrl_file ]
+	then
+		CannotFind $iscsi_proc_volume_ctrl_file
+		return $error_fail
+	fi
+
+	if [ ! -e $iscsi_proc_session_ctrl_file ]
+	then
+		CannotFind $iscsi_proc_session_ctrl_file_
+		return $error_fail
+	fi
 
 	return $error_ok
 }
 
 CheckDaemons()
 {
-	printf "Checking Daemons					"
-
-	daemons="opensm heartbeat evmsd"
+	daemons="opensm heartbeat evmsd ietd"
 
 	for daemon in $daemons
 	do
@@ -102,51 +119,22 @@ CheckDaemons()
 			return $error_daemons
 		fi
 	done
-
-	printf "[OK]\n"
 }
-
-CheckAll()
-{
-	ret=0
-
-	echo ""
-
-	CheckModules
-	ret=$?
-	if [ ! $ret -eq 0 ]
-	then
-		return $error_daemons
-	fi
-
-	CheckDirectories
-	ret=$?
-	if [ ! $ret -eq 0 ]
-	then
-		return $error_directories
-	fi
-
-	CheckDaemons
-	ret=$?
-	if [ ! $ret -eq 0 ]
-	then
-		return $error_daemons
-	fi
-}
-
 
 case "$1" in
 	all)
-		CheckAll
+		action $"Checking kernel modules..." CheckModules
+		action $"Checking directories..."    CheckDirectories
+		action $"Checking daemons..."        CheckDaemons
 		;;
 	modules)
-		CheckModules
+		action $"Checking kernel modules..." CheckModules
 		;;
 	dirs)
-		CheckDirectories
+		action $"Checking directories..."    CheckDirectories
 		;;
 	daemons)
-		CheckDaemons
+		action $"Checking daemons..."        CheckDaemons
 		;;
 	*)
 		echo "Usage: $0 {all | modules | dirs | daemons}"

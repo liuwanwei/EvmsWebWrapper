@@ -4,6 +4,11 @@
 
 echo "begin" >> $startup_log
 
+if [ ! -e $groups_bk_dir ]
+then
+	exit $error_param
+fi
+
 RestoreDeviceCtrlFile()
 {
 	if [ $# -lt 2 ]
