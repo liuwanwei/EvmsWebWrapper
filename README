@@ -1,3 +1,12 @@
-evms
-ib
-infiniband
+1, git clone git://github.com/liuwanwei/llww.git
+
+2, checkin modified files to local git repo
+git add *
+git commit *
+
+3, checkin local repo to remote repo
+git push 
+
+4, checkout remote repo
+git pull
+
