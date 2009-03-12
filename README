@@ -5,7 +5,7 @@ git add *
 git commit *
 
 3, checkin local repo to remote repo
-git push 
+git push git@github.com:liuwanwei/llww.git
 
 4, checkout remote repo
 git pull
