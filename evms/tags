@@ -1,0 +1,979 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+ADDRESS	dlist.h	/^typedef void *          ADDRESS;$/;"	t
+AFStr	screener.h	/^char *   AFStr            =  "AF";          \/* Abbreviation for Add Feature command. *\/$/;"	v
+AR_TARGET	Makefile	/^AR_TARGET = lib${NAME}.a.${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_LEVEL}$/;"	m
+Accept_Name	parser.c	/^Accept_Name(Executable_Node * Current_Node, boolean Name_Optional)$/;"	f	file:
+AcceptableStr	screener.h	/^char *   AcceptableStr    =  "ACCEPTABLE";$/;"	v
+ActStr	screener.h	/^char *   ActStr           =  "ACT";$/;"	v
+ActivateStr	screener.h	/^char *   ActivateStr      =  "ACTIVATE";$/;"	v
+Activate_Lookahead	parser.c	/^static Executable_Node *Activate_Lookahead(void)$/;"	f	file:
+Activate_Node	interpreter.h	/^               Activate_Node,$/;"	e	enum:__anon2
+AddNode	PrivateData.c	/^hash_node_t * AddNode()$/;"	f
+AddStr	screener.h	/^char *   AddStr           =  "ADD";$/;"	v
+Add_Feature_Node	interpreter.h	/^               Add_Feature_Node,$/;"	e	enum:__anon2
+Add_Feature_Parameters	parser.c	/^Add_Feature_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+AllStr	screener.h	/^char *   AllStr           =  "ALL";$/;"	v
+AllocateStr	screener.h	/^char *   AllocateStr      =  "ALLOCATE";$/;"	v
+Allocate_Node	interpreter.h	/^               Allocate_Node,$/;"	e	enum:__anon2
+Allocation_Parameters	parser.c	/^Allocation_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+Anchor_Context	scanner.c	/^static Input_Context_Type Anchor_Context = { NULL, NULL, NULL, 0, 0, NULL, &Anchor_Context };	\/* Holds the initial input context. *\/$/;"	v	file:
+AppendList	dlist.c	/^int AppendList(dlist_t TargetList, dlist_t SourceList)$/;"	f
+AppendToList	dlist.h	/^                                AppendToList,$/;"	e	enum:_Insertion_Modes
+AsmStr	screener.h	/^char *   AsmStr           =  "ASM";         \/* Abbreviation for the Add Segment Manager command. *\/$/;"	v
+AssignStr	screener.h	/^char *   AssignStr        =  "ASSIGN";$/;"	v
+Assign_Node	interpreter.h	/^               Assign_Node,$/;"	e	enum:__anon2
+Assign_Parameters	parser.c	/^Assign_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+Assign_Text	parser.c	/^static void Assign_Text(Executable_Node * Node, TokenType * Token)$/;"	f	file:
+AtEndOfList	dlist.c	/^boolean AtEndOfList(dlist_t ListToCheck)$/;"	f
+AutoStr	screener.h	/^char *   AutoStr          =  "AUTO";$/;"	v
+AvailableStr	screener.h	/^char *   AvailableStr     =  "AVAILABLE";$/;"	v
+Available_Filter	parser.c	63;"	d	file:
+Available_Generic_Filters	parser.c	/^typedef unsigned long Available_Generic_Filters;	\/* This is a bitmap with one bit for each of the available generic filters. The Bit defintions follow: *\/$/;"	t	file:
+BBR_FEATURE	ObjectStructs.h	14;"	d
+BOOLEAN_VALUE	interpreter.c	76;"	d	file:
+Bad_Command_File	error.h	/^               Bad_Command_File,                  \/* Parameter1 = name of file that we could not open.  Other parameters are ignored. *\/$/;"	e	enum:__anon10
+Bad_Command_File_Name	error.h	/^               Bad_Command_File_Name$/;"	e	enum:__anon11
+Batch	evms.c	/^boolean Batch = FALSE, Interactive = TRUE;	\/* Controls whether or not EVMS will prompt the user for commands.$/;"	v
+BlindExtractObject	dlist.c	/^BlindExtractObject(dlist_t ListToGetItemFrom,$/;"	f
+BlindGetObject	dlist.c	/^BlindGetObject(dlist_t ListToGetItemFrom,$/;"	f
+Buffer	scanner.c	/^static char Buffer[MaxIdentifierLength];	\/* Our buffer for creating tokens. *\/$/;"	v	file:
+ByteStr	interpreter.c	/^static char *ByteStr = "bytes";$/;"	v	file:
+CLEAR_OK_DLIST_ERROR	dlist.h	216;"	d
+CMStr	screener.h	/^char *   CMStr            =  "CM";$/;"	v
+Callback_Functions	evms.c	/^ui_callbacks_t Callback_Functions;	\/* Used to pass call back functions to the EVMS Engine.  These$/;"	v
+CharacterInjected	scanner.c	/^static boolean CharacterInjected = FALSE;	\/* Used for states where a character is just "stuffed" into CharacterToExamine. $/;"	v	file:
+CharacterToExamine	scanner.c	/^static char CharacterToExamine = ' ';	\/* The current character to examine.  Examination of a character will$/;"	v	file:
+Characterization	token.h	/^                  TokenCharacterizations    Characterization;   \/* The "type" of token this is. *\/$/;"	m	struct:__anon13
+CharactersConsumed	scanner.c	/^static uint CharactersConsumed;	\/* Count of the number of characters we have used from the command line. *\/$/;"	v	file:
+CheckStr	screener.h	/^char *   CheckStr         =  "CHECK";$/;"	v
+Check_Child_For_Container	interpreter.c	/^Check_Child_For_Container(object_handle_t Handle,$/;"	f	file:
+Check_Child_For_Disk	interpreter.c	/^Check_Child_For_Disk(object_handle_t Handle, object_handle_t Disk_Handle,$/;"	f	file:
+Check_Child_For_Region	interpreter.c	/^Check_Child_For_Region(object_handle_t Handle,$/;"	f	file:
+Check_Child_For_Segment	interpreter.c	/^Check_Child_For_Segment(object_handle_t Handle,$/;"	f	file:
+Check_For_Closing_Brace	parser.c	/^static Parse_Results Check_For_Closing_Brace(boolean Optional)$/;"	f	file:
+Check_For_Closing_Paren	parser.c	/^static Parse_Results Check_For_Closing_Paren(boolean Optional)$/;"	f	file:
+Check_For_Colon	parser.c	/^static Parse_Results Check_For_Colon(boolean Optional)$/;"	f	file:
+Check_For_Comma	parser.c	/^static Parse_Results Check_For_Comma(boolean Comma_Is_Optional)$/;"	f	file:
+Check_For_Compatibility_Keyword	parser.c	/^Check_For_Compatibility_Keyword(Executable_Node * Current_Node,$/;"	f	file:
+Check_For_EqualSign	parser.c	/^static Parse_Results Check_For_EqualSign(boolean EqualSign_Is_Optional)$/;"	f	file:
+Check_For_Error	interpreter.c	/^static void Check_For_Error(int Error)$/;"	f	file:
+Check_For_Open_Brace	parser.c	/^static Parse_Results Check_For_Open_Brace(boolean Optional)$/;"	f	file:
+Check_For_Open_Paren	parser.c	/^static Parse_Results Check_For_Open_Paren(boolean Optional)$/;"	f	file:
+Check_Node	interpreter.h	/^               Check_Node,$/;"	e	enum:__anon2
+Check_Parameters	parser.c	/^Check_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+Children	interpreter.h	/^                 dlist_t    Children;$/;"	m	struct:__anon3
+ChildrenStr	screener.h	/^char *   ChildrenStr      =  "CHILDREN";$/;"	v
+Cleanup_Task	interpreter.c	/^static int Cleanup_Task(void)$/;"	f	file:
+ClearNode	PrivateData.c	/^int ClearNode()$/;"	f
+Clear_Option_Descriptors	interpreter.c	/^static void Clear_Option_Descriptors(void)$/;"	f	file:
+ClusterStr	screener.h	/^char *   ClusterStr       =  "CLUSTER";$/;"	v
+Command	parser.c	/^Command(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+CommandLine	evms.c	/^static char CommandLine[MAX_CONTENT_LEN];	\/* Buffer to store the reconstructed command line in. *\/$/;"	v	file:
+CommandLine	scanner.c	/^    char *CommandLine;$/;"	m	struct:Input_Context_t	file:
+Command_Filename	parser.c	/^static char *Command_Filename = NULL;	\/* Name of command file, if any, being parsed. *\/$/;"	v	file:
+Comment_Found	scanner.c	/^    Comment_Found,$/;"	e	enum:__anon5	file:
+Comment_Found2	scanner.c	/^    Comment_Found2,$/;"	e	enum:__anon5	file:
+CommitStr	screener.h	/^char *   CommitStr        =  "COMMIT";$/;"	v
+Commit_Changes	interpreter.c	/^int Commit_Changes(void)$/;"	f
+Commit_Node	interpreter.h	/^               Commit_Node,$/;"	e	enum:__anon2
+Commit_Type	parser.c	/^Commit_Type(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+CompatibilityStr	screener.h	/^char *   CompatibilityStr =  "COMPATIBILITY";$/;"	v
+Consume_Token	parser.c	/^static void Consume_Token(void)$/;"	f	file:
+ContainerStr	screener.h	/^char *   ContainerStr     =  "CONTAINER";$/;"	v
+Container_Filter	parser.c	64;"	d	file:
+ContainersStr	screener.h	/^char *   ContainersStr    =  "CONTAINERS";$/;"	v
+Continuous	evms.c	/^boolean Continuous = TRUE;	\/* Flag to control how many commands will be prompted for.$/;"	v
+ControlNode	dlist.h	/^typedef struct MasterListRecord ControlNode;$/;"	t	typeref:struct:MasterListRecord
+ControlNodeLocation	dlist.h	/^  struct MasterListRecord * ControlNodeLocation; \/* The control node of the list containing this item. *\/$/;"	m	struct:LinkNodeRecord	typeref:struct:LinkNodeRecord::MasterListRecord
+ConvertStr	screener.h	/^char *   ConvertStr       =  "CONVERT";$/;"	v
+Convert_Int	interpreter.c	/^static int64_t Convert_Int(u_int32_t Index, int64_t value)$/;"	f	file:
+Convert_Node	interpreter.h	/^               Convert_Node,$/;"	e	enum:__anon2
+Convert_Real	interpreter.c	/^static double Convert_Real(u_int32_t Index, double value)$/;"	f	file:
+ConvertibleStr	screener.h	/^char *   ConvertibleStr   =  "CONVERTIBLE";$/;"	v
+Convertible_Filter	parser.c	65;"	d	file:
+CopyList	dlist.c	/^CopyList(dlist_t TargetList, dlist_t SourceList,$/;"	f
+CreateList	dlist.c	/^dlist_t CreateList(void)$/;"	f
+CreateStr	screener.h	/^char *   CreateStr        =  "CREATE";$/;"	v
+Create_Node	interpreter.h	/^               Create_Node,$/;"	e	enum:__anon2
+Creation_Parameters	parser.c	/^Creation_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+CurrentColumn	scanner.c	/^    uint CurrentColumn;		\/* The current position (0 based) within the current line\/command line expressed as an offset. *\/$/;"	m	struct:Input_Context_t	file:
+CurrentCommandLine	scanner.c	/^    char *CurrentCommandLine;$/;"	m	struct:Input_Context_t	file:
+CurrentItem	dlist.h	/^  LinkNode *      CurrentItem;           \/* The address of the LinkNode of the current item in the list. *\/$/;"	m	struct:MasterListRecord
+CurrentRow	scanner.c	/^    uint CurrentRow;		\/* If the command line is actually a command file, this will indicate which line of the command file is being processed. *\/$/;"	m	struct:Input_Context_t	file:
+CurrentState	scanner.c	/^static State CurrentState = Start;	\/* The current state within the FSA used by the GetToken function.  *\/$/;"	v	file:
+Current_Input_State	scanner.c	/^static Input_State Current_Input_State = Normal;	\/* The current state of the FSA used for the GetCharacter function. *\/$/;"	v	file:
+Current_Token	parser.c	/^static TokenType *Current_Token = NULL;	\/* Token being parsed. *\/$/;"	v	file:
+Current_Units	interpreter.c	/^static value_unit_t Current_Units;$/;"	v	file:
+DLISTHANDLER	dlist.h	137;"	d
+DLIST_ALREADY_AT_START	dlist.h	205;"	d
+DLIST_BAD	dlist.h	197;"	d
+DLIST_BAD_HANDLE	dlist.h	206;"	d
+DLIST_BAD_ITEM_POINTER	dlist.h	201;"	d
+DLIST_CORRUPTED	dlist.h	196;"	d
+DLIST_EMPTY	dlist.h	199;"	d
+DLIST_END_OF_LIST	dlist.h	204;"	d
+DLIST_ERROR_BASE	dlist.h	211;"	d
+DLIST_FOR_EACH	dlist.h	1570;"	d
+DLIST_INVALID_INSERTION_MODE	dlist.h	207;"	d
+DLIST_ITEM_SIZE_WRONG	dlist.h	200;"	d
+DLIST_ITEM_SIZE_ZERO	dlist.h	202;"	d
+DLIST_ITEM_TAG_WRONG	dlist.h	203;"	d
+DLIST_NOT_INITIALIZED	dlist.h	198;"	d
+DLIST_OBJECT_ALREADY_IN_LIST	dlist.h	209;"	d
+DLIST_OBJECT_NOT_FOUND	dlist.h	208;"	d
+DLIST_OUT_OF_MEMORY	dlist.h	194;"	d
+DLIST_SEARCH_COMPLETE	dlist.h	226;"	d
+DLIST_SUCCESS	dlist.h	193;"	d
+DLMStr	screener.h	/^char *   DLMStr           =  "DLM";$/;"	v
+DL_FEATURE	ObjectStructs.h	13;"	d
+DataLocation	dlist.h	/^  ADDRESS                   DataLocation;        \/* Where the data associated with this LinkNode is *\/$/;"	m	struct:LinkNodeRecord
+DataTag	dlist.h	/^  TAG                       DataTag;             \/* The item tag the user gave to the data. *\/$/;"	m	struct:LinkNodeRecord
+DeactStr	screener.h	/^char *   DeactStr         =  "DEACT";$/;"	v
+DeactivateStr	screener.h	/^char *   DeactivateStr    =  "DEACTIVATE";$/;"	v
+Deactivate_Node	interpreter.h	/^               Deactivate_Node,$/;"	e	enum:__anon2
+Debug_Level	evms.c	/^debug_level_t Debug_Level = -1;$/;"	v
+Debug_Level	interpreter.c	/^static debug_level_t Debug_Level = -1;$/;"	v	file:
+DeleteAllItems	dlist.c	/^int DeleteAllItems(dlist_t ListToDeleteFrom, boolean FreeMemory)$/;"	f
+DeleteObject	dlist.c	/^int DeleteObject(dlist_t ListToDeleteFrom, ADDRESS Object)$/;"	f
+DeleteStr	screener.h	/^char *   DeleteStr        =  "DELETE";$/;"	v
+Delete_Node	interpreter.h	/^               Delete_Node,$/;"	e	enum:__anon2
+DestroyHash	PrivateData.c	/^void DestroyHash()$/;"	f
+DestroyList	dlist.c	/^int DestroyList(dlist_t * ListToDestroy, boolean FreeItemMemory)$/;"	f
+Detect_Comments	scanner.c	/^static boolean Detect_Comments = TRUE;	\/* Control comment detection and elimination.  If FALSE, then comment detection is disabled. *\/$/;"	v	file:
+Determine_Units	interpreter.c	/^static char *Determine_Units(u_int64_t Value, double *Result)$/;"	f	file:
+DeviceStr	screener.h	/^char *   DeviceStr        =  "DEVICE";$/;"	v
+DiskStr	screener.h	/^char *   DiskStr          =  "DISK";$/;"	v
+Disk_Filter	parser.c	79;"	d	file:
+DisksStr	screener.h	/^char *   DisksStr         =  "DISKS";$/;"	v
+Display_Command_Line_Help	evms.c	/^static void Display_Command_Line_Help(void)$/;"	f	file:
+Display_Engine_Message	evms.c	/^Display_Engine_Message(char *message_text, int *answer, char **choices)$/;"	f	file:
+Display_Help	helpsys.c	/^void Display_Help(Executable_Node * Current_Node)$/;"	f
+Display_Option_Descriptors	interpreter.c	/^static void Display_Option_Descriptors(boolean Print_Default_Value)$/;"	f	file:
+Display_Plugin_Tasks	interpreter.c	/^static void Display_Plugin_Tasks(object_handle_t Handle, my_task_t ** task)$/;"	f	file:
+DistributedStr	screener.h	/^char *   DistributedStr   =  "DISTRIBUTED";$/;"	v
+Do_ASM_Help	helpsys.c	/^static void Do_ASM_Help(void)$/;"	f	file:
+Do_Activate	interpreter.c	/^static int Do_Activate(Executable_Node * Current_Node)$/;"	f	file:
+Do_Activate_Help	helpsys.c	/^static void Do_Activate_Help(void)$/;"	f	file:
+Do_Add_Feature	interpreter.c	/^static int Do_Add_Feature(Executable_Node * Current_Node)$/;"	f	file:
+Do_Add_Feature_Help	helpsys.c	/^static void Do_Add_Feature_Help(void)$/;"	f	file:
+Do_Allocate_Help	helpsys.c	/^static void Do_Allocate_Help(void)$/;"	f	file:
+Do_Allocation	interpreter.c	/^static int Do_Allocation(Executable_Node * Current_Node)$/;"	f	file:
+Do_Assign	interpreter.c	/^static int Do_Assign(Executable_Node * Current_Node)$/;"	f	file:
+Do_Assign_Help	helpsys.c	/^static void Do_Assign_Help(void)$/;"	f	file:
+Do_Check	interpreter.c	/^static int Do_Check(Executable_Node * Current_Node)$/;"	f	file:
+Do_Check_Help	helpsys.c	/^static void Do_Check_Help(void)$/;"	f	file:
+Do_Commit_Help	helpsys.c	/^static void Do_Commit_Help(void)$/;"	f	file:
+Do_Container_Filter	interpreter.c	/^static int Do_Container_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Convert	interpreter.c	/^static int Do_Convert(Executable_Node * Current_Node)$/;"	f	file:
+Do_Convert_Help	helpsys.c	/^static void Do_Convert_Help(void)$/;"	f	file:
+Do_Convertible_Filter	interpreter.c	/^static int Do_Convertible_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Create	interpreter.c	/^static int Do_Create(Executable_Node * Current_Node)$/;"	f	file:
+Do_Create_Help	helpsys.c	/^static void Do_Create_Help(void)$/;"	f	file:
+Do_Deactivate	interpreter.c	/^static int Do_Deactivate(Executable_Node * Current_Node)$/;"	f	file:
+Do_Deactivate_Help	helpsys.c	/^static void Do_Deactivate_Help(void)$/;"	f	file:
+Do_Default_Help	helpsys.c	/^static void Do_Default_Help(void)$/;"	f	file:
+Do_Delete	interpreter.c	/^static int Do_Delete(Executable_Node * Current_Node)$/;"	f	file:
+Do_Delete_Help	helpsys.c	/^static void Do_Delete_Help(void)$/;"	f	file:
+Do_Disk_Filter	interpreter.c	/^static int Do_Disk_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_EQ_Filter	interpreter.c	/^static int Do_EQ_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Echo	interpreter.c	/^static int Do_Echo(Executable_Node * Current_Node)$/;"	f	file:
+Do_Echo_Help	helpsys.c	/^static void Do_Echo_Help(void)$/;"	f	file:
+Do_Exit_Help	helpsys.c	/^static void Do_Exit_Help(void)$/;"	f	file:
+Do_Expand	interpreter.c	/^static int Do_Expand(Executable_Node * Current_Node)$/;"	f	file:
+Do_Expand_Filter	interpreter.c	/^static int Do_Expand_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Expand_Help	helpsys.c	/^static void Do_Expand_Help(void)$/;"	f	file:
+Do_Feature	interpreter.c	/^Do_Feature(Executable_Node * Current_Node, object_handle_t Handle,$/;"	f	file:
+Do_Feature_ID	interpreter.c	/^static int Do_Feature_ID(Executable_Node * Current_Node)$/;"	f	file:
+Do_Feature_Name	interpreter.c	/^static int Do_Feature_Name(Executable_Node * Current_Node)$/;"	f	file:
+Do_Format	interpreter.c	/^static int Do_Format(Executable_Node * Current_Node)$/;"	f	file:
+Do_Format_Help	helpsys.c	/^static void Do_Format_Help(void)$/;"	f	file:
+Do_Freespace_Filter	interpreter.c	/^static int Do_Freespace_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Freespace_Size_Filter	interpreter.c	/^static int Do_Freespace_Size_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_GT_Filter	interpreter.c	/^static int Do_GT_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Help	interpreter.c	/^static int Do_Help(Executable_Node * Current_Node)$/;"	f	file:
+Do_Indent	evms.c	/^    static char *Do_Indent(char *pch, int indent_level) {$/;"	f	file:
+Do_IntegerData	interpreter.c	/^static int Do_IntegerData(Executable_Node * Current_Node)$/;"	f	file:
+Do_LT_Filter	interpreter.c	/^static int Do_LT_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_List_Options_Filter	interpreter.c	/^static int Do_List_Options_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Mkfs_Help	helpsys.c	/^static void Do_Mkfs_Help(void)$/;"	f	file:
+Do_Modify_Help	helpsys.c	/^static void Do_Modify_Help(void)$/;"	f	file:
+Do_Mount	interpreter.c	/^static int Do_Mount(Executable_Node * Current_Node)$/;"	f	file:
+Do_Mount_Help	helpsys.c	/^static void Do_Mount_Help(void)$/;"	f	file:
+Do_Name_To_Container_Handle	interpreter.c	/^static int Do_Name_To_Container_Handle(Executable_Node * Current_Node)$/;"	f	file:
+Do_Name_To_Disk_Handle	interpreter.c	/^static int Do_Name_To_Disk_Handle(Executable_Node * Current_Node)$/;"	f	file:
+Do_Name_To_Object_Handle	interpreter.c	/^static int Do_Name_To_Object_Handle(Executable_Node * Current_Node)$/;"	f	file:
+Do_Name_To_Plugin_Handle	interpreter.c	/^static int Do_Name_To_Plugin_Handle(Executable_Node * Current_Node)$/;"	f	file:
+Do_Name_To_Region_Handle	interpreter.c	/^static int Do_Name_To_Region_Handle(Executable_Node * Current_Node)$/;"	f	file:
+Do_Name_To_Segment_Handle	interpreter.c	/^static int Do_Name_To_Segment_Handle(Executable_Node * Current_Node)$/;"	f	file:
+Do_Name_To_Volume_Handle	interpreter.c	/^static int Do_Name_To_Volume_Handle(Executable_Node * Current_Node)$/;"	f	file:
+Do_Name_Value_Pair	interpreter.c	/^static int Do_Name_Value_Pair(Executable_Node * Current_Node)$/;"	f	file:
+Do_ObjectList	interpreter.c	/^static int Do_ObjectList(Executable_Node * Current_Node)$/;"	f	file:
+Do_Object_And_Options	interpreter.c	/^static int Do_Object_And_Options(Executable_Node * Current_Node)$/;"	f	file:
+Do_Object_Filter	interpreter.c	/^static int Do_Object_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Plugin_Filter	interpreter.c	/^static int Do_Plugin_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Plugin_ID	interpreter.c	/^static int Do_Plugin_ID(Executable_Node * Current_Node)$/;"	f	file:
+Do_Plugin_Mask	interpreter.c	/^static int Do_Plugin_Mask(Executable_Node * Current_Node)$/;"	f	file:
+Do_Plugin_Type_Filter	interpreter.c	/^static int Do_Plugin_Type_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Precision	interpreter.c	/^static int Do_Precision(Executable_Node * Current_Node)$/;"	f	file:
+Do_Probe	interpreter.c	/^static int Do_Probe(Executable_Node * Current_Node)$/;"	f	file:
+Do_Probe_Help	helpsys.c	/^static void Do_Probe_Help(void)$/;"	f	file:
+Do_Query	interpreter.c	/^static int Do_Query(Executable_Node * Current_Node)$/;"	f	file:
+Do_Query_Acceptable_Create_Filter	interpreter.c	/^Do_Query_Acceptable_Create_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Query_Acceptable_Expand_Filter	interpreter.c	/^Do_Query_Acceptable_Expand_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Query_Extended_Info	interpreter.c	/^static int Do_Query_Extended_Info(Executable_Node * Current_Node)$/;"	f	file:
+Do_Query_Help	helpsys.c	/^static void Do_Query_Help(void)$/;"	f	file:
+Do_Query_Type_2	interpreter.c	/^static int Do_Query_Type_2(Executable_Node * Current_Node)$/;"	f	file:
+Do_Quit_Help	helpsys.c	/^static void Do_Quit_Help(void)$/;"	f	file:
+Do_RealNumber	interpreter.c	/^static int Do_RealNumber(Executable_Node * Current_Node)$/;"	f	file:
+Do_Region_Filter	interpreter.c	/^static int Do_Region_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Remove	interpreter.c	/^static int Do_Remove(Executable_Node * Current_Node)$/;"	f	file:
+Do_Remove_Help	helpsys.c	/^static void Do_Remove_Help(void)$/;"	f	file:
+Do_Rename	interpreter.c	/^static int Do_Rename(Executable_Node * Current_Node)$/;"	f	file:
+Do_Rename_Help	helpsys.c	/^static void Do_Rename_Help(void)$/;"	f	file:
+Do_Replace	interpreter.c	/^static int Do_Replace(Executable_Node * Current_Node)$/;"	f	file:
+Do_Replace_Help	helpsys.c	/^static void Do_Replace_Help(void)$/;"	f	file:
+Do_Revert	interpreter.c	/^static int Do_Revert(Executable_Node * Current_Node)$/;"	f	file:
+Do_Revert_Help	helpsys.c	/^static void Do_Revert_Help(void)$/;"	f	file:
+Do_Save_Help	helpsys.c	/^static void Do_Save_Help(void)$/;"	f	file:
+Do_Segment_Filter	interpreter.c	/^static int Do_Segment_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Set	interpreter.c	/^static int Do_Set(Executable_Node * Current_Node)$/;"	f	file:
+Do_Set_Help	helpsys.c	/^static void Do_Set_Help(void)$/;"	f	file:
+Do_Shrink	interpreter.c	/^static int Do_Shrink(Executable_Node * Current_Node)$/;"	f	file:
+Do_Shrink_Filter	interpreter.c	/^static int Do_Shrink_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Shrink_Help	helpsys.c	/^static void Do_Shrink_Help(void)$/;"	f	file:
+Do_Substitution	scanner.c	/^    Do_Substitution$/;"	e	enum:__anon5	file:
+Do_Task	interpreter.c	/^static int Do_Task(Executable_Node * Current_Node)$/;"	f	file:
+Do_Task_Adjust	interpreter.c	/^static int Do_Task_Adjust(Executable_Node * Current_Node)$/;"	f	file:
+Do_Task_Help	helpsys.c	/^static void Do_Task_Help(void)$/;"	f	file:
+Do_Topmost_Objects	interpreter.c	/^static int Do_Topmost_Objects(Executable_Node * Current_Node)$/;"	f	file:
+Do_Translate_Name_To_Handle	interpreter.c	/^static int Do_Translate_Name_To_Handle(Executable_Node * Current_Node)$/;"	f	file:
+Do_UnMkfs_Help	helpsys.c	/^static void Do_UnMkfs_Help(void)$/;"	f	file:
+Do_Unclaimed_Filter	interpreter.c	/^static int Do_Unclaimed_Filter(Executable_Node * Current_Node)$/;"	f	file:
+Do_Unformat	interpreter.c	/^static int Do_Unformat(Executable_Node * Current_Node)$/;"	f	file:
+Do_Unformat_Help	helpsys.c	/^static void Do_Unformat_Help(void)$/;"	f	file:
+Do_Unit_Conversion	interpreter.c	/^static int Do_Unit_Conversion(Executable_Node * Current_Node)$/;"	f	file:
+Do_Unmount	interpreter.c	/^static int Do_Unmount(Executable_Node * Current_Node)$/;"	f	file:
+Do_Unmount_Help	helpsys.c	/^static void Do_Unmount_Help(void)$/;"	f	file:
+Do_Volume_Filter	interpreter.c	/^static int Do_Volume_Filter(Executable_Node * Current_Node)$/;"	f	file:
+DrStr	screener.h	/^char *   DrStr            =  "DR";          \/* Abbreviation for Delete Recursive *\/$/;"	v
+Duplicate_Filter	error.h	/^               Duplicate_Filter,$/;"	e	enum:__anon11
+EIStr	screener.h	/^char *   EIStr            =  "EI";$/;"	v
+EPStr	screener.h	/^char *   EPStr            =  "EP";$/;"	v
+EQ	interpreter.c	/^    EQ,$/;"	e	enum:__anon6	file:
+EQStr	screener.h	/^char *   EQStr            =  "EQ";$/;"	v
+EQ_Filter	parser.c	67;"	d	file:
+ERROR_C	error.c	37;"	d	file:
+ERROR_H	error.h	34;"	d
+EVMSStr	screener.h	/^char *   EVMSStr          =  "EVMS";$/;"	v
+EVMS_C	evms.c	34;"	d	file:
+EchoStr	screener.h	/^char *   EchoStr          =  "ECHO";$/;"	v
+Echo_Node	interpreter.h	/^               Echo_Node,$/;"	e	enum:__anon2
+Embedded_Comment_Check	scanner.c	/^    Embedded_Comment_Check,$/;"	e	enum:__anon5	file:
+EndOfList	dlist.h	/^  LinkNode *      EndOfList;             \/* The address of the LinkNode of the last item in the list. *\/$/;"	m	struct:MasterListRecord
+EndOfString	scanner.c	/^    EndOfString,$/;"	e	enum:__anon4	file:
+EndState	scanner.c	/^    EndState,$/;"	e	enum:__anon4	file:
+EndStr	screener.h	/^char *   EndStr           =  "END";$/;"	v
+End_State	scanner.c	/^    End_State,$/;"	e	enum:__anon5	file:
+Engine_Mode	evms.c	/^engine_mode_t Engine_Mode = ENGINE_READWRITE;$/;"	v
+Engine_Mode	interpreter.c	/^static engine_mode_t Engine_Mode = ENGINE_READWRITE;$/;"	v	file:
+Engine_Open_Failure	error.h	/^               Engine_Open_Failure,$/;"	e	enum:__anon11
+EofToken	token.h	/^                EofToken,$/;"	e	enum:__anon12
+Error	parser.c	/^    Error,$/;"	e	enum:__anon1	file:
+ErrorState	scanner.c	/^    ErrorState$/;"	e	enum:__anon4	file:
+Error_Source	scanner.c	/^    char *Error_Source;		\/* Used for error reporting purposes.  It points to either CommandLine or the name of the input file. *\/$/;"	m	struct:Input_Context_t	file:
+ErrorsFound	dlist.c	/^boolean ErrorsFound = FALSE;	\/* Used to track whether or not errors have$/;"	v
+ExamineCurrentCharacter	scanner.c	/^static boolean ExamineCurrentCharacter = FALSE;	\/* Causes a state to not load a new character but to examine the existing one. *\/$/;"	v	file:
+ExclusiveInsertObject	dlist.c	/^ExclusiveInsertObject(dlist_t ListToAddTo,$/;"	f
+Executable_Node	interpreter.h	/^               } Executable_Node;$/;"	t	typeref:struct:__anon3
+ExitStr	screener.h	/^char *   ExitStr          =  "EXIT";$/;"	v
+ExpandStr	screener.h	/^char *   ExpandStr        =  "EXPAND";$/;"	v
+Expand_Node	interpreter.h	/^               Expand_Node,$/;"	e	enum:__anon2
+Expand_Shrink_Task_Parameters	parser.c	/^Expand_Shrink_Task_Parameters(Executable_Node * Current_Node,$/;"	f	file:
+ExpandableStr	screener.h	/^char *   ExpandableStr    =  "EXPANDABLE";$/;"	v
+Expandable_Filter	parser.c	66;"	d	file:
+Expecting_Acceptable_Parameter	error.h	/^               Expecting_Acceptable_Parameter,$/;"	e	enum:__anon11
+Expecting_Allocate_Or_Assign_Command	error.h	/^               Expecting_Allocate_Or_Assign_Command,$/;"	e	enum:__anon11
+Expecting_Closing_Brace_Separator	error.h	/^               Expecting_Closing_Brace_Separator,$/;"	e	enum:__anon11
+Expecting_Closing_Paren_Separator	error.h	/^               Expecting_Closing_Paren_Separator,$/;"	e	enum:__anon11
+Expecting_Colon_Separator	error.h	/^               Expecting_Colon_Separator,$/;"	e	enum:__anon11
+Expecting_Comma_Separator	error.h	/^               Expecting_Comma_Separator,$/;"	e	enum:__anon11
+Expecting_Command_File_Name	error.h	/^               Expecting_Command_File_Name,$/;"	e	enum:__anon11
+Expecting_Command_Name	error.h	/^               Expecting_Command_Name,$/;"	e	enum:__anon11
+Expecting_Command_Name_Or_File	error.h	/^               Expecting_Command_Name_Or_File,$/;"	e	enum:__anon11
+Expecting_Command_Separator	error.h	/^               Expecting_Command_Separator,$/;"	e	enum:__anon11
+Expecting_Command_Start	error.h	/^               Expecting_Command_Start,$/;"	e	enum:__anon11
+Expecting_Commit_Parameters	error.h	/^               Expecting_Commit_Parameters,$/;"	e	enum:__anon11
+Expecting_Compatibility_Keyword	error.h	/^               Expecting_Compatibility_Keyword,$/;"	e	enum:__anon11
+Expecting_Container_Identifier	error.h	/^               Expecting_Container_Identifier,$/;"	e	enum:__anon11
+Expecting_Container_Parameter	error.h	/^               Expecting_Container_Parameter,$/;"	e	enum:__anon11
+Expecting_Containers_Or_Children_Parameter	error.h	/^               Expecting_Containers_Or_Children_Parameter,$/;"	e	enum:__anon11
+Expecting_Create_Or_Check_Command	error.h	/^               Expecting_Create_Or_Check_Command,$/;"	e	enum:__anon11
+Expecting_Creation_Parameters	error.h	/^               Expecting_Creation_Parameters,$/;"	e	enum:__anon11
+Expecting_Delete_Command	error.h	/^               Expecting_Delete_Command,$/;"	e	enum:__anon11
+Expecting_Disk_Identifier	error.h	/^               Expecting_Disk_Identifier,$/;"	e	enum:__anon11
+Expecting_Disk_Units_Parameter	error.h	/^               Expecting_Disk_Units_Parameter,$/;"	e	enum:__anon11
+Expecting_Disks_Parameter	error.h	/^               Expecting_Disks_Parameter,$/;"	e	enum:__anon11
+Expecting_EQ_Keyword	error.h	/^               Expecting_EQ_Keyword,$/;"	e	enum:__anon11
+Expecting_EVMS_Identifier	error.h	/^               Expecting_EVMS_Identifier,$/;"	e	enum:__anon11
+Expecting_End_KeyWord	error.h	/^               Expecting_End_KeyWord,$/;"	e	enum:__anon11
+Expecting_Equal_Sign_Separator	error.h	/^               Expecting_Equal_Sign_Separator,$/;"	e	enum:__anon11
+Expecting_Expand_Command	error.h	/^               Expecting_Expand_Command,$/;"	e	enum:__anon11
+Expecting_Expand_Parameters	error.h	/^               Expecting_Expand_Parameters,$/;"	e	enum:__anon11
+Expecting_Expandable_Shrinkable_Identifier	error.h	/^               Expecting_Expandable_Shrinkable_Identifier,$/;"	e	enum:__anon11
+Expecting_Feature_Identifier	error.h	/^               Expecting_Feature_Identifier,$/;"	e	enum:__anon11
+Expecting_Feature_Or_Segment_Keyword	error.h	/^               Expecting_Feature_Or_Segment_Keyword,$/;"	e	enum:__anon11
+Expecting_Field_Name	error.h	/^               Expecting_Field_Name,                                    \/* Expecting an extended info field name. *\/$/;"	e	enum:__anon11
+Expecting_Filter_Identifier	error.h	/^               Expecting_Filter_Identifier,$/;"	e	enum:__anon11
+Expecting_Format_Command	error.h	/^               Expecting_Format_Command,$/;"	e	enum:__anon11
+Expecting_Freespace_Identifier	error.h	/^               Expecting_Freespace_Identifier,$/;"	e	enum:__anon11
+Expecting_GT_Keyword	error.h	/^               Expecting_GT_Keyword,$/;"	e	enum:__anon11
+Expecting_GT_LT_Parameter	error.h	/^               Expecting_GT_LT_Parameter,$/;"	e	enum:__anon11
+Expecting_Help_Command	error.h	/^               Expecting_Help_Command,$/;"	e	enum:__anon11
+Expecting_Help_Parameters	error.h	/^               Expecting_Help_Parameters,$/;"	e	enum:__anon11
+Expecting_LT_Keyword	error.h	/^               Expecting_LT_Keyword,$/;"	e	enum:__anon11
+Expecting_List_Options_Keywords	error.h	/^               Expecting_List_Options_Keywords,$/;"	e	enum:__anon11
+Expecting_Manager_Keyword	error.h	/^               Expecting_Manager_Keyword,$/;"	e	enum:__anon11
+Expecting_Name	error.h	/^               Expecting_Name,                                          \/* Name = "string" *\/$/;"	e	enum:__anon11
+Expecting_Name_Or_Compatibility	error.h	/^               Expecting_Name_Or_Compatibility,$/;"	e	enum:__anon11
+Expecting_Name_Value	error.h	/^               Expecting_Name_Value,                                    \/* Name portion of Name Value Pair *\/$/;"	e	enum:__anon11
+Expecting_Name_Value_Pair	error.h	/^               Expecting_Name_Value_Pair,$/;"	e	enum:__anon11
+Expecting_Number	error.h	/^               Expecting_Number,$/;"	e	enum:__anon11
+Expecting_Number_Or_String	error.h	/^               Expecting_Number_Or_String,$/;"	e	enum:__anon11
+Expecting_Object_Identifier	error.h	/^               Expecting_Object_Identifier,$/;"	e	enum:__anon11
+Expecting_Object_List	error.h	/^               Expecting_Object_List,$/;"	e	enum:__anon11
+Expecting_Object_Parameter	error.h	/^               Expecting_Object_Parameter,$/;"	e	enum:__anon11
+Expecting_Objects_Parameter	error.h	/^               Expecting_Objects_Parameter,$/;"	e	enum:__anon11
+Expecting_Offset	error.h	/^               Expecting_Offset,$/;"	e	enum:__anon11
+Expecting_Offset_Parameters	error.h	/^               Expecting_Offset_Parameters,$/;"	e	enum:__anon11
+Expecting_Open_Brace_Separator	error.h	/^               Expecting_Open_Brace_Separator,$/;"	e	enum:__anon11
+Expecting_Open_Paren_Separator	error.h	/^               Expecting_Open_Paren_Separator,$/;"	e	enum:__anon11
+Expecting_Plugin_Identifier	error.h	/^               Expecting_Plugin_Identifier,$/;"	e	enum:__anon11
+Expecting_Plugin_Type_Parameter	error.h	/^               Expecting_Plugin_Type_Parameter,$/;"	e	enum:__anon11
+Expecting_Plugins_Or_Parent_Parameter	error.h	/^               Expecting_Plugins_Or_Parent_Parameter,$/;"	e	enum:__anon11
+Expecting_Probe_Command	error.h	/^               Expecting_Probe_Command,$/;"	e	enum:__anon11
+Expecting_Query_Acceptable_Create	error.h	/^               Expecting_Query_Acceptable_Create,$/;"	e	enum:__anon11
+Expecting_Query_Acceptable_Parameters	error.h	/^               Expecting_Query_Acceptable_Parameters,$/;"	e	enum:__anon11
+Expecting_Query_Command	error.h	/^               Expecting_Query_Command,$/;"	e	enum:__anon11
+Expecting_Query_Disks_Parameters	error.h	/^               Expecting_Query_Disks_Parameters,$/;"	e	enum:__anon11
+Expecting_Query_Expand_Points_Keywords	error.h	/^               Expecting_Query_Expand_Points_Keywords,$/;"	e	enum:__anon11
+Expecting_Query_Extended_Info_Keywords	error.h	/^               Expecting_Query_Extended_Info_Keywords,$/;"	e	enum:__anon11
+Expecting_Query_Parameters	error.h	/^               Expecting_Query_Parameters,$/;"	e	enum:__anon11
+Expecting_Query_Plugin_Parameters	error.h	/^               Expecting_Query_Plugin_Parameters,$/;"	e	enum:__anon11
+Expecting_Query_Region_Parameters	error.h	/^               Expecting_Query_Region_Parameters,$/;"	e	enum:__anon11
+Expecting_Query_Shrink_Points_Keywords	error.h	/^               Expecting_Query_Shrink_Points_Keywords,$/;"	e	enum:__anon11
+Expecting_Query_Volume_Parameters	error.h	/^               Expecting_Query_Volume_Parameters,$/;"	e	enum:__anon11
+Expecting_Region_Creation_Parameters	error.h	/^               Expecting_Region_Creation_Parameters,$/;"	e	enum:__anon11
+Expecting_Region_Identifier	error.h	/^               Expecting_Region_Identifier,$/;"	e	enum:__anon11
+Expecting_Region_Or_Object	error.h	/^               Expecting_Region_Or_Object,$/;"	e	enum:__anon11
+Expecting_Regions_Parameter	error.h	/^               Expecting_Regions_Parameter,$/;"	e	enum:__anon11
+Expecting_Revert_Or_Rename	error.h	/^               Expecting_Revert_Or_Rename,$/;"	e	enum:__anon11
+Expecting_Segments_Parameter	error.h	/^               Expecting_Segments_Parameter,$/;"	e	enum:__anon11
+Expecting_Shrink_Command	error.h	/^               Expecting_Shrink_Command,$/;"	e	enum:__anon11
+Expecting_Shrink_Parameters	error.h	/^               Expecting_Shrink_Parameters,$/;"	e	enum:__anon11
+Expecting_Size_Parameters	error.h	/^               Expecting_Size_Parameters,$/;"	e	enum:__anon11
+Expecting_Size_Value	error.h	/^               Expecting_Size_Value,$/;"	e	enum:__anon11
+Expecting_Start_KeyWord	error.h	/^               Expecting_Start_KeyWord,$/;"	e	enum:__anon11
+Expecting_Unclaimed_Identifier	error.h	/^               Expecting_Unclaimed_Identifier,$/;"	e	enum:__anon11
+Expecting_Units_Parameter	error.h	/^               Expecting_Units_Parameter,$/;"	e	enum:__anon11
+Expecting_Volume_Identifier	error.h	/^               Expecting_Volume_Identifier,$/;"	e	enum:__anon11
+Expecting_Volume_Or_Object	error.h	/^               Expecting_Volume_Or_Object,$/;"	e	enum:__anon11
+Expecting_Volume_Parameter	error.h	/^               Expecting_Volume_Parameter,$/;"	e	enum:__anon11
+Expecting_Volumes_Parameter	error.h	/^               Expecting_Volumes_Parameter,$/;"	e	enum:__anon11
+ExtendedStr	screener.h	/^char *   ExtendedStr      =  "EXTENDED";$/;"	v
+ExtractObject	dlist.c	/^ExtractObject(dlist_t ListToGetItemFrom,$/;"	f
+FALSE	dlist.h	148;"	d
+FALSE	token.h	45;"	d
+FSIMStr	screener.h	/^char *   FSIMStr          =  "FSIM";$/;"	v
+FeatureNameStr	evms.c	/^char *FeatureNameStr = "FEATURE NAME";$/;"	v
+FeatureStr	screener.h	/^char *   FeatureStr       =  "FEATURE";$/;"	v
+Feature_ID	interpreter.h	/^               Feature_ID,$/;"	e	enum:__anon2
+Feature_Identifier	parser.c	/^Feature_Identifier(Executable_Node * Current_Node, boolean Optional,$/;"	f	file:
+Feature_Name	interpreter.h	/^               Feature_Name,$/;"	e	enum:__anon2
+FileStr	screener.h	/^char *   FileStr          =  "FILE";$/;"	v
+FilesystemStr	screener.h	/^char *   FilesystemStr    =  "FILESYSTEM";$/;"	v
+Filter	interpreter.h	/^               Filter,$/;"	e	enum:__anon2
+FilterStr	evms.c	/^char *FilterStr = "FILTER";$/;"	v
+Filter_Type	interpreter.c	/^    Size_Filter_Types Filter_Type;$/;"	m	struct:__anon7	file:
+Find_End_Of_Comment	scanner.c	/^    Find_End_Of_Comment,$/;"	e	enum:__anon5	file:
+ForEachItem	dlist.c	/^ForEachItem(dlist_t ListToProcess,$/;"	f
+FormatStr	screener.h	/^char *   FormatStr        =  "FORMAT";$/;"	v
+Format_Node	interpreter.h	/^               Format_Node,$/;"	e	enum:__anon2
+Format_Parameters	parser.c	/^Format_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+Free_Command_List	parser.c	/^static void Free_Command_List(dlist_t Command_List)$/;"	f	file:
+FreespaceStr	screener.h	/^char *   FreespaceStr     =  "FREESPACE";$/;"	v
+Freespace_Filter	parser.c	80;"	d	file:
+Freespace_Not_Size	interpreter.c	/^static boolean Freespace_Not_Size = FALSE;$/;"	v	file:
+Freespace_Size_Filter	interpreter.h	/^               Freespace_Size_Filter,$/;"	e	enum:__anon2
+GET_ENTRY	PrivateData.h	11;"	d
+GET_EXPAND_OR_SHRINK_SIZE	RevertStructs.c	9;"	d	file:
+GT	interpreter.c	/^    GT,$/;"	e	enum:__anon6	file:
+GTStr	screener.h	/^char *   GTStr            =  "GT";$/;"	v
+GT_Filter	parser.c	68;"	d	file:
+Generic_Size_Filter	interpreter.c	/^Generic_Size_Filter(Executable_Node * Current_Node,$/;"	f	file:
+GetCharacter	scanner.c	/^static void GetCharacter(void)$/;"	f	file:
+GetHandle	dlist.c	/^int GetHandle(dlist_t ListToGetHandleFrom, ADDRESS * Handle)$/;"	f
+GetListSize	dlist.c	/^int GetListSize(dlist_t ListToGetSizeOf, uint * Size)$/;"	f
+GetNextObject	dlist.c	/^int GetNextObject(dlist_t ListToGetItemFrom, TAG ItemTag, ADDRESS * Object)$/;"	f
+GetObject	dlist.c	/^GetObject(dlist_t ListToGetItemFrom,$/;"	f
+GetScreenedToken	screener.c	/^TokenType *GetScreenedToken(void)$/;"	f
+GetToken	scanner.c	/^TokenType *GetToken(void)$/;"	f
+GetUserChoice	evms.c	/^int GetUserChoice(char Buffer[], long int *UserChoice, int default_choice)$/;"	f
+Get_Acceptable	interpreter.c	/^static boolean Get_Acceptable = FALSE;$/;"	v	file:
+Get_Option_Descriptors	interpreter.c	/^static int Get_Option_Descriptors(void)$/;"	f	file:
+Get_Replacement_ID	scanner.c	/^    Get_Replacement_ID,$/;"	e	enum:__anon5	file:
+Get_String	parser.c	/^Get_String(Executable_Node * Current_Node, boolean AcceptNumberAsString,$/;"	f	file:
+GigabyteStr	screener.h	/^char *   GigabyteStr      =  "GB";$/;"	v
+GoToEndOfList	dlist.c	/^int GoToEndOfList(dlist_t ListToSet)$/;"	f
+GoToSpecifiedItem	dlist.c	/^int GoToSpecifiedItem(dlist_t ListToReposition, ADDRESS Handle)$/;"	f
+GoToStartOfList	dlist.c	/^int GoToStartOfList(dlist_t ListToReset)$/;"	f
+HANDLE	interpreter.c	73;"	d	file:
+HANDLE_INFO	interpreter.c	74;"	d	file:
+HANDLE_MANAGER_BAD_HANDLE	error.c	57;"	d	file:
+HANDLE_MANAGER_NOT_INITIALIZED	error.c	56;"	d	file:
+HANDLE_TAG	parser.c	51;"	d	file:
+HELPSYS_C	helpsys.c	34;"	d	file:
+HELPSYS_H	helpsys.h	32;"	d
+HelpStr	screener.h	/^char *   HelpStr          =  "HELP";$/;"	v
+Help_Node	interpreter.h	/^               Help_Node,$/;"	e	enum:__anon2
+Help_Type	parser.c	/^Help_Type(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+HoldStr	screener.h	/^char *   HoldStr          =  "HOLD";$/;"	v
+HoursStr	screener.h	/^char *   HoursStr         =  "HOURS";$/;"	v
+INTEGER_VALUE	interpreter.c	70;"	d	file:
+INTERNAL_ERROR_BOD	error.h	41;"	d
+INTERPRETER_C	interpreter.c	34;"	d	file:
+INTERPRETER_H	interpreter.h	31;"	d
+INVALID_OPTION	error.h	40;"	d
+INVALID_TASK	error.h	42;"	d
+IS_DLIST_ERROR	dlist.h	215;"	d
+In_Lookahead_Queue	token.h	/^                  boolean                   In_Lookahead_Queue; \/* TRUE if this token is being tracked by the lookahead system. *\/$/;"	m	struct:__anon13
+Indent_Printf	evms.c	/^    int Indent_Printf(int indent_level, boolean indent_first_line,$/;"	f
+InfoStr	screener.h	/^char *   InfoStr          =  "INFO";$/;"	v
+InitHash	PrivateData.c	/^void InitHash()$/;"	f
+Init_Substitution_Table	evms.c	/^Init_Substitution_Table(ADDRESS Object,$/;"	f	file:
+InputFile	scanner.c	/^    FILE *InputFile;$/;"	m	struct:Input_Context_t	file:
+Input_Context	scanner.c	/^static Input_Context_Type *Input_Context = &Anchor_Context;	\/* Holds the current input source and position within that input source. *\/$/;"	v	file:
+Input_Context_Type	scanner.c	/^} Input_Context_Type;$/;"	t	typeref:struct:Input_Context_t	file:
+Input_Context_t	scanner.c	/^typedef struct Input_Context_t {$/;"	s	file:
+Input_State	scanner.c	/^} Input_State;$/;"	t	typeref:enum:__anon5	file:
+InsertAfter	dlist.h	/^                                InsertAfter,$/;"	e	enum:_Insertion_Modes
+InsertAtStart	dlist.h	/^                                InsertAtStart,$/;"	e	enum:_Insertion_Modes
+InsertBefore	dlist.h	/^                                InsertBefore,$/;"	e	enum:_Insertion_Modes
+InsertObject	dlist.c	/^InsertObject(dlist_t ListToAddTo,$/;"	f
+InsertPrivateData	PrivateData.c	/^int InsertPrivateData(object_handle_t handle, u_int64_t size)$/;"	f
+Insertion_Modes	dlist.h	/^                              } Insertion_Modes;$/;"	t	typeref:enum:_Insertion_Modes
+IntegerData	interpreter.h	/^               IntegerData,$/;"	e	enum:__anon2
+IntegerDataStr	evms.c	/^char *IntegerDataStr = "INTEGER DATA";$/;"	v
+Interactive	evms.c	/^boolean Batch = FALSE, Interactive = TRUE;	\/* Controls whether or not EVMS will prompt the user for commands.$/;"	v
+Interactive_Mode	interpreter.c	/^static boolean Interactive_Mode = TRUE;$/;"	v	file:
+InterfaceStr	screener.h	/^char *   InterfaceStr     =  "INTERFACE";$/;"	v
+Internal_Error_Encountered	error.h	/^               Internal_Error_Encountered,$/;"	e	enum:__anon11
+Interpret_Commands	interpreter.c	/^Interpret_Commands(dlist_t Commands, boolean Interactive,$/;"	f
+InvalidCharacter	token.h	/^                InvalidCharacter,$/;"	e	enum:__anon12
+Invalid_Character	error.h	/^               Invalid_Character,                 \/* Parameter1 = contents of Buffer, Parameter2 = invalid character, Column and Row are output *\/$/;"	e	enum:__anon10
+Invalid_Character_In_Substitution	error.h	/^               Invalid_Character_In_Substitution, \/* Parameter1 = invalid character, Parameter2 = not used, Column and Row are output. *\/$/;"	e	enum:__anon10
+Invalid_Substitution	error.h	/^               Invalid_Substitution,              \/* Parameter1 = the susbstitution value, Parameter2 = not used, Colume and Row are output. *\/$/;"	e	enum:__anon10
+IsKeyWord	scanner.c	/^    IsKeyWord,$/;"	e	enum:__anon4	file:
+IsMultiSpace	scanner.c	/^    IsMultiSpace,$/;"	e	enum:__anon4	file:
+IsMultiTab	scanner.c	/^    IsMultiTab,$/;"	e	enum:__anon4	file:
+IsNegativeNumber	scanner.c	/^    IsNegativeNumber,$/;"	e	enum:__anon4	file:
+IsNumber	scanner.c	/^    IsNumber,$/;"	e	enum:__anon4	file:
+IsPathName	scanner.c	/^    IsPathName,$/;"	e	enum:__anon4	file:
+IsRealNumber	scanner.c	/^    IsRealNumber,$/;"	e	enum:__anon4	file:
+IsString	scanner.c	/^    IsString,$/;"	e	enum:__anon4	file:
+Is_Filename	scanner.h	/^                 boolean     Is_Filename;$/;"	m	struct:__anon8
+ItemCount	dlist.h	/^  uint            ItemCount;             \/* The number of items in the list. *\/$/;"	m	struct:MasterListRecord
+KeepCharacter	scanner.c	/^static void KeepCharacter(void)$/;"	f	file:
+KeyWord	token.h	/^                KeyWord,$/;"	e	enum:__anon12
+Kill_Command_List_Entries	parser.c	/^Kill_Command_List_Entries(ADDRESS Object,$/;"	f	file:
+Kill_Nodes	interpreter.c	/^Kill_Nodes(ADDRESS Object,$/;"	f	file:
+Kill_Tokens_List_Entries	parser.c	/^Kill_Tokens_List_Entries(ADDRESS Object,$/;"	f	file:
+KilobyteStr	screener.h	/^char *   KilobyteStr      =  "KB";$/;"	v
+LD	Makefile	/^LD        = ld$/;"	m
+LIBS	Makefile	/^LIBS	  = -lc -lpthread -levms$/;"	m
+LIST	interpreter.c	72;"	d	file:
+LOStr	screener.h	/^char *   LOStr            =  "LO";$/;"	v
+LO_Filter	parser.c	70;"	d	file:
+LT	interpreter.c	/^    LT,$/;"	e	enum:__anon6	file:
+LTStr	screener.h	/^char *   LTStr            =  "LT";$/;"	v
+LT_Filter	parser.c	69;"	d	file:
+Last_Message_Length	interpreter.c	/^static int Last_Message_Length = 0;$/;"	v	file:
+LinkNode	dlist.h	/^typedef struct LinkNodeRecord LinkNode;$/;"	t	typeref:struct:LinkNodeRecord
+LinkNodeRecord	dlist.h	/^struct LinkNodeRecord$/;"	s
+ListEmpty	dlist.c	/^boolean ListEmpty(dlist_t ListToCheck)$/;"	f
+ListStr	screener.h	/^char *   ListStr          =  "LIST";$/;"	v
+List_Options	interpreter.c	/^static boolean List_Options = FALSE;$/;"	v	file:
+LockStr	screener.h	/^char *   LockStr          =  "LOCK";$/;"	v
+LookAhead_Active	parser.c	/^static uint LookAhead_Active = 0;	\/* Used to indicate whether or not Look Ahead is active for parsing. *\/$/;"	v	file:
+Lookahead_Handles	parser.c	/^static dlist_t Lookahead_Handles = NULL;	\/* Used to hold the handles of tokens to return to in the Tokens list. *\/$/;"	v	file:
+Lower_Limit	interpreter.c	/^    u_int64_t Lower_Limit;$/;"	m	struct:__anon7	file:
+MAX_EXPAND_POINTS	PrivateData.h	8;"	d
+MAX_FEATURE_NUM	ObjectStructs.h	11;"	d
+MAX_OPERATION_NUM	ObjectStructs.h	10;"	d
+MAX_TASK_NUM	ObjectStructs.h	9;"	d
+MY_ADD_FEATURE	ObjectStructs.c	/^int MY_ADD_FEATURE(my_advance_info_t * advance, const char * name)$/;"	f
+MY_ADD_OPERATION	ObjectStructs.c	/^int MY_ADD_OPERATION(my_advance_info_t * advance, int op_type, int option_num)$/;"	f
+MY_ADD_OPTION_DESCRIPTORS	ObjectStructs.c	/^inline void MY_ADD_OPTION_DESCRIPTORS(void * options_header, $/;"	f
+MY_CHECK_LEFT_LEN	ReplacedStructs.h	15;"	d
+MY_CHECK_LEFT_LEN_SIZEOF	ReplacedStructs.h	6;"	d
+MY_CONVERT_LOGICAL_VOLUME_INFO	ConvertStructs.c	/^int MY_CONVERT_LOGICAL_VOLUME_INFO(my_logical_volume_info_t * dst, logical_volume_info_t * src)$/;"	f
+MY_CONVERT_PLUGIN_INFO	ConvertStructs.c	/^int MY_CONVERT_PLUGIN_INFO(my_plugin_info_t * dst, plugin_info_t * src)$/;"	f
+MY_CONVERT_STORAGE_CONTAINER_INFO	ConvertStructs.c	/^int MY_CONVERT_STORAGE_CONTAINER_INFO(my_storage_container_info_t * dst, storage_container_info_t * src)$/;"	f
+MY_CONVERT_STORAGE_OBJECT_INFO	ConvertStructs.c	/^int MY_CONVERT_STORAGE_OBJECT_INFO(my_storage_object_info_t * dst, storage_object_info_t * src)$/;"	f
+MY_COPY_FUNCTION_INFO	ReplacedStructs.c	/^int MY_COPY_FUNCTION_INFO(my_function_info_t * dst, function_info_t * src)$/;"	f
+MY_COPY_OPTION_DESCRIPTOR	ReplacedStructs.c	/^int MY_COPY_OPTION_DESCRIPTOR(my_option_descriptor_t * dst, option_descriptor_t * src)$/;"	f
+MY_CREATE_ADVANCE_INFO_T	ObjectStructs.c	/^inline void MY_CREATE_ADVANCE_INFO_T(my_advance_info_t ** advance)$/;"	f
+MY_CREATE_BASIC_INFO_T	ObjectStructs.c	/^inline void MY_CREATE_BASIC_INFO_T(my_basic_info_t ** basic)$/;"	f
+MY_CREATE_FEATURE_T	ObjectStructs.c	/^inline void MY_CREATE_FEATURE_T(my_feature_t ** feature)$/;"	f
+MY_CREATE_OBJECT_INFO_T	ObjectStructs.c	/^inline void MY_CREATE_OBJECT_INFO_T(object_info_t ** obj)$/;"	f
+MY_CREATE_OPERATION_T	ObjectStructs.c	/^inline void MY_CREATE_OPERATION_T(my_operation_t ** op, int option_num)$/;"	f
+MY_CREATE_TASK_T	ObjectStructs.c	/^inline void MY_CREATE_TASK_T(my_task_t ** task, int option_num)$/;"	f
+MY_FREE_ADVANCE_INFO_T	ObjectStructs.c	/^inline void MY_FREE_ADVANCE_INFO_T(my_advance_info_t * info)$/;"	f
+MY_FREE_BASIC_INFO_T	ObjectStructs.c	/^inline void MY_FREE_BASIC_INFO_T(my_basic_info_t * info)$/;"	f
+MY_GET_BASIC_INFO	ObjectStructs.c	/^int MY_GET_BASIC_INFO(my_object_info_t * my_obj, handle_object_info_t * evms_obj)$/;"	f
+MY_OP_CHECK	ObjectStructs.h	/^	MY_OP_CHECK,$/;"	e	enum:__anon14
+MY_OP_CONVERT	ObjectStructs.h	/^	MY_OP_CONVERT,$/;"	e	enum:__anon14
+MY_OP_DELETE	ObjectStructs.h	/^	MY_OP_DELETE,$/;"	e	enum:__anon14
+MY_OP_EXPAND	ObjectStructs.h	/^	MY_OP_EXPAND,$/;"	e	enum:__anon14
+MY_OP_FORMAT	ObjectStructs.h	/^	MY_OP_FORMAT,$/;"	e	enum:__anon14
+MY_OP_MOVE	ObjectStructs.h	/^	MY_OP_MOVE$/;"	e	enum:__anon14
+MY_OP_NULL	ObjectStructs.h	/^	MY_OP_NULL	= 0,$/;"	e	enum:__anon14
+MY_OP_RENAME	ObjectStructs.h	/^	MY_OP_RENAME,$/;"	e	enum:__anon14
+MY_OP_REVERT	ObjectStructs.h	/^	MY_OP_REVERT,$/;"	e	enum:__anon14
+MY_OP_SETINFO	ObjectStructs.h	/^	MY_OP_SETINFO,$/;"	e	enum:__anon14
+MY_OP_SHRINK	ObjectStructs.h	/^	MY_OP_SHRINK,$/;"	e	enum:__anon14
+MY_OP_SLIDE	ObjectStructs.h	/^	MY_OP_SLIDE,$/;"	e	enum:__anon14
+MY_OP_TASK_ASSIGN_PLUGIN	ObjectStructs.h	/^	MY_OP_TASK_ASSIGN_PLUGIN,$/;"	e	enum:__anon14
+MY_OP_TASK_CREATE	ObjectStructs.h	/^	MY_OP_TASK_CREATE,$/;"	e	enum:__anon14
+MY_OP_TASK_CREATE_CONTAINER	ObjectStructs.h	/^	MY_OP_TASK_CREATE_CONTAINER,$/;"	e	enum:__anon14
+MY_OP_TASK_CREATE_REGION	ObjectStructs.h	/^	MY_OP_TASK_CREATE_REGION,$/;"	e	enum:__anon14
+MY_OP_TASK_CREATE_SO	ObjectStructs.h	/^	MY_OP_TASK_CREATE_SO,			\/* storage object *\/$/;"	e	enum:__anon14
+MY_OP_TASK_CREATE_VOLUME	ObjectStructs.h	/^	MY_OP_TASK_CREATE_VOLUME,$/;"	e	enum:__anon14
+MY_OP_TASK_FSCK	ObjectStructs.h	/^	MY_OP_TASK_FSCK,$/;"	e	enum:__anon14
+MY_OP_TASK_MKFS	ObjectStructs.h	/^	MY_OP_TASK_MKFS,$/;"	e	enum:__anon14
+MY_OP_UNFORMAT	ObjectStructs.h	/^	MY_OP_UNFORMAT,$/;"	e	enum:__anon14
+MY_PACK_ADVANCE_INFO	ConvertStructs.c	/^int MY_PACK_ADVANCE_INFO(my_advance_info_t * advance, char * buffer, int * len)$/;"	f
+MY_PACK_BASIC_INFO	ConvertStructs.c	/^int MY_PACK_BASIC_INFO(my_basic_info_t * basic, char * buffer, int * len)$/;"	f
+MY_PACK_EVMS_OBJECT	ConvertStructs.c	/^int MY_PACK_EVMS_OBJECT(my_object_info_t * obj, char * buffer, int * len)$/;"	f
+MY_REVERT_LOGICAL_VOLUME_INFO	RevertStructs.c	/^int MY_REVERT_LOGICAL_VOLUME_INFO(logical_volume_info_t * dst, my_logical_volume_info_t * src)$/;"	f
+MY_REVERT_PLUGIN_INFO	RevertStructs.c	/^int MY_REVERT_PLUGIN_INFO(plugin_info_t * dst, my_plugin_info_t * src)$/;"	f
+MY_REVERT_STORAGE_CONTAINER_INFO	RevertStructs.c	/^int MY_REVERT_STORAGE_CONTAINER_INFO(storage_container_info_t * dst, my_storage_container_info_t * src)$/;"	f
+MY_REVERT_STORAGE_OBJECT_INFO	RevertStructs.c	/^int MY_REVERT_STORAGE_OBJECT_INFO(storage_object_info_t * dst, my_storage_object_info_t * src)$/;"	f
+MY_UNPACK_ADVANCE_INFO	RevertStructs.c	/^int MY_UNPACK_ADVANCE_INFO(char * buffer, int * len, my_object_info_t * info)$/;"	f
+MY_UNPACK_BASIC_INFO	RevertStructs.c	/^int MY_UNPACK_BASIC_INFO(char * buffer, int * len, my_object_info_t * info)$/;"	f
+MY_UNPACK_EVMS_OBJECT	RevertStructs.c	/^int MY_UNPACK_EVMS_OBJECT(char * buffer, int len, my_object_info_t * info)$/;"	f
+MakeToken	scanner.c	/^static TokenType *MakeToken(TokenCharacterizations Characterization)$/;"	f	file:
+Make_Child_Node	parser.c	/^static Executable_Node *Make_Child_Node(Executable_Node * Current_Node,$/;"	f	file:
+ManagementStr	screener.h	/^char *   ManagementStr    =  "MANAGEMENT";$/;"	v
+ManagerStr	screener.h	/^char *   ManagerStr       =  "MANAGER";$/;"	v
+ManualStr	screener.h	/^char *   ManualStr        =  "MANUAL";$/;"	v
+Map_Command_List_Entries	evms.c	/^Map_Command_List_Entries(ADDRESS Object,$/;"	f	file:
+Marginize	evms.c	/^    static int Marginize(char *string, int indent_level,$/;"	f	file:
+MasterListRecord	dlist.h	/^struct MasterListRecord$/;"	s
+MaxIdentifierLength	token.h	53;"	d
+MegabyteStr	screener.h	/^char *   MegabyteStr      =  "MB";$/;"	v
+MicrosecondsStr	screener.h	/^char *   MicrosecondsStr  =  "MICROSECONDS";$/;"	v
+MillisecondsStr	screener.h	/^char *   MillisecondsStr  =  "MILLISECONDS";$/;"	v
+MinutesStr	screener.h	/^char *   MinutesStr       =  "MINUTES";$/;"	v
+MkfsStr	screener.h	/^char *   MkfsStr          =  "MKFS";$/;"	v
+ModifyStr	screener.h	/^char *   ModifyStr        =  "MODIFY";$/;"	v
+ModuleStr	screener.h	/^char *   ModuleStr        =  "MODULE";$/;"	v
+MountStr	screener.h	/^char *   MountStr         =  "MOUNT";$/;"	v
+Mount_Node	interpreter.h	/^               Mount_Node,$/;"	e	enum:__anon2
+Mount_Parameters	parser.c	/^Mount_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+MultiSpace	token.h	/^                MultiSpace,$/;"	e	enum:__anon12
+MultiTab	token.h	/^                MultiTab,$/;"	e	enum:__anon12
+My_Printf	evms.c	/^    int My_Printf(char *format, ...) {$/;"	f
+NAME	Makefile	/^NAME	  = evms-cli$/;"	m
+Name	parser.c	/^Name(Executable_Node * Current_Node, boolean Field_Name, boolean Optional)$/;"	f	file:
+NameStr	screener.h	/^char *   NameStr          =  "NAME";$/;"	v
+Name_To_Container_Handle	interpreter.h	/^               Name_To_Container_Handle,$/;"	e	enum:__anon2
+Name_To_Disk_Handle	interpreter.h	/^               Name_To_Disk_Handle,$/;"	e	enum:__anon2
+Name_To_Object_Handle	interpreter.h	/^               Name_To_Object_Handle,$/;"	e	enum:__anon2
+Name_To_Plugin_Handle	interpreter.h	/^               Name_To_Plugin_Handle,$/;"	e	enum:__anon2
+Name_To_Region_Handle	interpreter.h	/^               Name_To_Region_Handle,$/;"	e	enum:__anon2
+Name_To_Segment_Handle	interpreter.h	/^               Name_To_Segment_Handle,$/;"	e	enum:__anon2
+Name_To_Volume_Handle	interpreter.h	/^               Name_To_Volume_Handle,$/;"	e	enum:__anon2
+Name_Value_Pair	interpreter.h	/^               Name_Value_Pair,$/;"	e	enum:__anon2
+NextCharacter	scanner.c	/^static char NextCharacter = ' ';	\/* The next character that will be examined. *\/$/;"	v	file:
+NextItem	dlist.c	/^int NextItem(dlist_t ListToAdvance)$/;"	f
+NextLinkNode	dlist.h	/^  struct LinkNodeRecord *   NextLinkNode;        \/* The LinkNode of the next item in the list. *\/$/;"	m	struct:LinkNodeRecord	typeref:struct:LinkNodeRecord::LinkNodeRecord
+Next_Context	scanner.c	/^    struct Input_Context_t *Next_Context;$/;"	m	struct:Input_Context_t	typeref:struct:Input_Context_t::Input_Context_t	file:
+Next_Token	parser.c	/^static void Next_Token(void)$/;"	f	file:
+No_Commits	interpreter.h	/^boolean   No_Commits = FALSE;  \/* If TRUE, then don't perform commits after each command. *\/$/;"	v
+NodeType	interpreter.h	/^                 NodeTypes  NodeType;$/;"	m	struct:__anon3
+NodeTypes	interpreter.h	/^             } NodeTypes;$/;"	t	typeref:enum:__anon2
+NodeValue	interpreter.h	/^                 void *     NodeValue;$/;"	m	struct:__anon3
+Node_Name	evms.c	/^char *Node_Name = NULL;$/;"	v
+Node_Name	interpreter.c	/^static char *Node_Name = NULL;$/;"	v	file:
+Normal	scanner.c	/^    Normal,$/;"	e	enum:__anon5	file:
+Normal2	scanner.c	/^    Normal2,$/;"	e	enum:__anon5	file:
+Not_Comment	scanner.c	/^    Not_Comment,$/;"	e	enum:__anon5	file:
+Not_Substitution	scanner.c	/^    Not_Substitution,$/;"	e	enum:__anon5	file:
+Null_Token	parser.c	/^static TokenType Null_Token = { EofToken, 0, 0, 0, NULL, TRUE };	\/* Used to represent an empty token. *\/$/;"	v	file:
+Number	token.h	/^                Number,$/;"	e	enum:__anon12
+ObjectList	interpreter.h	/^               ObjectList,$/;"	e	enum:__anon2
+ObjectStr	screener.h	/^char *   ObjectStr        =  "OBJECT";$/;"	v
+Object_Array	interpreter.c	/^static handle_array_t *Object_Array;$/;"	v	file:
+Object_Filter	parser.c	71;"	d	file:
+ObjectsStr	screener.h	/^char *   ObjectsStr       =  "OBJECTS";$/;"	v
+OptionCheck	scanner.c	/^    OptionCheck,$/;"	e	enum:__anon4	file:
+Option_Count	interpreter.c	/^static int Option_Count;$/;"	v	file:
+Option_Descriptors	interpreter.c	/^static option_descriptor_t **Option_Descriptors;$/;"	v	file:
+Option_Usage	interpreter.c	/^static boolean *Option_Usage;$/;"	v	file:
+OptionsStr	screener.h	/^char *   OptionsStr       =  "OPTIONS";$/;"	v
+Out_Of_Memory	error.h	/^               Out_Of_Memory,$/;"	e	enum:__anon11
+PARSER_C	parser.c	30;"	d	file:
+PARSER_H	parser.h	32;"	d
+PLUGIN_ID_MASK	interpreter.c	75;"	d	file:
+PRINT_FILE_SYSTEM	RevertStructs.c	18;"	d	file:
+PRIVATE_HASH_SIZE	PrivateData.h	10;"	d
+ParentStr	screener.h	/^char *   ParentStr        =  "PARENT";$/;"	v
+ParseOnly	evms.c	/^boolean ParseOnly = FALSE;	\/* Controls whether or not the output of the parser is set to the$/;"	v
+Parse_Command_Line	parser.c	/^dlist_t Parse_Command_Line(void)$/;"	f
+Parse_Filters	parser.c	/^Parse_Filters(Executable_Node * Current_Node,$/;"	f	file:
+Parse_Name_Value_Pair	parser.c	/^Parse_Name_Value_Pair(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+Parse_Object_List	parser.c	/^Parse_Object_List(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+Parse_Optional_Query_Filters	parser.c	/^Parse_Optional_Query_Filters(Executable_Node * Current_Node,$/;"	f	file:
+Parse_Query_Acceptable_Create	parser.c	/^Parse_Query_Acceptable_Create(Executable_Node * Current_Node,$/;"	f	file:
+Parse_Query_Acceptable_Parameters	parser.c	/^Parse_Query_Acceptable_Parameters(Executable_Node * Current_Node,$/;"	f	file:
+Parse_Query_Extended_Info_Parameters	parser.c	/^Parse_Query_Extended_Info_Parameters(Executable_Node * Current_Node,$/;"	f	file:
+Parse_Results	parser.c	/^} Parse_Results;$/;"	t	typeref:enum:__anon1	file:
+Parse_Units	parser.c	/^Parse_Units(Executable_Node * Current_Node, boolean Allow_Time_Units,$/;"	f	file:
+Parser_Errors	error.h	/^             } Parser_Errors;$/;"	t	typeref:enum:__anon11
+Peek	interpreter.c	/^static void Peek(TAG * Item_Type, uint * Item_Size)$/;"	f	file:
+PetabyteStr	interpreter.c	/^static char *PetabyteStr = "PB";$/;"	v	file:
+PluginNameStr	evms.c	/^char *PluginNameStr = "PLUG-IN NAME";$/;"	v
+PluginStr	screener.h	/^char *   PluginStr        =  "PLUGIN";$/;"	v
+Plugin_Filter	parser.c	72;"	d	file:
+Plugin_ID	interpreter.h	/^               Plugin_ID,$/;"	e	enum:__anon2
+Plugin_Identifier	parser.c	/^Plugin_Identifier(Executable_Node * Current_Node,$/;"	f	file:
+Plugin_Mask	interpreter.h	/^               Plugin_Mask,$/;"	e	enum:__anon2
+Plugin_Name	interpreter.h	/^               Plugin_Name,$/;"	e	enum:__anon2
+Plugin_Type_Filter	parser.c	78;"	d	file:
+Plugin_Types	parser.c	/^Plugin_Types(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+PluginsStr	screener.h	/^char *   PluginsStr       =  "PLUGINS";$/;"	v
+PointsStr	screener.h	/^char *   PointsStr        =  "POINTS";$/;"	v
+Pop	interpreter.c	/^static void Pop(TAG Item_Type, uint Item_Size, ADDRESS Buffer)$/;"	f	file:
+PositionInBuffer	scanner.c	/^static uint PositionInBuffer;	\/* Used to keep track of where to put characters in the Buffer. *\/$/;"	v	file:
+PositiveNumberCheck	scanner.c	/^    PositiveNumberCheck,$/;"	e	enum:__anon4	file:
+Precision	parser.c	/^Precision(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+Precision_Node	interpreter.h	/^               Precision_Node,$/;"	e	enum:__anon2
+PreviousItem	dlist.c	/^int PreviousItem(dlist_t ListToChange)$/;"	f
+PreviousLinkNode	dlist.h	/^  struct LinkNodeRecord *   PreviousLinkNode;    \/* The LinkNode of the item preceding this one in the list. *\/$/;"	m	struct:LinkNodeRecord	typeref:struct:LinkNodeRecord::LinkNodeRecord
+Print_Expand_Shrink_Move_Slide_Info	interpreter.c	/^Print_Expand_Shrink_Move_Slide_Info(task_action_t Start,$/;"	f	file:
+Print_Extended_Info	interpreter.c	/^static void Print_Extended_Info(extended_info_t * Info)$/;"	f	file:
+Print_Object_Info	interpreter.c	/^Print_Object_Info(ADDRESS Object,$/;"	f	file:
+Print_Units	interpreter.c	/^static void Print_Units(value_unit_t Units)$/;"	f	file:
+Print_Value	interpreter.c	/^Print_Value(u_int Indent,$/;"	f	file:
+ProbeStr	screener.h	/^char *   ProbeStr         =  "PROBE";$/;"	v
+Probe_Node	interpreter.h	/^               Probe_Node,$/;"	e	enum:__anon2
+Process_Node	interpreter.c	/^Process_Node(ADDRESS Object,$/;"	f	file:
+PruneList	dlist.c	/^PruneList(dlist_t ListToProcess,$/;"	f
+Push	interpreter.c	/^static void Push(TAG Item_Type, uint Item_Size, ADDRESS Item)$/;"	f	file:
+QueryPrivateData	PrivateData.c	/^sector_count_t QueryPrivateData(object_handle_t handle)$/;"	f
+QueryStr	screener.h	/^char *   QueryStr         =  "QUERY";$/;"	v
+Query_Extended_Info	interpreter.h	/^               Query_Extended_Info,$/;"	e	enum:__anon2
+Query_Node	interpreter.h	/^               Query_Node,$/;"	e	enum:__anon2
+Query_Node_Type_2	interpreter.h	/^               Query_Node_Type_2,$/;"	e	enum:__anon2
+Query_Type	parser.c	/^Query_Type(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+QuitStr	screener.h	/^char *   QuitStr          =  "QUIT";$/;"	v
+Quit_Node	interpreter.h	/^               Quit_Node,$/;"	e	enum:__anon2
+REAL_NUMBER	interpreter.c	71;"	d	file:
+REPLACEMENT_PARAMETER	evms.c	102;"	d	file:
+REQUIRED_ENGINE_VERSION_MAJOR	evms.c	99;"	d	file:
+REQUIRED_ENGINE_VERSION_MINOR	evms.c	100;"	d	file:
+REQUIRED_ENGINE_VERSION_PATCH	evms.c	101;"	d	file:
+Read_Character	scanner.c	/^static void Read_Character(void)$/;"	f	file:
+RealNumber	token.h	/^                RealNumber,$/;"	e	enum:__anon12
+RealNumberData	interpreter.h	/^               RealNumberData,$/;"	e	enum:__anon2
+RealNumberDataStr	evms.c	/^char *RealNumberDataStr = "REAL NUMBER DATA";$/;"	v
+RecursiveStr	screener.h	/^char *   RecursiveStr     =  "RECURSIVE";$/;"	v
+RegionStr	screener.h	/^char *   RegionStr        =  "REGION";$/;"	v
+Region_Filter	parser.c	73;"	d	file:
+RegionsStr	screener.h	/^char *   RegionsStr       =  "REGIONS";$/;"	v
+ReleaseStr	screener.h	/^char *   ReleaseStr       =  "RELEASE";$/;"	v
+RemoveStr	screener.h	/^char *   RemoveStr        =  "REMOVE";$/;"	v
+Remove_Node	interpreter.h	/^               Remove_Node,$/;"	e	enum:__anon2
+RenameStr	screener.h	/^char *   RenameStr        =  "RENAME";$/;"	v
+Rename_Node	interpreter.h	/^               Rename_Node,$/;"	e	enum:__anon2
+ReplaceObject	dlist.c	/^int ReplaceObject(dlist_t ListToReplaceItemIn, ADDRESS ItemLocation, TAG * ItemTag,	\/* On input - TAG of new object.  On return = TAG of old object. *\/$/;"	f
+ReplaceStr	screener.h	/^char *   ReplaceStr       =  "REPLACE";$/;"	v
+Replace_Node	interpreter.h	/^               Replace_Node,$/;"	e	enum:__anon2
+Replacement_Parameters	scanner.c	/^static Substitution_Table_Type *Replacement_Parameters = NULL;	\/* Used to hold substitutable parameters. *\/$/;"	v	file:
+Replacement_Parameters	scanner.h	/^                 Substitution_Table_Entry * Replacement_Parameters;$/;"	m	struct:__anon9
+Report_Parser_Error	error.c	/^Report_Parser_Error(Parser_Errors Error, char *Filename, TokenType * Token)$/;"	f
+Report_Progress	interpreter.c	/^void Report_Progress(char *Message)$/;"	f
+Report_Scanner_Error	error.c	/^Report_Scanner_Error(Scanner_Errors Error, char *Parameter1,$/;"	f
+Report_Standard_Error	error.c	/^void Report_Standard_Error(int Error)$/;"	f
+Restore_Current_Token	parser.c	/^static boolean Restore_Current_Token(Executable_Node * Temp_Node)$/;"	f	file:
+RevertStr	screener.h	/^char *   RevertStr        =  "REVERT";$/;"	v
+Revert_Node	interpreter.h	/^               Revert_Node,$/;"	e	enum:__anon2
+Row_Delimiter	evms.c	/^    int Row_Delimiter(char ch, char *header) {$/;"	f
+SCANNER_C	scanner.c	142;"	d	file:
+SCANNER_H	scanner.h	145;"	d
+SCREENER_C	screener.c	34;"	d	file:
+SCREENER_H	screener.h	33;"	d
+SEND_EXPAND_OR_SHRINK_SIZE	ConvertStructs.c	10;"	d	file:
+SNAPSHOT_FEATURE	ObjectStructs.h	15;"	d
+SO_TARGET	Makefile	/^SO_TARGET = lib${NAME}.so.${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_LEVEL}$/;"	m
+SPStr	screener.h	/^char *   SPStr            =  "SP";$/;"	v
+STACK_NODE	interpreter.h	43;"	d
+STRING_POINTER	interpreter.c	69;"	d	file:
+SaveStr	screener.h	/^char *   SaveStr          =  "SAVE";$/;"	v
+Scan_For_Containers	interpreter.c	/^Scan_For_Containers(ADDRESS Object,$/;"	f	file:
+Scan_For_Convertible	interpreter.c	/^Scan_For_Convertible(ADDRESS Object,$/;"	f	file:
+Scan_For_Disks	interpreter.c	/^Scan_For_Disks(ADDRESS Object,$/;"	f	file:
+Scan_For_Expandable	interpreter.c	/^Scan_For_Expandable(ADDRESS Object,$/;"	f	file:
+Scan_For_Freespace	interpreter.c	/^Scan_For_Freespace(ADDRESS Object,$/;"	f	file:
+Scan_For_Objects	interpreter.c	/^Scan_For_Objects(ADDRESS Object,$/;"	f	file:
+Scan_For_Plugin	interpreter.c	/^Scan_For_Plugin(ADDRESS Object,$/;"	f	file:
+Scan_For_Plugins	interpreter.c	/^Scan_For_Plugins(ADDRESS Object,$/;"	f	file:
+Scan_For_Regions	interpreter.c	/^Scan_For_Regions(ADDRESS Object,$/;"	f	file:
+Scan_For_Segments	interpreter.c	/^Scan_For_Segments(ADDRESS Object,$/;"	f	file:
+Scan_For_Selected_Objects	interpreter.c	/^Scan_For_Selected_Objects(ADDRESS Object,$/;"	f	file:
+Scan_For_Shrinkable	interpreter.c	/^Scan_For_Shrinkable(ADDRESS Object,$/;"	f	file:
+Scan_For_Size	interpreter.c	/^Scan_For_Size(ADDRESS Object,$/;"	f	file:
+Scan_For_Unclaimed	interpreter.c	/^Scan_For_Unclaimed(ADDRESS Object,$/;"	f	file:
+Scan_For_Volumes	interpreter.c	/^Scan_For_Volumes(ADDRESS Object,$/;"	f	file:
+Scanner_Errors	error.h	/^             } Scanner_Errors;$/;"	t	typeref:enum:__anon10
+Scanner_Out_Of_Memory	error.h	/^               Scanner_Out_Of_Memory              \/* Column and Row are used to indicate how far we got before quitting. *\/$/;"	e	enum:__anon10
+SearchNode	PrivateData.c	/^hash_node_t * SearchNode()$/;"	f
+SecondsStr	screener.h	/^char *   SecondsStr       =  "SECONDS";$/;"	v
+SectorsStr	screener.h	/^char *   SectorsStr       =  "SECTORS";$/;"	v
+SegmentStr	screener.h	/^char *   SegmentStr       =  "SEGMENT";$/;"	v
+Segment_Filter	parser.c	74;"	d	file:
+SegmentsStr	screener.h	/^char *   SegmentsStr      =  "SEGMENTS";$/;"	v
+SendEvmsFrame	SendOneFrame.c	/^SendEvmsFrame (int sock_fd, unsigned short retcode, char *data,$/;"	f
+SendObjectData	interpreter.c	/^int SendObjectData(my_object_info_t * output)$/;"	f
+Separator	token.h	/^                Separator,$/;"	e	enum:__anon12
+SeparatorOrError	scanner.c	/^    SeparatorOrError,$/;"	e	enum:__anon4	file:
+SetInput	scanner.c	/^SetInput(boolean IsFile, char *FilenameOrString,$/;"	f
+SetInput_Failure	error.h	/^               SetInput_Failure,$/;"	e	enum:__anon11
+SetStr	screener.h	/^char *   SetStr           =  "SET";$/;"	v
+Set_Node	interpreter.h	/^               Set_Node,$/;"	e	enum:__anon2
+Set_Parameters	parser.c	/^Set_Parameters(Executable_Node * Current_Node, NodeTypes Node_To_Create,$/;"	f	file:
+Setup_Task	interpreter.c	/^Setup_Task(plugin_handle_t Handle, task_action_t Task_Type,$/;"	f	file:
+ShrinkStr	screener.h	/^char *   ShrinkStr        =  "SHRINK";$/;"	v
+Shrink_Node	interpreter.h	/^               Shrink_Node,$/;"	e	enum:__anon2
+ShrinkableStr	screener.h	/^char *   ShrinkableStr    =  "SHRINKABLE";$/;"	v
+Shrinkable_Filter	parser.c	75;"	d	file:
+SingleSpace	scanner.c	/^    SingleSpace,$/;"	e	enum:__anon4	file:
+SingleTab	scanner.c	/^    SingleTab,$/;"	e	enum:__anon4	file:
+Size	parser.c	/^static Parse_Results Size(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+SizeStr	screener.h	/^char *   SizeStr          =  "SIZE";$/;"	v
+Size_Filter_Structure	interpreter.c	/^} Size_Filter_Structure;$/;"	t	typeref:struct:__anon7	file:
+Size_Filter_Types	interpreter.c	/^} Size_Filter_Types;$/;"	t	typeref:enum:__anon6	file:
+Skip_End_Spaces	scanner.c	/^    Skip_End_Spaces,$/;"	e	enum:__anon5	file:
+Skip_Initial_Spaces	scanner.c	/^    Skip_Initial_Spaces,$/;"	e	enum:__anon5	file:
+SortList	dlist.c	/^SortList(dlist_t ListToSort,$/;"	f
+Space	token.h	/^                Space,$/;"	e	enum:__anon12
+Specify_Object	parser.c	/^Specify_Object(Executable_Node * Current_Node, NodeTypes Node_To_Create,$/;"	f	file:
+Stack	interpreter.c	/^static dlist_t Stack = NULL;$/;"	v	file:
+Start	scanner.c	/^    Start,$/;"	e	enum:__anon4	file:
+StartOfList	dlist.h	/^  LinkNode *      StartOfList;           \/* The address of the LinkNode of the first item in the list. *\/$/;"	m	struct:MasterListRecord
+StartStr	screener.h	/^char *   StartStr         =  "START";$/;"	v
+Start_Comment_Check	scanner.c	/^    Start_Comment_Check,$/;"	e	enum:__anon5	file:
+Start_Substitution	scanner.c	/^    Start_Substitution,$/;"	e	enum:__anon5	file:
+State	scanner.c	/^} State;$/;"	t	typeref:enum:__anon4	file:
+String	token.h	/^                String,$/;"	e	enum:__anon12
+StringData	interpreter.h	/^               StringData,$/;"	e	enum:__anon2
+StringDataStr	evms.c	/^char *StringDataStr = "STRING DATA";$/;"	v
+Substitution_Found	scanner.c	/^    Substitution_Found,$/;"	e	enum:__anon5	file:
+Substitution_Table	evms.c	/^Substitution_Table_Type Substitution_Table;$/;"	v
+Substitution_Table_Entry	scanner.h	/^               } Substitution_Table_Entry;$/;"	t	typeref:struct:__anon8
+Substitution_Table_Type	scanner.h	/^               } Substitution_Table_Type;$/;"	t	typeref:struct:__anon9
+Substitution_Value	evms.c	/^Substitution_Table_Entry Substitution_Value;$/;"	v
+Substitutions_Allowed	scanner.c	/^static boolean Substitutions_Allowed = TRUE;	\/* Controls whether $(x) is treated as text or a command to replace the $(x) with a parameter #x from the command line used to invoke the EVMS CLI. *\/$/;"	v	file:
+TAG	dlist.h	/^typedef ulong           TAG;$/;"	t
+TARGET	Makefile	/^TARGET    = lib${NAME}.so$/;"	m
+TIME_TO_QUIT	interpreter.h	127;"	d
+TOKEN_CODE	token.h	56;"	d
+TOKEN_H	token.h	34;"	d
+TRUE	dlist.h	151;"	d
+TRUE	token.h	48;"	d
+Tab	token.h	/^                Tab,$/;"	e	enum:__anon12
+Task	interpreter.c	/^static task_handle_t Task = 0;$/;"	v	file:
+TaskStr	screener.h	/^char *   TaskStr          =  "TASK";$/;"	v
+Task_Action	interpreter.c	/^static task_action_t Task_Action;$/;"	v	file:
+Task_Adjust	interpreter.h	/^               Task_Adjust,$/;"	e	enum:__anon2
+Task_Node	interpreter.h	/^               Task_Node,$/;"	e	enum:__anon2
+Terminate_Lookahead	parser.c	/^Terminate_Lookahead(Executable_Node * Current_Node,$/;"	f	file:
+TerrabyteStr	screener.h	/^char *   TerrabyteStr     =  "TB";$/;"	v
+Text	scanner.h	/^                 char *      Text;$/;"	m	struct:__anon8
+TokenCharacterizations	token.h	/^             } TokenCharacterizations;$/;"	t	typeref:enum:__anon12
+TokenColumn	token.h	/^                  uint                      TokenColumn;        \/* The position of the first character of this token on the command line. *\/$/;"	m	struct:__anon13
+TokenLength	token.h	/^                  uint                      TokenLength;        \/* # of characters in TokenText *\/$/;"	m	struct:__anon13
+TokenRow	token.h	/^                  uint                      TokenRow;           \/* The line on which the token was found.  Useful for files of commands. *\/$/;"	m	struct:__anon13
+TokenText	token.h	/^                  char *                    TokenText;          \/* The characters from the command line which make up this token. *\/$/;"	m	struct:__anon13
+TokenType	token.h	/^               } TokenType;$/;"	t	typeref:struct:__anon13
+Token_Accepted	parser.c	/^    Token_Accepted$/;"	e	enum:__anon1	file:
+Tokens	parser.c	/^static dlist_t Tokens = NULL;	\/* Tokens being stored during when lookahead is in operation. *\/$/;"	v	file:
+Topmost_Objects	interpreter.h	/^               Topmost_Objects,$/;"	e	enum:__anon2
+Translate_Name_To_Handle	interpreter.h	/^               Translate_Name_To_Handle$/;"	e	enum:__anon2
+Try_Again	parser.c	/^    Try_Again,$/;"	e	enum:__anon1	file:
+TypeStr	screener.h	/^char *   TypeStr          =  "TYPE";$/;"	v
+USER_CHOICE_BUFFER_SIZE	evms.c	870;"	d	file:
+UnMkfsStr	screener.h	/^char *   UnMkfsStr        =  "UNMKFS";$/;"	v
+UnclaimedStr	screener.h	/^char *   UnclaimedStr     =  "UNCLAIMED";$/;"	v
+Unclaimed_Filter	parser.c	76;"	d	file:
+UnformatStr	screener.h	/^char *   UnformatStr      =  "UNFORMAT";$/;"	v
+Unformat_Node	interpreter.h	/^               Unformat_Node,$/;"	e	enum:__anon2
+Units_Node	interpreter.h	/^               Units_Node,$/;"	e	enum:__anon2
+UnmountStr	screener.h	/^char *   UnmountStr       =  "UNMOUNT";$/;"	v
+Unmount_Node	interpreter.h	/^               Unmount_Node,$/;"	e	enum:__anon2
+Upper_Limit	interpreter.c	/^    u_int64_t Upper_Limit;$/;"	m	struct:__anon7	file:
+Use_Current_Token	parser.c	/^static boolean Use_Current_Token = FALSE;	\/* Used to have the current token processed again. *\/$/;"	v	file:
+Use_Freespace	interpreter.c	/^    boolean Use_Freespace;$/;"	m	struct:__anon7	file:
+Use_Selected_Objects_Filter	interpreter.c	/^static boolean Use_Selected_Objects_Filter;$/;"	v	file:
+VERSION_NUMBER	evms.c	98;"	d	file:
+Value	parser.c	/^Value(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
+Verbose	evms.c	/^boolean Verbose = FALSE;$/;"	v
+Verbose_Mode	interpreter.h	/^int       Verbose_Mode = 0;    \/* 0 = no verbose, 1 = EVMS Engine messages reported one per line, 2 = EVMS Engine messages overlayed on top of each other. *\/$/;"	v
+Verify	dlist.h	/^  uint            Verify;                \/* A field to contain the VerifyValue which marks this as a list created by this module. *\/$/;"	m	struct:MasterListRecord
+VerifyValue	dlist.c	72;"	d	file:
+VolumeStr	screener.h	/^char *   VolumeStr        =  "VOLUME";$/;"	v
+Volume_Filter	parser.c	77;"	d	file:
+VolumesStr	screener.h	/^char *   VolumesStr       =  "VOLUMES";$/;"	v
+WHITE_SPACE	evms.c	1331;"	d	file:
+WHITE_SPACE_NO_NL	evms.c	1332;"	d	file:
+Wrong_Filter	error.h	/^               Wrong_Filter,$/;"	e	enum:__anon11
+_EVMS_H_	evms.h	23;"	d
+_GNU_SOURCE	evms.c	39;"	d	file:
+_Insertion_Modes	dlist.h	/^typedef enum _Insertion_Modes {$/;"	g
+__OBJECTSTRUCTS_H__	ObjectStructs.h	2;"	d
+__PRIVATE_DATA_H__	PrivateData.h	2;"	d
+__REPLACEDSTRUCTS_H__	ReplacedStructs.h	2;"	d
+__SENDONEFRAME_H__	SendOneFrame.h	2;"	d
+__USE_GNU	error.c	43;"	d	file:
+__advance_info_s	ObjectStructs.h	/^typedef struct __advance_info_s$/;"	s
+__basic_info_s	ObjectStructs.h	/^typedef struct __basic_info_s$/;"	s
+__feature_s	ObjectStructs.h	/^typedef struct __feature_s$/;"	s
+__my_function_info_s	ReplacedStructs.h	/^typedef struct __my_function_info_s$/;"	s
+__my_logical_volume_info_s	ReplacedStructs.h	/^typedef struct __my_logical_volume_info_s$/;"	s
+__my_option_descriptor_s	ReplacedStructs.h	/^typedef struct __my_option_descriptor_s$/;"	s
+__my_plugin_info_s	ReplacedStructs.h	/^typedef struct __my_plugin_info_s$/;"	s
+__my_storage_container_info_s	ReplacedStructs.h	/^typedef struct __my_storage_container_info_s$/;"	s
+__my_storage_object_info_s	ReplacedStructs.h	/^typedef struct __my_storage_object_info_s $/;"	s
+__my_value_s	ReplacedStructs.h	/^typedef struct __my_value_s$/;"	s
+__object_info_s	ObjectStructs.h	/^typedef struct __object_info_s$/;"	s
+__operation_s	ObjectStructs.h	/^typedef struct __operation_s$/;"	s
+__task_s	ObjectStructs.h	/^typedef struct __task_s$/;"	s
+_expandable_obj_t	PrivateData.h	/^typedef struct _expandable_obj_t$/;"	s
+_hash_node_t	PrivateData.h	/^typedef struct _hash_node_t$/;"	s
+advance	ObjectStructs.h	/^	my_advance_info_t * advance;$/;"	m	struct:__object_info_s
+b	ReplacedStructs.h	/^	boolean			b;$/;"	m	struct:__my_value_s
+basic	ObjectStructs.h	/^	my_basic_info_t   * basic;$/;"	m	struct:__object_info_s
+boolean	dlist.h	/^  typedef u_int8_t boolean;$/;"	t
+boolean	token.h	/^  typedef u_int8_t  boolean;$/;"	t
+boolean_DEFINED	dlist.h	143;"	d
+boolean_DEFINED	token.h	40;"	d
+c	ReplacedStructs.h	/^	char			c;$/;"	m	struct:__my_value_s
+count	PrivateData.h	/^	int count;$/;"	m	struct:_hash_node_t
+count	scanner.h	/^                 uint                       count;$/;"	m	struct:__anon9
+curr_col	evms.c	/^    static int curr_col = 0;$/;"	v	file:
+data_type	ReplacedStructs.h	/^	data_type_t		data_type;$/;"	m	struct:__my_storage_object_info_s
+dev_node	ReplacedStructs.h	/^	char			dev_node[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_logical_volume_info_s
+dlist_get_current_item	dlist.h	/^static inline void * dlist_get_current_item(dlist_t list)$/;"	f
+dlist_node_s	interpreter.c	/^typedef struct dlist_node_s {$/;"	s	file:
+dlist_node_t	interpreter.c	/^} dlist_node_t;$/;"	t	typeref:struct:dlist_node_s	file:
+dlist_strerror	dlist.c	/^const char *dlist_strerror(int err_num)$/;"	f
+dlist_t	dlist.h	/^typedef ControlNode *   dlist_t;$/;"	t
+err_msg	dlist.c	/^static char *err_msg[] = {$/;"	v	file:
+evms_deinit	evms.c	/^int evms_deinit()$/;"	f
+evms_func	evms.c	/^int evms_func(char *cmd, int len)$/;"	f
+evms_init	evms.c	/^int evms_init(int argc, char *argv[], int sock_fd)$/;"	f
+expandable_obj_t	PrivateData.h	/^}expandable_obj_t;$/;"	t	typeref:struct:_expandable_obj_t
+expandable_size	PrivateData.h	/^	sector_count_t expandable_size;	$/;"	m	struct:_expandable_obj_t
+feature_num	ObjectStructs.h	/^	int feature_num;			\/\/ object may have many features$/;"	m	struct:__advance_info_s
+file_system	ReplacedStructs.h	/^	char                    file_system[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_logical_volume_info_s
+flags	ReplacedStructs.h	/^	u_int32_t		flags;$/;"	m	struct:__my_logical_volume_info_s
+flags	ReplacedStructs.h	/^	u_int32_t		flags;$/;"	m	struct:__my_storage_object_info_s
+flags	ReplacedStructs.h	/^	u_int32_t 		flags;$/;"	m	struct:__my_function_info_s
+flags	ReplacedStructs.h	/^	u_int32_t 		flags;$/;"	m	struct:__my_storage_container_info_s
+fs_size	ReplacedStructs.h	/^	sector_count_t		fs_size;$/;"	m	struct:__my_logical_volume_info_s
+function	ObjectStructs.h	/^	my_function_info_t 	 function; 	\/\/ basic task info : description$/;"	m	struct:__task_s
+function	ReplacedStructs.h	/^	task_action_t		function;			\/\/ enum$/;"	m	struct:__my_function_info_s
+g_sock_fd	evms.c	/^int g_sock_fd = -1;$/;"	v
+handle	PrivateData.h	/^	object_handle_t handle;$/;"	m	struct:_expandable_obj_t
+hash_entry_tbl	PrivateData.c	/^hash_node_t * hash_entry_tbl[PRIVATE_HASH_SIZE];$/;"	v
+hash_node_t	PrivateData.h	/^}hash_node_t;$/;"	t	typeref:struct:_hash_node_t
+help	ReplacedStructs.h	/^	char 			help[EVMS_NAME_SIZE  + 1];$/;"	m	struct:__my_function_info_s
+help	ReplacedStructs.h	/^	char 			help[EVMS_NAME_SIZE  + 1];$/;"	m	struct:__my_option_descriptor_s
+i	ReplacedStructs.h	/^	int			i;$/;"	m	struct:__my_value_s
+i16	ReplacedStructs.h	/^	int16_t			i16;$/;"	m	struct:__my_value_s
+i32	ReplacedStructs.h	/^	int32_t			i32;$/;"	m	struct:__my_value_s
+i64	ReplacedStructs.h	/^	int64_t			i64;$/;"	m	struct:__my_value_s
+i8	ReplacedStructs.h	/^	int8_t			i8;$/;"	m	struct:__my_value_s
+info	ObjectStructs.h	/^	object_info_t  * info;$/;"	m	struct:__basic_info_s
+item_size	interpreter.c	/^    u_int32_t item_size;$/;"	m	struct:dlist_node_s	file:
+long_name	ReplacedStructs.h	/^	char 			long_name[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_plugin_info_s
+max_fs_size	ReplacedStructs.h	/^	sector_count_t		max_fs_size;$/;"	m	struct:__my_logical_volume_info_s
+max_vol_size	ReplacedStructs.h	/^	sector_count_t		max_vol_size;$/;"	m	struct:__my_logical_volume_info_s
+min_fs_size	ReplacedStructs.h	/^	sector_count_t		min_fs_size;$/;"	m	struct:__my_logical_volume_info_s
+mount_point	ReplacedStructs.h	/^	char			mount_point[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_logical_volume_info_s
+my_advance_info_t	ObjectStructs.h	/^}my_advance_info_t;$/;"	t	typeref:struct:__advance_info_s
+my_basic_info_t	ObjectStructs.h	/^}my_basic_info_t;$/;"	t	typeref:struct:__basic_info_s
+my_feature_t	ObjectStructs.h	/^}my_feature_t;$/;"	t	typeref:struct:__feature_s
+my_function_info_t	ReplacedStructs.h	/^}my_function_info_t;$/;"	t	typeref:struct:__my_function_info_s
+my_logical_volume_info_t	ReplacedStructs.h	/^}my_logical_volume_info_t;$/;"	t	typeref:struct:__my_logical_volume_info_s
+my_object_info_t	ObjectStructs.h	/^}my_object_info_t;$/;"	t	typeref:struct:__object_info_s
+my_operation_t	ObjectStructs.h	/^}my_operation_t;$/;"	t	typeref:struct:__operation_s
+my_operation_type	ObjectStructs.h	/^} my_operation_type;$/;"	t	typeref:enum:__anon14
+my_option_descriptor_t	ReplacedStructs.h	/^}my_option_descriptor_t;$/;"	t	typeref:struct:__my_option_descriptor_s
+my_plugin_info_t	ReplacedStructs.h	/^}my_plugin_info_t;$/;"	t	typeref:struct:__my_plugin_info_s
+my_storage_container_info_t	ReplacedStructs.h	/^}my_storage_container_info_t;$/;"	t	typeref:struct:__my_storage_container_info_s
+my_storage_object_info_t	ReplacedStructs.h	/^}my_storage_object_info_t;$/;"	t	typeref:struct:__my_storage_object_info_s
+my_task_t	ObjectStructs.h	/^}my_task_t;$/;"	t	typeref:struct:__task_s
+my_value_t	ReplacedStructs.h	/^}my_value_t;$/;"	t	typeref:struct:__my_value_s
+name	ObjectStructs.h	/^	char name[EVMS_NAME_SIZE + 1];$/;"	m	struct:__feature_s
+name	ReplacedStructs.h	/^	char			name[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_logical_volume_info_s
+name	ReplacedStructs.h	/^	char 			name[EVMS_NAME_SIZE  + 1];$/;"	m	struct:__my_function_info_s
+name	ReplacedStructs.h	/^	char 			name[EVMS_NAME_SIZE  + 1];$/;"	m	struct:__my_option_descriptor_s
+name	ReplacedStructs.h	/^	char 			name[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_storage_container_info_s
+name	ReplacedStructs.h	/^	char 			name[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_storage_object_info_s
+next	PrivateData.h	/^	struct _hash_node_t * next;$/;"	m	struct:_hash_node_t	typeref:struct:_hash_node_t::_hash_node_t
+obj	PrivateData.h	/^	expandable_obj_t obj[MAX_EXPAND_POINTS];$/;"	m	struct:_hash_node_t
+object	interpreter.c	/^    void *object;$/;"	m	struct:dlist_node_s	file:
+object_type	ReplacedStructs.h	/^	object_type_t		object_type;$/;"	m	struct:__my_storage_object_info_s
+oem_name	ReplacedStructs.h	/^	char			oem_name[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_plugin_info_s
+operation_num	ObjectStructs.h	/^	int operation_num;			\/\/ object may support many operations$/;"	m	struct:__advance_info_s
+option	ObjectStructs.h	/^	my_option_descriptor_t   option[0]; $/;"	m	struct:__task_s
+option	ObjectStructs.h	/^	my_option_descriptor_t   option[0];$/;"	m	struct:__operation_s
+option_num	ObjectStructs.h	/^	int 			 option_num;	\/\/ each operation may have many options$/;"	m	struct:__operation_s
+option_num	ObjectStructs.h	/^	int 			 option_num;	\/\/ each task may have many options$/;"	m	struct:__task_s
+r32	ReplacedStructs.h	/^	float			r32;$/;"	m	struct:__my_value_s
+r64	ReplacedStructs.h	/^	double			r64;$/;"	m	struct:__my_value_s
+resize	ReplacedStructs.h	/^	sector_count_t 		resize;$/;"	m	struct:__my_logical_volume_info_s
+resize	ReplacedStructs.h	/^	sector_count_t 		resize;$/;"	m	struct:__my_storage_container_info_s
+resize	ReplacedStructs.h	/^	sector_count_t 		resize;$/;"	m	struct:__my_storage_object_info_s
+s	ReplacedStructs.h	/^	char			s[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_value_s
+serial_number	ReplacedStructs.h	/^	u_int64_t		serial_number;$/;"	m	struct:__my_logical_volume_info_s
+short_name	ReplacedStructs.h	/^	char			short_name[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_plugin_info_s
+size	ReplacedStructs.h	/^	sector_count_t		size;$/;"	m	struct:__my_storage_container_info_s
+size	ReplacedStructs.h	/^	sector_count_t		size;$/;"	m	struct:__my_storage_object_info_s
+supported_features	ObjectStructs.h	/^	my_feature_t   * supported_features[MAX_FEATURE_NUM];$/;"	m	struct:__advance_info_s
+supported_operations	ObjectStructs.h	/^	my_operation_t * supported_operations[MAX_OPERATION_NUM];$/;"	m	struct:__advance_info_s
+supported_tasks	ObjectStructs.h	/^	my_task_t      * supported_tasks[MAX_TASK_NUM];$/;"	m	struct:__advance_info_s
+supports_containers	ReplacedStructs.h	/^	boolean			supports_containers;$/;"	m	struct:__my_plugin_info_s
+task_num	ObjectStructs.h	/^	int task_num;				\/\/ object may support many tasks$/;"	m	struct:__advance_info_s
+thread_id	PrivateData.h	/^	pthread_t thread_id;$/;"	m	struct:_hash_node_t
+tip	ReplacedStructs.h	/^	char 			tip[EVMS_NAME_SIZE   + 1];$/;"	m	struct:__my_option_descriptor_s
+title	ReplacedStructs.h	/^	char 			title[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_function_info_s
+title	ReplacedStructs.h	/^	char 			title[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_option_descriptor_s
+type	ObjectStructs.h	/^	int type;$/;"	m	struct:__basic_info_s
+type	ObjectStructs.h	/^	my_operation_type        type;		\/\/ basic operation info : type$/;"	m	struct:__operation_s
+type	ReplacedStructs.h	/^	value_type_t   		type;$/;"	m	struct:__my_option_descriptor_s
+uc	ReplacedStructs.h	/^	u_char			uc;$/;"	m	struct:__my_value_s
+ui	ReplacedStructs.h	/^	u_int			ui;$/;"	m	struct:__my_value_s
+ui16	ReplacedStructs.h	/^	u_int16_t		ui16;$/;"	m	struct:__my_value_s
+ui32	ReplacedStructs.h	/^	u_int32_t		ui32;$/;"	m	struct:__my_value_s
+ui64	ReplacedStructs.h	/^	u_int64_t		ui64;$/;"	m	struct:__my_value_s
+ui8	ReplacedStructs.h	/^	u_int8_t		ui8;$/;"	m	struct:__my_value_s
+value	ReplacedStructs.h	/^	value_t			value;$/;"	m	struct:__my_option_descriptor_s
+verb	ReplacedStructs.h	/^	char 			verb[EVMS_NAME_SIZE  + 1];$/;"	m	struct:__my_function_info_s
+vol_size	ReplacedStructs.h	/^	sector_count_t		vol_size;$/;"	m	struct:__my_logical_volume_info_s

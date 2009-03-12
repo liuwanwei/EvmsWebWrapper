@@ -1,0 +1,479 @@
+EVMS Command Line Grammar
+
+Notes:
+
+Disk - Disks represent physical disks or block devices presented as disks.
+
+Segment - Segments represent physically contiguous sectors on a physical
+	storage object.
+	
+Region - Regions represent logically contiguous sectors.
+
+Container - A collection of storage objects.  A container consumes one set of
+	storage objects and produces new storage objects.
+	
+Compatibility Volume - a Volume (which may or may not be created by EVMS) which
+	is compatible with the Volume Manager from another technology
+	
+Storage Object - Any persistent memory structure in EVMS.
+
+EVMS Volume - a Volume which was created by EVMS using the native EVMS format.
+	EVMS Volumes are not compatible with the other volume managers.
+
+EVMS command keywords are NOT be case sensitive.
+
+EVMS names ARE case sensitive.  This includes plug-in names, volume names,
+container names, storage object names, region names, segment names, and disk
+names.
+
+EVMS operations involving plug-ins often require that options for the plug-ins
+be specified.  This is done using name - value pairs.  The name portion of the
+name - value pair is NOT case sensitive.  The value portion, if the value is not
+numeric (i.e.  a name), IS case sensitive.
+
+The EVMS command line interpreter does not accept EVMS commands as part of the
+command line used to invoke it.  The options on the command line used to invoke
+it control how the interpreter actually interprets EVMS commands.  Once invoked,
+the EVMS command line interpreter will prompt the user for EVMS commands.  To
+exit the EVMS Command Line Interpreter, press the enter key without having
+entered a command at the prompt.
+
+Notation:
+
+Items in <> represent non-terminals - they will be defined elsewhere in the
+grammar. Items in [] are optional.
+
+() are used for grouping
+
+()+ means that the item in the () appears 1 or more times
+
+()* means that the item in the () appears 0 or more times
+
+'(' and ')' indicate that the parenthesis are not being used as part of the
+grammar, but are instead  characters that appear on the command line.
+
+'[' and ']' indicate that the brackets are not being used as part of the
+grammar, but are instead  characters that appear on the command line.  " size:10>
+
+'<' and '>' indicate that the angle brackets are not being used as part of the
+grammar, but are instead  characters that appear on the command line.
+
+''' means that the quote is not being used as part of the grammar, but is
+instead a character which must appear on the command line. | means \"or\"
+
+::= defines the meaning of a non-terminal.
+
+::== defines the meaning of a non-terminal in terms of something external to
+the grammar.
+
+
+Grammar for Invoking the EVMS Command Line Interpreter:
+
+EVMS [ <Command Line Parameters> ]
+
+<Command Line Parameters> ::= ( [ -c ]  [ -d <Debug Level> ]
+[ -f <File Name> ] [ -b ] [ -s ]  [ -p ] [-v | -v0 | -v1 | -v2]
+[-r <parameter>] [-rl <parameter> ... <parameter>] ) | [ -h ]
+
+where:
+
+-c indicates that changes are not committed to disk until the user exits the
+   EVMS Command Line Interpreter.  Normally, changes are committed to disk after
+   each individual command is completed, even if there are multiple commands
+   specified on the same command line.
+
+-d sets the debug level, which controls how much information is logged to the
+   evmsEngine log file.
+
+-F tells the EVMS command line interpreter to take its input from <FileName>.
+
+-s The EVMS command line interpreter normally prompts for commands until anexit
+   command is encountered.  This switch tells the EVMS command Line Interpreter
+   to prompt for one command line only.
+
+-p tells the EVMS command line interpreter to parse commands only.  Errors found
+   during parsing will be reported.  Commands will NOT be executed.
+
+-v, -v0, -v1, -v2 tells the EVMS command line interpreter how to handle status
+   messages from the EVMS Engine while the EVMS Engine is committing changes to
+   disk.  -v0 indicates that EVMS Engine status messages should be discarded.
+   -v, which is the same as -v2, indicates that EVMS Engine status messages
+   should be reported on one line, with each message being erased before a new
+   message is displayed.  -v1 indicates that EVMS Engine status messages should
+   be displayed with one message per line.
+
+-r tells the EVMS command line interpreter that the following item is a
+   replacement parameter for use within EVMS commands
+
+-rl tells the EVMS command line interpreter that all remaining items on the
+   command line are replacement parameters for use within EVMS commands
+
+-h invokes the initial EVMS help for the EVMS command line interpreter.
+
+NOTE: Replacement parameters are accessed in EVMS commands using $(x), where x
+is a number identifying which replacement parameter to use.  Replacement
+parameters are assigned numbers starting with 1 as they are encountered on the
+command line.
+
+Example:  evms -c -f testcase -r sda -r sdb
+
+	sda is replacement parameter 1
+	sdb is replacement parameter 2
+
+Example: evms -r sda -c -f testcase -rl sdb sdc sde
+
+	sda is replacement parameter 1
+	sdb is replacement parameter 2
+	sdc is replacement parameter 3
+	sde is replacement parameter 4
+
+Example: evms -c -f testcase -rl sda 100
+
+	sda is replacement parameter 1
+	100 is replacement parameter 2
+
+	If testcase contains the EVMS command "allocate: $(1)_freespace,
+	size=$(2)MB" then that command would become "allocate:
+	sda_freespace,size=100MB".
+
+NOTE:
+Substitutions are not made within comments or quoted strings.
+
+Grammar for the commands accepted at the EVMS command prompt:
+
+<Command> ( : <Command> )* ::=
+	Act[ivate]: ( <Specify Volume> | <Specify Storage Object> )
+	
+	| ( Add Feature | AF ) :
+		<Feature Identifier> = { [ <Name Value Pair List> ] } ,
+		<Specify Volume>
+
+	| A[llocate]: <Specify Freespace>  (, <Name Value Pair> )+
+
+	| ( As[sign] | ( Add Segment Manager | ASM ) ) :
+		<Plugin Identifier> = {[ <Name Value Pair List>  ] } ,
+		( <Specify Disk> |
+		  <Specify Segment> )
+		
+	| Ch[eck]: <Specify Volume>  (, <Name Value Pair> )*
+
+	| ( Commit | Save ) [ : ( Hold | Release )]
+
+	| Co[nvert]: <Specify Volume> , ( N[ame] = \" <EVMS Name> \" |
+					  C[ompatibility] )
+
+	| C[reate]: <Creation Parameters>
+	
+	| Deact[ivate]: ( <Specify Volume> | <Specify Storage Object> )
+	
+	| ( D[elete] | ( Delete Recursive | DR ) ):
+		<Specify Volume> |
+		<Specify Container> |
+		<Specify Storage Object> |
+		<Specify Region> |
+		<Specify Segment>
+	
+	| Echo: <String>
+
+	| Exit
+	
+	| E[xpand] : <Specify Storage Object>
+		     (, <Name Value Pair> )*
+		     ( , <Specify Storage Object> |
+			 <Specify Region> |
+			 <Specify Segment> )+
+		
+	| ( F[ormat] | M[kfs] ) : <Specify Filesystem Interface Module> = { [
+		<Name Value Pair List> ] } , < Specify Volume >
+
+	| H[elp] [: Add Feature | Add Segment Manager | Allocate | Assign |
+		Check | Commit | Convert | Create | Delete | Echo | Exit |
+		Expand | Format | Help | Mkfs | Modify | Probe | Query | Quit |
+		Remove | Rename | Revert | Set | Shrink | Task | Unformat |
+		Unmkfs ]
+	
+	| Mount: <Specify Volume>,  <Directory> [ , <Mount Options> ]
+	
+	| P[robe]
+	
+	| Q[uery] :  <Query Type>
+
+	| Quit
+	
+	| Rem[ove] : <Specify Disk> | <Specify Segment>
+
+	| Ren[ame] : <Specify Volume>, N[ame] = \" <EVMS Name> \"
+
+	| Rep[lace] :<Specify Storage Object>, <Specify Storage Object>
+
+	| Rev[ert] : ( <Specify Volume> | <Specify Storage Object> )
+
+	| ( Set | Modify ) :  <Specify Storage Object> (, <Name Value Pair> )+
+
+	| S[hrink] : <Specify Storage Object>
+		     (, <Name Value Pair> )*
+		     ( , <Specify Storage Object> |
+			 <Specify Region> |
+			 <Specify Segment> )*
+		
+	| T[ask] : <Specify Task Name> ,
+		   ( <Specify Storage Object> |
+		     <Specify Region> |
+		     <Specify Segment> |
+		     <Specify Container> |
+		     <Specify Volume> |
+		     <Plugin Identifier> )
+		   (, <Name Value Pair> )*
+		   ( , ( <Specify Storage Object> |
+			 <Specify Region> |
+			 <Specify Segment> |
+			 <Specify Volume> ) )*
+		
+	| ( U[nformat] | U[nmkfs] ) : <Specify Volume>
+	
+	| Unmount : <Specify Volume>
+
+<Creation Parameters> ::=
+C[ontainer] , <Plugin Identifier> = { [ <Name Value Pair List> ] }
+	      ( , <Specify Segment> |
+		  <Specify Region> |
+		  <Specify Disk> )+
+
+| O[bject] , <Feature Identifier> = { [ <Name Value Pair List> ] }
+	     ( , (<Specify Storage Object> |
+		  <Specify Region> |
+		  <Specify Segment> |
+		  <Specify Disk>))+
+
+| R[egion] , <Plugin Identifier> = { [ <Name Value Pair List> ] }
+	     ( , <Specify Segment> |
+		 <Specify Region> |
+		 <Specify Disk> )+
+
+| S[egment] , <Specify Freespace Segment> (, <Name Value Pair> )+
+
+| V[olume] , ( <Specify Storage Object> |
+	       <Specify Segment> |
+	       <Specify Region> |
+	       <Specify Disk> ) ,
+	     ( ( N[ame] = \" <EVMS Name> \" ) |
+	       C[ompatibility] )
+
+<Query Type> ::=
+P[lugins] [ , ( (T[ype] = <Plugin Types>) |
+		( P[lugin] = <Plugin Identifier> ) |
+		( V[olume] = <Specify Volume> ) |
+		( O[bject] = <Specify Storage Object>) |
+		( C[ontainer] = <Specify Container> ) ) ]
+	  [ , L[ist ]O[ptions] ]
+
+| V[olumes] [ , <Size Parameters> ]
+	    [ , P[lugin] = <Plugin Identifier> ]
+	    [ , C[ontainer] = <Specify Containert> ]
+	    [ , Con[vertable] ]
+	    [ , E[xpandable] ]
+	    [ , Sh[rinkable] ]
+	    [ , V[olume] = <Specify Volume> ]
+	    [ , R[egion] = <Specify Region> ]
+	    [ , O[bject] = <Specify Storage Object> ]
+	    [ , L[ist ]O[ptions] ]
+
+| R[egions] [ , <Size Parameters> ]
+	    [ , V[olume] = <Specify Volume> ]
+	    [ , O[bject] = <Specify Storage Object> ]
+	    [ , C[ontainer] = <Specify Container> ]
+	    [ , R[egion] = <Specify Region> ]
+	    [ , U[nclaimed] ]
+	    [ , P[lugin] = <Plugin Identifier> ]
+	    [ , E[xpandable] ]
+	    [ , Sh[rinkable] ]
+	    [ , L[ist ]O[ptions] ]
+
+| O[bjects] [ , <Size Parameters> ]
+	    [ , P[lugin] = <Plugin Identifier> ]
+	    [ , V[olume] = <Specify Volume> ]
+	    [ , C[ontainer] = <Specify Container> ]
+	    [ , O[bject] = <Specify Storage Object> ]
+	    [ , E[xpandable] ]
+	    [ , Sh[rinkable] ]
+	    [ , U[nclaimed] ]
+	    [ , R[egion] = <Specify Region> ]
+	    [ , L[ist ]O[ptions] ]
+
+| C[ontainers] [ , <Size Parameters> ]
+	       [ , P[lugin] = <Plugin Identifier> ]
+	       [ , C[ontainer] = <Specify Container> ]
+	       [ , F[reespace]
+	       [ , R[egion] = <Specify Region> ]
+	       [ , S[egment] = <Specify Segment> ]
+	       [ , D[isk] = <Specify Disk> ]
+	       [ , L[ist ]O[ptions] ]
+
+| D[isks] [ , <Size Parameters> ]
+	  [ , P[lugin] = <Plugin Identifier> ]
+	  [ , D[isk] = <Specify Disk> ]
+	  [ , S[egment] = <Specify Segment> ]
+	  [ , U[nclaimed] ]
+	  [ , L[ist ]O[ptions] ]
+
+| S[egments] [ , <Size Parameters> ]
+	     [ , P[lugin] = <Plugin Identifier> ]
+	     [ , C[ontainer] = <Specify Container> ]
+	     [ , D[isk] = <Specify Disk> ]
+	     [ , S[egment] = <Specify Segment> ]
+	     [ , U[nclaimed] ]
+	     [ , E[xpandable] ]
+	     [ , Sh[rinkable] ]
+	     [ , L[ist ]O[ptions] ]
+
+| A[cceptable] , ( ( C[reate] , <Object To Create> ,
+		     <Plugin Identifier> = { [ <Name Value Pair List>  ] } ) |
+		 (  E[xpand] ,  <Specify Storage Object> ) )
+     		 ( , (<Specify Storage Object> |
+		      <Specify Region>  |
+		      <Specify Segment> |
+		      <Specify Disk>) )*
+
+| Chi[ldren] ,  <Specify Storage Object> |
+		<Specify Volume> |
+		<Specify Region> |
+		<Specify Segment> |
+		<Specify Container>
+
+| Par[ent] ,  <Specify Storage Object> |
+	      <Specify Disk> |
+	      <Specify Region> |
+	      <Specify Segment> |
+	      <Specify Container>
+
+| ( Expand Points | EP ) , <Specify Storage Object> |
+			   <Specify Volume> |
+			   <Specify Region> |
+			   <Specify Segment>
+
+| Shrink Points | SP ), <Specify Storage Object> |
+			<Specify Volume> |
+			<Specify Region> |
+			<Specify Segment>
+
+| ( Extended Info | EI ) , ( <Plugin Identifier> |
+			     <Specify Storage Object> |
+			     <Specify Disk> |
+			     <Specify Region> |
+			     <Specify Segment> |
+			     <Specify Container> )
+			   [ , <Field Name> ]
+
+<Plugin Types> ::=
+	D[evice Manager]
+	| F[eature]
+	| R[egion Manager]
+	| S[egment Manager]
+	| ( File System Interface Module | FSIM )
+	| ( Distributed Lock Management | DLM )
+	| ( Cluster Management | CM )
+
+<Object To Create> ::=
+	V[olume]
+	| O[bject]
+	| R[egion]
+	| S[egment]
+	| C[ontainer]
+
+<Feature Identifier> ::=
+	\"  <EVMS Feature Name> \"
+	| <EVMS Feature ID>
+
+<Plugin Identifier> ::=
+	\" <EVMS Plugin Name> \"
+	| <EVMS Plugin ID Number>
+
+<Field Name> ::= <String>
+
+<Size Parameters> ::=
+	LT <Size>
+	| GT <Size>
+	| EQ <Size> (,  < Precision> )
+	| LT <Size> , GT <Size>
+	| GT <Size> , LT <Size>
+
+<Specify Freespace> ::== the EVMS name of a segment or region representing a
+	block of freespace.
+
+<Specify Freespace Segment> ::== the EVMS name of a segment representing a block
+	of freespace.
+
+<Specify Region> ::== the EVMS name of a region
+
+<Specify Segment> ::== the EVMS name of a segment
+
+<Specify Disk> ::== the EVMS name of a disk.
+
+<Specify Storage Object> ::== the EVMS name of a storage object.
+
+<Specify Container> ::== the EVMS name of a container.
+
+<Specify Volume> ::== the EVMS name of a Volume.
+
+<Specify Filesystem Interface Module> ::== the EVMS name of a filesystem
+	interface module.
+
+<Name Value Pair List > ::== <Name Value Pair> (, <Name Value Pair>)*
+
+<Name Value Pair> ::==
+	<Parameter Name> = <Value>
+	| <Parameter Name> = '(' <Value> ( , <Value> )* ')'
+
+<Value ::==
+	<Integer> [ ( KB | MB | GB | TB  |
+		      s[econds] | sectors | h[ours] | min[utes] |
+		      milliseconds | ms | us | microseconds ) ]
+	| <Real Number> [ ( KB | MB | GB | TB  |
+			    s[econds] | sectors | h[ours] |min[utes] |
+			    milliseconds | ms | us | microseconds ) ] | <String>
+
+<Size> ::== <Cardinal> ( MB | GB | KB | TB )
+
+<Precision> ::== <Cardinal>
+
+<Mount Options> ::= <String>
+
+<EVMS Feature Name> ::== This is provided to the EVMS by the feature plugin and
+	must be in the format specified by the EVMS.
+
+<EVMS Feature ID> ::== This is provided to the EVMS by the feature plugin and
+	must be in the format specified by the EVMS.
+
+<Parameter Name> ::== Any parameter name provided to the EVMS by a plugin that
+	is in the format specified by the EVMS.
+
+<EVMS Plugin Name> ::== This is provided to the EVMS by the plugin and must be
+	in the format specified by the EVMS.
+
+<EVMS Plugin ID Number> ::== This is provided to the EVMS by the plugin and must
+	be in the format specified by the EVMS.
+
+<Cardinal> ::== A cardinal number according to the mathematical definition of
+	such.
+
+<Integer> ::== An integer number according to the mathematical definition of
+	such.
+
+<Real Number> :== A floating point number.
+
+<File Name> ::== A Linux acceptable file name
+
+<Directory> ::== A Linux acceptable directory name
+
+<String > ::== Any sequence of ASCII characters except for the quote mark. A
+	string should be enclosed in quote marks if it contains any
+	non-alphabetic or non-numeric characters or spaces.  If a quote mark is
+	embedded in the string as a part of the string, then two quote marks
+	should be used, as in the following example create command:
+
+	Create:Volume,hda7,Name =\"This is the name of an \"\"EVMS\"\" test volume.\"
+
+<EVMS Name> ::== a character string the length of which is yet to be determined.
+	This character string should be one provided by EVMS for something
+	created by, or under, EVMS control.
+

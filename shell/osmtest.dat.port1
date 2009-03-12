@@ -1,0 +1,202 @@
+#
+# Node Records
+#
+DEFINE_NODE
+lid                     0x1
+base_version            0x1
+class_version           0x1
+node_type               0x1 # (Channel Adapter)
+num_ports               0x2
+sys_guid                0x0002c90200210d07
+node_guid               0x0002c90200210d04
+port_guid               0x0002c90200210d05
+partition_cap           0x40
+device_id               0x6282
+revision                0xA0
+# port_num              0x1
+# vendor_id             0x2C9
+# node_desc              HCA-1
+END
+
+DEFINE_NODE
+lid                     0x2
+base_version            0x1
+class_version           0x1
+node_type               0x1 # (Channel Adapter)
+num_ports               0x2
+sys_guid                0x0002c90200241b3f
+node_guid               0x0002c90200241b3c
+port_guid               0x0002c90200241b3d
+partition_cap           0x40
+device_id               0x6278
+revision                0xA0
+# port_num              0x1
+# vendor_id             0x2C9
+# node_desc             MT25208 InfiniHostEx Mellanox Technologies
+END
+
+#
+# PortInfo Records
+#
+DEFINE_PORT
+lid                     0x1
+port_num                0x1
+m_key                   0x0000000000000000
+subnet_prefix           0xfe80000000000000
+base_lid                0x1
+master_sm_base_lid      0x1
+capability_mask         0x2590A6A
+diag_code               0x0
+m_key_lease_period      0x0
+local_port_num          0x1
+link_width_enabled      0x3
+link_width_supported    0x3
+link_width_active       0x2
+link_speed_supported    0x1
+port_state              ACTIVE
+state_info2             0x52
+mpb                     0x0
+lmc                     0x0
+link_speed              0x11
+mtu_smsl                0x40
+vl_cap                  0x40
+vl_high_limit           0x0
+vl_arb_high_cap         0x8
+vl_arb_low_cap          0x8
+mtu_cap                 0x4
+vl_stall_life           0xFF
+vl_enforce              0x40
+m_key_violations        0x0
+p_key_violations        0x0
+q_key_violations        0x0
+guid_cap                0x20
+subnet_timeout          0x12
+resp_time_value         0x10
+error_threshold         0x88
+END
+
+DEFINE_PORT
+lid                     0x2
+port_num                0x1
+m_key                   0x0000000000000000
+subnet_prefix           0xfe80000000000000
+base_lid                0x2
+master_sm_base_lid      0x1
+capability_mask         0x2510A68
+diag_code               0x0
+m_key_lease_period      0x0
+local_port_num          0x1
+link_width_enabled      0x3
+link_width_supported    0x3
+link_width_active       0x2
+link_speed_supported    0x3
+port_state              ACTIVE
+state_info2             0x52
+mpb                     0x0
+lmc                     0x0
+link_speed              0x13
+mtu_smsl                0x40
+vl_cap                  0x40
+vl_high_limit           0x0
+vl_arb_high_cap         0x8
+vl_arb_low_cap          0x8
+mtu_cap                 0x4
+vl_stall_life           0xFF
+vl_enforce              0x40
+m_key_violations        0x0
+p_key_violations        0x0
+q_key_violations        0x0
+guid_cap                0x20
+subnet_timeout          0x12
+resp_time_value         0x10
+error_threshold         0x88
+END
+
+#
+# Path Records
+#
+DEFINE_PATH
+dgid                    0xfe80000000000000 0x0002c90200210d05
+sgid                    0xfe80000000000000 0x0002c90200210d05
+dlid                    0x1
+slid                    0x1
+# hop_flow_raw          0x0
+# tclass                0x0
+# num_path              0x80
+pkey                    0xFFFF
+# sl                    0x0
+# qos_class             0x0
+# mtu                   0x84
+# rate                  0x83
+# pkt_life              0x80
+# preference            0x0
+END
+
+DEFINE_PATH
+dgid                    0xfe80000000000000 0x0002c90200210d05
+sgid                    0xfe80000000000000 0x0002c90200241b3d
+dlid                    0x1
+slid                    0x2
+# hop_flow_raw          0x0
+# tclass                0x0
+# num_path              0x80
+pkey                    0xFFFF
+# sl                    0x0
+# qos_class             0x0
+# mtu                   0x84
+# rate                  0x83
+# pkt_life              0x92
+# preference            0x0
+END
+
+DEFINE_PATH
+dgid                    0xfe80000000000000 0x0002c90200241b3d
+sgid                    0xfe80000000000000 0x0002c90200210d05
+dlid                    0x2
+slid                    0x1
+# hop_flow_raw          0x0
+# tclass                0x0
+# num_path              0x80
+pkey                    0xFFFF
+# sl                    0x0
+# qos_class             0x0
+# mtu                   0x84
+# rate                  0x83
+# pkt_life              0x92
+# preference            0x0
+END
+
+DEFINE_PATH
+dgid                    0xfe80000000000000 0x0002c90200241b3d
+sgid                    0xfe80000000000000 0x0002c90200241b3d
+dlid                    0x2
+slid                    0x2
+# hop_flow_raw          0x0
+# tclass                0x0
+# num_path              0x80
+pkey                    0xFFFF
+# sl                    0x0
+# qos_class             0x0
+# mtu                   0x84
+# rate                  0x83
+# pkt_life              0x80
+# preference            0x0
+END
+
+#
+# Link Records
+#
+DEFINE_LINK
+from_lid                0x1
+from_port_num           0x1
+to_port_num             0x1
+to_lid                  0x2
+END
+
+DEFINE_LINK
+from_lid                0x2
+from_port_num           0x1
+to_port_num             0x1
+to_lid                  0x1
+END
+

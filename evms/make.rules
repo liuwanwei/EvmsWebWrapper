@@ -1,0 +1,143 @@
+SHELL		= /bin/sh
+
+# Programs
+
+CC		= gcc
+CPP		= gcc -E
+LN_S		= ln -s
+INSTALL		= /usr/bin/install -c
+
+# Default version number. Each individual directory is free to set their
+# own version (if they wish).
+MAJOR_VERSION	= 2
+MINOR_VERSION	= 5
+PATCH_LEVEL	= 5
+
+DATE		:= $(shell date +%D)
+VERSION		= $(MAJOR_VERSION).$(MINOR_VERSION).$(PATCH_LEVEL)$(EXTRA_VERSION)
+
+# Compiler flags
+CFLAGS		= -g
+LDFLAGS		= 
+EVMS_CFLAGS	= -fPIC
+EVMS_CPPFLAGS	= -I/usr/include/evms 
+EVMS_DEFS	= $(EVMS_DEBUG)				\
+		  $(NLS_DEFS)				\
+		  -DMAJOR_VERSION=$(MAJOR_VERSION)	\
+		  -DMINOR_VERSION=$(MINOR_VERSION)	\
+		  -DPATCH_LEVEL=$(PATCH_LEVEL)		\
+		  -DVERSION=\"$(VERSION)\"		\
+		  -DDATE=\"$(DATE)\"
+
+EVMS_LDFLAGS	= $(LDFLAGS)
+EVMS_LIBS	=  $(EFENCE_LIBS)
+NLS_DEFS	= $(ENABLE_NLS) -DPACKAGE=\"evms\" -DLOCALEDIR=\"$(localedir)\"
+
+PTHREAD_LIBS	= -lpthread
+UUID_LIBS	= -luuid
+UUID_CPPFLAGS   = -I/home/wwliu/software/e2fsprogs-1.40.8/lib
+NCURSES_LIBS	= -lncurses -lglib
+NCURSES_CPPFLAGS= -I/usr/include/ncurses -I/home/wwliu/software/gtk+/glib-1.2.0
+PANEL_LIBS	= -lpanel
+READLINE_LIBS	= -lreadline -lncurses
+READLINE_DEFS	= -DUSE_READLINE
+MATH_LIBS	= -lm
+GLIB_LIBS	=  
+GLIB_CPPFLAGS	= 
+GLIB2_LIBS	= -lglib 
+GLIB2_CPPFLAGS	= -I/home/wwliu/software/gtk+/glib-1.2.0
+GTK_LIBS	= 
+GTK_CPPFLAGS	= -I/home/wwliu/software/gtk+/gtk+-1.2.0 -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pango-1.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0
+HA_LIBS		= -L/usr/lib64 -lccmclient -lhbclient -lplumb
+HA_CPPFLAGS	= 
+HA_RESOURCEDIR	= 
+HA_MAJOR	= 2
+HA_MINOR	= 1
+HA_PATCH	= 3
+HA_GLIB_CPPFLAGS= 
+HA_GLIB_LIBS	= 
+HA_GS_R_LIBS	= 
+DEVMAPPER_LIBS	= 
+EFENCE_LIBS	= 
+EVMS_DEBUG	= 
+ENABLE_NLS	= -DENABLE_NLS
+
+# Install directories
+# By default, we want prefix to be "/usr", and exec_prefix to be "/". This
+# will install the libraries in /lib, the plugins in /lib/evms, the UIs in
+# /sbin, the headers in /usr/include/evms, and the man pages in /usr/man.
+# However, autoconf only seems to let us set the default for prefix. So to
+# make it all work correctly with the configure script, we have to play some
+# games here. In the configure script, we set the prefix default to blank. If
+# it is still blank here, we can assume the user has not specified a prefix,
+# and we can set them up as we wish.
+prefix		= 
+
+ifeq ($(strip $(prefix)),)
+	prefix		= /usr
+	exec_prefix	=
+else
+	exec_prefix	= ${prefix}
+endif
+
+sbindir		= ${exec_prefix}/sbin
+libdir		= ${exec_prefix}/lib
+mandir		= ${prefix}/man
+includedir	= ${prefix}/include
+localedir	= ${prefix}/share/locale
+evmsheadersdir	= ${prefix}/include/evms
+evmspluginsdir	:= ${exec_prefix}/lib/evms/$(VERSION)
+
+# Variables that most Makefiles will use.
+SOURCES		:= $(wildcard *.c)
+HEADERS		:= $(wildcard *.h)
+MANPAGES	:= $(wildcard *.8)
+OBJECTS		= $(SOURCES:.c=.o)
+SBIN_TARGET	= $(NAME)
+LIB_TARGET	= lib$(NAME)-$(MAJOR_VERSION).$(MINOR_VERSION).so.0.$(PATCH_LEVEL)
+PLUGIN_TARGET	= $(NAME)-$(VERSION).so
+SONAME		= lib$(NAME)-$(MAJOR_VERSION).$(MINOR_VERSION).so.0
+ARNAME		= lib$(NAME).a
+LIBNAME		= lib$(NAME).so
+
+# Macros to use to run make recursively over a set of directories, which
+# must be specified in the $(subdirs) or $(distsubdirs) variable.
+PROCESS_DIRS	=			\
+	+@for dir in $(subdirs); do	\
+		$(MAKE) -C $$dir $@ ||	\
+		case "$(MAKEFLAGS)" in	\
+			*k*) fail=yes;;	\
+			*) exit 1;;	\
+		esac;			\
+	done && test -z "$$fail"
+
+PROCESS_DISTDIRS =			\
+	+@for dir in $(distsubdirs); do	\
+		$(MAKE) -C $$dir $@ ||	\
+		case "$(MAKEFLAGS)" in	\
+			*k*) fail=yes;;	\
+			*) exit 1;;	\
+		esac;			\
+	done && test -z "$$fail"
+
+# Macros to build libraries and binaries.
+BUILD_SHARED_LIB = $(CC) -shared $(EVMS_LDFLAGS) -Wl,-soname,$(SONAME),--version-script,.export -o $(TARGET) $(OBJECTS) $(EVMS_LIBS)
+BUILD_STATIC_LIB = $(AR) rcs $(ARNAME) $(OBJECTS)
+BUILD_PLUGIN = $(CC) -shared $(EVMS_LDFLAGS) -Wl,--version-script,.export -o $(TARGET) $(OBJECTS) $(EVMS_LIBS)
+BUILD_SBIN = $(CC) -L /lib $(EVMS_LDFLAGS) -o $(TARGET) $(OBJECTS) -levms $(EVMS_LIBS) $(PTHREAD_LIBS)
+
+.PHONY: install uninstall clean distclean
+.SUFFIXES: .c .o
+
+# Compiling .c's to .o's
+%.o: %.c
+	$(CC) $(EVMS_CPPFLAGS) $(CPPFLAGS) $(EVMS_DEFS) $(EVMS_CFLAGS) $(CFLAGS) -c $< -o $@
+
+# Generating dependencies
+.depend:
+	$(CPP) -M $(EVMS_CPPFLAGS) $(CPPFLAGS) $(EVMS_DEFS) $(SOURCES) > .depend
+
+# Generating linker version-scripts for the plugins.
+.export:
+	echo "EVMS { global: evms_plugin_records; local: *; };" > .export
+
