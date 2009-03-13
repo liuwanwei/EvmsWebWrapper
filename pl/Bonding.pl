@@ -49,28 +49,32 @@ exit $ret;
 sub GetAllBondings()
 {
         my @bondings;
-        my ($i, $cnt, $name, $slave, $record);
-
-        open (FH, "<$bonding_master") or return -1;
+        my ($name, $slave, $record);
 
         # Get all bondings' name
+        open (FH, "<$bonding_master") or return -1;
         while(<FH>)
         {
+                chomp;
                 push(@bondings, split / /, $_);
         }
-
         close(FH);
 
-        # Clear result file before we do things.
-        system("rm -f $tmp_file");
+        undef $record;
 
         # Get each bonding's details and add them to result file.
-        $cnt = scalar(@bondings);
-        for($i = 0; $i < $cnt; $i ++)
+        foreach $name (@bondings)
         {
-                #print "$bondings[$i]\n";
-                $name = $bondings[$i];
-                $result = "device=" . $name;
+                if(defined $record)
+                {
+                        $record = $record . "device=" . $name;
+                }
+                else
+                {
+                        $record = "device=" . $name;
+                }
+
+                print "$name\n";
 
                 # Get basic ehernet informations on device.
                 if(0 != system("ifconfig $name > $tmp_file"))
@@ -81,13 +85,14 @@ sub GetAllBondings()
                 open(FH, "<$tmp_file") or die "$?";
                 while(<FH>)
                 {
+                        chomp;
                         if($_ =~ /HWaddr ([0-9a-f:]+)/i)
                         {
-                                $result += "|hwaddr=" . $1;
+                                $record = $record . "|hwaddr=" . $1;
                         }
                         elsif($_ =~ /inet addr:([0-9\.]+)  Bcast:([0-9\.]+)  Mask:([0-9\.]+)/)
                         {
-                                $result += "|ip=" . $1 . "|bcase=". $2 . "|mask=" . $3;
+                                $record = $record . "|ip=" . $1 . "|bcase=". $2 . "|mask=" . $3;
                         }
                 }
                 close(FH);
@@ -96,9 +101,10 @@ sub GetAllBondings()
                 open(FH, "<$bonding_sys_base$name$dir_suffix_mode") or die "$?";
                 while(<FH>)
                 {
+                        chomp;
                         next unless $_ =~ /\w ([0-6])/i;
 
-                        $result += "|mode=" . $1;
+                        $record = $record . "|mode=" . $1;
                 }
                 close(FH);
 
@@ -106,27 +112,32 @@ sub GetAllBondings()
                 open(FH, "<$bonding_sys_base$name$dir_suffix_miimon") or die "$?";
                 while(<FH>)
                 {
+                        chomp;
                         next unless $_ =~ /^([0-9]+)/i;
 
-                        $result += "|miimon=" . $1;
+                        $record = $record . "|miimon=" . $1;
                 }
                 close(FH);
 
                 # Get slaves
                 my @slaves;
                 open(FH, "<$bonding_sys_base$name$dir_suffix_slaves") or die "$?";
+                while(<FH>)
                 {
+                        chomp;
                         push(@slaves, split / /, $_);
                 }
                 close(FH);
 
                 foreach $slave (@slaves)
                 {
-                        $result += "|slave=" . $slave;
+                        $record = $record . "|slave=" . $slave;
                 }
 
-                system("echo $result >> $tmp_file 2>&1 >/dev/null");
+                $record = $record . "\n";
         }
+
+        system("echo \"$record\" > $tmp_file");
 
 	return 0;
 }
