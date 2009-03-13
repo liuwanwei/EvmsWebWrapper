@@ -8,6 +8,8 @@
 #include <sys/wait.h>
 #include <sys/socket.h>
 
+#include "Functions.h"
+
 // shell scripts used here.
 static const char * s_system_cmd_script = "/usr/sbin/sanager/System.sh";
 
@@ -42,7 +44,13 @@ int SystemCmd(int sock_fd, char * oneframe, int len)
 			break;
 	}
 
-	if(SendCommonFrame(sock_fd, (unsigned short)ret, reply, reply_len, MSG_TYPE_SYSTEM, ((PPACKET_HDR)oneframe)->subtype) <= 0)
+
+	if (SendAppFrame(sock_fd, 
+			MSG_TYPE_IB,
+			((PACKET_HDR *) oneframe)->subtype,
+			(unsigned short) ret, 
+			reply, 
+			reply_len) <= 0)
 	{
 		if(NULL != reply)
 		{
@@ -193,6 +201,7 @@ int CreateDirectory(char * msg_body, int msg_body_len)
 }
 
 
+/*
 int SendCommonFrame(int sock_fd, unsigned short retcode, char * data, int data_len, char main_type, char sub_type)
 {
 	printf("### Enter SendCommonFrame ###\n");
@@ -231,3 +240,4 @@ int SendCommonFrame(int sock_fd, unsigned short retcode, char * data, int data_l
 
 	return hdr.len;
 }
+*/

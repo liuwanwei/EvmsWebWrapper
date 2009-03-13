@@ -28,6 +28,7 @@
 #include "InfinibandCmd.h"
 #include "IscsiCmd.h"
 #include "SystemCmd.h"
+#include "BondingCmd.h"
 
 PktHandler g_PktHandler[MSG_TYPE_NUM] = {
     GetUnknowCmd,
@@ -35,7 +36,8 @@ PktHandler g_PktHandler[MSG_TYPE_NUM] = {
     EvmsCmd,
     InfinibandCmd,
     IscsiCmd,
-    SystemCmd
+    SystemCmd,
+    BondingCmd
 };
 
 static void Link_Ctrl_Cleanup(void *pinfo)

@@ -12,7 +12,6 @@
 	
 #include "Debuger.h"
 #include "NetServer.h"
-#include "Infiniband.h"
 #include "evms/PrivateData.h"
 
 #define SANAGER_WORKING_DIR 	"/usr/sbin/sanager/"

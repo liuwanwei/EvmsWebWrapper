@@ -5,9 +5,9 @@ EVMS_LIB := libevms-cli.so
 # PACK_LIB := libmypack.so
 TARGET   := net_server client
 OBJECTS  := Main.o NetServer.o LinkCtrl.o SysCheckInCmd.o RecvOneFrame.o \
-	    DeadThreadTbl.o CtrlLinkTbl.o \
+	    DeadThreadTbl.o CtrlLinkTbl.o Functions.o\
             NetLog.o  UnknownRequest.o HandShakeCmd.o EvmsCmd.o \
-	    InfinibandCmd.o Infiniband.o IscsiCmd.o SystemCmd.o
+	    InfinibandCmd.o IscsiCmd.o SystemCmd.o BondingCmd.o
 
 all:  RULES $(EVMS_LIB) $(PACK_LIB) ${TARGET}
 	@chmod +x shell/*.sh
