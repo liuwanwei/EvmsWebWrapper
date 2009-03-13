@@ -59,22 +59,22 @@ sub AddTarget()
 		# The attributes pair.
 		my ($key_name, $value) = split(/=/, $pair);
 		$key_name = lc($key_name);
-		if(lc($key_name) eq "lun")
+		if($key_name eq "lun")
 		{
 			$lun = $value;
 			print "Get lun: $lun\n";
 		}
-		elsif(lc($key_name) eq "path")
+		elsif($key_name eq "path")
 		{
 			$path = $value;
 			print "Get path: $path\n";
 		}
-		elsif(lc($key_name) eq "iotype")
+		elsif($key_name eq "iotype")
 		{
 			$type = $value;
 			print "Get iotype: $type\n";
 		}
-		elsif(lc($key_name) eq "name")
+		elsif($key_name eq "name")
 		{
 			$name = $value;
 			print "Get name: $name\n";

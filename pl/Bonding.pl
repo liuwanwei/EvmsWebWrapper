@@ -144,6 +144,26 @@ sub GetAllBondings()
 
 sub AddBonding()
 {
+        my $pair_list = split /\|/ $_[0]);
+        my ($name, $ip);
+
+        foreach my $pair (@pair_list)
+        {
+                my $($key, $value) = split(/=/, $pair);
+                $key = lc($key);
+
+                if($key eq "device")
+                {
+                        $name = $value;
+                        print "Get name: $name\n";
+                }
+                elsif($key eq "ip")
+                {
+                        $ip = $value;
+                        print "Get ip: $ip\n";
+                }
+        }
+
 	return 0;
 }
 
