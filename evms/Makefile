@@ -35,15 +35,15 @@ $(AR_TARGET): $(OBJECTS)
 
 $(SO_TARGET): $(OBJECTS)
 	$(LD) -shared -o $(SO_TARGET) $(LIBS) $(OBJECTS) 
-	cp $(SO_TARGET) $(LIB_DIR)$(SO_TARGET) -rf
+
+install: 
+	cp $(SO_TARGET) $(LIB_DIR)$(SO_TARGET) -f
 	rm $(LIB_DIR)$(TARGET) -f
 	ln -s $(LIB_DIR)$(SO_TARGET) $(LIB_DIR)$(TARGET)
 
-install: 
-	$(INSTALL) -m 755 $(TARGET) $(DESTDIR)$(sbindir)
-
 uninstall:
-	rm -f $(DESTDIR)$(sbindir)/$(TARGET)
+	rm $(LIB_DIR)$(TARGET) -f
+	rm $(LIB_DIR)$(SO_TARGET) -f
 
 clean:
 	rm -f $(OBJECTS) $(TARGET) ${AR_TARGET} ${SO_TARGET} a.out
