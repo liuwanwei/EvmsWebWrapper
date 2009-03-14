@@ -13,7 +13,7 @@ touch $make_rule
 
 if [ $smp -eq 1 ]
 then
-	echo "LIB_DIR   = /lib64/ " > $make_rule
+	echo "LIB_DIR   = /lib64/" > $make_rule
 else
-	echo "LIB_DIR   = /lib/  "  > $make_rule
+	echo "LIB_DIR   = /lib/"  > $make_rule
 fi
