@@ -26,12 +26,12 @@ HandShakeCmd (int sock_fd, char *pPacket, int len)
 	{
 		if (pcld->socket_fd != sock_fd)
 			continue;
-		thread_mutex_lock (&pcld->mutex);
+		pthread_mutex_lock (&pcld->mutex);
 		pcld->notinformcnt = 0;
 		pthread_mutex_unlock (&pcld->mutex);
 
 		// 报文头结构，只需要将发来的包原封不动的扔回去就结束了。
-		PACKET_HDR rspPkt;	；
+		PACKET_HDR rspPkt;
 		memcpy (&rspPkt, pPacket, len);
 
 		/*
