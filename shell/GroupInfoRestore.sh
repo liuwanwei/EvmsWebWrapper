@@ -1,14 +1,14 @@
 #!/bin/bash
 
-. Defines.sh
+. /usr/sbin/sanager/Defines.sh
 
-groups_bk_dir="/usr/local/sbin/sanager/groups_bk"
+echo "begin" >> $startup_log
 
 RestoreDeviceCtrlFile()
 {
 	if [ $# -lt 2 ]
 	then
-		echo "RestoreDeviceCtrlFile param error!"
+		echo "RestoreDeviceCtrlFile param error!" >> $startup_log
 		return $error_param
 	fi
 
@@ -40,7 +40,7 @@ RestoreIBPortCtrlFile()
 {
 	if [ $# -lt 2 ]
 	then
-		echo "RestoreIBPortCtrlFile param error!"
+		echo "RestoreIBPortCtrlFile param error!" >> $startup_log
 		return $error_param
 	fi
 
@@ -58,7 +58,7 @@ RestoreGroup()
 {
 	if [ ! $# -eq  1 ]
 	then
-		echo "RestoreGroup error param!"
+		echo "RestoreGroup error param $#!" >> $startup_log
 		return $error_param
 	fi
 
@@ -67,7 +67,7 @@ RestoreGroup()
 
 	if [ ! -d $cur_group_bk_dir ]
 	then
-		echo " Not exist: $cur_group_bk_dir !"
+		echo " Not exist: $cur_group_bk_dir !" >> $startup_log
 		return $error_notexist
 	fi
 
@@ -76,16 +76,18 @@ RestoreGroup()
 	echo "add_group $group_name" > $group_ctrl_file
 
 	# restore group device control file
-	RestoreDeviceCtrlFile $cur_group_bk_dir/"devices" $group_name
+	RestoreDeviceCtrlFile $cur_group_bk_dir"/devices" $group_name
 	if [ $? -ne $error_ok ]
 	then
+		echo "RestoreDeviceCtrlFile $cur_group_bk_dir failed!" >> $startup_log
 		return $error_fail
 	fi
 
 	# restore group ibport control file
-	RestoreIBPortCtrlFile $cur_group_bk_dir/"names"   $group_name 
+	RestoreIBPortCtrlFile $cur_group_bk_dir"/names"   $group_name 
 	if [ $? -ne $error_ok ]
 	then
+		echo "RestoreIBPortCtrlFile $cur_group_bk_dir failed!" >> $startup_log
 		return $error_fail
 	fi
 
@@ -96,14 +98,18 @@ groups=`ls $groups_bk_dir`
 
 if [ -z $groups ]
 then
+	echo "noexist" >> $startup_log
 	exit $error_notexist
 fi
 
 # the main working loop: restore each group 
 for group_name in $groups
 do
+	echo "restore group $group_name" >> $startup_log
 	RestoreGroup $group_name
 done
+
+echo "end" >> $startup_log
 
 exit $error_ok
 

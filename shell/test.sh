@@ -1,9 +1,14 @@
 #! /bin/bash
 
-param1=$1
+process_id=`ps ax|grep opensm | grep -v grep | awk '{print $1}'`
 
-echo $param1
+echo $process_id
 
-GetAllPorts.pl
+for i in $process_id
+do
+	echo $i
+done
 
 
+date=`date`
+echo $date

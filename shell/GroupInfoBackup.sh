@@ -32,8 +32,6 @@ then
 	exit $error_notexist
 fi
 
-groups_bk_dir="/usr/local/sbin/sanager/groups_bk"
-
 if [ ! -d $groups_bk_dir ]
 then
 	mkdir $groups_bk_dir

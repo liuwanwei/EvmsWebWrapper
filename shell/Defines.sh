@@ -19,6 +19,9 @@ vdisk_ctrl_file=$base_vdisk_dir"vdisk"
 
 tmp_group_name_file="/tmp/groups_list"
 
-shell_scripts_dir=/usr/local/sbin/sanager/
+shell_scripts_dir="/usr/sbin/sanager/"
+groups_bk_dir=$shell_scripts_dir"groups_bk"
 group_backup_script=$shell_scripts_dir/"GroupInfoBackup.sh"
 group_restore_script=$shell_scripts_dir/"GroupInfoRestore.sh"
+
+startup_log="/tmp/sanager_startup"

@@ -39,6 +39,6 @@ clean :
 	@rm -rf ib/*.o 
 
 install:
-	@cp net_server /usr/local/sbin/sanager/ -rf
-	@cp shell/* /usr/local/sbin/sanager/ -rf
+	@cp net_server /usr/sbin/sanager/ -rf
+	@cp shell/* /usr/sbin/sanager/ -rf
 	make -C evms install

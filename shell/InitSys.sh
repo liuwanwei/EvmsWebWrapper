@@ -1,5 +1,39 @@
 #!/bin/bash
 
+. /usr/sbin/sanager/Defines.sh
+
+date=`date`
+echo $date >> $startup_log
+
+# scst driver has been invoked by somebody I don't know
+modprobe scst_vdisk
+
+# wait for scst drivers invoke finish
+sleep 1
+
+# shutdown the opensm process already running
+opensm_process_id=`ps ax | grep opensm | grep -v grep | awk '{print $1}'`
+if [ "$opensm_process_id " != " " ]
+then
+	for id in $opensm_process_id
+	do
+		echo "Kill $id"
+		kill -9 $id
+	done
+
+	echo "Shutdown opensm ... " >> $startup_log
+	sleep 3
+fi
+
+opensm_process_id=`ps ax | grep opensm | grep -v grep | awk '{print $1}'`
+echo $opensm_process_id
+if [ "$opensm_process_id " != " " ]
+then
+	echo "kill opensm process failed" >> $startup_log
+	exit 1
+fi
+
+
 # Get IB card's node guid(command "bc" requires Uppercase hex number)
 node_guid=` ibv_devinfo | grep node_guid | awk '{print $2}' | sed -e 's/://g' | sed -e 'y/abcdef/ABCDEF/'`
 
@@ -24,3 +58,5 @@ then
 	opensm -g $port2_guid -B
 fi
 
+# Restore the group info on the server
+/usr/sbin/sanager/GroupInfoRestore.sh

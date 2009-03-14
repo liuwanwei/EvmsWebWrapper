@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sbin_dir=/usr/local/sbin
+sbin_dir=/usr/sbin
 sanager_bin_dir=$sbin_dir/sanager
 net_server=$sanager_bin_dir/net_server
 init_sys=$sanager_bin_dir/InitSys.sh

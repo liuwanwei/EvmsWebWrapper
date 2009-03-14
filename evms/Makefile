@@ -37,17 +37,17 @@ $(SO_TARGET): $(OBJECTS)
 	$(LD) -shared -o $(SO_TARGET) $(LIBS) $(OBJECTS) 
 
 install: 
-	cp $(SO_TARGET) $(LIB_DIR)$(SO_TARGET) -f
-	rm $(LIB_DIR)$(TARGET) -f
-	ln -s $(LIB_DIR)$(SO_TARGET) $(LIB_DIR)$(TARGET)
+	@cp $(SO_TARGET) $(LIB_DIR)$(SO_TARGET) -f
+	@rm $(LIB_DIR)$(TARGET) -f
+	@ln -s $(LIB_DIR)$(SO_TARGET) $(LIB_DIR)$(TARGET)
 
 uninstall:
-	rm $(LIB_DIR)$(TARGET) -f
-	rm $(LIB_DIR)$(SO_TARGET) -f
+	@rm $(LIB_DIR)$(TARGET) -f
+	@rm $(LIB_DIR)$(SO_TARGET) -f
 
 clean:
-	rm -f $(OBJECTS) $(TARGET) ${AR_TARGET} ${SO_TARGET} a.out
+	@rm -f $(OBJECTS) $(TARGET) ${AR_TARGET} ${SO_TARGET} a.out
 
 distclean: clean
-	rm -f Makefile
+	@rm -f Makefile
 
