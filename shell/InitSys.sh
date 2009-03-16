@@ -89,6 +89,9 @@ then
 	ietd
 fi
 
+# Starting up bonding driver
+modprobe bonding
+
 # Restore vdisk info on the server
 /usr/sbin/sanager/VdiskInfoRestore.sh
 
