@@ -188,12 +188,12 @@ int GetAllGroups(char **reply, int *reply_len)
         {
 		int ret;
                 int status;
-                waitpid(pid, &status, 0);
 		char line_buffer[256];
 		int name_len = 0;
 		FILE * group_name_file_p = NULL;
 		const char * group_name_file = "/tmp/groups_list";
 
+                waitpid(pid, &status, 0);
                 ret = WEXITSTATUS(status);
 
 		if(0 != ret)

@@ -27,13 +27,15 @@
 #include "EvmsCmd.h"
 #include "InfinibandCmd.h"
 #include "IscsiCmd.h"
+#include "SystemCmd.h"
 
 PktHandler g_PktHandler[MSG_TYPE_NUM] = {
     GetUnknowCmd,
     HandShakeCmd,
     EvmsCmd,
     InfinibandCmd,
-    IscsiCmd
+    IscsiCmd,
+    SystemCmd
 };
 
 static void Link_Ctrl_Cleanup(void *pinfo)

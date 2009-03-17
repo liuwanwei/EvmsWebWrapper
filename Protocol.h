@@ -10,53 +10,63 @@
 #include "NetServer.h"
 
 // 报文类型：
-//
-#define MSG_TYPE_UNKNOWN   0x00       // unknown msg type
-#define MSG_TYPE_HANDSHAKE 0x01       // 握手消息：需要客户端每30秒发送一个“握手”信号，
-                                      // 表示客户端处于正常状态。如果连续5次没有收到该信号，
-                                      // 服务器认为客户端出现异常，自动关闭该客户端所有连接。
-#define MSG_TYPE_EVMS	   0x02	      // EVMS related msg type
-#define MSG_TYPE_IB	   0x03	      // Infiniband ralated msg type
-#define MSG_TYPE_ISCSI	   0x04	      // iSCSI related msg type
-#define MSG_TYPE_NUM	   5
+typedef enum
+{
+        MSG_TYPE_UNKNOWN   = 0x00,      // unknown msg type
+        MSG_TYPE_HANDSHAKE = 0x01,      // 握手消息：需要客户端每30秒发送一个“握手”信号，
+                                        // 表示客户端处于正常状态。如果连续5次没有收到该信号，
+                                        // 服务器认为客户端出现异常，自动关闭该客户端所有连接。
+        MSG_TYPE_EVMS 	   = 0x02,	// EVMS related msg type
+        MSG_TYPE_IB 	   = 0x03,      // Infiniband ralated msg type
+        MSG_TYPE_ISCSI 	   = 0x04,      // iSCSI related msg type
+        MSG_TYPE_SYSTEM    = 0x05,      // system specific commands, such as remote "ls"
+        MSG_TYPE_NUM
+}MAIN_MSG_TYPE;
 	
 
 // 进入系统报文（类型：0x01）
-#define SYS_CHECKIN_REQ    0x02       // 进入系统
+#define SYS_CHECKIN_REQ    0x02         // 进入系统
 
 // HandShake Event (type: 0x02)
-#define HANDSHAKE_REQ         0x00        // 2008-6-21
-#define HANDSHAKE_RSP         0x01        // 2008-6-21
+#define HANDSHAKE_REQ         0x00      // 2008-6-21
+#define HANDSHAKE_RSP         0x01      // 2008-6-21
 
-// These sub-message-type was set by local module, read by web module
-#define EVMS_PROMPT_MSG       0x21    // Prompt messages need to show to user
-#define EVMS_NEED_USER_INPUT  0x22    // 
-#define EVMS_OBJECT_INFO      0x23    // Reply evms query object command.
+// These sub-message-type was set by 
+// local module, read by web module
+#define EVMS_PROMPT_MSG       0x21      // Prompt messages need to show to user
+#define EVMS_NEED_USER_INPUT  0x22      // 
+#define EVMS_OBJECT_INFO      0x23      // Reply evms query object command.
 
-// These sub-message-type was set by web module, read by local module
-#define EVMS_INIT_MSG	      0x25    // Init evms, used only once by web module
-#define EVMS_COMMAND_MSG      0x26    // Set this subtype each time web module start a new evms request
-#define EVMS_DEINIT_MSG       0x27    // Deinit evms, when you need evms no more
+// These sub-message-type was set by 
+// web module, read by local module.
+#define EVMS_INIT_MSG	      0x25      // Init evms, used only once by web module
+#define EVMS_COMMAND_MSG      0x26      // Set this subtype each time web module start a new evms request
+#define EVMS_DEINIT_MSG       0x27      // Deinit evms, when you need evms no more
 #define MAX_EVMS_COMMAND_LINE_PARAM	10
 
 typedef enum
 {
-	IB_ADD_GROUP = 0x21,			// 添加一个权限组
-	IB_DEL_GROUP,					// 删除一个权限组
-	IB_GET_ALL_GROUPS,			// 获取所有的权限组名称
+	IB_ADD_GROUP = 0x21,		// 添加一个权限组
+	IB_DEL_GROUP,			// 删除一个权限组
+	IB_GET_ALL_GROUPS,		// 获取所有的权限组名称
 	IB_ADD_DEVICE_TO_GROUP,		// 添加一个存储资源到权限组
  	IB_DEL_DEVICE_FROM_GROUP,	// 从权限组删除一个存储资源
  	IB_GET_DEVICES_FROM_GROUP,	// 获取权限组中所有存储资源名称
- 	IB_GET_ALL_IB_PORTS,			// 枚举子网内的所有IB卡端口名称
-	IB_ADD_IB_PORT_TO_GROUP,		// 将一个IB卡端口添加到权限组中
+ 	IB_GET_ALL_IB_PORTS,		// 枚举子网内的所有IB卡端口名称
+	IB_ADD_IB_PORT_TO_GROUP,	// 将一个IB卡端口添加到权限组中
  	IB_DEL_IB_PORT_FROM_GROUP,	// 将一个IB卡端口从权限组中删除
  	IB_GET_IB_PORTS_FROM_GROUP	// 获取权限组中所有IB端口名称
 
 }IB_RELATED_OPERATIONS;
 
+typedef enum
+{
+	SYSTEM_LS_DIR = 1		// list subdirs and files, almost the same as "ls -l" command
+}SYSTEM_RELATED_OPERATIONS;
+
 #define DEFAULT_RETCODE	      	0
-#define RETCODE_OK	      			0
-#define RETCODE_FAIL	      		1
+#define RETCODE_OK	      	0
+#define RETCODE_FAIL	      	1
 
 /* 各种应用相关的错误类型定义*/
 typedef enum
@@ -89,11 +99,14 @@ typedef struct __PACKET_HDR {       // 协议包包头信息；
 #define PACKET_HDR_LEN		    sizeof(PACKET_HDR)
 
 #define NET_BUFFER_LEN 		    (64 * 1024 - 1)
-#define NORMAL_BUFFER_LEN         (2048 - 1)
-#define SHORT_BUFFER_LEN           (256 - 1)
+#define NORMAL_BUFFER_LEN           (2048 - 1)
+#define SHORT_BUFFER_LEN            (256 - 1)
 
 // 8 bytes header
 #define MAX_FRAME_LEN		    NET_BUFFER_LEN
 #define MAX_CONTENT_LEN		    (MAX_FRAME_LEN - sizeof(PACKET_HDR))
+
+
+
 
 #endif /* Protocol.h */

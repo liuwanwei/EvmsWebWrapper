@@ -7,7 +7,7 @@ TARGET   := net_server client
 OBJECTS  := Main.o NetServer.o LinkCtrl.o SysCheckInCmd.o RecvOneFrame.o \
 	    DeadThreadTbl.o CtrlLinkTbl.o \
             NetLog.o  UnknownRequest.o HandShakeCmd.o EvmsCmd.o \
-	    InfinibandCmd.o Infiniband.o IscsiCmd.o 
+	    InfinibandCmd.o Infiniband.o IscsiCmd.o SystemCmd.o
 
 all:  RULES $(EVMS_LIB) $(PACK_LIB) ${TARGET}
 	@chmod +x shell/*.sh
