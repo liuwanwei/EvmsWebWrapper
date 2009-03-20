@@ -1,4 +1,4 @@
-#!/bin/perl
+#!/usr/bin/perl -w
 
 # called by ../shell/ResourceMapping.sh
 

@@ -1,6 +1,6 @@
-#!/bin/perl
+#!/usr/bin/perl -w
 
-my $PACKET_HDR_LEN = 8;
+$PACKET_HDR_LEN = 8;
 
 sub PackHeader()
 {
@@ -33,7 +33,7 @@ sub UnpackReply()
 	print "msg_sub_type: $list[2]\n";
 	print "msg_order:    $list[3]\n";
 	print "msg_retcode:  $list[4]\n";
-	print "msg_body:     $list[5]\n" if($content_len gt 0);
+	print "msg_body:     \n$list[5]\n" if($content_len gt 0);
 }
 
 sub Usage()
