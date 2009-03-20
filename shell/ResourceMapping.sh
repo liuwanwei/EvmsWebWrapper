@@ -97,9 +97,21 @@ AddDeviceToGroup()
 		return $error_param
 	fi
 
+	# check group device control file
 	group_res__ctrl_file=$base_srpt_dir"groups/"$group"/devices"
+	if [ -e $group_res__ctrl_file ]
+	then
+		return $error_notexist
+	fi
 
-	echo "add $resource $lun_idx" >  $group_res__ctrl_file
+	# If FileIO, create virtual device automatically
+	$vdisk_name=`./CreateVDiskFromFile $device`
+	if [ ! $? -eq 0]
+	then
+		return $error_fail
+	fi
+
+	echo "add $vdisk_name $lun_idx" >  $group_res__ctrl_file
 
 	$group_backup_script $group "add"
 

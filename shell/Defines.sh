@@ -12,7 +12,6 @@ error_daemons=30		# service daemons not ready
 base_srpt_dir="/proc/scsi_tgt/"
 group_ctrl_file=$base_srpt_dir"scsi_tgt"
 base_group_dir=$base_srpt_dir"groups"
-tmp_group_name_file="/tmp/group_name_list"
 
 base_vdisk_dir=$base_srpt_dir"vdisk/"
 vdisk_ctrl_file=$base_vdisk_dir"vdisk"
@@ -23,5 +22,7 @@ shell_scripts_dir="/usr/sbin/sanager/"
 groups_bk_dir=$shell_scripts_dir"groups_bk"
 group_backup_script=$shell_scripts_dir/"GroupInfoBackup.sh"
 group_restore_script=$shell_scripts_dir/"GroupInfoRestore.sh"
+
+mount_dir="/mnt/"
 
 startup_log="/tmp/sanager_startup"

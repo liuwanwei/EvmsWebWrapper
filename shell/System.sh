@@ -25,7 +25,11 @@ GetDirContent()
 	# then a '.' or not,
 	# then one or multi numbers,
 	# then a letter.
-	cat $tmp_dir_file | grep -v -P "^total \d+.?\d+\w+" >  $result_dir_file
+	#cat $tmp_dir_file | grep -v -P "^total \d+.?\d+\w+" >  $result_dir_file
+
+
+	# now we use this regular express
+	cat $tmp_dir_file | grep -P "^[-dl]([r-][w-][x-]){3}" >  $result_dir_file
 
 	return $error_ok
 }
