@@ -1,10 +1,15 @@
 #!/bin/bash
 
+# We use the default flags for creating VDISK
+# As for file, no flags need.
+# As for disk, we use default BLOCK_SIZE:512 bytes, and FLAG set to "BLOCKIO"
+
+
 . Defines.sh
 
-if [ $# -eq 0 ]
+if [ $# -lt 2 ]
 then
-	echo "Usage: ./CreateVDiskFromFile.sh real_file_path"
+	echo "Usage: ./CreateVDiskFromFile.sh real_file_path lun_number"
 	exit $error_param
 fi
 
@@ -14,23 +19,57 @@ then
 fi
 
 real_file_name=$1
+vlun_name="lun$2"
 vdisk_name=""
-vlun_name=""
 
-max_index=1
+# get current maximum vdisk index, and use it to generate vdisk name
+max_vdisk_index=1
 cat $vdisk_ctrl_file | while read LINE
 do
+	# get the maximum virtual disk index
 	name=`echo $LINE | awk '{print $1}' | grep "^vdisk"`
 	if [ ! -z $name ]
 	then
+		# cut off the first 5 charactors:"vdisk".
 		index=${name:5}
-		if [ $index -gt $max_index ]
+		if [ $index -gt $max_vdisk_index ]
 		then
-			max_index=`echo $index`
+			max_vdisk_index=`echo $index`
+		fi
+	fi
+
+	# check if the virtual lun number valid.
+	lun=`echo $LINE | awk '{print $4}' | grep "^lun"`
+	if [ ! -z $name ]
+	then
+		# cut off the first 3 charactors:"lun".
+		index=${lun:3}
+		if [ $index -eq $2 ]
+		then
+			exit 1;
 		fi
 	fi
 done
 
-max_index=`expr $max_index + 1`
+# generate vdisk name
+max_vdisk_index=`expr $max_vdisk_index + 1`
+vdisk_name="vdisk$max_vdisk_index"
 
+# create vdisk
+if [ 1 -eq `echo $real_file_name | grep -E "^-([w-][r-][x-]){3}" | wc -l` ]
+then
+	# FILEIO mode for file.
+	echo "open $vdisk_name $real_file_name" > $vdisk_ctrl_file
+else
+	# BLOCKIO mode for disk.
+	echo "open $vdisk_name $real_file_name BLOCKIO" > $vdisk_ctrl_file
+fi
+
+# backup vdisk ctrl file
+cp $vdisk_ctrl_file $vdisk_bk_file -rf
+
+# return vdisk name to caller
+echo $vdisk_name > $return_value_file
+
+exit 0
 

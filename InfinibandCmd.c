@@ -37,7 +37,7 @@ InfinibandCmd (int sock_fd, char *oneframe, int len)
 		ret = GetAllGroups(&reply, &reply_len);
 		break;
 	case IB_ADD_DEVICE_TO_GROUP:
-		ret = AddDeviceToGroup(msg_body, msg_body_len);
+		ret = AddDeviceToGroup(msg_body, msg_body_len, &reply, &reply_len);
 		break;
 	case IB_DEL_DEVICE_FROM_GROUP:
 		ret = DelDeviceFromGroup(msg_body, msg_body_len);

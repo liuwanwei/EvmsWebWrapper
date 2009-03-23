@@ -104,14 +104,43 @@ AddDeviceToGroup()
 		return $error_notexist
 	fi
 
-	# If FileIO, create virtual device automatically
-	$vdisk_name=`./CreateVDiskFromFile $device`
+	# File device and DM device are all handled by scst_vdisk driver,
+	# In scst's README file, VDISK could be created by the command:
+	# "open NAME [PATH] [BLOCK_SIZE] [FLAGS]"
+	# and "BLOCK_SIZE" and "FLAGS" are only valid for disk VDISK.
+	# So file type VDISK only need "NAME" and "PATH".
+	# Below lines are quoted from OFED's SRPT_README.txt
+	# a. modprobe scst
+	# b. modprobe scst_vdisk
+	# c. echo "open vdisk0 /dev/md0" > /proc/scsi_tgt/vdisk/vdisk
+	# d. echo "open vdisk1 /10G-file" > /proc/scsi_tgt/vdisk/vdisk
+	# e. echo "add vdisk0 0" >/proc/scsi_tgt/groups/Default/devices
+	# f. echo "add vdisk1 1" >/proc/scsi_tgt/groups/Default/devices
+
+	# Create virtual device automatically if $device is a file or virtual disk.
+	# FIXME What should I do if $device is a real device? 
+	# SCST only support SCSI typed real device, this is belonged to todo list.
+	./CreateVDiskFromFile.sh $device $lun_idx
 	if [ ! $? -eq 0]
 	then
 		return $error_fail
 	fi
 
+	# get vdisk name from tmp file assigned by CreateVDiskFromFile
+	if [ ! -e $return_value_file ]
+	then
+		return $error_fail
+	fi
+	$vdisk_name=`cat $return_value_file`
+
+	# add vdisk and vlun to resource group
 	echo "add $vdisk_name $lun_idx" >  $group_res__ctrl_file
+	if [ $? -ne 0 ]
+	then
+		return $error_fail
+	fi
+
+	echo $vdisk_name > $return_value_file
 
 	$group_backup_script $group "add"
 

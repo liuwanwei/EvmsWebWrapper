@@ -22,7 +22,9 @@ shell_scripts_dir="/usr/sbin/sanager/"
 groups_bk_dir=$shell_scripts_dir"groups_bk"
 group_backup_script=$shell_scripts_dir/"GroupInfoBackup.sh"
 group_restore_script=$shell_scripts_dir/"GroupInfoRestore.sh"
+vdisk_bk_file=$shell_scripts_dir"vdisk"
 
 mount_dir="/mnt/"
 
 startup_log="/tmp/sanager_startup"
+return_value_file="/tmp/return_value"

@@ -13,6 +13,9 @@ static const char *s_check_modules_script = "shell/CheckIBRunningEnv.sh";
 // 资源映射脚本文件名
 static const char *s_resource_mapping_script = "shell/ResourceMapping.sh";
 
+// 
+static const char * s_return_value_file = "/tmp/return_value";
+
 // 参数与参数之间的分隔符
 static const char *s_param_delim = "|";
 
@@ -245,7 +248,7 @@ int GetAllGroups(char **reply, int *reply_len)
 	}
 }
 
-int AddDeviceToGroup(char *msg_body, int msg_body_len)
+int AddDeviceToGroup(char *msg_body, int msg_body_len, char ** reply, int * reply_len)
 {
         /* 要添加到资源组中的设备名称*/
         char *device_name = NULL;
@@ -320,9 +323,50 @@ int AddDeviceToGroup(char *msg_body, int msg_body_len)
         }
         else
         {
+		int ret;
                 int status;
+		FILE * return_value_file_p = NULL;
+		char line_buffer[256];
+
                 waitpid(pid, &status, 0);
-                return WEXITSTATUS(status);
+                ret = WEXITSTATUS(status);
+
+		if(0 != ret)
+		{
+			printf("'%s::AddDeviceToGroup %s %s %s' failed\n", s_resource_mapping_script,
+									   device_name,
+									   lun_index,
+									   group_name);
+			return -1;
+		}
+
+		if (0 != access(s_return_value_file, F_OK))
+        	{
+                	return  - 1;
+        	}
+
+        	return_value_file_p = fopen(s_return_value_file, "r+");
+        	if (NULL == return_value_file_p)
+        	{
+                	return  - 1;
+        	}
+
+		
+		if(NULL == fgets(line_buffer, 256, return_value_file_p))
+		{
+			fclose(return_value_file_p);
+			printf("%s::AddDeviceToGroup failed: no VDISK return!\n", s_resource_mapping_script);
+			return -1;
+		}
+
+		fclose(return_value_file_p);
+
+		ret = strlen(line_buffer);
+		(* reply) = (char *)malloc(ret);
+		memcpy((*reply), line_buffer, ret);
+		(* reply_len) = ret;
+
+		return 0;
         }
 }
 

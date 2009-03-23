@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# history
+# 20090323, replace "-P" param with "-E" param used for grep
+
 tmp_dir_file="/tmp/tmp_dir_file"
 result_dir_file="/tmp/dir_content_list"
 
@@ -29,7 +32,7 @@ GetDirContent()
 
 
 	# now we use this regular express
-	cat $tmp_dir_file | grep -P "^[-dl]([r-][w-][x-]){3}" >  $result_dir_file
+	cat $tmp_dir_file | grep -E "^[-dl]([r-][w-][x-]){3}" >  $result_dir_file
 
 	return $error_ok
 }

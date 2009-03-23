@@ -32,7 +32,14 @@ while($#ARGV != -1)
 	}
 	else
 	{
-		$msg_content = $ARGV[0];
+		if(-z $msg_content)
+		{
+			$msg_content = $ARGV[0];
+		}
+		else
+		{
+			$msg_content = $msg_content." ".$ARGV[0];
+		}
 	}
 
 	shift;
@@ -42,6 +49,9 @@ my $dest = sockaddr_in($port, inet_aton($server));
 my $buf  = undef;
 
 print "$server : $port\n";
+print "main_msg_type : $main_msg_type\n";
+print "sub_msg_type  : $sub_msg_type\n";
+print "msg_content   : $msg_content\n";
 
 socket(SOCK, PF_INET, SOCK_STREAM, 6) or die "Can't create socket: $!";
 connect(SOCK, $dest)		      or die "Can't connect: $!";
@@ -50,6 +60,8 @@ my $header;
 
 # Send header
 $header = &PackHeader($main_msg_type, $sub_msg_type, length($msg_content));
+my $msg_len = length($header);
+print "msg_len       : $msg_len\n\n\n";
 syswrite(SOCK, $header, length($header));
 
 # Send content
