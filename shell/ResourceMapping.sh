@@ -94,13 +94,15 @@ AddDeviceToGroup()
 	# Checking params
 	if [ -z $device ] || [ -z $lun_idx ] || [ -z $group ]
 	then
+		echo "param"
 		return $error_param
 	fi
 
 	# check group device control file
 	group_res__ctrl_file=$base_srpt_dir"groups/"$group"/devices"
-	if [ -e $group_res__ctrl_file ]
+	if [ ! -e $group_res__ctrl_file ]
 	then
+		echo "$group_res__ctrl_file not exist"
 		return $error_notexist
 	fi
 
@@ -121,22 +123,38 @@ AddDeviceToGroup()
 	# FIXME What should I do if $device is a real device? 
 	# SCST only support SCSI typed real device, this is belonged to todo list.
 	./CreateVDiskFromFile.sh $device $lun_idx
-	if [ ! $? -eq 0]
+	if [ ! $? -eq 0 ]
 	then
+		echo "CreateVDiskFromFile error"
 		return $error_fail
 	fi
 
 	# get vdisk name from tmp file assigned by CreateVDiskFromFile
 	if [ ! -e $return_value_file ]
 	then
+		echo "$return_value_file not exist"
 		return $error_fail
 	fi
-	$vdisk_name=`cat $return_value_file`
+	vdisk_name=`cat $return_value_file`
+
+	# check if the virtual lun number valid.
+	cat $group_res__ctrl_file | while read LINE
+	do
+		lun=`echo $LINE | awk '{print $2}'`
+		if [ ! -z $lun ]
+		then
+			if [ $lun -eq $2 ]
+			then
+				exit $error_exist;
+			fi
+		fi
+	done
 
 	# add vdisk and vlun to resource group
 	echo "add $vdisk_name $lun_idx" >  $group_res__ctrl_file
 	if [ $? -ne 0 ]
 	then
+		echo "add $vdisk_name $lun_idx failed"
 		return $error_fail
 	fi
 
@@ -155,24 +173,36 @@ DelDeviceFromGroup()
 {
 	shift
 
-	device=$1	
+	vdisk=$1	
 	group=$2
 
-	if [ -z $device ] || [ -z $group ]
+	if [ -z $vdisk ] || [ -z $group ]
 	then
 		return $error_param
 	fi
 
-	group_res__ctrl_file=$base_srpt_dir"groups/"$groups"/devices"
+	group_res__ctrl_file=$base_srpt_dir"groups/"$group"/devices"
 
-	count=`cat $group_res__ctrl_file | grep $device | grep -v grep | wc -l`
+	count=`cat $group_res__ctrl_file | grep "\<$vdisk\>" | wc -l`
 
 	if [ $count -eq 0 ]
 	then
 		return $error_notexist
 	fi
 
-	echo "del $device" > $group_res__ctrl_file
+	# delete vdisk from group's resource control file
+	echo "del $vdisk " > $group_res__ctrl_file
+
+	# delete vdisk if it is created by us on background
+	count=`cat $vdisk_ctrl_file | grep "\<$vdisk\>" | wc -l`
+	if [ $count -ne 0 ]
+	then
+		# remove $vdisk from /proc/scsi_tgt/vdisk/vdisk
+		echo "close $vdisk" > $vdisk_ctrl_file
+
+		# backup vdisk ctrl file
+		cp $vdisk_ctrl_file $vdisk_bk_file -rf
+	fi
 
 	$group_backup_script $group "add"
 

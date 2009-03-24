@@ -23,7 +23,7 @@ vlun_name="lun$2"
 vdisk_name=""
 
 # get current maximum vdisk index, and use it to generate vdisk name
-max_vdisk_index=1
+max_vdisk_index=0
 cat $vdisk_ctrl_file | while read LINE
 do
 	# get the maximum virtual disk index
@@ -37,32 +37,28 @@ do
 			max_vdisk_index=`echo $index`
 		fi
 	fi
-
-	# check if the virtual lun number valid.
-	lun=`echo $LINE | awk '{print $4}' | grep "^lun"`
-	if [ ! -z $name ]
-	then
-		# cut off the first 3 charactors:"lun".
-		index=${lun:3}
-		if [ $index -eq $2 ]
-		then
-			exit 1;
-		fi
-	fi
 done
+
 
 # generate vdisk name
 max_vdisk_index=`expr $max_vdisk_index + 1`
 vdisk_name="vdisk$max_vdisk_index"
 
 # create vdisk
-if [ 1 -eq `echo $real_file_name | grep -E "^-([w-][r-][x-]){3}" | wc -l` ]
+# echo "$real_file_name"
+is_file=`ls -l -h $real_file_name | grep -E "^-([r-][w-][x-]){3}" | wc -l`
+if [ 1 -eq  $is_file ]
 then
 	# FILEIO mode for file.
 	echo "open $vdisk_name $real_file_name" > $vdisk_ctrl_file
 else
 	# BLOCKIO mode for disk.
 	echo "open $vdisk_name $real_file_name BLOCKIO" > $vdisk_ctrl_file
+fi
+
+if [ $? -ne 0 ]
+then
+	exit $error_fail
 fi
 
 # backup vdisk ctrl file

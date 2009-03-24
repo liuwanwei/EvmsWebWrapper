@@ -58,5 +58,8 @@ then
 	opensm -g $port2_guid -B
 fi
 
-# Restore the group info on the server
+# Restore vdisk info on the server
+/usr/sbin/sanager/VdiskInfoRestore.sh
+
+# Restore group info on the server
 /usr/sbin/sanager/GroupInfoRestore.sh

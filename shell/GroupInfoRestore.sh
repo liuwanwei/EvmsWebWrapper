@@ -96,9 +96,9 @@ RestoreGroup()
 
 groups=`ls $groups_bk_dir`
 
-if [ -z $groups ]
+if [ "$groups " = " " ]
 then
-	echo "noexist" >> $startup_log
+	echo "$groups not exist" >> $startup_log
 	exit $error_notexist
 fi
 

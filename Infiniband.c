@@ -337,7 +337,7 @@ int AddDeviceToGroup(char *msg_body, int msg_body_len, char ** reply, int * repl
 									   device_name,
 									   lun_index,
 									   group_name);
-			return -1;
+			return ret;
 		}
 
 		if (0 != access(s_return_value_file, F_OK))

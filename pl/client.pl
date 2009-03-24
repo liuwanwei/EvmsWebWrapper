@@ -16,7 +16,7 @@ my $port = '6018';
 my $addr;
 my $main_msg_type; 
 my $sub_msg_type = 0x00;
-my $msg_content = "";
+my $msg_content;
 
 while($#ARGV != -1)
 {
@@ -32,14 +32,18 @@ while($#ARGV != -1)
 	}
 	else
 	{
-		if(-z $msg_content)
+		#print "A: $ARGV[0]\n";
+
+		if($msg_content)
 		{
-			$msg_content = $ARGV[0];
+			$msg_content = $msg_content."|".$ARGV[0];
 		}
 		else
 		{
-			$msg_content = $msg_content." ".$ARGV[0];
+			$msg_content = $ARGV[0];
 		}
+
+		#print "B: $msg_content\n";
 	}
 
 	shift;
@@ -52,6 +56,9 @@ print "$server : $port\n";
 print "main_msg_type : $main_msg_type\n";
 print "sub_msg_type  : $sub_msg_type\n";
 print "msg_content   : $msg_content\n";
+my $msg_len = length($msg_content);
+print "msg_body_len  : $msg_len\n\n\n";
+
 
 socket(SOCK, PF_INET, SOCK_STREAM, 6) or die "Can't create socket: $!";
 connect(SOCK, $dest)		      or die "Can't connect: $!";
@@ -60,9 +67,13 @@ my $header;
 
 # Send header
 $header = &PackHeader($main_msg_type, $sub_msg_type, length($msg_content));
-my $msg_len = length($header);
-print "msg_len       : $msg_len\n\n\n";
 syswrite(SOCK, $header, length($header));
+
+# Send body if has
+if($msg_len gt 8)
+{
+	syswrite(SOCK, $msg_content, $msg_len);
+}
 
 # Send content
 if($msg_content ne "")
