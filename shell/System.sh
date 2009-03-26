@@ -27,7 +27,7 @@ GetDirContent()
 		exit $error_param
 	fi
 
-	ls -l -h $dir > $tmp_dir_file
+	ls -h -p -s -1 $dir | grep -E "^[ 0-9]*\.*\w*[KMGT]" > $result_dir_file
 
 	# omit the first line the format as "total xxx"
 	# using perl style regular express(-P)
@@ -41,7 +41,7 @@ GetDirContent()
 
 
 	# now we use this regular express
-	cat $tmp_dir_file | grep -E "^[-dl]([r-][w-][x-]){3}" >  $result_dir_file
+	# cat $tmp_dir_file | grep -E "^[-dl]([r-][w-][x-]){3}" >  $result_dir_file
 
 	exit $error_ok
 }

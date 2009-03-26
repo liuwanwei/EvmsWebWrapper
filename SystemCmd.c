@@ -84,6 +84,9 @@ int ListDirectory(char * msg_body, int msg_body_len, char ** reply, int * reply_
                 argument[1] = "-c";
                 argument[2] = command;
                 argument[3] = NULL;
+
+		printf("%s\n", command);
+
                 execve("/bin/sh", argument, environ);
                 exit(1);
         }

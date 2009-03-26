@@ -1,5 +1,5 @@
 #!/bin/bash
 
-dir="/mnt/"
+dir=/llww/pl
 
-echo /root/v2 | grep -E "^$dir" | wc -l
+ls -h -p -s -1 $dir | grep -E "^[ 0-9]*\.*\w*[KMGT]"
