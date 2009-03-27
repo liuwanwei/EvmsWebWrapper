@@ -35,6 +35,10 @@ elsif($ARGV[0] =~ /^TargetAccessCtrl/)
 	shift(@ARGV);
 	$ret = &TargetAccessCtrl(@ARGV);
 }
+elsif($ARGV[0] =~ /^TargetCtrlList/i)
+{
+        $ret = &TargetCtrlList();
+}
 else
 {
 	print "can't be here!\n";
@@ -167,7 +171,6 @@ sub GetAllTargets()
 
 		print $_."\n";
 
-		#if($_ =~ /^tid:(\d+) name:([\w.:-]+)/)
 		if($_ =~ /^tid:(\d+) name:(.+)/)
 		{
 			$name = $2;
@@ -285,6 +288,40 @@ sub TargetAccessCtrl()
 		# The target has not any control string, add it.
 		return system("echo \"$tgt_name $ctrl_string\" >> $ctrl_file");
 	}
+}
+
+sub TargetCtrlList()
+{
+        my $record;
+
+        system("rm $tmp_file -f");
+        system("touch $tmp_file");
+
+        # Get allowing access ctrl configuration
+        open(FH, "<$ctrl_allow") or die "open $ctrl_allow error";
+        while(<FH>)
+        {
+                chomp;
+                next unless $_ =~ /(^[\w\.\:\-]+) (.*)/i;
+
+                $record = "type=allow"."|name=".$1."|ctrl=".$2;
+                system("echo \"$record\" >> $tmp_file");
+        }
+        close(FH);
+
+        # Get denying access ctrl configuration
+        open(FH, "<$ctrl_deny") or die "open $ctrl_allow error";
+        while(<FH>)
+        {
+                chomp;
+                next unless $_ =~ /(^[\w\.\:\-]+) (.*)/i;
+
+                $record = "type=deny"."|name=".$1."|ctrl=".$2;
+                system("echo \"$record\" >> $tmp_file");
+        }
+        close(FH);
+
+        return 0;
 }
 
 # Check if the iscsi running environmenth properly configured.

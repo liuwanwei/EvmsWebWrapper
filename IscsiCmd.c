@@ -12,6 +12,7 @@ const char * s_iscsi_add_target_func    = "AddTarget";
 const char * s_iscsi_del_target_func    = "DelTarget";
 const char * s_iscsi_get_all_targets    = "GetAllTargets";
 const char * s_iscsi_target_access_ctrl = "TargetAccessCtrl";
+const char * s_iscsi_target_ctrl_list   = "TargetCtrlList";
 
 static const char * s_return_value_file = "/tmp/return_value_iscsi";
 
@@ -20,6 +21,7 @@ int AddIscsiTarget(char * msg_body, int msg_body_len);
 int DelIscsiTarget(char * msg_body, int msg_body_len);
 int GetAllIscsiTargets(char ** reply, int * reply_len);
 int IscsiTargetAccessCtrl(char * msg_body, int msg_body_len);
+int IscsiTargetCtrlList(char ** reply, int * reply_len);
 
 // int SendIscsiFrame(int, unsigned short , char * , int , int );
 
@@ -53,6 +55,9 @@ IscsiCmd (int sock_fd, char *oneframe, int len)
                 break;
         case ISCSI_TARGET_ACCESS_CTRL:
                 ret = IscsiTargetAccessCtrl(msg_body, msg_body_len);
+                break;
+        case ISCSI_TARGET_CTRL_LIST:
+                ret = IscsiTargetCtrlList(&reply, &reply_len);
                 break;
         default:
                 break;
@@ -150,6 +155,18 @@ int DelIscsiTarget(char * msg_body, int msg_body_len)
 int GetAllIscsiTargets(char ** reply, int * reply_len)
 {
         if(0 != CallShell(s_iscsi_script, s_iscsi_get_all_targets, NULL))
+        {
+                return -1;
+        }
+
+        return GetLinedupResultsFromFile(s_return_value_file,
+                                         reply,
+                                         reply_len);
+}
+
+int IscsiTargetCtrlList(char ** reply, int * reply_len)
+{
+        if(0 != CallShell(s_iscsi_script, s_iscsi_target_ctrl_list, NULL))
         {
                 return -1;
         }
