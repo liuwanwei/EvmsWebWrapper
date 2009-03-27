@@ -72,7 +72,7 @@ int CallShell(const char * shell_script_name,
 
         if(cmd_len >= MAX_SHELL_CMD_LEN - 2)
         {
-                printf("Shell command is two long to stored in stack memory\n");
+                printf("Shell command is two long to store in stack memory\n");
                 return -1;
         }
 
@@ -140,8 +140,8 @@ int GetLinedupResultsFromFile(const char * filename,
         FILE * file = NULL;
         char response[NET_BUFFER_LEN + 1];
         char line_buf[SHORT_BUFFER_LEN];
-        char line_len = 0;
-        int response_len = 0;
+        size_t line_len = 0;
+        size_t response_len = 0;
         
         file = fopen(filename, "r+");
 
@@ -152,8 +152,7 @@ int GetLinedupResultsFromFile(const char * filename,
 
         while(NULL != fgets(line_buf, SHORT_BUFFER_LEN, file))
         {
-                if(0 == (line_len = strlen(line_buf)))
-                {
+                if(0 == (line_len = strlen(line_buf))) {
                         continue;
                 }
 

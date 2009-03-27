@@ -36,6 +36,10 @@ while($#ARGV != -1)
 		{
 			$main_msg_type = 0x04;
 		}
+                elsif($main_msg_type =~ /bonding/i)
+                {
+                        $main_msg_type = 0x06;
+                }
 
 		shift;
 	}
@@ -60,10 +64,35 @@ while($#ARGV != -1)
 		{
 			$sub_msg_type = 0x23;
 		}
-		elsif($sub_msg_type =~ /TargetAccessCtrl/)
+		elsif($sub_msg_type =~ /TargetAccessCtrl/i)
 		{
 			$sub_msg_type = 0x24;
 		}
+                elsif($sub_msg_type =~ /TargetCtrlList/i)
+                {
+                        $sub_msg_type = 0x25;
+                }
+		# Bonding related sub message type.
+                elsif($sub_msg_type =~ /GetAllBondings/i)
+                {
+                        $sub_msg_type = 0x21;
+                }
+                elsif($sub_msg_type =~ /AddBonding/i)
+                {
+                        $sub_msg_type = 0x22;
+                }
+                elsif($sub_msg_type =~ /ModBonding/i)
+                {
+                        $sub_msg_type = 0x23;
+                }
+                elsif($sub_msg_type =~ /DelBonding/i)
+                {
+                        $sub_msg_type = 0x24;
+                }
+                elsif($sub_msg_type =~ /GetAllEthPorts/i)
+                {
+                        $sub_msg_type = 0x25;
+                }
 
 		shift;
 	}

@@ -3,8 +3,8 @@
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.6	//
-ACTIVE_NODES_ONLY	inc/common.h	/^	ACTIVE_NODES_ONLY = 	(1<<0)$/;"	e	enum:__anon19
+!_TAG_PROGRAM_VERSION	5.7	//
+ACTIVE_NODES_ONLY	inc/common.h	/^	ACTIVE_NODES_ONLY = 	(1<<0)$/;"	e	enum:__anon23
 ADDRESS	evms/dlist.h	/^typedef void *          ADDRESS;$/;"	t
 AFStr	evms/screener.h	/^char *   AFStr            =  "AF";          \/* Abbreviation for Add Feature command. *\/$/;"	v
 AR_TARGET	evms/Makefile	/^AR_TARGET = lib${NAME}.a.${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_LEVEL}$/;"	m
@@ -13,30 +13,32 @@ AcceptableStr	evms/screener.h	/^char *   AcceptableStr    =  "ACCEPTABLE";$/;"	v
 ActStr	evms/screener.h	/^char *   ActStr           =  "ACT";$/;"	v
 ActivateStr	evms/screener.h	/^char *   ActivateStr      =  "ACTIVATE";$/;"	v
 Activate_Lookahead	evms/parser.c	/^static Executable_Node *Activate_Lookahead(void)$/;"	f	file:
-Activate_Node	evms/interpreter.h	/^               Activate_Node,$/;"	e	enum:__anon50
-AddDeviceToGroup	Infiniband.c	/^int AddDeviceToGroup(char *msg_body, int msg_body_len, char ** reply, int * reply_len)$/;"	f
+Activate_Node	evms/interpreter.h	/^               Activate_Node,$/;"	e	enum:__anon39
+AddBonding	BondingCmd.c	/^int AddBonding(char * msg_body,   int msg_body_len)$/;"	f
+AddBonding	pl/Bonding.pl	/^sub AddBonding()$/;"	s
+AddDeviceToGroup	InfinibandCmd.c	/^int AddDeviceToGroup(char *msg_body, int msg_body_len, char ** reply, int * reply_len)$/;"	f
 AddDeviceToGroup	shell/ResourceMapping.sh	/^AddDeviceToGroup()$/;"	f
-AddGroup	Infiniband.c	/^int AddGroup(char *msg_body, int msg_body_len)$/;"	f
+AddGroup	InfinibandCmd.c	/^int AddGroup(char *msg_body, int msg_body_len)$/;"	f
 AddGroup	shell/ResourceMapping.sh	/^AddGroup()$/;"	f
-AddIBPortToGroup	Infiniband.c	/^int AddIBPortToGroup(char *msg_body, int msg_body_len)$/;"	f
+AddIBPortToGroup	InfinibandCmd.c	/^int AddIBPortToGroup(char *msg_body, int msg_body_len)$/;"	f
 AddIBPortToGroup	shell/ResourceMapping.sh	/^AddIBPortToGroup()$/;"	f
 AddIscsiTarget	IscsiCmd.c	/^int AddIscsiTarget(char * msg_body, int msg_body_len)$/;"	f
 AddNode	evms/PrivateData.c	/^hash_node_t * AddNode()$/;"	f
 AddStr	evms/screener.h	/^char *   AddStr           =  "ADD";$/;"	v
 AddTarget	pl/Iscsi.pl	/^sub AddTarget()$/;"	s
 AddToDeadThreadTbl	DeadThreadTbl.c	/^AddToDeadThreadTbl () $/;"	f
-Add_Feature_Node	evms/interpreter.h	/^               Add_Feature_Node,$/;"	e	enum:__anon50
+Add_Feature_Node	evms/interpreter.h	/^               Add_Feature_Node,$/;"	e	enum:__anon39
 Add_Feature_Parameters	evms/parser.c	/^Add_Feature_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
 AllStr	evms/screener.h	/^char *   AllStr           =  "ALL";$/;"	v
 AllocateStr	evms/screener.h	/^char *   AllocateStr      =  "ALLOCATE";$/;"	v
-Allocate_Node	evms/interpreter.h	/^               Allocate_Node,$/;"	e	enum:__anon50
+Allocate_Node	evms/interpreter.h	/^               Allocate_Node,$/;"	e	enum:__anon39
 Allocation_Parameters	evms/parser.c	/^Allocation_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
 Anchor_Context	evms/scanner.c	/^static Input_Context_Type Anchor_Context = { NULL, NULL, NULL, 0, 0, NULL, &Anchor_Context };	\/* Holds the initial input context. *\/$/;"	v	file:
 AppendList	evms/dlist.c	/^int AppendList(dlist_t TargetList, dlist_t SourceList)$/;"	f
 AppendToList	evms/dlist.h	/^                                AppendToList,$/;"	e	enum:_Insertion_Modes
 AsmStr	evms/screener.h	/^char *   AsmStr           =  "ASM";         \/* Abbreviation for the Add Segment Manager command. *\/$/;"	v
 AssignStr	evms/screener.h	/^char *   AssignStr        =  "ASSIGN";$/;"	v
-Assign_Node	evms/interpreter.h	/^               Assign_Node,$/;"	e	enum:__anon50
+Assign_Node	evms/interpreter.h	/^               Assign_Node,$/;"	e	enum:__anon39
 Assign_Parameters	evms/parser.c	/^Assign_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
 Assign_Text	evms/parser.c	/^static void Assign_Text(Executable_Node * Node, TokenType * Token)$/;"	f	file:
 AtEndOfList	evms/dlist.c	/^boolean AtEndOfList(dlist_t ListToCheck)$/;"	f
@@ -45,18 +47,25 @@ AvailableStr	evms/screener.h	/^char *   AvailableStr     =  "AVAILABLE";$/;"	v
 Available_Filter	evms/parser.c	63;"	d	file:
 Available_Generic_Filters	evms/parser.c	/^typedef unsigned long Available_Generic_Filters;	\/* This is a bitmap with one bit for each of the available generic filters. The Bit defintions follow: *\/$/;"	t	file:
 BBR_FEATURE	evms/ObjectStructs.h	14;"	d
+BD_ADD_BONDING	Protocol.h	/^        BD_ADD_BONDING          = 0x22,$/;"	e	enum:__anon48
+BD_DEL_BONDING	Protocol.h	/^        BD_DEL_BONDING          = 0x24,$/;"	e	enum:__anon48
+BD_GET_ALL_BONDINGS	Protocol.h	/^        BD_GET_ALL_BONDINGS     = 0x21,$/;"	e	enum:__anon48
+BD_GET_ALL_ETH_PORTS	Protocol.h	/^        BD_GET_ALL_ETH_PORTS    = 0x25$/;"	e	enum:__anon48
+BD_MOD_BONDING	Protocol.h	/^        BD_MOD_BONDING          = 0x23,$/;"	e	enum:__anon48
+BONDING_RELATED_OPERATIONS	Protocol.h	/^}BONDING_RELATED_OPERATIONS;$/;"	t	typeref:enum:__anon48
 BOOLEAN_VALUE	evms/interpreter.c	76;"	d	file:
-Bad_Command_File	evms/error.h	/^               Bad_Command_File,                  \/* Parameter1 = name of file that we could not open.  Other parameters are ignored. *\/$/;"	e	enum:__anon45
-Bad_Command_File_Name	evms/error.h	/^               Bad_Command_File_Name$/;"	e	enum:__anon46
+Bad_Command_File	evms/error.h	/^               Bad_Command_File,                  \/* Parameter1 = name of file that we could not open.  Other parameters are ignored. *\/$/;"	e	enum:__anon41
+Bad_Command_File_Name	evms/error.h	/^               Bad_Command_File_Name$/;"	e	enum:__anon42
 Batch	evms/evms.c	/^boolean Batch = FALSE, Interactive = TRUE;	\/* Controls whether or not EVMS will prompt the user for commands.$/;"	v
 BlindExtractObject	evms/dlist.c	/^BlindExtractObject(dlist_t ListToGetItemFrom,$/;"	f
 BlindGetObject	evms/dlist.c	/^BlindGetObject(dlist_t ListToGetItemFrom,$/;"	f
+BondingCmd	BondingCmd.c	/^int BondingCmd(int sock_fd, char * oneframe, int len)$/;"	f
 Buffer	evms/scanner.c	/^static char Buffer[MaxIdentifierLength];	\/* Our buffer for creating tokens. *\/$/;"	v	file:
 ByteStr	evms/interpreter.c	/^static char *ByteStr = "bytes";$/;"	v	file:
-CALLBACK_MEMBERSHIP	inc/ece.h	/^	CALLBACK_MEMBERSHIP,$/;"	e	enum:__anon24
-CALLBACK_MESSAGE	inc/ece.h	/^	CALLBACK_MESSAGE$/;"	e	enum:__anon24
+CALLBACK_MEMBERSHIP	inc/ece.h	/^	CALLBACK_MEMBERSHIP,$/;"	e	enum:__anon28
+CALLBACK_MESSAGE	inc/ece.h	/^	CALLBACK_MESSAGE$/;"	e	enum:__anon28
 CC	test/pack/Makefile	/^CC	  = gcc$/;"	m
-CDebuger	Debuger.c	/^CDebuger::CDebuger () $/;"	f	class:CDebuger
+CDebuger	Debuger.c	/^$/;"	f	class:CDebuger
 CDebuger	Debuger.h	/^class CDebuger$/;"	c
 CFLAGS	test/pack/Makefile	/^CFLAGS    := -g -Wall -fPIC -I\/usr\/include\/evms$/;"	m
 CHANGE_ACTIVATE	inc/appstructs.h	348;"	d
@@ -73,9 +82,9 @@ CHANGE_SHRINK	inc/appstructs.h	352;"	d
 CHANGE_UNMKFS	inc/appstructs.h	354;"	d
 CLEAR_OK_DLIST_ERROR	evms/dlist.h	216;"	d
 CMStr	evms/screener.h	/^char *   CMStr            =  "CM";$/;"	v
-CONTAINER	inc/common.h	/^	CONTAINER   = (1<<5),$/;"	e	enum:__anon12
-CON_CHANGES_PENDING	inc/common.h	/^	CON_CHANGES_PENDING =   (1<<0),$/;"	e	enum:__anon15
-CON_NO_DISK_GROUP	inc/common.h	/^	CON_NO_DISK_GROUP =     (1<<1)$/;"	e	enum:__anon15
+CONTAINER	inc/common.h	/^	CONTAINER   = (1<<5),$/;"	e	enum:__anon16
+CON_CHANGES_PENDING	inc/common.h	/^	CON_CHANGES_PENDING =   (1<<0),$/;"	e	enum:__anon19
+CON_NO_DISK_GROUP	inc/common.h	/^	CON_NO_DISK_GROUP =     (1<<1)$/;"	e	enum:__anon19
 COPY_FINISHED	inc/enginestructs.h	368;"	d
 COPY_STARTED	inc/enginestructs.h	367;"	d
 CPPFLAGS	Makefile	/^CPPFLAGS := -g -Wall -DDEBUG $/;"	m
@@ -85,23 +94,21 @@ CPU_TO_DISK32	inc/enginestructs.h	399;"	d
 CPU_TO_DISK32	inc/enginestructs.h	408;"	d
 CPU_TO_DISK64	inc/enginestructs.h	400;"	d
 CPU_TO_DISK64	inc/enginestructs.h	409;"	d
-CRITICAL	inc/common.h	/^	CRITICAL = 0,$/;"	e	enum:__anon17
+CRITICAL	inc/common.h	/^	CRITICAL = 0,$/;"	e	enum:__anon21
 CTRL_LINK_DESC	CtrlLinkTbl.h	/^} CTRL_LINK_DESC, *PCTRL_LINK_DESC;$/;"	t	typeref:struct:__anon52
-CallShell	IscsiCmd.c	/^int CallShell(const char * shell_script_name, const char * shell_func_name, char * param_list)$/;"	f
-CallShell	test.c	/^int CallShell(const char * shell_script_name, const char * shell_func_name, char * param_list)$/;"	f
+CallShell	Functions.c	/^int CallShell(const char * shell_script_name, $/;"	f
 Callback_Functions	evms/evms.c	/^ui_callbacks_t Callback_Functions;	\/* Used to pass call back functions to the EVMS Engine.  These$/;"	v
-CannotFind	shell/CheckIBRunningEnv.sh	/^CannotFind()$/;"	f
+CannotFind	shell/CheckRunningEnv.sh	/^CannotFind()$/;"	f
 CharacterInjected	evms/scanner.c	/^static boolean CharacterInjected = FALSE;	\/* Used for states where a character is just "stuffed" into CharacterToExamine. $/;"	v	file:
 CharacterToExamine	evms/scanner.c	/^static char CharacterToExamine = ' ';	\/* The current character to examine.  Examination of a character will$/;"	v	file:
-Characterization	evms/token.h	/^                  TokenCharacterizations    Characterization;   \/* The "type" of token this is. *\/$/;"	m	struct:__anon41
+Characterization	evms/token.h	/^                  TokenCharacterizations    Characterization;   \/* The "type" of token this is. *\/$/;"	m	struct:__anon35
 CharactersConsumed	evms/scanner.c	/^static uint CharactersConsumed;	\/* Count of the number of characters we have used from the command line. *\/$/;"	v	file:
-CheckAll	shell/CheckIBRunningEnv.sh	/^CheckAll()$/;"	f
-CheckDaemons	shell/CheckIBRunningEnv.sh	/^CheckDaemons()$/;"	f
-CheckDirectories	shell/CheckIBRunningEnv.sh	/^CheckDirectories()$/;"	f
+CheckDaemons	shell/CheckRunningEnv.sh	/^CheckDaemons()$/;"	f
+CheckDirectories	shell/CheckRunningEnv.sh	/^CheckDirectories()$/;"	f
 CheckIscsiEnv	pl/Iscsi.pl	/^sub CheckIscsiEnv()$/;"	s
-CheckModule	shell/CheckIBRunningEnv.sh	/^CheckModule()$/;"	f
-CheckModules	shell/CheckIBRunningEnv.sh	/^CheckModules()$/;"	f
-CheckRunningEnvironment	Infiniband.c	/^int CheckRunningEnvironment()$/;"	f
+CheckModule	shell/CheckRunningEnv.sh	/^CheckModule()$/;"	f
+CheckModules	shell/CheckRunningEnv.sh	/^CheckModules()$/;"	f
+CheckRunningEnvironment	Main.c	/^int CheckRunningEnvironment()$/;"	f
 CheckStr	evms/screener.h	/^char *   CheckStr         =  "CHECK";$/;"	v
 Check_Child_For_Container	evms/interpreter.c	/^Check_Child_For_Container(object_handle_t Handle,$/;"	f	file:
 Check_Child_For_Disk	evms/interpreter.c	/^Check_Child_For_Disk(object_handle_t Handle, object_handle_t Disk_Handle,$/;"	f	file:
@@ -116,9 +123,9 @@ Check_For_EqualSign	evms/parser.c	/^static Parse_Results Check_For_EqualSign(boo
 Check_For_Error	evms/interpreter.c	/^static void Check_For_Error(int Error)$/;"	f	file:
 Check_For_Open_Brace	evms/parser.c	/^static Parse_Results Check_For_Open_Brace(boolean Optional)$/;"	f	file:
 Check_For_Open_Paren	evms/parser.c	/^static Parse_Results Check_For_Open_Paren(boolean Optional)$/;"	f	file:
-Check_Node	evms/interpreter.h	/^               Check_Node,$/;"	e	enum:__anon50
+Check_Node	evms/interpreter.h	/^               Check_Node,$/;"	e	enum:__anon39
 Check_Parameters	evms/parser.c	/^Check_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
-Children	evms/interpreter.h	/^                 dlist_t    Children;$/;"	m	struct:__anon51
+Children	evms/interpreter.h	/^                 dlist_t    Children;$/;"	m	struct:__anon40
 ChildrenStr	evms/screener.h	/^char *   ChildrenStr      =  "CHILDREN";$/;"	v
 Cleanup_Task	evms/interpreter.c	/^static int Cleanup_Task(void)$/;"	f	file:
 ClearNode	evms/PrivateData.c	/^int ClearNode()$/;"	f
@@ -128,11 +135,11 @@ Command	evms/parser.c	/^Command(Executable_Node * Current_Node, boolean Optional
 CommandLine	evms/evms.c	/^static char CommandLine[MAX_CONTENT_LEN];	\/* Buffer to store the reconstructed command line in. *\/$/;"	v	file:
 CommandLine	evms/scanner.c	/^    char *CommandLine;$/;"	m	struct:Input_Context_t	file:
 Command_Filename	evms/parser.c	/^static char *Command_Filename = NULL;	\/* Name of command file, if any, being parsed. *\/$/;"	v	file:
-Comment_Found	evms/scanner.c	/^    Comment_Found,$/;"	e	enum:__anon43	file:
-Comment_Found2	evms/scanner.c	/^    Comment_Found2,$/;"	e	enum:__anon43	file:
+Comment_Found	evms/scanner.c	/^    Comment_Found,$/;"	e	enum:__anon32	file:
+Comment_Found2	evms/scanner.c	/^    Comment_Found2,$/;"	e	enum:__anon32	file:
 CommitStr	evms/screener.h	/^char *   CommitStr        =  "COMMIT";$/;"	v
 Commit_Changes	evms/interpreter.c	/^int Commit_Changes(void)$/;"	f
-Commit_Node	evms/interpreter.h	/^               Commit_Node,$/;"	e	enum:__anon50
+Commit_Node	evms/interpreter.h	/^               Commit_Node,$/;"	e	enum:__anon39
 Commit_Type	evms/parser.c	/^Commit_Type(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
 CompatibilityStr	evms/screener.h	/^char *   CompatibilityStr =  "COMPATIBILITY";$/;"	v
 Connect	Client.c	/^int Connect(const char *server_ip, unsigned short port)$/;"	f
@@ -145,18 +152,20 @@ ControlNode	evms/dlist.h	/^typedef struct MasterListRecord ControlNode;$/;"	t	ty
 ControlNodeLocation	evms/dlist.h	/^  struct MasterListRecord * ControlNodeLocation; \/* The control node of the list containing this item. *\/$/;"	m	struct:LinkNodeRecord	typeref:struct:LinkNodeRecord::MasterListRecord
 ConvertStr	evms/screener.h	/^char *   ConvertStr       =  "CONVERT";$/;"	v
 Convert_Int	evms/interpreter.c	/^static int64_t Convert_Int(u_int32_t Index, int64_t value)$/;"	f	file:
-Convert_Node	evms/interpreter.h	/^               Convert_Node,$/;"	e	enum:__anon50
+Convert_Node	evms/interpreter.h	/^               Convert_Node,$/;"	e	enum:__anon39
 Convert_Real	evms/interpreter.c	/^static double Convert_Real(u_int32_t Index, double value)$/;"	f	file:
 ConvertibleStr	evms/screener.h	/^char *   ConvertibleStr   =  "CONVERTIBLE";$/;"	v
 Convertible_Filter	evms/parser.c	65;"	d	file:
 CopyList	evms/dlist.c	/^CopyList(dlist_t TargetList, dlist_t SourceList,$/;"	f
+CreateBondingMasterConfiguration	pl/Bonding.pl	/^sub CreateBondingMasterConfiguration()$/;"	s
+CreateBondingSlaveConfiguration	pl/Bonding.pl	/^sub CreateBondingSlaveConfiguration()$/;"	s
 CreateDirectory	SystemCmd.c	/^int CreateDirectory(char * msg_body, int msg_body_len)$/;"	f
 CreateDirectory	shell/System.sh	/^CreateDirectory()$/;"	f
 CreateList	evms/dlist.c	/^dlist_t CreateList(void)$/;"	f
 CreateStr	evms/screener.h	/^char *   CreateStr        =  "CREATE";$/;"	v
-Create_Node	evms/interpreter.h	/^               Create_Node,$/;"	e	enum:__anon50
+Create_Node	evms/interpreter.h	/^               Create_Node,$/;"	e	enum:__anon39
 Creation_Parameters	evms/parser.c	/^Creation_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
-CtrlLinkTbl	CtrlLinkTbl.c	/^CTRL_LINK_DESC CtrlLinkTbl[MAX_CONN_NUM];	\/\/ 控制链接描述表$/;"	v
+CtrlLinkTbl	CtrlLinkTbl.c	/^	$/;"	v
 CurPort	NetServer.c	/^int CurPort;$/;"	v
 CurrentColumn	evms/scanner.c	/^    uint CurrentColumn;		\/* The current position (0 based) within the current line\/command line expressed as an offset. *\/$/;"	m	struct:Input_Context_t	file:
 CurrentCommandLine	evms/scanner.c	/^    char *CurrentCommandLine;$/;"	m	struct:Input_Context_t	file:
@@ -166,20 +175,20 @@ CurrentState	evms/scanner.c	/^static State CurrentState = Start;	\/* The current
 Current_Input_State	evms/scanner.c	/^static Input_State Current_Input_State = Normal;	\/* The current state of the FSA used for the GetCharacter function. *\/$/;"	v	file:
 Current_Token	evms/parser.c	/^static TokenType *Current_Token = NULL;	\/* Token being parsed. *\/$/;"	v	file:
 Current_Units	evms/interpreter.c	/^static value_unit_t Current_Units;$/;"	v	file:
-DATA_TYPE	inc/common.h	/^	DATA_TYPE       = (1<<1),$/;"	e	enum:__anon11
-DEAD_THREAD_TBL	DeadThreadTbl.h	/^} DEAD_THREAD_TBL, PDEAD_THREAD_TBL; \/\/FIXME PDEAD_THREAD_TBL 前面应该加"*"吧,还好没有用到它$/;"	t	typeref:struct:__anon37
-DEBUG	inc/common.h	/^	DEBUG = 8,$/;"	e	enum:__anon17
-DEFAULT	inc/common.h	/^	DEFAULT = 5,$/;"	e	enum:__anon17
+DATA_TYPE	inc/common.h	/^	DATA_TYPE       = (1<<1),$/;"	e	enum:__anon15
+DEAD_THREAD_TBL	DeadThreadTbl.h	/^} DEAD_THREAD_TBL, PDEAD_THREAD_TBL; \/\/FIXME PDEAD_THREAD_TBL 前面应该加"*"吧,还好没有用到它$/;"	t	typeref:struct:__anon54
+DEBUG	inc/common.h	/^	DEBUG = 8,$/;"	e	enum:__anon21
+DEFAULT	inc/common.h	/^	DEFAULT = 5,$/;"	e	enum:__anon21
 DEFAULT_DAEMON_LOG_FILE	inc/appAPI.h	49;"	d
 DEFAULT_LOG_FILE	inc/appAPI.h	48;"	d
 DEFAULT_METADATA_DIR	inc/enginestructs.h	384;"	d
-DEFAULT_RETCODE	Protocol.h	77;"	d
-DELTAS	inc/ece.h	/^	DELTAS,$/;"	e	enum:__anon22
-DELTA_JOIN	inc/ece.h	/^	DELTA_JOIN,$/;"	e	enum:__anon23
-DELTA_LEAVE	inc/ece.h	/^	DELTA_LEAVE,$/;"	e	enum:__anon23
-DETAILS	inc/common.h	/^	DETAILS = 6,$/;"	e	enum:__anon17
+DEFAULT_RETCODE	Protocol.h	88;"	d
+DELTAS	inc/ece.h	/^	DELTAS,$/;"	e	enum:__anon26
+DELTA_JOIN	inc/ece.h	/^	DELTA_JOIN,$/;"	e	enum:__anon27
+DELTA_LEAVE	inc/ece.h	/^	DELTA_LEAVE,$/;"	e	enum:__anon27
+DETAILS	inc/common.h	/^	DETAILS = 6,$/;"	e	enum:__anon21
 DEV_PATH	inc/common.h	45;"	d
-DISK	inc/common.h	/^	DISK        = (1<<1),$/;"	e	enum:__anon12
+DISK	inc/common.h	/^	DISK        = (1<<1),$/;"	e	enum:__anon16
 DISKGROUP	inc/plugin.h	/^typedef struct storage_container_s DISKGROUP;$/;"	t	typeref:struct:storage_container_s
 DISKSEG	inc/plugin.h	/^typedef struct storage_object_s DISKSEG;$/;"	t	typeref:struct:storage_object_s
 DISK_TO_CPU16	inc/enginestructs.h	402;"	d
@@ -188,8 +197,8 @@ DISK_TO_CPU32	inc/enginestructs.h	403;"	d
 DISK_TO_CPU32	inc/enginestructs.h	412;"	d
 DISK_TO_CPU64	inc/enginestructs.h	404;"	d
 DISK_TO_CPU64	inc/enginestructs.h	413;"	d
-DISPLAY_COUNT	inc/common.h	/^	DISPLAY_COUNT,		\/* Display the progress as a count.           *\/$/;"	e	enum:__anon10
-DISPLAY_PERCENT	inc/common.h	/^	DISPLAY_PERCENT = 0,	\/* Display the progress as a percentage.      *\/$/;"	e	enum:__anon10
+DISPLAY_COUNT	inc/common.h	/^	DISPLAY_COUNT,		\/* Display the progress as a count.           *\/$/;"	e	enum:__anon14
+DISPLAY_PERCENT	inc/common.h	/^	DISPLAY_PERCENT = 0,	\/* Display the progress as a percentage.      *\/$/;"	e	enum:__anon14
 DLISTHANDLER	evms/dlist.h	137;"	d
 DLIST_ALREADY_AT_START	evms/dlist.h	205;"	d
 DLIST_BAD	evms/dlist.h	197;"	d
@@ -214,44 +223,46 @@ DLMStr	evms/screener.h	/^char *   DLMStr           =  "DLM";$/;"	v
 DL_FEATURE	evms/ObjectStructs.h	13;"	d
 DM_PATH_ARGS_SIZE	inc/devmapper.h	197;"	d
 DM_SELECTOR_NAME_SIZE	inc/devmapper.h	198;"	d
-DM_TARGET_BBR	inc/devmapper.h	/^	DM_TARGET_BBR,$/;"	e	enum:__anon25
-DM_TARGET_CRYPT	inc/devmapper.h	/^	DM_TARGET_CRYPT,$/;"	e	enum:__anon25
-DM_TARGET_ERROR	inc/devmapper.h	/^	DM_TARGET_ERROR,$/;"	e	enum:__anon25
-DM_TARGET_LINEAR	inc/devmapper.h	/^	DM_TARGET_LINEAR = 0,$/;"	e	enum:__anon25
+DM_TARGET_BBR	inc/devmapper.h	/^	DM_TARGET_BBR,$/;"	e	enum:__anon24
+DM_TARGET_CRYPT	inc/devmapper.h	/^	DM_TARGET_CRYPT,$/;"	e	enum:__anon24
+DM_TARGET_ERROR	inc/devmapper.h	/^	DM_TARGET_ERROR,$/;"	e	enum:__anon24
+DM_TARGET_LINEAR	inc/devmapper.h	/^	DM_TARGET_LINEAR = 0,$/;"	e	enum:__anon24
 DM_TARGET_MAX	inc/devmapper.h	45;"	d
-DM_TARGET_MIRROR	inc/devmapper.h	/^	DM_TARGET_MIRROR,$/;"	e	enum:__anon25
-DM_TARGET_MULTIPATH	inc/devmapper.h	/^	DM_TARGET_MULTIPATH,$/;"	e	enum:__anon25
-DM_TARGET_RAID0	inc/devmapper.h	/^	DM_TARGET_RAID0,$/;"	e	enum:__anon25
-DM_TARGET_RAID1	inc/devmapper.h	/^	DM_TARGET_RAID1,$/;"	e	enum:__anon25
-DM_TARGET_RAID5	inc/devmapper.h	/^	DM_TARGET_RAID5$/;"	e	enum:__anon25
-DM_TARGET_SNAPSHOT	inc/devmapper.h	/^	DM_TARGET_SNAPSHOT,$/;"	e	enum:__anon25
-DM_TARGET_SNAPSHOT_ORG	inc/devmapper.h	/^	DM_TARGET_SNAPSHOT_ORG,$/;"	e	enum:__anon25
-DM_TARGET_SPARSE	inc/devmapper.h	/^	DM_TARGET_SPARSE,$/;"	e	enum:__anon25
-DM_TARGET_STRIPE	inc/devmapper.h	/^	DM_TARGET_STRIPE,$/;"	e	enum:__anon25
-DM_TARGET_ZERO	inc/devmapper.h	/^	DM_TARGET_ZERO,$/;"	e	enum:__anon25
+DM_TARGET_MIRROR	inc/devmapper.h	/^	DM_TARGET_MIRROR,$/;"	e	enum:__anon24
+DM_TARGET_MULTIPATH	inc/devmapper.h	/^	DM_TARGET_MULTIPATH,$/;"	e	enum:__anon24
+DM_TARGET_RAID0	inc/devmapper.h	/^	DM_TARGET_RAID0,$/;"	e	enum:__anon24
+DM_TARGET_RAID1	inc/devmapper.h	/^	DM_TARGET_RAID1,$/;"	e	enum:__anon24
+DM_TARGET_RAID5	inc/devmapper.h	/^	DM_TARGET_RAID5$/;"	e	enum:__anon24
+DM_TARGET_SNAPSHOT	inc/devmapper.h	/^	DM_TARGET_SNAPSHOT,$/;"	e	enum:__anon24
+DM_TARGET_SNAPSHOT_ORG	inc/devmapper.h	/^	DM_TARGET_SNAPSHOT_ORG,$/;"	e	enum:__anon24
+DM_TARGET_SPARSE	inc/devmapper.h	/^	DM_TARGET_SPARSE,$/;"	e	enum:__anon24
+DM_TARGET_STRIPE	inc/devmapper.h	/^	DM_TARGET_STRIPE,$/;"	e	enum:__anon24
+DM_TARGET_ZERO	inc/devmapper.h	/^	DM_TARGET_ZERO,$/;"	e	enum:__anon24
 DataLocation	evms/dlist.h	/^  ADDRESS                   DataLocation;        \/* Where the data associated with this LinkNode is *\/$/;"	m	struct:LinkNodeRecord
 DataTag	evms/dlist.h	/^  TAG                       DataTag;             \/* The item tag the user gave to the data. *\/$/;"	m	struct:LinkNodeRecord
 DeactStr	evms/screener.h	/^char *   DeactStr         =  "DEACT";$/;"	v
 DeactivateStr	evms/screener.h	/^char *   DeactivateStr    =  "DEACTIVATE";$/;"	v
-Deactivate_Node	evms/interpreter.h	/^               Deactivate_Node,$/;"	e	enum:__anon50
-DeadThreadTbl	DeadThreadTbl.c	/^DEAD_THREAD_TBL DeadThreadTbl;	\/\/ 死亡线程列表$/;"	v
+Deactivate_Node	evms/interpreter.h	/^               Deactivate_Node,$/;"	e	enum:__anon39
+DeadThreadTbl	DeadThreadTbl.c	/^	$/;"	v
 Debug_Level	evms/evms.c	/^debug_level_t Debug_Level = -1;$/;"	v
 Debug_Level	evms/interpreter.c	/^static debug_level_t Debug_Level = -1;$/;"	v	file:
 DeinitCtrlLinkTbl	CtrlLinkTbl.c	/^DeinitCtrlLinkTbl () $/;"	f
 DeinitDeadThreadTbl	DeadThreadTbl.c	/^DeinitDeadThreadTbl () $/;"	f
-DelDeviceFromGroup	Infiniband.c	/^int DelDeviceFromGroup(char *msg_body, int msg_body_len)$/;"	f
+DelBonding	BondingCmd.c	/^int DelBonding(char * msg_body,   int msg_body_len)$/;"	f
+DelBonding	pl/Bonding.pl	/^sub DelBonding()$/;"	s
+DelDeviceFromGroup	InfinibandCmd.c	/^int DelDeviceFromGroup(char *msg_body, int msg_body_len)$/;"	f
 DelDeviceFromGroup	shell/ResourceMapping.sh	/^DelDeviceFromGroup()$/;"	f
 DelFromLinkTbl	CtrlLinkTbl.c	/^DelFromLinkTbl (int sock_fd) $/;"	f
-DelGroup	Infiniband.c	/^int DelGroup(char *msg_body, int msg_body_len)$/;"	f
+DelGroup	InfinibandCmd.c	/^int DelGroup(char *msg_body, int msg_body_len)$/;"	f
 DelGroup	shell/ResourceMapping.sh	/^DelGroup()$/;"	f
-DelIBPortFromGroup	Infiniband.c	/^int DelIBPortFromGroup(char *msg_body, int msg_body_len)$/;"	f
+DelIBPortFromGroup	InfinibandCmd.c	/^int DelIBPortFromGroup(char *msg_body, int msg_body_len)$/;"	f
 DelIBPortFromGroup	shell/ResourceMapping.sh	/^DelIBPortFromGroup()$/;"	f
 DelIscsiTarget	IscsiCmd.c	/^int DelIscsiTarget(char * msg_body, int msg_body_len)$/;"	f
 DelTarget	pl/Iscsi.pl	/^sub DelTarget()$/;"	s
 DeleteAllItems	evms/dlist.c	/^int DeleteAllItems(dlist_t ListToDeleteFrom, boolean FreeMemory)$/;"	f
 DeleteObject	evms/dlist.c	/^int DeleteObject(dlist_t ListToDeleteFrom, ADDRESS Object)$/;"	f
 DeleteStr	evms/screener.h	/^char *   DeleteStr        =  "DELETE";$/;"	v
-Delete_Node	evms/interpreter.h	/^               Delete_Node,$/;"	e	enum:__anon50
+Delete_Node	evms/interpreter.h	/^               Delete_Node,$/;"	e	enum:__anon39
 DestroyHash	evms/PrivateData.c	/^void DestroyHash()$/;"	f
 DestroyList	evms/dlist.c	/^int DestroyList(dlist_t * ListToDestroy, boolean FreeItemMemory)$/;"	f
 Detect_Comments	evms/scanner.c	/^static boolean Detect_Comments = TRUE;	\/* Control comment detection and elimination.  If FALSE, then comment detection is disabled. *\/$/;"	v	file:
@@ -357,7 +368,7 @@ Do_Set_Help	evms/helpsys.c	/^static void Do_Set_Help(void)$/;"	f	file:
 Do_Shrink	evms/interpreter.c	/^static int Do_Shrink(Executable_Node * Current_Node)$/;"	f	file:
 Do_Shrink_Filter	evms/interpreter.c	/^static int Do_Shrink_Filter(Executable_Node * Current_Node)$/;"	f	file:
 Do_Shrink_Help	evms/helpsys.c	/^static void Do_Shrink_Help(void)$/;"	f	file:
-Do_Substitution	evms/scanner.c	/^    Do_Substitution$/;"	e	enum:__anon43	file:
+Do_Substitution	evms/scanner.c	/^    Do_Substitution$/;"	e	enum:__anon32	file:
 Do_Task	evms/interpreter.c	/^static int Do_Task(Executable_Node * Current_Node)$/;"	f	file:
 Do_Task_Adjust	evms/interpreter.c	/^static int Do_Task_Adjust(Executable_Node * Current_Node)$/;"	f	file:
 Do_Task_Help	evms/helpsys.c	/^static void Do_Task_Help(void)$/;"	f	file:
@@ -372,7 +383,7 @@ Do_Unmount	evms/interpreter.c	/^static int Do_Unmount(Executable_Node * Current_
 Do_Unmount_Help	evms/helpsys.c	/^static void Do_Unmount_Help(void)$/;"	f	file:
 Do_Volume_Filter	evms/interpreter.c	/^static int Do_Volume_Filter(Executable_Node * Current_Node)$/;"	f	file:
 DrStr	evms/screener.h	/^char *   DrStr            =  "DR";          \/* Abbreviation for Delete Recursive *\/$/;"	v
-Duplicate_Filter	evms/error.h	/^               Duplicate_Filter,$/;"	e	enum:__anon46
+Duplicate_Filter	evms/error.h	/^               Duplicate_Filter,$/;"	e	enum:__anon42
 ECE_ALL_NODES	inc/ece.h	36;"	d
 ECE_CLUSTERID_SIZE	inc/ece.h	54;"	d
 ECE_NODEID_SIZE	inc/ece.h	28;"	d
@@ -388,39 +399,39 @@ ENET_UNKNOW_CMD	NetError.h	6;"	d
 ENGINE_API_MAJOR_VERSION	inc/appAPI.h	29;"	d
 ENGINE_API_MINOR_VERSION	inc/appAPI.h	30;"	d
 ENGINE_API_PATCH_LEVEL	inc/appAPI.h	31;"	d
-ENGINE_CLOSED	inc/common.h	/^	ENGINE_CLOSED	= 0,$/;"	e	enum:__anon9
+ENGINE_CLOSED	inc/common.h	/^	ENGINE_CLOSED	= 0,$/;"	e	enum:__anon13
 ENGINE_CLUSTER_API_MAJOR_VERION	inc/plugfuncs.h	1994;"	d
 ENGINE_CLUSTER_API_MINOR_VERION	inc/plugfuncs.h	1995;"	d
 ENGINE_CLUSTER_API_PATCH_LEVEL	inc/plugfuncs.h	1996;"	d
 ENGINE_CONTAINER_API_MAJOR_VERION	inc/plugfuncs.h	1805;"	d
 ENGINE_CONTAINER_API_MINOR_VERION	inc/plugfuncs.h	1806;"	d
 ENGINE_CONTAINER_API_PATCH_LEVEL	inc/plugfuncs.h	1807;"	d
-ENGINE_CRITICAL	inc/common.h	/^	ENGINE_CRITICAL	= (1<<2),$/;"	e	enum:__anon9
-ENGINE_DAEMON	inc/common.h	/^	ENGINE_DAEMON	= (1<<3),$/;"	e	enum:__anon9
+ENGINE_CRITICAL	inc/common.h	/^	ENGINE_CRITICAL	= (1<<2),$/;"	e	enum:__anon13
+ENGINE_DAEMON	inc/common.h	/^	ENGINE_DAEMON	= (1<<3),$/;"	e	enum:__anon13
 ENGINE_FSIM_API_MAJOR_VERION	inc/plugfuncs.h	1540;"	d
 ENGINE_FSIM_API_MINOR_VERION	inc/plugfuncs.h	1541;"	d
 ENGINE_FSIM_API_PATCH_LEVEL	inc/plugfuncs.h	1542;"	d
 ENGINE_PLUGIN_API_MAJOR_VERION	inc/plugfuncs.h	1138;"	d
 ENGINE_PLUGIN_API_MINOR_VERION	inc/plugfuncs.h	1139;"	d
 ENGINE_PLUGIN_API_PATCH_LEVEL	inc/plugfuncs.h	1140;"	d
-ENGINE_READ	inc/common.h	/^	ENGINE_READ	= (1<<0),$/;"	e	enum:__anon9
+ENGINE_READ	inc/common.h	/^	ENGINE_READ	= (1<<0),$/;"	e	enum:__anon13
 ENGINE_READONLY	inc/common.h	426;"	d
 ENGINE_READWRITE	inc/common.h	427;"	d
 ENGINE_READWRITE_CRITICAL	inc/common.h	428;"	d
 ENGINE_SERVICES_API_MAJOR_VERION	inc/plugfuncs.h	35;"	d
 ENGINE_SERVICES_API_MINOR_VERION	inc/plugfuncs.h	36;"	d
 ENGINE_SERVICES_API_PATCH_LEVEL	inc/plugfuncs.h	37;"	d
-ENGINE_WORKER	inc/common.h	/^	ENGINE_WORKER	= (1<<4)$/;"	e	enum:__anon9
-ENGINE_WRITE	inc/common.h	/^	ENGINE_WRITE	= (1<<1),$/;"	e	enum:__anon9
-ENTRY_EXIT	inc/common.h	/^	ENTRY_EXIT = 7,$/;"	e	enum:__anon17
+ENGINE_WORKER	inc/common.h	/^	ENGINE_WORKER	= (1<<4)$/;"	e	enum:__anon13
+ENGINE_WRITE	inc/common.h	/^	ENGINE_WRITE	= (1<<1),$/;"	e	enum:__anon13
+ENTRY_EXIT	inc/common.h	/^	ENTRY_EXIT = 7,$/;"	e	enum:__anon21
 EPStr	evms/screener.h	/^char *   EPStr            =  "EP";$/;"	v
-EQ	evms/interpreter.c	/^    EQ,$/;"	e	enum:__anon47	file:
+EQ	evms/interpreter.c	/^    EQ,$/;"	e	enum:__anon36	file:
 EQStr	evms/screener.h	/^char *   EQStr            =  "EQ";$/;"	v
 EQ_Filter	evms/parser.c	67;"	d	file:
-ERROR	inc/common.h	/^	ERROR = 2,$/;"	e	enum:__anon17
+ERROR	inc/common.h	/^	ERROR = 2,$/;"	e	enum:__anon21
 ERROR_C	evms/error.c	37;"	d	file:
 ERROR_H	evms/error.h	34;"	d
-EVERYTHING	inc/common.h	/^	EVERYTHING = 10$/;"	e	enum:__anon17
+EVERYTHING	inc/common.h	/^	EVERYTHING = 10$/;"	e	enum:__anon21
 EVMSStr	evms/screener.h	/^char *   EVMSStr          =  "EVMS";$/;"	v
 EVMS_ALT_LINUX_OEM_ID	inc/plugin-ids.h	36;"	d
 EVMS_ALT_LINUX_OEM_NAME	inc/plugin-ids.h	37;"	d
@@ -438,7 +449,7 @@ EVMS_BSD_PLUGIN_LONG_NAME	inc/plugin-ids.h	112;"	d
 EVMS_BSD_PLUGIN_SHORT_NAME	inc/plugin-ids.h	111;"	d
 EVMS_C	evms/evms.c	34;"	d	file:
 EVMS_CLUSTER_MANAGER_INTERFACE_MODULE	inc/common.h	/^	EVMS_CLUSTER_MANAGER_INTERFACE_MODULE,		\/\/ 7$/;"	e	enum:evms_plugin_code
-EVMS_COMMAND_MSG	Protocol.h	44;"	d
+EVMS_COMMAND_MSG	Protocol.h	45;"	d
 EVMS_COMMON_H_INCLUDED	inc/common.h	23;"	d
 EVMS_CSM_PLUGIN_ID	inc/plugin-ids.h	96;"	d
 EVMS_CSM_PLUGIN_LONG_NAME	inc/plugin-ids.h	100;"	d
@@ -446,7 +457,7 @@ EVMS_CSM_PLUGIN_SHORT_NAME	inc/plugin-ids.h	99;"	d
 EVMS_Collection_List	inc/options.h	/^	EVMS_Collection_List,		\/* Use a value_list_t structure *\/$/;"	e	enum:__anon4
 EVMS_Collection_None	inc/options.h	/^	EVMS_Collection_None = 0,	\/* No collection *\/$/;"	e	enum:__anon4
 EVMS_Collection_Range	inc/options.h	/^	EVMS_Collection_Range		\/* Use a value_range_t structure *\/$/;"	e	enum:__anon4
-EVMS_DEINIT_MSG	Protocol.h	45;"	d
+EVMS_DEINIT_MSG	Protocol.h	46;"	d
 EVMS_DEVICE_LOCKABLE	inc/common.h	202;"	d
 EVMS_DEVICE_MANAGER	inc/common.h	/^	EVMS_DEVICE_MANAGER,				\/\/ 1$/;"	e	enum:evms_plugin_code
 EVMS_DEVICE_MEDIA_PRESENT	inc/common.h	200;"	d
@@ -476,12 +487,12 @@ EVMS_ECE_H_INCLUDED	inc/ece.h	23;"	d
 EVMS_EINFO_FLAGS_MORE_INFO_AVAILABLE	inc/options.h	355;"	d
 EVMS_EINFO_FLAGS_NO_UNIT_CONVERSION	inc/options.h	353;"	d
 EVMS_ENGINESTRUCTS_H_INCLUDED	inc/enginestructs.h	23;"	d
-EVMS_ERROR_FAILED	Protocol.h	/^	EVMS_ERROR_FAILED = 1,$/;"	e	enum:__anon35
-EVMS_ERROR_MAX	Protocol.h	/^	EVMS_ERROR_MAX$/;"	e	enum:__anon35
+EVMS_ERROR_FAILED	Protocol.h	/^        EVMS_ERROR_FAILED = 1,$/;"	e	enum:__anon50
+EVMS_ERROR_MAX	Protocol.h	/^        EVMS_ERROR_MAX$/;"	e	enum:__anon50
 EVMS_ERROR_PLUGIN_ID	inc/plugin-ids.h	50;"	d
 EVMS_ERROR_PLUGIN_LONG_NAME	inc/plugin-ids.h	54;"	d
 EVMS_ERROR_PLUGIN_SHORT_NAME	inc/plugin-ids.h	53;"	d
-EVMS_ERROR_TYPES	Protocol.h	/^}EVMS_ERROR_TYPES;$/;"	t	typeref:enum:__anon35
+EVMS_ERROR_TYPES	Protocol.h	/^}EVMS_ERROR_TYPES;$/;"	t	typeref:enum:__anon50
 EVMS_EXT2_PLUGIN_ID	inc/plugin-ids.h	235;"	d
 EVMS_EXT2_PLUGIN_LONG_NAME	inc/plugin-ids.h	239;"	d
 EVMS_EXT2_PLUGIN_SHORT_NAME	inc/plugin-ids.h	238;"	d
@@ -523,7 +534,7 @@ EVMS_HB2_PLUGIN_SHORT_NAME	inc/plugin-ids.h	222;"	d
 EVMS_IBM_OEM_ID	inc/plugin-ids.h	29;"	d
 EVMS_IBM_OEM_NAME	inc/plugin-ids.h	31;"	d
 EVMS_INITIAL_CRC	inc/common.h	39;"	d
-EVMS_INIT_MSG	Protocol.h	43;"	d
+EVMS_INIT_MSG	Protocol.h	44;"	d
 EVMS_JFS_PLUGIN_ID	inc/plugin-ids.h	229;"	d
 EVMS_JFS_PLUGIN_LONG_NAME	inc/plugin-ids.h	233;"	d
 EVMS_JFS_PLUGIN_SHORT_NAME	inc/plugin-ids.h	232;"	d
@@ -565,15 +576,15 @@ EVMS_MULTIPATH_PLUGIN_ID	inc/plugin-ids.h	120;"	d
 EVMS_MULTIPATH_PLUGIN_LONG_NAME	inc/plugin-ids.h	124;"	d
 EVMS_MULTIPATH_PLUGIN_SHORT_NAME	inc/plugin-ids.h	123;"	d
 EVMS_NAME_SIZE	inc/common.h	280;"	d
-EVMS_NEED_USER_INPUT	Protocol.h	38;"	d
+EVMS_NEED_USER_INPUT	Protocol.h	39;"	d
 EVMS_NOVELL_OEM_ID	inc/plugin-ids.h	33;"	d
 EVMS_NOVELL_OEM_NAME	inc/plugin-ids.h	34;"	d
 EVMS_NO_PLUGIN	inc/common.h	/^	EVMS_NO_PLUGIN,					\/\/ 0$/;"	e	enum:evms_plugin_code
 EVMS_NTFS_PLUGIN_ID	inc/plugin-ids.h	253;"	d
 EVMS_NTFS_PLUGIN_LONG_NAME	inc/plugin-ids.h	257;"	d
 EVMS_NTFS_PLUGIN_SHORT_NAME	inc/plugin-ids.h	256;"	d
-EVMS_OBJECT	inc/common.h	/^	EVMS_OBJECT = (1<<4),$/;"	e	enum:__anon12
-EVMS_OBJECT_INFO	Protocol.h	39;"	d
+EVMS_OBJECT	inc/common.h	/^	EVMS_OBJECT = (1<<4),$/;"	e	enum:__anon16
+EVMS_OBJECT_INFO	Protocol.h	40;"	d
 EVMS_OBJECT_NODE_DIR	inc/common.h	57;"	d
 EVMS_OBJECT_NODE_PATH	inc/common.h	58;"	d
 EVMS_OBJECT_NODE_PATH_LEN	inc/common.h	59;"	d
@@ -597,7 +608,7 @@ EVMS_OPTION_IS_REQUIRED	inc/options.h	313;"	d
 EVMS_OPTION_VALUE_IS_LIST	inc/options.h	315;"	d
 EVMS_PLUGFUNCS_H_INCLUDED	inc/plugfuncs.h	23;"	d
 EVMS_PLUGINIDS_H_INCLUDED	inc/plugin-ids.h	23;"	d
-EVMS_PROMPT_MSG	Protocol.h	37;"	d
+EVMS_PROMPT_MSG	Protocol.h	38;"	d
 EVMS_REGION_MANAGER	inc/common.h	/^	EVMS_REGION_MANAGER,				\/\/ 3$/;"	e	enum:evms_plugin_code
 EVMS_REISER_PLUGIN_ID	inc/plugin-ids.h	241;"	d
 EVMS_REISER_PLUGIN_LONG_NAME	inc/plugin-ids.h	245;"	d
@@ -686,176 +697,181 @@ EVMS_VSECTOR_SIZE_SHIFT	inc/common.h	43;"	d
 EVMS_XFS_PLUGIN_ID	inc/plugin-ids.h	265;"	d
 EVMS_XFS_PLUGIN_LONG_NAME	inc/plugin-ids.h	269;"	d
 EVMS_XFS_PLUGIN_SHORT_NAME	inc/plugin-ids.h	268;"	d
-EXCLUSIVE_INSERT	inc/enginestructs.h	/^	EXCLUSIVE_INSERT = (1<<1)$/;"	e	enum:__anon27
-EXTRA	inc/common.h	/^	EXTRA = 9,$/;"	e	enum:__anon17
+EXCLUSIVE_INSERT	inc/enginestructs.h	/^	EXCLUSIVE_INSERT = (1<<1)$/;"	e	enum:__anon9
+EXTRA	inc/common.h	/^	EXTRA = 9,$/;"	e	enum:__anon21
 E_CANCELED	inc/common.h	346;"	d
 E_NOLOAD	inc/common.h	347;"	d
 EchoStr	evms/screener.h	/^char *   EchoStr          =  "ECHO";$/;"	v
-Echo_Node	evms/interpreter.h	/^               Echo_Node,$/;"	e	enum:__anon50
-Embedded_Comment_Check	evms/scanner.c	/^    Embedded_Comment_Check,$/;"	e	enum:__anon43	file:
+Echo_Node	evms/interpreter.h	/^               Echo_Node,$/;"	e	enum:__anon39
+Embedded_Comment_Check	evms/scanner.c	/^    Embedded_Comment_Check,$/;"	e	enum:__anon32	file:
 EndOfList	evms/dlist.h	/^  LinkNode *      EndOfList;             \/* The address of the LinkNode of the last item in the list. *\/$/;"	m	struct:MasterListRecord
-EndOfString	evms/scanner.c	/^    EndOfString,$/;"	e	enum:__anon42	file:
-EndState	evms/scanner.c	/^    EndState,$/;"	e	enum:__anon42	file:
+EndOfString	evms/scanner.c	/^    EndOfString,$/;"	e	enum:__anon31	file:
+EndState	evms/scanner.c	/^    EndState,$/;"	e	enum:__anon31	file:
 EndStr	evms/screener.h	/^char *   EndStr           =  "END";$/;"	v
-End_State	evms/scanner.c	/^    End_State,$/;"	e	enum:__anon43	file:
+End_State	evms/scanner.c	/^    End_State,$/;"	e	enum:__anon32	file:
 Engine_Mode	evms/evms.c	/^engine_mode_t Engine_Mode = ENGINE_READWRITE;$/;"	v
 Engine_Mode	evms/interpreter.c	/^static engine_mode_t Engine_Mode = ENGINE_READWRITE;$/;"	v	file:
-Engine_Open_Failure	evms/error.h	/^               Engine_Open_Failure,$/;"	e	enum:__anon46
-EofToken	evms/token.h	/^                EofToken,$/;"	e	enum:__anon40
-Error	evms/parser.c	/^    Error,$/;"	e	enum:__anon49	file:
-ErrorState	evms/scanner.c	/^    ErrorState$/;"	e	enum:__anon42	file:
+Engine_Open_Failure	evms/error.h	/^               Engine_Open_Failure,$/;"	e	enum:__anon42
+EofToken	evms/token.h	/^                EofToken,$/;"	e	enum:__anon34
+Error	evms/parser.c	/^    Error,$/;"	e	enum:__anon33	file:
+ErrorState	evms/scanner.c	/^    ErrorState$/;"	e	enum:__anon31	file:
 Error_Source	evms/scanner.c	/^    char *Error_Source;		\/* Used for error reporting purposes.  It points to either CommandLine or the name of the input file. *\/$/;"	m	struct:Input_Context_t	file:
 ErrorsFound	evms/dlist.c	/^boolean ErrorsFound = FALSE;	\/* Used to track whether or not errors have$/;"	v
 EvmsCmd	EvmsCmd.c	/^EvmsCmd (int sock_fd, char *oneframe, int len)$/;"	f
 ExamineCurrentCharacter	evms/scanner.c	/^static boolean ExamineCurrentCharacter = FALSE;	\/* Causes a state to not load a new character but to examine the existing one. *\/$/;"	v	file:
 ExclusiveInsertObject	evms/dlist.c	/^ExclusiveInsertObject(dlist_t ListToAddTo,$/;"	f
-Executable_Node	evms/interpreter.h	/^               } Executable_Node;$/;"	t	typeref:struct:__anon51
+Executable_Node	evms/interpreter.h	/^               } Executable_Node;$/;"	t	typeref:struct:__anon40
 ExitStr	evms/screener.h	/^char *   ExitStr          =  "EXIT";$/;"	v
 ExpandStr	evms/screener.h	/^char *   ExpandStr        =  "EXPAND";$/;"	v
-Expand_Node	evms/interpreter.h	/^               Expand_Node,$/;"	e	enum:__anon50
+Expand_Node	evms/interpreter.h	/^               Expand_Node,$/;"	e	enum:__anon39
 Expand_Shrink_Task_Parameters	evms/parser.c	/^Expand_Shrink_Task_Parameters(Executable_Node * Current_Node,$/;"	f	file:
 ExpandableStr	evms/screener.h	/^char *   ExpandableStr    =  "EXPANDABLE";$/;"	v
 Expandable_Filter	evms/parser.c	66;"	d	file:
-Expecting_Acceptable_Parameter	evms/error.h	/^               Expecting_Acceptable_Parameter,$/;"	e	enum:__anon46
-Expecting_Allocate_Or_Assign_Command	evms/error.h	/^               Expecting_Allocate_Or_Assign_Command,$/;"	e	enum:__anon46
-Expecting_Closing_Brace_Separator	evms/error.h	/^               Expecting_Closing_Brace_Separator,$/;"	e	enum:__anon46
-Expecting_Closing_Paren_Separator	evms/error.h	/^               Expecting_Closing_Paren_Separator,$/;"	e	enum:__anon46
-Expecting_Colon_Separator	evms/error.h	/^               Expecting_Colon_Separator,$/;"	e	enum:__anon46
-Expecting_Comma_Separator	evms/error.h	/^               Expecting_Comma_Separator,$/;"	e	enum:__anon46
-Expecting_Command_File_Name	evms/error.h	/^               Expecting_Command_File_Name,$/;"	e	enum:__anon46
-Expecting_Command_Name	evms/error.h	/^               Expecting_Command_Name,$/;"	e	enum:__anon46
-Expecting_Command_Name_Or_File	evms/error.h	/^               Expecting_Command_Name_Or_File,$/;"	e	enum:__anon46
-Expecting_Command_Separator	evms/error.h	/^               Expecting_Command_Separator,$/;"	e	enum:__anon46
-Expecting_Command_Start	evms/error.h	/^               Expecting_Command_Start,$/;"	e	enum:__anon46
-Expecting_Commit_Parameters	evms/error.h	/^               Expecting_Commit_Parameters,$/;"	e	enum:__anon46
-Expecting_Compatibility_Keyword	evms/error.h	/^               Expecting_Compatibility_Keyword,$/;"	e	enum:__anon46
-Expecting_Container_Identifier	evms/error.h	/^               Expecting_Container_Identifier,$/;"	e	enum:__anon46
-Expecting_Container_Parameter	evms/error.h	/^               Expecting_Container_Parameter,$/;"	e	enum:__anon46
-Expecting_Containers_Or_Children_Parameter	evms/error.h	/^               Expecting_Containers_Or_Children_Parameter,$/;"	e	enum:__anon46
-Expecting_Create_Or_Check_Command	evms/error.h	/^               Expecting_Create_Or_Check_Command,$/;"	e	enum:__anon46
-Expecting_Creation_Parameters	evms/error.h	/^               Expecting_Creation_Parameters,$/;"	e	enum:__anon46
-Expecting_Delete_Command	evms/error.h	/^               Expecting_Delete_Command,$/;"	e	enum:__anon46
-Expecting_Disk_Identifier	evms/error.h	/^               Expecting_Disk_Identifier,$/;"	e	enum:__anon46
-Expecting_Disk_Units_Parameter	evms/error.h	/^               Expecting_Disk_Units_Parameter,$/;"	e	enum:__anon46
-Expecting_Disks_Parameter	evms/error.h	/^               Expecting_Disks_Parameter,$/;"	e	enum:__anon46
-Expecting_EQ_Keyword	evms/error.h	/^               Expecting_EQ_Keyword,$/;"	e	enum:__anon46
-Expecting_EVMS_Identifier	evms/error.h	/^               Expecting_EVMS_Identifier,$/;"	e	enum:__anon46
-Expecting_End_KeyWord	evms/error.h	/^               Expecting_End_KeyWord,$/;"	e	enum:__anon46
-Expecting_Equal_Sign_Separator	evms/error.h	/^               Expecting_Equal_Sign_Separator,$/;"	e	enum:__anon46
-Expecting_Expand_Command	evms/error.h	/^               Expecting_Expand_Command,$/;"	e	enum:__anon46
-Expecting_Expand_Parameters	evms/error.h	/^               Expecting_Expand_Parameters,$/;"	e	enum:__anon46
-Expecting_Expandable_Shrinkable_Identifier	evms/error.h	/^               Expecting_Expandable_Shrinkable_Identifier,$/;"	e	enum:__anon46
-Expecting_Feature_Identifier	evms/error.h	/^               Expecting_Feature_Identifier,$/;"	e	enum:__anon46
-Expecting_Feature_Or_Segment_Keyword	evms/error.h	/^               Expecting_Feature_Or_Segment_Keyword,$/;"	e	enum:__anon46
-Expecting_Field_Name	evms/error.h	/^               Expecting_Field_Name,                                    \/* Expecting an extended info field name. *\/$/;"	e	enum:__anon46
-Expecting_Filter_Identifier	evms/error.h	/^               Expecting_Filter_Identifier,$/;"	e	enum:__anon46
-Expecting_Format_Command	evms/error.h	/^               Expecting_Format_Command,$/;"	e	enum:__anon46
-Expecting_Freespace_Identifier	evms/error.h	/^               Expecting_Freespace_Identifier,$/;"	e	enum:__anon46
-Expecting_GT_Keyword	evms/error.h	/^               Expecting_GT_Keyword,$/;"	e	enum:__anon46
-Expecting_GT_LT_Parameter	evms/error.h	/^               Expecting_GT_LT_Parameter,$/;"	e	enum:__anon46
-Expecting_Help_Command	evms/error.h	/^               Expecting_Help_Command,$/;"	e	enum:__anon46
-Expecting_Help_Parameters	evms/error.h	/^               Expecting_Help_Parameters,$/;"	e	enum:__anon46
-Expecting_LT_Keyword	evms/error.h	/^               Expecting_LT_Keyword,$/;"	e	enum:__anon46
-Expecting_List_Options_Keywords	evms/error.h	/^               Expecting_List_Options_Keywords,$/;"	e	enum:__anon46
-Expecting_Manager_Keyword	evms/error.h	/^               Expecting_Manager_Keyword,$/;"	e	enum:__anon46
-Expecting_Name	evms/error.h	/^               Expecting_Name,                                          \/* Name = "string" *\/$/;"	e	enum:__anon46
-Expecting_Name_Or_Compatibility	evms/error.h	/^               Expecting_Name_Or_Compatibility,$/;"	e	enum:__anon46
-Expecting_Name_Value	evms/error.h	/^               Expecting_Name_Value,                                    \/* Name portion of Name Value Pair *\/$/;"	e	enum:__anon46
-Expecting_Name_Value_Pair	evms/error.h	/^               Expecting_Name_Value_Pair,$/;"	e	enum:__anon46
-Expecting_Number	evms/error.h	/^               Expecting_Number,$/;"	e	enum:__anon46
-Expecting_Number_Or_String	evms/error.h	/^               Expecting_Number_Or_String,$/;"	e	enum:__anon46
-Expecting_Object_Identifier	evms/error.h	/^               Expecting_Object_Identifier,$/;"	e	enum:__anon46
-Expecting_Object_List	evms/error.h	/^               Expecting_Object_List,$/;"	e	enum:__anon46
-Expecting_Object_Parameter	evms/error.h	/^               Expecting_Object_Parameter,$/;"	e	enum:__anon46
-Expecting_Objects_Parameter	evms/error.h	/^               Expecting_Objects_Parameter,$/;"	e	enum:__anon46
-Expecting_Offset	evms/error.h	/^               Expecting_Offset,$/;"	e	enum:__anon46
-Expecting_Offset_Parameters	evms/error.h	/^               Expecting_Offset_Parameters,$/;"	e	enum:__anon46
-Expecting_Open_Brace_Separator	evms/error.h	/^               Expecting_Open_Brace_Separator,$/;"	e	enum:__anon46
-Expecting_Open_Paren_Separator	evms/error.h	/^               Expecting_Open_Paren_Separator,$/;"	e	enum:__anon46
-Expecting_Plugin_Identifier	evms/error.h	/^               Expecting_Plugin_Identifier,$/;"	e	enum:__anon46
-Expecting_Plugin_Type_Parameter	evms/error.h	/^               Expecting_Plugin_Type_Parameter,$/;"	e	enum:__anon46
-Expecting_Plugins_Or_Parent_Parameter	evms/error.h	/^               Expecting_Plugins_Or_Parent_Parameter,$/;"	e	enum:__anon46
-Expecting_Probe_Command	evms/error.h	/^               Expecting_Probe_Command,$/;"	e	enum:__anon46
-Expecting_Query_Acceptable_Create	evms/error.h	/^               Expecting_Query_Acceptable_Create,$/;"	e	enum:__anon46
-Expecting_Query_Acceptable_Parameters	evms/error.h	/^               Expecting_Query_Acceptable_Parameters,$/;"	e	enum:__anon46
-Expecting_Query_Command	evms/error.h	/^               Expecting_Query_Command,$/;"	e	enum:__anon46
-Expecting_Query_Disks_Parameters	evms/error.h	/^               Expecting_Query_Disks_Parameters,$/;"	e	enum:__anon46
-Expecting_Query_Expand_Points_Keywords	evms/error.h	/^               Expecting_Query_Expand_Points_Keywords,$/;"	e	enum:__anon46
-Expecting_Query_Extended_Info_Keywords	evms/error.h	/^               Expecting_Query_Extended_Info_Keywords,$/;"	e	enum:__anon46
-Expecting_Query_Parameters	evms/error.h	/^               Expecting_Query_Parameters,$/;"	e	enum:__anon46
-Expecting_Query_Plugin_Parameters	evms/error.h	/^               Expecting_Query_Plugin_Parameters,$/;"	e	enum:__anon46
-Expecting_Query_Region_Parameters	evms/error.h	/^               Expecting_Query_Region_Parameters,$/;"	e	enum:__anon46
-Expecting_Query_Shrink_Points_Keywords	evms/error.h	/^               Expecting_Query_Shrink_Points_Keywords,$/;"	e	enum:__anon46
-Expecting_Query_Volume_Parameters	evms/error.h	/^               Expecting_Query_Volume_Parameters,$/;"	e	enum:__anon46
-Expecting_Region_Creation_Parameters	evms/error.h	/^               Expecting_Region_Creation_Parameters,$/;"	e	enum:__anon46
-Expecting_Region_Identifier	evms/error.h	/^               Expecting_Region_Identifier,$/;"	e	enum:__anon46
-Expecting_Region_Or_Object	evms/error.h	/^               Expecting_Region_Or_Object,$/;"	e	enum:__anon46
-Expecting_Regions_Parameter	evms/error.h	/^               Expecting_Regions_Parameter,$/;"	e	enum:__anon46
-Expecting_Revert_Or_Rename	evms/error.h	/^               Expecting_Revert_Or_Rename,$/;"	e	enum:__anon46
-Expecting_Segments_Parameter	evms/error.h	/^               Expecting_Segments_Parameter,$/;"	e	enum:__anon46
-Expecting_Shrink_Command	evms/error.h	/^               Expecting_Shrink_Command,$/;"	e	enum:__anon46
-Expecting_Shrink_Parameters	evms/error.h	/^               Expecting_Shrink_Parameters,$/;"	e	enum:__anon46
-Expecting_Size_Parameters	evms/error.h	/^               Expecting_Size_Parameters,$/;"	e	enum:__anon46
-Expecting_Size_Value	evms/error.h	/^               Expecting_Size_Value,$/;"	e	enum:__anon46
-Expecting_Start_KeyWord	evms/error.h	/^               Expecting_Start_KeyWord,$/;"	e	enum:__anon46
-Expecting_Unclaimed_Identifier	evms/error.h	/^               Expecting_Unclaimed_Identifier,$/;"	e	enum:__anon46
-Expecting_Units_Parameter	evms/error.h	/^               Expecting_Units_Parameter,$/;"	e	enum:__anon46
-Expecting_Volume_Identifier	evms/error.h	/^               Expecting_Volume_Identifier,$/;"	e	enum:__anon46
-Expecting_Volume_Or_Object	evms/error.h	/^               Expecting_Volume_Or_Object,$/;"	e	enum:__anon46
-Expecting_Volume_Parameter	evms/error.h	/^               Expecting_Volume_Parameter,$/;"	e	enum:__anon46
-Expecting_Volumes_Parameter	evms/error.h	/^               Expecting_Volumes_Parameter,$/;"	e	enum:__anon46
+Expecting_Acceptable_Parameter	evms/error.h	/^               Expecting_Acceptable_Parameter,$/;"	e	enum:__anon42
+Expecting_Allocate_Or_Assign_Command	evms/error.h	/^               Expecting_Allocate_Or_Assign_Command,$/;"	e	enum:__anon42
+Expecting_Closing_Brace_Separator	evms/error.h	/^               Expecting_Closing_Brace_Separator,$/;"	e	enum:__anon42
+Expecting_Closing_Paren_Separator	evms/error.h	/^               Expecting_Closing_Paren_Separator,$/;"	e	enum:__anon42
+Expecting_Colon_Separator	evms/error.h	/^               Expecting_Colon_Separator,$/;"	e	enum:__anon42
+Expecting_Comma_Separator	evms/error.h	/^               Expecting_Comma_Separator,$/;"	e	enum:__anon42
+Expecting_Command_File_Name	evms/error.h	/^               Expecting_Command_File_Name,$/;"	e	enum:__anon42
+Expecting_Command_Name	evms/error.h	/^               Expecting_Command_Name,$/;"	e	enum:__anon42
+Expecting_Command_Name_Or_File	evms/error.h	/^               Expecting_Command_Name_Or_File,$/;"	e	enum:__anon42
+Expecting_Command_Separator	evms/error.h	/^               Expecting_Command_Separator,$/;"	e	enum:__anon42
+Expecting_Command_Start	evms/error.h	/^               Expecting_Command_Start,$/;"	e	enum:__anon42
+Expecting_Commit_Parameters	evms/error.h	/^               Expecting_Commit_Parameters,$/;"	e	enum:__anon42
+Expecting_Compatibility_Keyword	evms/error.h	/^               Expecting_Compatibility_Keyword,$/;"	e	enum:__anon42
+Expecting_Container_Identifier	evms/error.h	/^               Expecting_Container_Identifier,$/;"	e	enum:__anon42
+Expecting_Container_Parameter	evms/error.h	/^               Expecting_Container_Parameter,$/;"	e	enum:__anon42
+Expecting_Containers_Or_Children_Parameter	evms/error.h	/^               Expecting_Containers_Or_Children_Parameter,$/;"	e	enum:__anon42
+Expecting_Create_Or_Check_Command	evms/error.h	/^               Expecting_Create_Or_Check_Command,$/;"	e	enum:__anon42
+Expecting_Creation_Parameters	evms/error.h	/^               Expecting_Creation_Parameters,$/;"	e	enum:__anon42
+Expecting_Delete_Command	evms/error.h	/^               Expecting_Delete_Command,$/;"	e	enum:__anon42
+Expecting_Disk_Identifier	evms/error.h	/^               Expecting_Disk_Identifier,$/;"	e	enum:__anon42
+Expecting_Disk_Units_Parameter	evms/error.h	/^               Expecting_Disk_Units_Parameter,$/;"	e	enum:__anon42
+Expecting_Disks_Parameter	evms/error.h	/^               Expecting_Disks_Parameter,$/;"	e	enum:__anon42
+Expecting_EQ_Keyword	evms/error.h	/^               Expecting_EQ_Keyword,$/;"	e	enum:__anon42
+Expecting_EVMS_Identifier	evms/error.h	/^               Expecting_EVMS_Identifier,$/;"	e	enum:__anon42
+Expecting_End_KeyWord	evms/error.h	/^               Expecting_End_KeyWord,$/;"	e	enum:__anon42
+Expecting_Equal_Sign_Separator	evms/error.h	/^               Expecting_Equal_Sign_Separator,$/;"	e	enum:__anon42
+Expecting_Expand_Command	evms/error.h	/^               Expecting_Expand_Command,$/;"	e	enum:__anon42
+Expecting_Expand_Parameters	evms/error.h	/^               Expecting_Expand_Parameters,$/;"	e	enum:__anon42
+Expecting_Expandable_Shrinkable_Identifier	evms/error.h	/^               Expecting_Expandable_Shrinkable_Identifier,$/;"	e	enum:__anon42
+Expecting_Feature_Identifier	evms/error.h	/^               Expecting_Feature_Identifier,$/;"	e	enum:__anon42
+Expecting_Feature_Or_Segment_Keyword	evms/error.h	/^               Expecting_Feature_Or_Segment_Keyword,$/;"	e	enum:__anon42
+Expecting_Field_Name	evms/error.h	/^               Expecting_Field_Name,                                    \/* Expecting an extended info field name. *\/$/;"	e	enum:__anon42
+Expecting_Filter_Identifier	evms/error.h	/^               Expecting_Filter_Identifier,$/;"	e	enum:__anon42
+Expecting_Format_Command	evms/error.h	/^               Expecting_Format_Command,$/;"	e	enum:__anon42
+Expecting_Freespace_Identifier	evms/error.h	/^               Expecting_Freespace_Identifier,$/;"	e	enum:__anon42
+Expecting_GT_Keyword	evms/error.h	/^               Expecting_GT_Keyword,$/;"	e	enum:__anon42
+Expecting_GT_LT_Parameter	evms/error.h	/^               Expecting_GT_LT_Parameter,$/;"	e	enum:__anon42
+Expecting_Help_Command	evms/error.h	/^               Expecting_Help_Command,$/;"	e	enum:__anon42
+Expecting_Help_Parameters	evms/error.h	/^               Expecting_Help_Parameters,$/;"	e	enum:__anon42
+Expecting_LT_Keyword	evms/error.h	/^               Expecting_LT_Keyword,$/;"	e	enum:__anon42
+Expecting_List_Options_Keywords	evms/error.h	/^               Expecting_List_Options_Keywords,$/;"	e	enum:__anon42
+Expecting_Manager_Keyword	evms/error.h	/^               Expecting_Manager_Keyword,$/;"	e	enum:__anon42
+Expecting_Name	evms/error.h	/^               Expecting_Name,                                          \/* Name = "string" *\/$/;"	e	enum:__anon42
+Expecting_Name_Or_Compatibility	evms/error.h	/^               Expecting_Name_Or_Compatibility,$/;"	e	enum:__anon42
+Expecting_Name_Value	evms/error.h	/^               Expecting_Name_Value,                                    \/* Name portion of Name Value Pair *\/$/;"	e	enum:__anon42
+Expecting_Name_Value_Pair	evms/error.h	/^               Expecting_Name_Value_Pair,$/;"	e	enum:__anon42
+Expecting_Number	evms/error.h	/^               Expecting_Number,$/;"	e	enum:__anon42
+Expecting_Number_Or_String	evms/error.h	/^               Expecting_Number_Or_String,$/;"	e	enum:__anon42
+Expecting_Object_Identifier	evms/error.h	/^               Expecting_Object_Identifier,$/;"	e	enum:__anon42
+Expecting_Object_List	evms/error.h	/^               Expecting_Object_List,$/;"	e	enum:__anon42
+Expecting_Object_Parameter	evms/error.h	/^               Expecting_Object_Parameter,$/;"	e	enum:__anon42
+Expecting_Objects_Parameter	evms/error.h	/^               Expecting_Objects_Parameter,$/;"	e	enum:__anon42
+Expecting_Offset	evms/error.h	/^               Expecting_Offset,$/;"	e	enum:__anon42
+Expecting_Offset_Parameters	evms/error.h	/^               Expecting_Offset_Parameters,$/;"	e	enum:__anon42
+Expecting_Open_Brace_Separator	evms/error.h	/^               Expecting_Open_Brace_Separator,$/;"	e	enum:__anon42
+Expecting_Open_Paren_Separator	evms/error.h	/^               Expecting_Open_Paren_Separator,$/;"	e	enum:__anon42
+Expecting_Plugin_Identifier	evms/error.h	/^               Expecting_Plugin_Identifier,$/;"	e	enum:__anon42
+Expecting_Plugin_Type_Parameter	evms/error.h	/^               Expecting_Plugin_Type_Parameter,$/;"	e	enum:__anon42
+Expecting_Plugins_Or_Parent_Parameter	evms/error.h	/^               Expecting_Plugins_Or_Parent_Parameter,$/;"	e	enum:__anon42
+Expecting_Probe_Command	evms/error.h	/^               Expecting_Probe_Command,$/;"	e	enum:__anon42
+Expecting_Query_Acceptable_Create	evms/error.h	/^               Expecting_Query_Acceptable_Create,$/;"	e	enum:__anon42
+Expecting_Query_Acceptable_Parameters	evms/error.h	/^               Expecting_Query_Acceptable_Parameters,$/;"	e	enum:__anon42
+Expecting_Query_Command	evms/error.h	/^               Expecting_Query_Command,$/;"	e	enum:__anon42
+Expecting_Query_Disks_Parameters	evms/error.h	/^               Expecting_Query_Disks_Parameters,$/;"	e	enum:__anon42
+Expecting_Query_Expand_Points_Keywords	evms/error.h	/^               Expecting_Query_Expand_Points_Keywords,$/;"	e	enum:__anon42
+Expecting_Query_Extended_Info_Keywords	evms/error.h	/^               Expecting_Query_Extended_Info_Keywords,$/;"	e	enum:__anon42
+Expecting_Query_Parameters	evms/error.h	/^               Expecting_Query_Parameters,$/;"	e	enum:__anon42
+Expecting_Query_Plugin_Parameters	evms/error.h	/^               Expecting_Query_Plugin_Parameters,$/;"	e	enum:__anon42
+Expecting_Query_Region_Parameters	evms/error.h	/^               Expecting_Query_Region_Parameters,$/;"	e	enum:__anon42
+Expecting_Query_Shrink_Points_Keywords	evms/error.h	/^               Expecting_Query_Shrink_Points_Keywords,$/;"	e	enum:__anon42
+Expecting_Query_Volume_Parameters	evms/error.h	/^               Expecting_Query_Volume_Parameters,$/;"	e	enum:__anon42
+Expecting_Region_Creation_Parameters	evms/error.h	/^               Expecting_Region_Creation_Parameters,$/;"	e	enum:__anon42
+Expecting_Region_Identifier	evms/error.h	/^               Expecting_Region_Identifier,$/;"	e	enum:__anon42
+Expecting_Region_Or_Object	evms/error.h	/^               Expecting_Region_Or_Object,$/;"	e	enum:__anon42
+Expecting_Regions_Parameter	evms/error.h	/^               Expecting_Regions_Parameter,$/;"	e	enum:__anon42
+Expecting_Revert_Or_Rename	evms/error.h	/^               Expecting_Revert_Or_Rename,$/;"	e	enum:__anon42
+Expecting_Segments_Parameter	evms/error.h	/^               Expecting_Segments_Parameter,$/;"	e	enum:__anon42
+Expecting_Shrink_Command	evms/error.h	/^               Expecting_Shrink_Command,$/;"	e	enum:__anon42
+Expecting_Shrink_Parameters	evms/error.h	/^               Expecting_Shrink_Parameters,$/;"	e	enum:__anon42
+Expecting_Size_Parameters	evms/error.h	/^               Expecting_Size_Parameters,$/;"	e	enum:__anon42
+Expecting_Size_Value	evms/error.h	/^               Expecting_Size_Value,$/;"	e	enum:__anon42
+Expecting_Start_KeyWord	evms/error.h	/^               Expecting_Start_KeyWord,$/;"	e	enum:__anon42
+Expecting_Unclaimed_Identifier	evms/error.h	/^               Expecting_Unclaimed_Identifier,$/;"	e	enum:__anon42
+Expecting_Units_Parameter	evms/error.h	/^               Expecting_Units_Parameter,$/;"	e	enum:__anon42
+Expecting_Volume_Identifier	evms/error.h	/^               Expecting_Volume_Identifier,$/;"	e	enum:__anon42
+Expecting_Volume_Or_Object	evms/error.h	/^               Expecting_Volume_Or_Object,$/;"	e	enum:__anon42
+Expecting_Volume_Parameter	evms/error.h	/^               Expecting_Volume_Parameter,$/;"	e	enum:__anon42
+Expecting_Volumes_Parameter	evms/error.h	/^               Expecting_Volumes_Parameter,$/;"	e	enum:__anon42
 ExtendedStr	evms/screener.h	/^char *   ExtendedStr      =  "EXTENDED";$/;"	v
 ExtractObject	evms/dlist.c	/^ExtractObject(dlist_t ListToGetItemFrom,$/;"	f
 FALSE	evms/dlist.h	148;"	d
 FALSE	evms/token.h	45;"	d
 FALSE	inc/common.h	339;"	d
 FIFO_TEST_PATH	NetServer.h	32;"	d
-FIRST_METADATA_WRITE	inc/enginestructs.h	/^	FIRST_METADATA_WRITE  = 1,$/;"	e	enum:__anon30
-FREE_SPACE_TYPE	inc/common.h	/^	FREE_SPACE_TYPE = (1<<2)$/;"	e	enum:__anon11
+FIRST_METADATA_WRITE	inc/enginestructs.h	/^	FIRST_METADATA_WRITE  = 1,$/;"	e	enum:__anon12
+FREE_SPACE_TYPE	inc/common.h	/^	FREE_SPACE_TYPE = (1<<2)$/;"	e	enum:__anon15
 FSIMStr	evms/screener.h	/^char *   FSIMStr          =  "FSIM";$/;"	v
-FULL_MEMBERSHIP	inc/ece.h	/^	FULL_MEMBERSHIP$/;"	e	enum:__anon22
+FULL_MEMBERSHIP	inc/ece.h	/^	FULL_MEMBERSHIP$/;"	e	enum:__anon26
 FeatureNameStr	evms/evms.c	/^char *FeatureNameStr = "FEATURE NAME";$/;"	v
 FeatureStr	evms/screener.h	/^char *   FeatureStr       =  "FEATURE";$/;"	v
-Feature_ID	evms/interpreter.h	/^               Feature_ID,$/;"	e	enum:__anon50
+Feature_ID	evms/interpreter.h	/^               Feature_ID,$/;"	e	enum:__anon39
 Feature_Identifier	evms/parser.c	/^Feature_Identifier(Executable_Node * Current_Node, boolean Optional,$/;"	f	file:
-Feature_Name	evms/interpreter.h	/^               Feature_Name,$/;"	e	enum:__anon50
+Feature_Name	evms/interpreter.h	/^               Feature_Name,$/;"	e	enum:__anon39
 FileStr	evms/screener.h	/^char *   FileStr          =  "FILE";$/;"	v
 FilesystemStr	evms/screener.h	/^char *   FilesystemStr    =  "FILESYSTEM";$/;"	v
-Filter	evms/interpreter.h	/^               Filter,$/;"	e	enum:__anon50
+Filter	evms/interpreter.h	/^               Filter,$/;"	e	enum:__anon39
 FilterStr	evms/evms.c	/^char *FilterStr = "FILTER";$/;"	v
-Filter_Type	evms/interpreter.c	/^    Size_Filter_Types Filter_Type;$/;"	m	struct:__anon48	file:
-Find_End_Of_Comment	evms/scanner.c	/^    Find_End_Of_Comment,$/;"	e	enum:__anon43	file:
+Filter_Type	evms/interpreter.c	/^    Size_Filter_Types Filter_Type;$/;"	m	struct:__anon37	file:
+Find_End_Of_Comment	evms/scanner.c	/^    Find_End_Of_Comment,$/;"	e	enum:__anon32	file:
 ForEachItem	evms/dlist.c	/^ForEachItem(dlist_t ListToProcess,$/;"	f
 FormatStr	evms/screener.h	/^char *   FormatStr        =  "FORMAT";$/;"	v
-Format_Node	evms/interpreter.h	/^               Format_Node,$/;"	e	enum:__anon50
+Format_Node	evms/interpreter.h	/^               Format_Node,$/;"	e	enum:__anon39
 Format_Parameters	evms/parser.c	/^Format_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
 Free_Command_List	evms/parser.c	/^static void Free_Command_List(dlist_t Command_List)$/;"	f	file:
 FreespaceStr	evms/screener.h	/^char *   FreespaceStr     =  "FREESPACE";$/;"	v
 Freespace_Filter	evms/parser.c	80;"	d	file:
 Freespace_Not_Size	evms/interpreter.c	/^static boolean Freespace_Not_Size = FALSE;$/;"	v	file:
-Freespace_Size_Filter	evms/interpreter.h	/^               Freespace_Size_Filter,$/;"	e	enum:__anon50
+Freespace_Size_Filter	evms/interpreter.h	/^               Freespace_Size_Filter,$/;"	e	enum:__anon39
 GET_ENTRY	evms/PrivateData.h	11;"	d
 GET_EXPAND_OR_SHRINK_SIZE	evms/RevertStructs.c	9;"	d	file:
 GLOBAL_STATE	NetServer.h	/^} GLOBAL_STATE, *PGLOBAL_STATE;$/;"	t	typeref:struct:__GLOBAL_STATE
-GT	evms/interpreter.c	/^    GT,$/;"	e	enum:__anon47	file:
+GT	evms/interpreter.c	/^    GT,$/;"	e	enum:__anon36	file:
 GTStr	evms/screener.h	/^char *   GTStr            =  "GT";$/;"	v
 GT_Filter	evms/parser.c	68;"	d	file:
 Generic_Size_Filter	evms/interpreter.c	/^Generic_Size_Filter(Executable_Node * Current_Node,$/;"	f	file:
-GetAllGroups	Infiniband.c	/^int GetAllGroups(char **reply, int *reply_len)$/;"	f
+GetAllBondings	BondingCmd.c	/^int GetAllBondings(char ** reply, int * reply_len)$/;"	f
+GetAllBondings	pl/Bonding.pl	/^sub GetAllBondings()$/;"	s
+GetAllEthPorts	BondingCmd.c	/^int GetAllEthPorts(char ** reply, int * reply_len)$/;"	f
+GetAllEthPorts	pl/Bonding.pl	/^sub GetAllEthPorts()$/;"	s
+GetAllGroups	InfinibandCmd.c	/^int GetAllGroups(char **reply, int *reply_len)$/;"	f
 GetAllGroups	shell/ResourceMapping.sh	/^GetAllGroups()$/;"	f
-GetAllIBPorts	Infiniband.c	/^int GetAllIBPorts(char **reply, int *reply_len)$/;"	f
+GetAllIBPorts	InfinibandCmd.c	/^int GetAllIBPorts(char **reply, int *reply_len)$/;"	f
 GetAllIBPorts	shell/ResourceMapping.sh	/^GetAllIBPorts()$/;"	f
 GetAllIscsiTargets	IscsiCmd.c	/^int GetAllIscsiTargets(char ** reply, int * reply_len)$/;"	f
 GetAllTargets	pl/Iscsi.pl	/^sub GetAllTargets()$/;"	s
 GetCharacter	evms/scanner.c	/^static void GetCharacter(void)$/;"	f	file:
-GetCtrlLink	CtrlLinkTbl.c	/^PCTRL_LINK_DESC GetCtrlLink (int sock_fd) $/;"	f
+GetCtrlLink	CtrlLinkTbl.c	/^$/;"	f
 GetDebugLevel	Debuger.c	/^CDebuger::GetDebugLevel () $/;"	f	class:CDebuger
-GetDevicesFromGroup	Infiniband.c	/^int GetDevicesFromGroup(char *msg_body, int msg_body_len, char **reply, int$/;"	f
+GetDevicesFromGroup	InfinibandCmd.c	/^int GetDevicesFromGroup(char *msg_body, int msg_body_len, char **reply, int$/;"	f
 GetDevicesFromGroup	shell/ResourceMapping.sh	/^GetDevicesFromGroup()$/;"	f
 GetDirContent	shell/System.sh	/^GetDirContent()$/;"	f
 GetHandle	evms/dlist.c	/^int GetHandle(dlist_t ListToGetHandleFrom, ADDRESS * Handle)$/;"	f
-GetIBPortsFromGroup	Infiniband.c	/^int GetIBPortsFromGroup(char *msg_body, int msg_body_len, char **reply, int$/;"	f
+GetIBPortsFromGroup	InfinibandCmd.c	/^int GetIBPortsFromGroup(char *msg_body, int msg_body_len, char **reply, int$/;"	f
 GetIBPortsFromGroup	shell/ResourceMapping.sh	/^GetIBPortsFromGroup()$/;"	f
+GetLinedupResultsFromFile	Functions.c	/^int GetLinedupResultsFromFile(const char * filename, $/;"	f
 GetLinkUser	CtrlLinkTbl.c	/^GetLinkUser (int sock_fd, char *username, int len) $/;"	f
 GetListSize	evms/dlist.c	/^int GetListSize(dlist_t ListToGetSizeOf, uint * Size)$/;"	f
 GetNextObject	evms/dlist.c	/^int GetNextObject(dlist_t ListToGetItemFrom, TAG ItemTag, ADDRESS * Object)$/;"	f
@@ -872,7 +888,7 @@ GetUnusedTID	pl/Iscsi.pl	/^sub GetUnusedTID()$/;"	s
 GetUserChoice	evms/evms.c	/^int GetUserChoice(char Buffer[], long int *UserChoice, int default_choice)$/;"	f
 Get_Acceptable	evms/interpreter.c	/^static boolean Get_Acceptable = FALSE;$/;"	v	file:
 Get_Option_Descriptors	evms/interpreter.c	/^static int Get_Option_Descriptors(void)$/;"	f	file:
-Get_Replacement_ID	evms/scanner.c	/^    Get_Replacement_ID,$/;"	e	enum:__anon43	file:
+Get_Replacement_ID	evms/scanner.c	/^    Get_Replacement_ID,$/;"	e	enum:__anon32	file:
 Get_String	evms/parser.c	/^Get_String(Executable_Node * Current_Node, boolean AcceptNumberAsString,$/;"	f	file:
 GigabyteStr	evms/screener.h	/^char *   GigabyteStr      =  "GB";$/;"	v
 GlobalState	NetServer.c	/^GLOBAL_STATE GlobalState;		\/\/ 线程状态$/;"	v
@@ -885,36 +901,36 @@ HANDLE_MANAGER_BAD_HANDLE	evms/error.c	57;"	d	file:
 HANDLE_MANAGER_NOT_INITIALIZED	evms/error.c	56;"	d	file:
 HANDLE_TAG	evms/parser.c	51;"	d	file:
 HANDSHAKE_PERIOD	NetServer.h	19;"	d
-HANDSHAKE_REQ	Protocol.h	32;"	d
-HANDSHAKE_RSP	Protocol.h	33;"	d
+HANDSHAKE_REQ	Protocol.h	33;"	d
+HANDSHAKE_RSP	Protocol.h	34;"	d
 HELPSYS_C	evms/helpsys.c	34;"	d	file:
 HELPSYS_H	evms/helpsys.h	32;"	d
 HandShakeCmd	HandShakeCmd.c	/^HandShakeCmd (int sock_fd, char *pPacket, int len) $/;"	f
 HelpStr	evms/screener.h	/^char *   HelpStr          =  "HELP";$/;"	v
-Help_Node	evms/interpreter.h	/^               Help_Node,$/;"	e	enum:__anon50
+Help_Node	evms/interpreter.h	/^               Help_Node,$/;"	e	enum:__anon39
 Help_Type	evms/parser.c	/^Help_Type(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
 HoldStr	evms/screener.h	/^char *   HoldStr          =  "HOLD";$/;"	v
 HoursStr	evms/screener.h	/^char *   HoursStr         =  "HOURS";$/;"	v
-IB_ADD_DEVICE_TO_GROUP	Protocol.h	/^	IB_ADD_DEVICE_TO_GROUP,		\/\/ 添加一个存储资源到权限组$/;"	e	enum:__anon32
-IB_ADD_GROUP	Protocol.h	/^	IB_ADD_GROUP = 0x21,		\/\/ 添加一个权限组$/;"	e	enum:__anon32
-IB_ADD_IB_PORT_TO_GROUP	Protocol.h	/^	IB_ADD_IB_PORT_TO_GROUP,	\/\/ 将一个IB卡端口添加到权限组中$/;"	e	enum:__anon32
-IB_DEL_DEVICE_FROM_GROUP	Protocol.h	/^ 	IB_DEL_DEVICE_FROM_GROUP,	\/\/ 从权限组删除一个存储资源$/;"	e	enum:__anon32
-IB_DEL_GROUP	Protocol.h	/^	IB_DEL_GROUP,			\/\/ 删除一个权限组$/;"	e	enum:__anon32
-IB_DEL_IB_PORT_FROM_GROUP	Protocol.h	/^ 	IB_DEL_IB_PORT_FROM_GROUP,	\/\/ 将一个IB卡端口从权限组中删除$/;"	e	enum:__anon32
-IB_ERROR_DEVICE_NOTEXIST	Protocol.h	/^	IB_ERROR_DEVICE_NOTEXIST,	\/\/ 存储资源不存在$/;"	e	enum:__anon36
-IB_ERROR_FAILED	Protocol.h	/^	IB_ERROR_FAILED = EVMS_ERROR_MAX,$/;"	e	enum:__anon36
-IB_ERROR_GROUP_NOT_EXIST	Protocol.h	/^	IB_ERROR_GROUP_NOT_EXIST,	\/\/ 权限组不存在$/;"	e	enum:__anon36
-IB_ERROR_MAX	Protocol.h	/^	IB_ERROR_MAX$/;"	e	enum:__anon36
-IB_ERROR_PORT_NOTEXIST	Protocol.h	/^	IB_ERROR_PORT_NOTEXIST,		\/\/ ib端口不存在$/;"	e	enum:__anon36
-IB_ERROR_TYPES	Protocol.h	/^}IB_ERROR_TYPES;$/;"	t	typeref:enum:__anon36
-IB_GET_ALL_GROUPS	Protocol.h	/^	IB_GET_ALL_GROUPS,		\/\/ 获取所有的权限组名称$/;"	e	enum:__anon32
-IB_GET_ALL_IB_PORTS	Protocol.h	/^ 	IB_GET_ALL_IB_PORTS,		\/\/ 枚举子网内的所有IB卡端口名称$/;"	e	enum:__anon32
-IB_GET_DEVICES_FROM_GROUP	Protocol.h	/^ 	IB_GET_DEVICES_FROM_GROUP,	\/\/ 获取权限组中所有存储资源名称$/;"	e	enum:__anon32
-IB_GET_IB_PORTS_FROM_GROUP	Protocol.h	/^ 	IB_GET_IB_PORTS_FROM_GROUP	\/\/ 获取权限组中所有IB端口名称$/;"	e	enum:__anon32
-IB_RELATED_OPERATIONS	Protocol.h	/^}IB_RELATED_OPERATIONS;$/;"	t	typeref:enum:__anon32
-INDETERMINATE	inc/common.h	/^	INDETERMINATE		\/* Progress cannot be measured with a count   *\/$/;"	e	enum:__anon10
-INSERT_AFTER	inc/enginestructs.h	/^	INSERT_AFTER     = 0,$/;"	e	enum:__anon27
-INSERT_BEFORE	inc/enginestructs.h	/^	INSERT_BEFORE    = (1<<0),$/;"	e	enum:__anon27
+IB_ADD_DEVICE_TO_GROUP	Protocol.h	/^        IB_ADD_DEVICE_TO_GROUP,         \/\/ 添加一个存储资源到权限组$/;"	e	enum:__anon46
+IB_ADD_GROUP	Protocol.h	/^        IB_ADD_GROUP = 0x21,            \/\/ 添加一个权限组$/;"	e	enum:__anon46
+IB_ADD_IB_PORT_TO_GROUP	Protocol.h	/^        IB_ADD_IB_PORT_TO_GROUP,        \/\/ 将一个IB卡端口添加到权限组中$/;"	e	enum:__anon46
+IB_DEL_DEVICE_FROM_GROUP	Protocol.h	/^        IB_DEL_DEVICE_FROM_GROUP,       \/\/ 从权限组删除一个存储资源$/;"	e	enum:__anon46
+IB_DEL_GROUP	Protocol.h	/^        IB_DEL_GROUP,                   \/\/ 删除一个权限组$/;"	e	enum:__anon46
+IB_DEL_IB_PORT_FROM_GROUP	Protocol.h	/^        IB_DEL_IB_PORT_FROM_GROUP,      \/\/ 将一个IB卡端口从权限组中删除$/;"	e	enum:__anon46
+IB_ERROR_DEVICE_NOTEXIST	Protocol.h	/^        IB_ERROR_DEVICE_NOTEXIST,       \/\/ 存储资源不存在$/;"	e	enum:__anon51
+IB_ERROR_FAILED	Protocol.h	/^        IB_ERROR_FAILED = EVMS_ERROR_MAX,$/;"	e	enum:__anon51
+IB_ERROR_GROUP_NOT_EXIST	Protocol.h	/^        IB_ERROR_GROUP_NOT_EXIST,       \/\/ 权限组不存在$/;"	e	enum:__anon51
+IB_ERROR_MAX	Protocol.h	/^        IB_ERROR_MAX$/;"	e	enum:__anon51
+IB_ERROR_PORT_NOTEXIST	Protocol.h	/^        IB_ERROR_PORT_NOTEXIST,         \/\/ ib端口不存在$/;"	e	enum:__anon51
+IB_ERROR_TYPES	Protocol.h	/^}IB_ERROR_TYPES;$/;"	t	typeref:enum:__anon51
+IB_GET_ALL_GROUPS	Protocol.h	/^        IB_GET_ALL_GROUPS,              \/\/ 获取所有的权限组名称$/;"	e	enum:__anon46
+IB_GET_ALL_IB_PORTS	Protocol.h	/^        IB_GET_ALL_IB_PORTS,            \/\/ 枚举子网内的所有IB卡端口名称$/;"	e	enum:__anon46
+IB_GET_DEVICES_FROM_GROUP	Protocol.h	/^        IB_GET_DEVICES_FROM_GROUP,      \/\/ 获取权限组中所有存储资源名称$/;"	e	enum:__anon46
+IB_GET_IB_PORTS_FROM_GROUP	Protocol.h	/^        IB_GET_IB_PORTS_FROM_GROUP      \/\/ 获取权限组中所有IB端口名称$/;"	e	enum:__anon46
+IB_RELATED_OPERATIONS	Protocol.h	/^}IB_RELATED_OPERATIONS;$/;"	t	typeref:enum:__anon46
+INDETERMINATE	inc/common.h	/^	INDETERMINATE		\/* Progress cannot be measured with a count   *\/$/;"	e	enum:__anon14
+INSERT_AFTER	inc/enginestructs.h	/^	INSERT_AFTER     = 0,$/;"	e	enum:__anon9
+INSERT_BEFORE	inc/enginestructs.h	/^	INSERT_BEFORE    = (1<<0),$/;"	e	enum:__anon9
 INT16_MAX	inc/common.h	819;"	d
 INT16_MIN	inc/common.h	816;"	d
 INT32_MAX	inc/common.h	829;"	d
@@ -929,13 +945,14 @@ INTERPRETER_C	evms/interpreter.c	34;"	d	file:
 INTERPRETER_H	evms/interpreter.h	31;"	d
 INVALID_OPTION	evms/error.h	40;"	d
 INVALID_TASK	evms/error.h	42;"	d
-ISCSI_ADD_TARGET	Protocol.h	/^	ISCSI_ADD_TARGET 	= 0x21, \/\/ Make a volume into iscsi target$/;"	e	enum:__anon33
-ISCSI_DEL_TARGET	Protocol.h	/^	ISCSI_DEL_TARGET 	= 0x22, \/\/ Delete one iscsi target$/;"	e	enum:__anon33
-ISCSI_GET_ALL_TARGETS	Protocol.h	/^	ISCSI_GET_ALL_TARGETS	= 0x23, \/\/$/;"	e	enum:__anon33
-ISCSI_RELATED_OPERATIONS	Protocol.h	/^}ISCSI_RELATED_OPERATIONS;$/;"	t	typeref:enum:__anon33
-ISCSI_TARGET_ACCESS_CTRL	Protocol.h	/^	ISCSI_TARGET_ACCESS_CTRL= 0x24  \/\/ Set iscsi target access ctrl modes$/;"	e	enum:__anon33
+ISCSI_ADD_TARGET	Protocol.h	/^        ISCSI_ADD_TARGET        = 0x21, \/\/ Make a volume into iscsi target$/;"	e	enum:__anon47
+ISCSI_DEL_TARGET	Protocol.h	/^        ISCSI_DEL_TARGET        = 0x22, \/\/ Delete one iscsi target$/;"	e	enum:__anon47
+ISCSI_GET_ALL_TARGETS	Protocol.h	/^        ISCSI_GET_ALL_TARGETS   = 0x23, \/\/$/;"	e	enum:__anon47
+ISCSI_RELATED_OPERATIONS	Protocol.h	/^}ISCSI_RELATED_OPERATIONS;$/;"	t	typeref:enum:__anon47
+ISCSI_TARGET_ACCESS_CTRL	Protocol.h	/^        ISCSI_TARGET_ACCESS_CTRL= 0x24, \/\/ Set iscsi target access ctrl modes$/;"	e	enum:__anon47
+ISCSI_TARGET_CTRL_LIST	Protocol.h	/^        ISCSI_TARGET_CTRL_LIST  = 0x25$/;"	e	enum:__anon47
 IS_DLIST_ERROR	evms/dlist.h	215;"	d
-In_Lookahead_Queue	evms/token.h	/^                  boolean                   In_Lookahead_Queue; \/* TRUE if this token is being tracked by the lookahead system. *\/$/;"	m	struct:__anon41
+In_Lookahead_Queue	evms/token.h	/^                  boolean                   In_Lookahead_Queue; \/* TRUE if this token is being tracked by the lookahead system. *\/$/;"	m	struct:__anon35
 Indent_Printf	evms/evms.c	/^    int Indent_Printf(int indent_level, boolean indent_first_line,$/;"	f
 InfinibandCmd	InfinibandCmd.c	/^InfinibandCmd (int sock_fd, char *oneframe, int len)$/;"	f
 InfoStr	evms/screener.h	/^char *   InfoStr          =  "INFO";$/;"	v
@@ -947,41 +964,41 @@ InputFile	evms/scanner.c	/^    FILE *InputFile;$/;"	m	struct:Input_Context_t	fil
 Input_Context	evms/scanner.c	/^static Input_Context_Type *Input_Context = &Anchor_Context;	\/* Holds the current input source and position within that input source. *\/$/;"	v	file:
 Input_Context_Type	evms/scanner.c	/^} Input_Context_Type;$/;"	t	typeref:struct:Input_Context_t	file:
 Input_Context_t	evms/scanner.c	/^typedef struct Input_Context_t {$/;"	s	file:
-Input_State	evms/scanner.c	/^} Input_State;$/;"	t	typeref:enum:__anon43	file:
+Input_State	evms/scanner.c	/^} Input_State;$/;"	t	typeref:enum:__anon32	file:
 InsertAfter	evms/dlist.h	/^                                InsertAfter,$/;"	e	enum:_Insertion_Modes
 InsertAtStart	evms/dlist.h	/^                                InsertAtStart,$/;"	e	enum:_Insertion_Modes
 InsertBefore	evms/dlist.h	/^                                InsertBefore,$/;"	e	enum:_Insertion_Modes
 InsertObject	evms/dlist.c	/^InsertObject(dlist_t ListToAddTo,$/;"	f
 InsertPrivateData	evms/PrivateData.c	/^int InsertPrivateData(object_handle_t handle, u_int64_t size)$/;"	f
 Insertion_Modes	evms/dlist.h	/^                              } Insertion_Modes;$/;"	t	typeref:enum:_Insertion_Modes
-Instance	Debuger.c	/^CDebuger::Instance () $/;"	f	class:CDebuger
-IntegerData	evms/interpreter.h	/^               IntegerData,$/;"	e	enum:__anon50
+Instance	Debuger.c	/^$/;"	f	class:CDebuger
+IntegerData	evms/interpreter.h	/^               IntegerData,$/;"	e	enum:__anon39
 IntegerDataStr	evms/evms.c	/^char *IntegerDataStr = "INTEGER DATA";$/;"	v
 Interactive	evms/evms.c	/^boolean Batch = FALSE, Interactive = TRUE;	\/* Controls whether or not EVMS will prompt the user for commands.$/;"	v
 Interactive_Mode	evms/interpreter.c	/^static boolean Interactive_Mode = TRUE;$/;"	v	file:
 InterfaceStr	evms/screener.h	/^char *   InterfaceStr     =  "INTERFACE";$/;"	v
-Internal_Error_Encountered	evms/error.h	/^               Internal_Error_Encountered,$/;"	e	enum:__anon46
+Internal_Error_Encountered	evms/error.h	/^               Internal_Error_Encountered,$/;"	e	enum:__anon42
 Interpret_Commands	evms/interpreter.c	/^Interpret_Commands(dlist_t Commands, boolean Interactive,$/;"	f
-InvalidCharacter	evms/token.h	/^                InvalidCharacter,$/;"	e	enum:__anon40
-Invalid_Character	evms/error.h	/^               Invalid_Character,                 \/* Parameter1 = contents of Buffer, Parameter2 = invalid character, Column and Row are output *\/$/;"	e	enum:__anon45
-Invalid_Character_In_Substitution	evms/error.h	/^               Invalid_Character_In_Substitution, \/* Parameter1 = invalid character, Parameter2 = not used, Column and Row are output. *\/$/;"	e	enum:__anon45
-Invalid_Substitution	evms/error.h	/^               Invalid_Substitution,              \/* Parameter1 = the susbstitution value, Parameter2 = not used, Colume and Row are output. *\/$/;"	e	enum:__anon45
-IsKeyWord	evms/scanner.c	/^    IsKeyWord,$/;"	e	enum:__anon42	file:
-IsMultiSpace	evms/scanner.c	/^    IsMultiSpace,$/;"	e	enum:__anon42	file:
-IsMultiTab	evms/scanner.c	/^    IsMultiTab,$/;"	e	enum:__anon42	file:
-IsNegativeNumber	evms/scanner.c	/^    IsNegativeNumber,$/;"	e	enum:__anon42	file:
-IsNumber	evms/scanner.c	/^    IsNumber,$/;"	e	enum:__anon42	file:
-IsPathName	evms/scanner.c	/^    IsPathName,$/;"	e	enum:__anon42	file:
-IsRealNumber	evms/scanner.c	/^    IsRealNumber,$/;"	e	enum:__anon42	file:
-IsString	evms/scanner.c	/^    IsString,$/;"	e	enum:__anon42	file:
-Is_Filename	evms/scanner.h	/^                 boolean     Is_Filename;$/;"	m	struct:__anon38
+InvalidCharacter	evms/token.h	/^                InvalidCharacter,$/;"	e	enum:__anon34
+Invalid_Character	evms/error.h	/^               Invalid_Character,                 \/* Parameter1 = contents of Buffer, Parameter2 = invalid character, Column and Row are output *\/$/;"	e	enum:__anon41
+Invalid_Character_In_Substitution	evms/error.h	/^               Invalid_Character_In_Substitution, \/* Parameter1 = invalid character, Parameter2 = not used, Column and Row are output. *\/$/;"	e	enum:__anon41
+Invalid_Substitution	evms/error.h	/^               Invalid_Substitution,              \/* Parameter1 = the susbstitution value, Parameter2 = not used, Colume and Row are output. *\/$/;"	e	enum:__anon41
+IsKeyWord	evms/scanner.c	/^    IsKeyWord,$/;"	e	enum:__anon31	file:
+IsMultiSpace	evms/scanner.c	/^    IsMultiSpace,$/;"	e	enum:__anon31	file:
+IsMultiTab	evms/scanner.c	/^    IsMultiTab,$/;"	e	enum:__anon31	file:
+IsNegativeNumber	evms/scanner.c	/^    IsNegativeNumber,$/;"	e	enum:__anon31	file:
+IsNumber	evms/scanner.c	/^    IsNumber,$/;"	e	enum:__anon31	file:
+IsPathName	evms/scanner.c	/^    IsPathName,$/;"	e	enum:__anon31	file:
+IsRealNumber	evms/scanner.c	/^    IsRealNumber,$/;"	e	enum:__anon31	file:
+IsString	evms/scanner.c	/^    IsString,$/;"	e	enum:__anon31	file:
+Is_Filename	evms/scanner.h	/^                 boolean     Is_Filename;$/;"	m	struct:__anon43
 IscsiCmd	IscsiCmd.c	/^IscsiCmd (int sock_fd, char *oneframe, int len)$/;"	f
 IscsiTargetAccessCtrl	IscsiCmd.c	/^int IscsiTargetAccessCtrl(char * msg_body, int msg_body_len)$/;"	f
 ItemCount	evms/dlist.h	/^  uint            ItemCount;             \/* The number of items in the list. *\/$/;"	m	struct:MasterListRecord
 Join_Thread	NetServer.c	/^Join_Thread (void *pinfo)$/;"	f	file:
 KILL_SECTORS	inc/plugin.h	221;"	d
 KeepCharacter	evms/scanner.c	/^static void KeepCharacter(void)$/;"	f	file:
-KeyWord	evms/token.h	/^                KeyWord,$/;"	e	enum:__anon40
+KeyWord	evms/token.h	/^                KeyWord,$/;"	e	enum:__anon34
 Kill_Command_List_Entries	evms/parser.c	/^Kill_Command_List_Entries(ADDRESS Object,$/;"	f	file:
 Kill_Nodes	evms/interpreter.c	/^Kill_Nodes(ADDRESS Object,$/;"	f	file:
 Kill_Tokens_List_Entries	evms/parser.c	/^Kill_Tokens_List_Entries(ADDRESS Object,$/;"	f	file:
@@ -1023,7 +1040,7 @@ LOG_SERIOUS	inc/plugin.h	49;"	d
 LOG_WARNING	inc/plugin.h	51;"	d
 LOStr	evms/screener.h	/^char *   LOStr            =  "LO";$/;"	v
 LO_Filter	evms/parser.c	70;"	d	file:
-LT	evms/interpreter.c	/^    LT,$/;"	e	enum:__anon47	file:
+LT	evms/interpreter.c	/^    LT,$/;"	e	enum:__anon36	file:
 LTStr	evms/screener.h	/^char *   LTStr            =  "LT";$/;"	v
 LT_Filter	evms/parser.c	69;"	d	file:
 Last_Message_Length	evms/interpreter.c	/^static int Last_Message_Length = 0;$/;"	v	file:
@@ -1038,40 +1055,40 @@ List_Options	evms/interpreter.c	/^static boolean List_Options = FALSE;$/;"	v	fil
 LockStr	evms/screener.h	/^char *   LockStr          =  "LOCK";$/;"	v
 LookAhead_Active	evms/parser.c	/^static uint LookAhead_Active = 0;	\/* Used to indicate whether or not Look Ahead is active for parsing. *\/$/;"	v	file:
 Lookahead_Handles	evms/parser.c	/^static dlist_t Lookahead_Handles = NULL;	\/* Used to hold the handles of tokens to return to in the Tokens list. *\/$/;"	v	file:
-Lower_Limit	evms/interpreter.c	/^    u_int64_t Lower_Limit;$/;"	m	struct:__anon48	file:
-MAIN_MSG_TYPE	Protocol.h	/^}MAIN_MSG_TYPE;$/;"	t	typeref:enum:__anon31
+Lower_Limit	evms/interpreter.c	/^    u_int64_t Lower_Limit;$/;"	m	struct:__anon37	file:
+MAIN_MSG_TYPE	Protocol.h	/^}MAIN_MSG_TYPE;$/;"	t	typeref:enum:__anon45
 MAX_CONN_NUM	NetServer.h	6;"	d
-MAX_CONTENT_LEN	Protocol.h	118;"	d
-MAX_EVMS_COMMAND_LINE_PARAM	Protocol.h	46;"	d
+MAX_CONTENT_LEN	Protocol.h	129;"	d
+MAX_EVMS_COMMAND_LINE_PARAM	Protocol.h	47;"	d
 MAX_EVMS_VOLUMES	inc/common.h	35;"	d
 MAX_EXPAND_POINTS	evms/PrivateData.h	8;"	d
 MAX_FEATURE_NUM	evms/ObjectStructs.h	11;"	d
 MAX_FILENAME_LEN	NetServer.h	11;"	d
-MAX_FRAME_LEN	Protocol.h	117;"	d
+MAX_FRAME_LEN	Protocol.h	128;"	d
 MAX_NOTINFORM_CNT	NetServer.h	20;"	d
 MAX_NUM_PTZ_PROTOCOL	NetServer.h	29;"	d
 MAX_OPERATION_NUM	evms/ObjectStructs.h	10;"	d
 MAX_PASSWD_LEN	NetServer.h	10;"	d
-MAX_RESPONSE_LEN	Protocol.h	114;"	d
-MAX_SHELL_CMD_LEN	IscsiCmd.c	124;"	d	file:
-MAX_SHELL_CMD_LEN	test.c	9;"	d	file:
+MAX_RESPONSE_LEN	Protocol.h	125;"	d
+MAX_SHELL_CMD_LEN	Functions.c	53;"	d	file:
 MAX_TASK_NUM	evms/ObjectStructs.h	9;"	d
 MAX_TIMEOUT	NetServer.h	22;"	d
 MAX_USER_MESSAGE_LEN	inc/plugfuncs.h	32;"	d
 MAX_USER_NUM	NetServer.h	7;"	d
 MAX_USRNAME_LEN	NetServer.h	9;"	d
 MCAST_MODE	NetServer.h	27;"	d
-MEMBERSHIP	inc/ece.h	/^	MEMBERSHIP$/;"	e	enum:__anon23
+MEMBERSHIP	inc/ece.h	/^	MEMBERSHIP$/;"	e	enum:__anon27
 MESSAGE	inc/plugin.h	80;"	d
-META_DATA_TYPE	inc/common.h	/^	META_DATA_TYPE  = (1<<0),$/;"	e	enum:__anon11
-MOVE	inc/enginestructs.h	/^	MOVE                  = 4$/;"	e	enum:__anon30
-MSG_TYPE_EVMS	Protocol.h	/^        MSG_TYPE_EVMS 	   = 0x02,	\/\/ EVMS related msg type$/;"	e	enum:__anon31
-MSG_TYPE_HANDSHAKE	Protocol.h	/^        MSG_TYPE_HANDSHAKE = 0x01,      \/\/ 握手消息：需要客户端每30秒发送一个“握手”信号，$/;"	e	enum:__anon31
-MSG_TYPE_IB	Protocol.h	/^        MSG_TYPE_IB 	   = 0x03,      \/\/ Infiniband ralated msg type$/;"	e	enum:__anon31
-MSG_TYPE_ISCSI	Protocol.h	/^        MSG_TYPE_ISCSI 	   = 0x04,      \/\/ iSCSI related msg type$/;"	e	enum:__anon31
-MSG_TYPE_NUM	Protocol.h	/^        MSG_TYPE_NUM$/;"	e	enum:__anon31
-MSG_TYPE_SYSTEM	Protocol.h	/^        MSG_TYPE_SYSTEM    = 0x05,      \/\/ system specific commands, such as remote "ls"$/;"	e	enum:__anon31
-MSG_TYPE_UNKNOWN	Protocol.h	/^        MSG_TYPE_UNKNOWN   = 0x00,      \/\/ unknown msg type$/;"	e	enum:__anon31
+META_DATA_TYPE	inc/common.h	/^	META_DATA_TYPE  = (1<<0),$/;"	e	enum:__anon15
+MOVE	inc/enginestructs.h	/^	MOVE                  = 4$/;"	e	enum:__anon12
+MSG_TYPE_BONDING	Protocol.h	/^        MSG_TYPE_BONDING   = 0x06,$/;"	e	enum:__anon45
+MSG_TYPE_EVMS	Protocol.h	/^        MSG_TYPE_EVMS      = 0x02,      \/\/ EVMS related msg type$/;"	e	enum:__anon45
+MSG_TYPE_HANDSHAKE	Protocol.h	/^        MSG_TYPE_HANDSHAKE = 0x01,      \/\/ 握手消息：需要客户端每30秒发送一个“握手”信号，$/;"	e	enum:__anon45
+MSG_TYPE_IB	Protocol.h	/^        MSG_TYPE_IB        = 0x03,      \/\/ Infiniband ralated msg type$/;"	e	enum:__anon45
+MSG_TYPE_ISCSI	Protocol.h	/^        MSG_TYPE_ISCSI     = 0x04,      \/\/ iSCSI related msg type$/;"	e	enum:__anon45
+MSG_TYPE_NUM	Protocol.h	/^        MSG_TYPE_NUM$/;"	e	enum:__anon45
+MSG_TYPE_SYSTEM	Protocol.h	/^        MSG_TYPE_SYSTEM    = 0x05,      \/\/ system specific commands, such as remote "ls"$/;"	e	enum:__anon45
+MSG_TYPE_UNKNOWN	Protocol.h	/^        MSG_TYPE_UNKNOWN   = 0x00,      \/\/ unknown msg type$/;"	e	enum:__anon45
 MY_ADD_FEATURE	evms/ObjectStructs.c	/^int MY_ADD_FEATURE(my_advance_info_t * advance, const char * name)$/;"	f
 MY_ADD_OPERATION	evms/ObjectStructs.c	/^int MY_ADD_OPERATION(my_advance_info_t * advance, int op_type, int option_num)$/;"	f
 MY_ADD_OPTION_DESCRIPTORS	evms/ObjectStructs.c	/^inline void MY_ADD_OPTION_DESCRIPTORS(void * options_header, $/;"	f
@@ -1093,31 +1110,31 @@ MY_CREATE_TASK_T	evms/ObjectStructs.c	/^inline void MY_CREATE_TASK_T(my_task_t *
 MY_FREE_ADVANCE_INFO_T	evms/ObjectStructs.c	/^inline void MY_FREE_ADVANCE_INFO_T(my_advance_info_t * info)$/;"	f
 MY_FREE_BASIC_INFO_T	evms/ObjectStructs.c	/^inline void MY_FREE_BASIC_INFO_T(my_basic_info_t * info)$/;"	f
 MY_GET_BASIC_INFO	evms/ObjectStructs.c	/^int MY_GET_BASIC_INFO(my_object_info_t * my_obj, handle_object_info_t * evms_obj)$/;"	f
-MY_OP_ALLOCATE	evms/ObjectStructs.h	/^	MY_OP_ALLOCATE,$/;"	e	enum:__anon44
-MY_OP_ASSIGN_SEGMENT_MANAGER	evms/ObjectStructs.h	/^	MY_OP_ASSIGN_SEGMENT_MANAGER,$/;"	e	enum:__anon44
-MY_OP_CHECK	evms/ObjectStructs.h	/^	MY_OP_CHECK,$/;"	e	enum:__anon44
-MY_OP_CONVERT	evms/ObjectStructs.h	/^	MY_OP_CONVERT,$/;"	e	enum:__anon44
-MY_OP_DELETE	evms/ObjectStructs.h	/^	MY_OP_DELETE,$/;"	e	enum:__anon44
-MY_OP_EXPAND	evms/ObjectStructs.h	/^	MY_OP_EXPAND,$/;"	e	enum:__anon44
-MY_OP_FORMAT	evms/ObjectStructs.h	/^	MY_OP_FORMAT,$/;"	e	enum:__anon44
-MY_OP_MOVE	evms/ObjectStructs.h	/^	MY_OP_MOVE,$/;"	e	enum:__anon44
-MY_OP_NULL	evms/ObjectStructs.h	/^	MY_OP_NULL	= 0,$/;"	e	enum:__anon44
-MY_OP_RENAME	evms/ObjectStructs.h	/^	MY_OP_RENAME,$/;"	e	enum:__anon44
-MY_OP_REPLACE	evms/ObjectStructs.h	/^	MY_OP_REPLACE$/;"	e	enum:__anon44
-MY_OP_REVERT	evms/ObjectStructs.h	/^	MY_OP_REVERT,$/;"	e	enum:__anon44
-MY_OP_SETINFO	evms/ObjectStructs.h	/^	MY_OP_SETINFO,$/;"	e	enum:__anon44
-MY_OP_SHRINK	evms/ObjectStructs.h	/^	MY_OP_SHRINK,$/;"	e	enum:__anon44
-MY_OP_SLIDE	evms/ObjectStructs.h	/^	MY_OP_SLIDE,$/;"	e	enum:__anon44
-MY_OP_TASK_ASSIGN_PLUGIN	evms/ObjectStructs.h	/^	MY_OP_TASK_ASSIGN_PLUGIN,$/;"	e	enum:__anon44
-MY_OP_TASK_CREATE	evms/ObjectStructs.h	/^	MY_OP_TASK_CREATE,$/;"	e	enum:__anon44
-MY_OP_TASK_CREATE_CONTAINER	evms/ObjectStructs.h	/^	MY_OP_TASK_CREATE_CONTAINER,$/;"	e	enum:__anon44
-MY_OP_TASK_CREATE_REGION	evms/ObjectStructs.h	/^	MY_OP_TASK_CREATE_REGION,$/;"	e	enum:__anon44
-MY_OP_TASK_CREATE_SEGMENT	evms/ObjectStructs.h	/^	MY_OP_TASK_CREATE_SEGMENT,$/;"	e	enum:__anon44
-MY_OP_TASK_CREATE_SO	evms/ObjectStructs.h	/^	MY_OP_TASK_CREATE_SO,			\/* storage object *\/$/;"	e	enum:__anon44
-MY_OP_TASK_CREATE_VOLUME	evms/ObjectStructs.h	/^	MY_OP_TASK_CREATE_VOLUME,$/;"	e	enum:__anon44
-MY_OP_TASK_FSCK	evms/ObjectStructs.h	/^	MY_OP_TASK_FSCK,$/;"	e	enum:__anon44
-MY_OP_TASK_MKFS	evms/ObjectStructs.h	/^	MY_OP_TASK_MKFS,$/;"	e	enum:__anon44
-MY_OP_UNFORMAT	evms/ObjectStructs.h	/^	MY_OP_UNFORMAT,$/;"	e	enum:__anon44
+MY_OP_ALLOCATE	evms/ObjectStructs.h	/^	MY_OP_ALLOCATE,$/;"	e	enum:__anon38
+MY_OP_ASSIGN_SEGMENT_MANAGER	evms/ObjectStructs.h	/^	MY_OP_ASSIGN_SEGMENT_MANAGER,$/;"	e	enum:__anon38
+MY_OP_CHECK	evms/ObjectStructs.h	/^	MY_OP_CHECK,$/;"	e	enum:__anon38
+MY_OP_CONVERT	evms/ObjectStructs.h	/^	MY_OP_CONVERT,$/;"	e	enum:__anon38
+MY_OP_DELETE	evms/ObjectStructs.h	/^	MY_OP_DELETE,$/;"	e	enum:__anon38
+MY_OP_EXPAND	evms/ObjectStructs.h	/^	MY_OP_EXPAND,$/;"	e	enum:__anon38
+MY_OP_FORMAT	evms/ObjectStructs.h	/^	MY_OP_FORMAT,$/;"	e	enum:__anon38
+MY_OP_MOVE	evms/ObjectStructs.h	/^	MY_OP_MOVE,$/;"	e	enum:__anon38
+MY_OP_NULL	evms/ObjectStructs.h	/^	MY_OP_NULL	= 0,$/;"	e	enum:__anon38
+MY_OP_RENAME	evms/ObjectStructs.h	/^	MY_OP_RENAME,$/;"	e	enum:__anon38
+MY_OP_REPLACE	evms/ObjectStructs.h	/^	MY_OP_REPLACE$/;"	e	enum:__anon38
+MY_OP_REVERT	evms/ObjectStructs.h	/^	MY_OP_REVERT,$/;"	e	enum:__anon38
+MY_OP_SETINFO	evms/ObjectStructs.h	/^	MY_OP_SETINFO,$/;"	e	enum:__anon38
+MY_OP_SHRINK	evms/ObjectStructs.h	/^	MY_OP_SHRINK,$/;"	e	enum:__anon38
+MY_OP_SLIDE	evms/ObjectStructs.h	/^	MY_OP_SLIDE,$/;"	e	enum:__anon38
+MY_OP_TASK_ASSIGN_PLUGIN	evms/ObjectStructs.h	/^	MY_OP_TASK_ASSIGN_PLUGIN,$/;"	e	enum:__anon38
+MY_OP_TASK_CREATE	evms/ObjectStructs.h	/^	MY_OP_TASK_CREATE,$/;"	e	enum:__anon38
+MY_OP_TASK_CREATE_CONTAINER	evms/ObjectStructs.h	/^	MY_OP_TASK_CREATE_CONTAINER,$/;"	e	enum:__anon38
+MY_OP_TASK_CREATE_REGION	evms/ObjectStructs.h	/^	MY_OP_TASK_CREATE_REGION,$/;"	e	enum:__anon38
+MY_OP_TASK_CREATE_SEGMENT	evms/ObjectStructs.h	/^	MY_OP_TASK_CREATE_SEGMENT,$/;"	e	enum:__anon38
+MY_OP_TASK_CREATE_SO	evms/ObjectStructs.h	/^	MY_OP_TASK_CREATE_SO,			\/* storage object *\/$/;"	e	enum:__anon38
+MY_OP_TASK_CREATE_VOLUME	evms/ObjectStructs.h	/^	MY_OP_TASK_CREATE_VOLUME,$/;"	e	enum:__anon38
+MY_OP_TASK_FSCK	evms/ObjectStructs.h	/^	MY_OP_TASK_FSCK,$/;"	e	enum:__anon38
+MY_OP_TASK_MKFS	evms/ObjectStructs.h	/^	MY_OP_TASK_MKFS,$/;"	e	enum:__anon38
+MY_OP_UNFORMAT	evms/ObjectStructs.h	/^	MY_OP_UNFORMAT,$/;"	e	enum:__anon38
 MY_PACK_ADVANCE_INFO	evms/ConvertStructs.c	/^int MY_PACK_ADVANCE_INFO(my_advance_info_t * advance, char * buffer, int * len)$/;"	f
 MY_PACK_BASIC_INFO	evms/ConvertStructs.c	/^int MY_PACK_BASIC_INFO(my_basic_info_t * basic, char * buffer, int * len)$/;"	f
 MY_PACK_EVMS_OBJECT	evms/ConvertStructs.c	/^int MY_PACK_EVMS_OBJECT(my_object_info_t * obj, char * buffer, int * len)$/;"	f
@@ -1142,77 +1159,80 @@ MicrosecondsStr	evms/screener.h	/^char *   MicrosecondsStr  =  "MICROSECONDS";$/
 MillisecondsStr	evms/screener.h	/^char *   MillisecondsStr  =  "MILLISECONDS";$/;"	v
 MinutesStr	evms/screener.h	/^char *   MinutesStr       =  "MINUTES";$/;"	v
 MkfsStr	evms/screener.h	/^char *   MkfsStr          =  "MKFS";$/;"	v
+ModBonding	BondingCmd.c	/^int ModBonding(char * msg_body,   int msg_body_len)$/;"	f
+ModBonding	pl/Bonding.pl	/^sub ModBonding()$/;"	s
+ModifyBondingMasterConfiguration	pl/Bonding.pl	/^sub ModifyBondingMasterConfiguration()$/;"	s
 ModifyStr	evms/screener.h	/^char *   ModifyStr        =  "MODIFY";$/;"	v
 ModuleStr	evms/screener.h	/^char *   ModuleStr        =  "MODULE";$/;"	v
 MountStr	evms/screener.h	/^char *   MountStr         =  "MOUNT";$/;"	v
-Mount_Node	evms/interpreter.h	/^               Mount_Node,$/;"	e	enum:__anon50
+Mount_Node	evms/interpreter.h	/^               Mount_Node,$/;"	e	enum:__anon39
 Mount_Parameters	evms/parser.c	/^Mount_Parameters(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
-MultiSpace	evms/token.h	/^                MultiSpace,$/;"	e	enum:__anon40
-MultiTab	evms/token.h	/^                MultiTab,$/;"	e	enum:__anon40
+MultiSpace	evms/token.h	/^                MultiSpace,$/;"	e	enum:__anon34
+MultiTab	evms/token.h	/^                MultiTab,$/;"	e	enum:__anon34
 My_Printf	evms/evms.c	/^    int My_Printf(char *format, ...) {$/;"	f
 NAME	evms/Makefile	/^NAME	  = evms-cli$/;"	m
-NET_BUFFER_LEN	Protocol.h	111;"	d
-NODE_ACTIVE	inc/common.h	/^	NODE_ACTIVE =	(1<<0)$/;"	e	enum:__anon18
-NORMAL_BUFFER_LEN	Protocol.h	112;"	d
-NOT_MUST_BE_TOP	inc/common.h	/^	NOT_MUST_BE_TOP =       (1<<2),$/;"	e	enum:__anon16
-NO_DISK_GROUP	inc/common.h	/^	NO_DISK_GROUP =         (1<<4)$/;"	e	enum:__anon16
+NET_BUFFER_LEN	Protocol.h	122;"	d
+NODE_ACTIVE	inc/common.h	/^	NODE_ACTIVE =	(1<<0)$/;"	e	enum:__anon22
+NORMAL_BUFFER_LEN	Protocol.h	123;"	d
+NOT_MUST_BE_TOP	inc/common.h	/^	NOT_MUST_BE_TOP =       (1<<2),$/;"	e	enum:__anon20
+NO_DISK_GROUP	inc/common.h	/^	NO_DISK_GROUP =         (1<<4)$/;"	e	enum:__anon20
 N_	inc/common.h	796;"	d
 N_	inc/common.h	798;"	d
 N_	inc/common.h	802;"	d
 Name	evms/parser.c	/^Name(Executable_Node * Current_Node, boolean Field_Name, boolean Optional)$/;"	f	file:
 NameStr	evms/screener.h	/^char *   NameStr          =  "NAME";$/;"	v
-Name_To_Container_Handle	evms/interpreter.h	/^               Name_To_Container_Handle,$/;"	e	enum:__anon50
-Name_To_Disk_Handle	evms/interpreter.h	/^               Name_To_Disk_Handle,$/;"	e	enum:__anon50
-Name_To_Object_Handle	evms/interpreter.h	/^               Name_To_Object_Handle,$/;"	e	enum:__anon50
-Name_To_Plugin_Handle	evms/interpreter.h	/^               Name_To_Plugin_Handle,$/;"	e	enum:__anon50
-Name_To_Region_Handle	evms/interpreter.h	/^               Name_To_Region_Handle,$/;"	e	enum:__anon50
-Name_To_Segment_Handle	evms/interpreter.h	/^               Name_To_Segment_Handle,$/;"	e	enum:__anon50
-Name_To_Volume_Handle	evms/interpreter.h	/^               Name_To_Volume_Handle,$/;"	e	enum:__anon50
-Name_Value_Pair	evms/interpreter.h	/^               Name_Value_Pair,$/;"	e	enum:__anon50
+Name_To_Container_Handle	evms/interpreter.h	/^               Name_To_Container_Handle,$/;"	e	enum:__anon39
+Name_To_Disk_Handle	evms/interpreter.h	/^               Name_To_Disk_Handle,$/;"	e	enum:__anon39
+Name_To_Object_Handle	evms/interpreter.h	/^               Name_To_Object_Handle,$/;"	e	enum:__anon39
+Name_To_Plugin_Handle	evms/interpreter.h	/^               Name_To_Plugin_Handle,$/;"	e	enum:__anon39
+Name_To_Region_Handle	evms/interpreter.h	/^               Name_To_Region_Handle,$/;"	e	enum:__anon39
+Name_To_Segment_Handle	evms/interpreter.h	/^               Name_To_Segment_Handle,$/;"	e	enum:__anon39
+Name_To_Volume_Handle	evms/interpreter.h	/^               Name_To_Volume_Handle,$/;"	e	enum:__anon39
+Name_Value_Pair	evms/interpreter.h	/^               Name_Value_Pair,$/;"	e	enum:__anon39
 NextCharacter	evms/scanner.c	/^static char NextCharacter = ' ';	\/* The next character that will be examined. *\/$/;"	v	file:
 NextItem	evms/dlist.c	/^int NextItem(dlist_t ListToAdvance)$/;"	f
 NextLinkNode	evms/dlist.h	/^  struct LinkNodeRecord *   NextLinkNode;        \/* The LinkNode of the next item in the list. *\/$/;"	m	struct:LinkNodeRecord	typeref:struct:LinkNodeRecord::LinkNodeRecord
 Next_Context	evms/scanner.c	/^    struct Input_Context_t *Next_Context;$/;"	m	struct:Input_Context_t	typeref:struct:Input_Context_t::Input_Context_t	file:
 Next_Token	evms/parser.c	/^static void Next_Token(void)$/;"	f	file:
 No_Commits	evms/interpreter.h	/^boolean   No_Commits = FALSE;  \/* If TRUE, then don't perform commits after each command. *\/$/;"	v
-NodeType	evms/interpreter.h	/^                 NodeTypes  NodeType;$/;"	m	struct:__anon51
-NodeTypes	evms/interpreter.h	/^             } NodeTypes;$/;"	t	typeref:enum:__anon50
-NodeValue	evms/interpreter.h	/^                 void *     NodeValue;$/;"	m	struct:__anon51
+NodeType	evms/interpreter.h	/^                 NodeTypes  NodeType;$/;"	m	struct:__anon40
+NodeTypes	evms/interpreter.h	/^             } NodeTypes;$/;"	t	typeref:enum:__anon39
+NodeValue	evms/interpreter.h	/^                 void *     NodeValue;$/;"	m	struct:__anon40
 Node_Name	evms/evms.c	/^char *Node_Name = NULL;$/;"	v
 Node_Name	evms/interpreter.c	/^static char *Node_Name = NULL;$/;"	v	file:
-Normal	evms/scanner.c	/^    Normal,$/;"	e	enum:__anon43	file:
-Normal2	evms/scanner.c	/^    Normal2,$/;"	e	enum:__anon43	file:
-Not_Comment	evms/scanner.c	/^    Not_Comment,$/;"	e	enum:__anon43	file:
-Not_Substitution	evms/scanner.c	/^    Not_Substitution,$/;"	e	enum:__anon43	file:
+Normal	evms/scanner.c	/^    Normal,$/;"	e	enum:__anon32	file:
+Normal2	evms/scanner.c	/^    Normal2,$/;"	e	enum:__anon32	file:
+Not_Comment	evms/scanner.c	/^    Not_Comment,$/;"	e	enum:__anon32	file:
+Not_Substitution	evms/scanner.c	/^    Not_Substitution,$/;"	e	enum:__anon32	file:
 Null_Token	evms/parser.c	/^static TokenType Null_Token = { EofToken, 0, 0, 0, NULL, TRUE };	\/* Used to represent an empty token. *\/$/;"	v	file:
-Number	evms/token.h	/^                Number,$/;"	e	enum:__anon40
+Number	evms/token.h	/^                Number,$/;"	e	enum:__anon34
 OBJ	test/Makefile	/^OBJ=test.o$/;"	m
 OBJECTS	Makefile	/^OBJECTS  := Main.o NetServer.o LinkCtrl.o SysCheckInCmd.o RecvOneFrame.o \\$/;"	m
 OBJECTS	test/pack/Makefile	/^OBJECTS   := ObjectStructs.o ReplacedStructs.o$/;"	m
-OBJ_CHANGES_PENDING	inc/common.h	/^	OBJ_CHANGES_PENDING =   (1<<0),$/;"	e	enum:__anon16
+OBJ_CHANGES_PENDING	inc/common.h	/^	OBJ_CHANGES_PENDING =   (1<<0),$/;"	e	enum:__anon20
 OUPUT	Debuger.h	75;"	d
 OUTPUT	Debuger.h	54;"	d
-ObjectList	evms/interpreter.h	/^               ObjectList,$/;"	e	enum:__anon50
+ObjectList	evms/interpreter.h	/^               ObjectList,$/;"	e	enum:__anon39
 ObjectStr	evms/screener.h	/^char *   ObjectStr        =  "OBJECT";$/;"	v
 Object_Array	evms/interpreter.c	/^static handle_array_t *Object_Array;$/;"	v	file:
 Object_Filter	evms/parser.c	71;"	d	file:
 ObjectsStr	evms/screener.h	/^char *   ObjectsStr       =  "OBJECTS";$/;"	v
-OptionCheck	evms/scanner.c	/^    OptionCheck,$/;"	e	enum:__anon42	file:
+OptionCheck	evms/scanner.c	/^    OptionCheck,$/;"	e	enum:__anon31	file:
 Option_Count	evms/interpreter.c	/^static int Option_Count;$/;"	v	file:
 Option_Descriptors	evms/interpreter.c	/^static option_descriptor_t **Option_Descriptors;$/;"	v	file:
 Option_Usage	evms/interpreter.c	/^static boolean *Option_Usage;$/;"	v	file:
 OptionsStr	evms/screener.h	/^char *   OptionsStr       =  "OPTIONS";$/;"	v
-Out_Of_Memory	evms/error.h	/^               Out_Of_Memory,$/;"	e	enum:__anon46
+Out_Of_Memory	evms/error.h	/^               Out_Of_Memory,$/;"	e	enum:__anon42
 PACKET_HDR	Protocol.h	/^} PACKET_HDR, *PPACKET_HDR;         \/\/ 报文头结构；$/;"	t	typeref:struct:__PACKET_HDR
-PACKET_HDR_LEN	Protocol.h	109;"	d
+PACKET_HDR_LEN	Protocol.h	120;"	d
 PARSER_C	evms/parser.c	30;"	d	file:
 PARSER_H	evms/parser.h	32;"	d
 PCTRL_LINK_DESC	CtrlLinkTbl.h	/^} CTRL_LINK_DESC, *PCTRL_LINK_DESC;$/;"	t	typeref:struct:__anon52
-PDEAD_THREAD_TBL	DeadThreadTbl.h	/^} DEAD_THREAD_TBL, PDEAD_THREAD_TBL; \/\/FIXME PDEAD_THREAD_TBL 前面应该加"*"吧,还好没有用到它$/;"	t	typeref:struct:__anon37
+PDEAD_THREAD_TBL	DeadThreadTbl.h	/^} DEAD_THREAD_TBL, PDEAD_THREAD_TBL; \/\/FIXME PDEAD_THREAD_TBL 前面应该加"*"吧,还好没有用到它$/;"	t	typeref:struct:__anon54
 PGLOBAL_STATE	NetServer.h	/^} GLOBAL_STATE, *PGLOBAL_STATE;$/;"	t	typeref:struct:__GLOBAL_STATE
-PLUGIN	inc/common.h	/^	PLUGIN      = (1<<0),$/;"	e	enum:__anon12
+PLUGIN	inc/common.h	/^	PLUGIN      = (1<<0),$/;"	e	enum:__anon16
 PLUGIN_ID_MASK	evms/interpreter.c	75;"	d	file:
-POST_ACTIVATE	inc/enginestructs.h	/^	POST_ACTIVATE         = 3,$/;"	e	enum:__anon30
+POST_ACTIVATE	inc/enginestructs.h	/^	POST_ACTIVATE         = 3,$/;"	e	enum:__anon12
 PPACKET_HDR	Protocol.h	/^} PACKET_HDR, *PPACKET_HDR;         \/\/ 报文头结构；$/;"	t	typeref:struct:__PACKET_HDR
 PRINT	Debuger.h	45;"	d
 PRINT	Debuger.h	71;"	d
@@ -1232,28 +1252,28 @@ Parse_Optional_Query_Filters	evms/parser.c	/^Parse_Optional_Query_Filters(Execut
 Parse_Query_Acceptable_Create	evms/parser.c	/^Parse_Query_Acceptable_Create(Executable_Node * Current_Node,$/;"	f	file:
 Parse_Query_Acceptable_Parameters	evms/parser.c	/^Parse_Query_Acceptable_Parameters(Executable_Node * Current_Node,$/;"	f	file:
 Parse_Query_Extended_Info_Parameters	evms/parser.c	/^Parse_Query_Extended_Info_Parameters(Executable_Node * Current_Node,$/;"	f	file:
-Parse_Results	evms/parser.c	/^} Parse_Results;$/;"	t	typeref:enum:__anon49	file:
+Parse_Results	evms/parser.c	/^} Parse_Results;$/;"	t	typeref:enum:__anon33	file:
 Parse_Units	evms/parser.c	/^Parse_Units(Executable_Node * Current_Node, boolean Allow_Time_Units,$/;"	f	file:
-Parser_Errors	evms/error.h	/^             } Parser_Errors;$/;"	t	typeref:enum:__anon46
+Parser_Errors	evms/error.h	/^             } Parser_Errors;$/;"	t	typeref:enum:__anon42
 Peek	evms/interpreter.c	/^static void Peek(TAG * Item_Type, uint * Item_Size)$/;"	f	file:
 PetabyteStr	evms/interpreter.c	/^static char *PetabyteStr = "PB";$/;"	v	file:
 PktHandler	LinkCtrl.h	/^typedef int (* PktHandler)(int sock_fd, char * oneframe, int len);$/;"	t
 PluginNameStr	evms/evms.c	/^char *PluginNameStr = "PLUG-IN NAME";$/;"	v
 PluginStr	evms/screener.h	/^char *   PluginStr        =  "PLUGIN";$/;"	v
 Plugin_Filter	evms/parser.c	72;"	d	file:
-Plugin_ID	evms/interpreter.h	/^               Plugin_ID,$/;"	e	enum:__anon50
+Plugin_ID	evms/interpreter.h	/^               Plugin_ID,$/;"	e	enum:__anon39
 Plugin_Identifier	evms/parser.c	/^Plugin_Identifier(Executable_Node * Current_Node,$/;"	f	file:
-Plugin_Mask	evms/interpreter.h	/^               Plugin_Mask,$/;"	e	enum:__anon50
-Plugin_Name	evms/interpreter.h	/^               Plugin_Name,$/;"	e	enum:__anon50
+Plugin_Mask	evms/interpreter.h	/^               Plugin_Mask,$/;"	e	enum:__anon39
+Plugin_Name	evms/interpreter.h	/^               Plugin_Name,$/;"	e	enum:__anon39
 Plugin_Type_Filter	evms/parser.c	78;"	d	file:
 Plugin_Types	evms/parser.c	/^Plugin_Types(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
 PluginsStr	evms/screener.h	/^char *   PluginsStr       =  "PLUGINS";$/;"	v
 PointsStr	evms/screener.h	/^char *   PointsStr        =  "POINTS";$/;"	v
 Pop	evms/interpreter.c	/^static void Pop(TAG Item_Type, uint Item_Size, ADDRESS Buffer)$/;"	f	file:
 PositionInBuffer	evms/scanner.c	/^static uint PositionInBuffer;	\/* Used to keep track of where to put characters in the Buffer. *\/$/;"	v	file:
-PositiveNumberCheck	evms/scanner.c	/^    PositiveNumberCheck,$/;"	e	enum:__anon42	file:
+PositiveNumberCheck	evms/scanner.c	/^    PositiveNumberCheck,$/;"	e	enum:__anon31	file:
 Precision	evms/parser.c	/^Precision(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
-Precision_Node	evms/interpreter.h	/^               Precision_Node,$/;"	e	enum:__anon50
+Precision_Node	evms/interpreter.h	/^               Precision_Node,$/;"	e	enum:__anon39
 PreviousItem	evms/dlist.c	/^int PreviousItem(dlist_t ListToChange)$/;"	f
 PreviousLinkNode	evms/dlist.h	/^  struct LinkNodeRecord *   PreviousLinkNode;    \/* The LinkNode of the item preceding this one in the list. *\/$/;"	m	struct:LinkNodeRecord	typeref:struct:LinkNodeRecord::LinkNodeRecord
 PrintAdvance	PrintObject.c	/^void PrintAdvance(my_advance_info_t * advance)$/;"	f
@@ -1274,32 +1294,32 @@ Print_Object_Info	evms/interpreter.c	/^Print_Object_Info(ADDRESS Object,$/;"	f	f
 Print_Units	evms/interpreter.c	/^static void Print_Units(value_unit_t Units)$/;"	f	file:
 Print_Value	evms/interpreter.c	/^Print_Value(u_int Indent,$/;"	f	file:
 ProbeStr	evms/screener.h	/^char *   ProbeStr         =  "PROBE";$/;"	v
-Probe_Node	evms/interpreter.h	/^               Probe_Node,$/;"	e	enum:__anon50
+Probe_Node	evms/interpreter.h	/^               Probe_Node,$/;"	e	enum:__anon39
 Process_Node	evms/interpreter.c	/^Process_Node(ADDRESS Object,$/;"	f	file:
 PruneList	evms/dlist.c	/^PruneList(dlist_t ListToProcess,$/;"	f
 Push	evms/interpreter.c	/^static void Push(TAG Item_Type, uint Item_Size, ADDRESS Item)$/;"	f	file:
 QUESTION	inc/plugin.h	81;"	d
 QueryPrivateData	evms/PrivateData.c	/^sector_count_t QueryPrivateData(object_handle_t handle)$/;"	f
 QueryStr	evms/screener.h	/^char *   QueryStr         =  "QUERY";$/;"	v
-Query_Extended_Info	evms/interpreter.h	/^               Query_Extended_Info,$/;"	e	enum:__anon50
-Query_Node	evms/interpreter.h	/^               Query_Node,$/;"	e	enum:__anon50
-Query_Node_Type_2	evms/interpreter.h	/^               Query_Node_Type_2,$/;"	e	enum:__anon50
+Query_Extended_Info	evms/interpreter.h	/^               Query_Extended_Info,$/;"	e	enum:__anon39
+Query_Node	evms/interpreter.h	/^               Query_Node,$/;"	e	enum:__anon39
+Query_Node_Type_2	evms/interpreter.h	/^               Query_Node_Type_2,$/;"	e	enum:__anon39
 Query_Type	evms/parser.c	/^Query_Type(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
 QuitStr	evms/screener.h	/^char *   QuitStr          =  "QUIT";$/;"	v
-Quit_Node	evms/interpreter.h	/^               Quit_Node,$/;"	e	enum:__anon50
+Quit_Node	evms/interpreter.h	/^               Quit_Node,$/;"	e	enum:__anon39
 READ	inc/plugin.h	219;"	d
 REAL_NUMBER	evms/interpreter.c	71;"	d	file:
-REGION	inc/common.h	/^	REGION      = (1<<3),$/;"	e	enum:__anon12
+REGION	inc/common.h	/^	REGION      = (1<<3),$/;"	e	enum:__anon16
 REPLACEMENT_PARAMETER	evms/evms.c	102;"	d	file:
 REQUIRE	inc/plugin.h	205;"	d
 REQUIRED_ENGINE_VERSION_MAJOR	evms/evms.c	99;"	d	file:
 REQUIRED_ENGINE_VERSION_MINOR	evms/evms.c	100;"	d	file:
 REQUIRED_ENGINE_VERSION_PATCH	evms/evms.c	101;"	d	file:
-RETCODE_FAIL	Protocol.h	79;"	d
-RETCODE_OK	Protocol.h	78;"	d
+RETCODE_FAIL	Protocol.h	90;"	d
+RETCODE_OK	Protocol.h	89;"	d
 Read_Character	evms/scanner.c	/^static void Read_Character(void)$/;"	f	file:
-RealNumber	evms/token.h	/^                RealNumber,$/;"	e	enum:__anon40
-RealNumberData	evms/interpreter.h	/^               RealNumberData,$/;"	e	enum:__anon50
+RealNumber	evms/token.h	/^                RealNumber,$/;"	e	enum:__anon34
+RealNumberData	evms/interpreter.h	/^               RealNumberData,$/;"	e	enum:__anon39
 RealNumberDataStr	evms/evms.c	/^char *RealNumberDataStr = "REAL NUMBER DATA";$/;"	v
 RecursiveStr	evms/screener.h	/^char *   RecursiveStr     =  "RECURSIVE";$/;"	v
 RecvOneFrame	RecvOneFrame.c	/^RecvOneFrame (int s, char *pAppFrame)$/;"	f
@@ -1308,14 +1328,14 @@ Region_Filter	evms/parser.c	73;"	d	file:
 RegionsStr	evms/screener.h	/^char *   RegionsStr       =  "REGIONS";$/;"	v
 ReleaseStr	evms/screener.h	/^char *   ReleaseStr       =  "RELEASE";$/;"	v
 RemoveStr	evms/screener.h	/^char *   RemoveStr        =  "REMOVE";$/;"	v
-Remove_Node	evms/interpreter.h	/^               Remove_Node,$/;"	e	enum:__anon50
+Remove_Node	evms/interpreter.h	/^               Remove_Node,$/;"	e	enum:__anon39
 RenameStr	evms/screener.h	/^char *   RenameStr        =  "RENAME";$/;"	v
-Rename_Node	evms/interpreter.h	/^               Rename_Node,$/;"	e	enum:__anon50
+Rename_Node	evms/interpreter.h	/^               Rename_Node,$/;"	e	enum:__anon39
 ReplaceObject	evms/dlist.c	/^int ReplaceObject(dlist_t ListToReplaceItemIn, ADDRESS ItemLocation, TAG * ItemTag,	\/* On input - TAG of new object.  On return = TAG of old object. *\/$/;"	f
 ReplaceStr	evms/screener.h	/^char *   ReplaceStr       =  "REPLACE";$/;"	v
-Replace_Node	evms/interpreter.h	/^               Replace_Node,$/;"	e	enum:__anon50
+Replace_Node	evms/interpreter.h	/^               Replace_Node,$/;"	e	enum:__anon39
 Replacement_Parameters	evms/scanner.c	/^static Substitution_Table_Type *Replacement_Parameters = NULL;	\/* Used to hold substitutable parameters. *\/$/;"	v	file:
-Replacement_Parameters	evms/scanner.h	/^                 Substitution_Table_Entry * Replacement_Parameters;$/;"	m	struct:__anon39
+Replacement_Parameters	evms/scanner.h	/^                 Substitution_Table_Entry * Replacement_Parameters;$/;"	m	struct:__anon44
 Report_Parser_Error	evms/error.c	/^Report_Parser_Error(Parser_Errors Error, char *Filename, TokenType * Token)$/;"	f
 Report_Progress	evms/interpreter.c	/^void Report_Progress(char *Message)$/;"	f
 Report_Scanner_Error	evms/error.c	/^Report_Scanner_Error(Scanner_Errors Error, char *Parameter1,$/;"	f
@@ -1325,9 +1345,9 @@ RestoreGroup	shell/GroupInfoRestore.sh	/^RestoreGroup()$/;"	f
 RestoreIBPortCtrlFile	shell/GroupInfoRestore.sh	/^RestoreIBPortCtrlFile()$/;"	f
 Restore_Current_Token	evms/parser.c	/^static boolean Restore_Current_Token(Executable_Node * Temp_Node)$/;"	f	file:
 RevertStr	evms/screener.h	/^char *   RevertStr        =  "REVERT";$/;"	v
-Revert_Node	evms/interpreter.h	/^               Revert_Node,$/;"	e	enum:__anon50
+Revert_Node	evms/interpreter.h	/^               Revert_Node,$/;"	e	enum:__anon39
 Row_Delimiter	evms/evms.c	/^    int Row_Delimiter(char ch, char *header) {$/;"	f
-SANAGER_WORKING_DIR	Main.c	20;"	d	file:
+SANAGER_WORKING_DIR	Main.c	17;"	d	file:
 SCANNER_C	evms/scanner.c	142;"	d	file:
 SCANNER_H	evms/scanner.h	145;"	d
 SCFLAG_CLUSTER_DEPORTED	inc/common.h	307;"	d
@@ -1338,16 +1358,16 @@ SCFLAG_NEW	inc/common.h	304;"	d
 SCFLAG_REDISCOVER	inc/common.h	308;"	d
 SCREENER_C	evms/screener.c	34;"	d	file:
 SCREENER_H	evms/screener.h	33;"	d
-SECOND_METADATA_WRITE	inc/enginestructs.h	/^	SECOND_METADATA_WRITE = 2,$/;"	e	enum:__anon30
-SEGMENT	inc/common.h	/^	SEGMENT     = (1<<2),$/;"	e	enum:__anon12
+SECOND_METADATA_WRITE	inc/enginestructs.h	/^	SECOND_METADATA_WRITE = 2,$/;"	e	enum:__anon12
+SEGMENT	inc/common.h	/^	SEGMENT     = (1<<2),$/;"	e	enum:__anon16
 SEND_EXPAND_OR_SHRINK_SIZE	evms/ConvertStructs.c	10;"	d	file:
-SERIOUS	inc/common.h	/^	SERIOUS = 1,$/;"	e	enum:__anon17
-SETUP	inc/enginestructs.h	/^	SETUP                 = 0,$/;"	e	enum:__anon30
+SERIOUS	inc/common.h	/^	SERIOUS = 1,$/;"	e	enum:__anon21
+SETUP	inc/enginestructs.h	/^	SETUP                 = 0,$/;"	e	enum:__anon12
 SET_POWER2_LIST	inc/plugin.h	93;"	d
 SET_POWER2_LIST64	inc/plugin.h	128;"	d
 SET_RANGE32	inc/plugin.h	164;"	d
 SET_RANGE64	inc/plugin.h	187;"	d
-SHORT_BUFFER_LEN	Protocol.h	113;"	d
+SHORT_BUFFER_LEN	Protocol.h	124;"	d
 SNAPSHOT_FEATURE	evms/ObjectStructs.h	15;"	d
 SOFLAG_ACTIVE	inc/common.h	293;"	d
 SOFLAG_BIOS_READABLE	inc/common.h	290;"	d
@@ -1371,11 +1391,11 @@ SO_TARGET	evms/Makefile	/^SO_TARGET = lib${NAME}.so.${MAJOR_VERSION}.${MINOR_VER
 SPStr	evms/screener.h	/^char *   SPStr            =  "SP";$/;"	v
 STACK_NODE	evms/interpreter.h	43;"	d
 STRING_POINTER	evms/interpreter.c	69;"	d	file:
-SUPPORTS_CONTAINERS	inc/common.h	/^	SUPPORTS_CONTAINERS =   (1<<0)$/;"	e	enum:__anon13
-SYSTEM_CR_DIR	Protocol.h	/^	SYSTEM_CR_DIR = 0x02		\/\/ create a directory, the dir must has the format of absolute path.$/;"	e	enum:__anon34
-SYSTEM_LS_DIR	Protocol.h	/^	SYSTEM_LS_DIR = 0x01,		\/\/ list subdirs and files, almost the same as "ls -l" command$/;"	e	enum:__anon34
-SYSTEM_RELATED_OPERATIONS	Protocol.h	/^}SYSTEM_RELATED_OPERATIONS;$/;"	t	typeref:enum:__anon34
-SYS_CHECKIN_REQ	Protocol.h	29;"	d
+SUPPORTS_CONTAINERS	inc/common.h	/^	SUPPORTS_CONTAINERS =   (1<<0)$/;"	e	enum:__anon17
+SYSTEM_CR_DIR	Protocol.h	/^        SYSTEM_CR_DIR = 0x02            \/\/ create a directory, the dir must has the format of absolute path.$/;"	e	enum:__anon49
+SYSTEM_LS_DIR	Protocol.h	/^        SYSTEM_LS_DIR = 0x01,           \/\/ list subdirs and files, almost the same as "ls -l" command$/;"	e	enum:__anon49
+SYSTEM_RELATED_OPERATIONS	Protocol.h	/^}SYSTEM_RELATED_OPERATIONS;$/;"	t	typeref:enum:__anon49
+SYS_CHECKIN_REQ	Protocol.h	30;"	d
 SYS_CHECK_IN_REQ_PKT	SysCheckInCmd.h	/^} SYS_CHECK_IN_REQ_PKT, *PSYS_CHECK_IN_REQ_PKT;$/;"	t	typeref:struct:__SYS_CHECK_IN_REQ_PKT
 SYS_CHECK_IN_RSP_PKT	SysCheckInCmd.h	/^} SYS_CHECK_IN_RSP_PKT, *PSYS_CHECK_IN_RSP_PKT;$/;"	t	typeref:struct:__SYS_CHECK_IN_RSP_PKT
 SaveStr	evms/screener.h	/^char *   SaveStr          =  "SAVE";$/;"	v
@@ -1394,65 +1414,65 @@ Scan_For_Shrinkable	evms/interpreter.c	/^Scan_For_Shrinkable(ADDRESS Object,$/;"
 Scan_For_Size	evms/interpreter.c	/^Scan_For_Size(ADDRESS Object,$/;"	f	file:
 Scan_For_Unclaimed	evms/interpreter.c	/^Scan_For_Unclaimed(ADDRESS Object,$/;"	f	file:
 Scan_For_Volumes	evms/interpreter.c	/^Scan_For_Volumes(ADDRESS Object,$/;"	f	file:
-Scanner_Errors	evms/error.h	/^             } Scanner_Errors;$/;"	t	typeref:enum:__anon45
-Scanner_Out_Of_Memory	evms/error.h	/^               Scanner_Out_Of_Memory              \/* Column and Row are used to indicate how far we got before quitting. *\/$/;"	e	enum:__anon45
+Scanner_Errors	evms/error.h	/^             } Scanner_Errors;$/;"	t	typeref:enum:__anon41
+Scanner_Out_Of_Memory	evms/error.h	/^               Scanner_Out_Of_Memory              \/* Column and Row are used to indicate how far we got before quitting. *\/$/;"	e	enum:__anon41
 SearchNode	evms/PrivateData.c	/^hash_node_t * SearchNode()$/;"	f
 SecondsStr	evms/screener.h	/^char *   SecondsStr       =  "SECONDS";$/;"	v
 SectorsStr	evms/screener.h	/^char *   SectorsStr       =  "SECTORS";$/;"	v
 SegmentStr	evms/screener.h	/^char *   SegmentStr       =  "SEGMENT";$/;"	v
 Segment_Filter	evms/parser.c	74;"	d	file:
 SegmentsStr	evms/screener.h	/^char *   SegmentsStr      =  "SEGMENTS";$/;"	v
-SendCommonFrame	SystemCmd.c	/^int SendCommonFrame(int sock_fd, unsigned short retcode, char * data, int data_len, char main_type, char sub_type)$/;"	f
+SendAppFrame	Functions.c	/^int SendAppFrame(int sock_fd, $/;"	f
 SendEvmsCmd	Client.c	/^int SendEvmsCmd(int sock_fd, char *cmd, int cmd_len)$/;"	f
 SendEvmsFrame	evms/SendOneFrame.c	/^SendEvmsFrame (int sock_fd, unsigned short retcode, char *data,$/;"	f
 SendIBCmd	Client.c	/^int SendIBCmd(int sock_fd, char *cmd, int cmd_len)$/;"	f
-SendIBFrame	InfinibandCmd.c	/^int SendIBFrame(int sock_fd, unsigned short retcode, char * data, int data_len, int sub_type)$/;"	f
-SendIscsiFrame	IscsiCmd.c	/^int SendIscsiFrame(int sock_fd, unsigned short retcode, char * data, int data_len, int sub_type)$/;"	f
 SendObjectData	evms/interpreter.c	/^int SendObjectData(my_object_info_t * output)$/;"	f
-Separator	evms/token.h	/^                Separator,$/;"	e	enum:__anon40
-SeparatorOrError	evms/scanner.c	/^    SeparatorOrError,$/;"	e	enum:__anon42	file:
+Separator	evms/token.h	/^                Separator,$/;"	e	enum:__anon34
+SeparatorOrError	evms/scanner.c	/^    SeparatorOrError,$/;"	e	enum:__anon31	file:
 Server_Thread	NetServer.c	/^Server_Thread (void *pinfo)$/;"	f	file:
 Server_Thread_Cleanup	NetServer.c	/^Server_Thread_Cleanup (void *pinfo)$/;"	f	file:
 SetDebugLevel	Debuger.c	/^CDebuger::SetDebugLevel (int debug_level) $/;"	f	class:CDebuger
 SetInput	evms/scanner.c	/^SetInput(boolean IsFile, char *FilenameOrString,$/;"	f
-SetInput_Failure	evms/error.h	/^               SetInput_Failure,$/;"	e	enum:__anon46
+SetInput_Failure	evms/error.h	/^               SetInput_Failure,$/;"	e	enum:__anon42
 SetPluginID	inc/common.h	167;"	d
 SetStr	evms/screener.h	/^char *   SetStr           =  "SET";$/;"	v
-Set_Node	evms/interpreter.h	/^               Set_Node,$/;"	e	enum:__anon50
+Set_Node	evms/interpreter.h	/^               Set_Node,$/;"	e	enum:__anon39
 Set_Parameters	evms/parser.c	/^Set_Parameters(Executable_Node * Current_Node, NodeTypes Node_To_Create,$/;"	f	file:
 Setup_Task	evms/interpreter.c	/^Setup_Task(plugin_handle_t Handle, task_action_t Task_Type,$/;"	f	file:
 ShowUsage	Client.c	/^void ShowUsage(const char *prog)$/;"	f
 ShrinkStr	evms/screener.h	/^char *   ShrinkStr        =  "SHRINK";$/;"	v
-Shrink_Node	evms/interpreter.h	/^               Shrink_Node,$/;"	e	enum:__anon50
+Shrink_Node	evms/interpreter.h	/^               Shrink_Node,$/;"	e	enum:__anon39
 ShrinkableStr	evms/screener.h	/^char *   ShrinkableStr    =  "SHRINKABLE";$/;"	v
 Shrinkable_Filter	evms/parser.c	75;"	d	file:
-SingleSpace	evms/scanner.c	/^    SingleSpace,$/;"	e	enum:__anon42	file:
-SingleTab	evms/scanner.c	/^    SingleTab,$/;"	e	enum:__anon42	file:
+SingleSpace	evms/scanner.c	/^    SingleSpace,$/;"	e	enum:__anon31	file:
+SingleTab	evms/scanner.c	/^    SingleTab,$/;"	e	enum:__anon31	file:
 Size	evms/parser.c	/^static Parse_Results Size(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
 SizeStr	evms/screener.h	/^char *   SizeStr          =  "SIZE";$/;"	v
-Size_Filter_Structure	evms/interpreter.c	/^} Size_Filter_Structure;$/;"	t	typeref:struct:__anon48	file:
-Size_Filter_Types	evms/interpreter.c	/^} Size_Filter_Types;$/;"	t	typeref:enum:__anon47	file:
-Skip_End_Spaces	evms/scanner.c	/^    Skip_End_Spaces,$/;"	e	enum:__anon43	file:
-Skip_Initial_Spaces	evms/scanner.c	/^    Skip_Initial_Spaces,$/;"	e	enum:__anon43	file:
+Size_Filter_Structure	evms/interpreter.c	/^} Size_Filter_Structure;$/;"	t	typeref:struct:__anon37	file:
+Size_Filter_Types	evms/interpreter.c	/^} Size_Filter_Types;$/;"	t	typeref:enum:__anon36	file:
+Skip_End_Spaces	evms/scanner.c	/^    Skip_End_Spaces,$/;"	e	enum:__anon32	file:
+Skip_Initial_Spaces	evms/scanner.c	/^    Skip_Initial_Spaces,$/;"	e	enum:__anon32	file:
 SortList	evms/dlist.c	/^SortList(dlist_t ListToSort,$/;"	f
-Space	evms/token.h	/^                Space,$/;"	e	enum:__anon40
+Space	evms/token.h	/^                Space,$/;"	e	enum:__anon34
 Specify_Object	evms/parser.c	/^Specify_Object(Executable_Node * Current_Node, NodeTypes Node_To_Create,$/;"	f	file:
 Stack	evms/interpreter.c	/^static dlist_t Stack = NULL;$/;"	v	file:
-Start	evms/scanner.c	/^    Start,$/;"	e	enum:__anon42	file:
+Start	evms/scanner.c	/^    Start,$/;"	e	enum:__anon31	file:
 StartNetServer	NetServer.c	/^StartNetServer ()$/;"	f
 StartOfList	evms/dlist.h	/^  LinkNode *      StartOfList;           \/* The address of the LinkNode of the first item in the list. *\/$/;"	m	struct:MasterListRecord
 StartStr	evms/screener.h	/^char *   StartStr         =  "START";$/;"	v
-Start_Comment_Check	evms/scanner.c	/^    Start_Comment_Check,$/;"	e	enum:__anon43	file:
-Start_Substitution	evms/scanner.c	/^    Start_Substitution,$/;"	e	enum:__anon43	file:
-State	evms/scanner.c	/^} State;$/;"	t	typeref:enum:__anon42	file:
+Start_Comment_Check	evms/scanner.c	/^    Start_Comment_Check,$/;"	e	enum:__anon32	file:
+Start_Substitution	evms/scanner.c	/^    Start_Substitution,$/;"	e	enum:__anon32	file:
+State	evms/scanner.c	/^} State;$/;"	t	typeref:enum:__anon31	file:
 StopNetServer	NetServer.c	/^StopNetServer (void)$/;"	f
-String	evms/token.h	/^                String,$/;"	e	enum:__anon40
-StringData	evms/interpreter.h	/^               StringData,$/;"	e	enum:__anon50
+String	evms/token.h	/^                String,$/;"	e	enum:__anon34
+StringData	evms/interpreter.h	/^               StringData,$/;"	e	enum:__anon39
 StringDataStr	evms/evms.c	/^char *StringDataStr = "STRING DATA";$/;"	v
-Substitution_Found	evms/scanner.c	/^    Substitution_Found,$/;"	e	enum:__anon43	file:
+SubAction	shell/test.sh	/^SubAction()$/;"	f
+SubBondDevice	shell/test.sh	/^SubBondDevice()$/;"	f
+Substitution_Found	evms/scanner.c	/^    Substitution_Found,$/;"	e	enum:__anon32	file:
 Substitution_Table	evms/evms.c	/^Substitution_Table_Type Substitution_Table;$/;"	v
-Substitution_Table_Entry	evms/scanner.h	/^               } Substitution_Table_Entry;$/;"	t	typeref:struct:__anon38
-Substitution_Table_Type	evms/scanner.h	/^               } Substitution_Table_Type;$/;"	t	typeref:struct:__anon39
+Substitution_Table_Entry	evms/scanner.h	/^               } Substitution_Table_Entry;$/;"	t	typeref:struct:__anon43
+Substitution_Table_Type	evms/scanner.h	/^               } Substitution_Table_Type;$/;"	t	typeref:struct:__anon44
 Substitution_Value	evms/evms.c	/^Substitution_Table_Entry Substitution_Value;$/;"	v
 Substitutions_Allowed	evms/scanner.c	/^static boolean Substitutions_Allowed = TRUE;	\/* Controls whether $(x) is treated as text or a command to replace the $(x) with a parameter #x from the command line used to invoke the EVMS CLI. *\/$/;"	v	file:
 SysCheckInCmd	SysCheckInCmd.c	/^SysCheckInCmd (int sock_fd) $/;"	f
@@ -1461,43 +1481,43 @@ TAG	evms/dlist.h	/^typedef ulong           TAG;$/;"	t
 TARGET	Makefile	/^TARGET   := net_server client$/;"	m
 TARGET	evms/Makefile	/^TARGET    = lib${NAME}.so$/;"	m
 TARGET	test/pack/Makefile	/^TARGET	  = libmypack.so$/;"	m
-TASK	inc/common.h	/^	TASK        = (1<<7)$/;"	e	enum:__anon12
+TASK	inc/common.h	/^	TASK        = (1<<7)$/;"	e	enum:__anon16
 TCP_MODE	NetServer.h	25;"	d
 TGT	test/Makefile	/^TGT=libtest.so$/;"	m
 TIME_TO_QUIT	evms/interpreter.h	127;"	d
 TOKEN_CODE	evms/token.h	56;"	d
 TOKEN_H	evms/token.h	34;"	d
-TOPMOST	inc/common.h	/^	TOPMOST =               (1<<1),$/;"	e	enum:__anon16
+TOPMOST	inc/common.h	/^	TOPMOST =               (1<<1),$/;"	e	enum:__anon20
 TRACE	Debuger.h	32;"	d
 TRACE	Debuger.h	66;"	d
 TRUE	evms/dlist.h	151;"	d
 TRUE	evms/token.h	48;"	d
 TRUE	inc/common.h	342;"	d
-Tab	evms/token.h	/^                Tab,$/;"	e	enum:__anon40
+Tab	evms/token.h	/^                Tab,$/;"	e	enum:__anon34
 TargetAccessCtrl	pl/Iscsi.pl	/^sub TargetAccessCtrl()$/;"	s
 Task	evms/interpreter.c	/^static task_handle_t Task = 0;$/;"	v	file:
 TaskStr	evms/screener.h	/^char *   TaskStr          =  "TASK";$/;"	v
 Task_Action	evms/interpreter.c	/^static task_action_t Task_Action;$/;"	v	file:
-Task_Adjust	evms/interpreter.h	/^               Task_Adjust,$/;"	e	enum:__anon50
-Task_Node	evms/interpreter.h	/^               Task_Node,$/;"	e	enum:__anon50
+Task_Adjust	evms/interpreter.h	/^               Task_Adjust,$/;"	e	enum:__anon39
+Task_Node	evms/interpreter.h	/^               Task_Node,$/;"	e	enum:__anon39
 Terminate_Lookahead	evms/parser.c	/^Terminate_Lookahead(Executable_Node * Current_Node,$/;"	f	file:
 TerrabyteStr	evms/screener.h	/^char *   TerrabyteStr     =  "TB";$/;"	v
 TestCtrlLinkTbl	CtrlLinkTbl.c	/^TestCtrlLinkTbl () $/;"	f
 TestDeadThreadTbl	DeadThreadTbl.c	/^TestDeadThreadTbl () $/;"	f
-Text	evms/scanner.h	/^                 char *      Text;$/;"	m	struct:__anon38
+Text	evms/scanner.h	/^                 char *      Text;$/;"	m	struct:__anon43
 Timer_Thread	NetServer.c	/^Timer_Thread (void *pinfo)$/;"	f	file:
 Timer_Thread_Cleanup	NetServer.c	/^Timer_Thread_Cleanup (void *pinfo)$/;"	f	file:
-TokenCharacterizations	evms/token.h	/^             } TokenCharacterizations;$/;"	t	typeref:enum:__anon40
-TokenColumn	evms/token.h	/^                  uint                      TokenColumn;        \/* The position of the first character of this token on the command line. *\/$/;"	m	struct:__anon41
-TokenLength	evms/token.h	/^                  uint                      TokenLength;        \/* # of characters in TokenText *\/$/;"	m	struct:__anon41
-TokenRow	evms/token.h	/^                  uint                      TokenRow;           \/* The line on which the token was found.  Useful for files of commands. *\/$/;"	m	struct:__anon41
-TokenText	evms/token.h	/^                  char *                    TokenText;          \/* The characters from the command line which make up this token. *\/$/;"	m	struct:__anon41
-TokenType	evms/token.h	/^               } TokenType;$/;"	t	typeref:struct:__anon41
-Token_Accepted	evms/parser.c	/^    Token_Accepted$/;"	e	enum:__anon49	file:
+TokenCharacterizations	evms/token.h	/^             } TokenCharacterizations;$/;"	t	typeref:enum:__anon34
+TokenColumn	evms/token.h	/^                  uint                      TokenColumn;        \/* The position of the first character of this token on the command line. *\/$/;"	m	struct:__anon35
+TokenLength	evms/token.h	/^                  uint                      TokenLength;        \/* # of characters in TokenText *\/$/;"	m	struct:__anon35
+TokenRow	evms/token.h	/^                  uint                      TokenRow;           \/* The line on which the token was found.  Useful for files of commands. *\/$/;"	m	struct:__anon35
+TokenText	evms/token.h	/^                  char *                    TokenText;          \/* The characters from the command line which make up this token. *\/$/;"	m	struct:__anon35
+TokenType	evms/token.h	/^               } TokenType;$/;"	t	typeref:struct:__anon35
+Token_Accepted	evms/parser.c	/^    Token_Accepted$/;"	e	enum:__anon33	file:
 Tokens	evms/parser.c	/^static dlist_t Tokens = NULL;	\/* Tokens being stored during when lookahead is in operation. *\/$/;"	v	file:
-Topmost_Objects	evms/interpreter.h	/^               Topmost_Objects,$/;"	e	enum:__anon50
-Translate_Name_To_Handle	evms/interpreter.h	/^               Translate_Name_To_Handle$/;"	e	enum:__anon50
-Try_Again	evms/parser.c	/^    Try_Again,$/;"	e	enum:__anon49	file:
+Topmost_Objects	evms/interpreter.h	/^               Topmost_Objects,$/;"	e	enum:__anon39
+Translate_Name_To_Handle	evms/interpreter.h	/^               Translate_Name_To_Handle$/;"	e	enum:__anon39
+Try_Again	evms/parser.c	/^    Try_Again,$/;"	e	enum:__anon33	file:
 TypeStr	evms/screener.h	/^char *   TypeStr          =  "TYPE";$/;"	v
 UDP_MODE	NetServer.h	26;"	d
 UINT16_MAX	inc/common.h	822;"	d
@@ -1510,18 +1530,18 @@ UnMkfsStr	evms/screener.h	/^char *   UnMkfsStr        =  "UNMKFS";$/;"	v
 UnclaimedStr	evms/screener.h	/^char *   UnclaimedStr     =  "UNCLAIMED";$/;"	v
 Unclaimed_Filter	evms/parser.c	76;"	d	file:
 UnformatStr	evms/screener.h	/^char *   UnformatStr      =  "UNFORMAT";$/;"	v
-Unformat_Node	evms/interpreter.h	/^               Unformat_Node,$/;"	e	enum:__anon50
-Units_Node	evms/interpreter.h	/^               Units_Node,$/;"	e	enum:__anon50
+Unformat_Node	evms/interpreter.h	/^               Unformat_Node,$/;"	e	enum:__anon39
+Units_Node	evms/interpreter.h	/^               Units_Node,$/;"	e	enum:__anon39
 UnmountStr	evms/screener.h	/^char *   UnmountStr       =  "UNMOUNT";$/;"	v
-Unmount_Node	evms/interpreter.h	/^               Unmount_Node,$/;"	e	enum:__anon50
+Unmount_Node	evms/interpreter.h	/^               Unmount_Node,$/;"	e	enum:__anon39
 UnpackReply	pl/header.pl	/^sub UnpackReply()$/;"	s
-Upper_Limit	evms/interpreter.c	/^    u_int64_t Upper_Limit;$/;"	m	struct:__anon48	file:
+Upper_Limit	evms/interpreter.c	/^    u_int64_t Upper_Limit;$/;"	m	struct:__anon37	file:
 Usage	pl/createMoDIS.pl	/^Usage:$/;"	l
 Usage	pl/createMoDIS.pl	/^sub Usage {$/;"	s
 Usage	pl/header.pl	/^sub Usage()$/;"	s
 Usage	shell/GroupInfoBackup.sh	/^Usage()$/;"	f
 Use_Current_Token	evms/parser.c	/^static boolean Use_Current_Token = FALSE;	\/* Used to have the current token processed again. *\/$/;"	v	file:
-Use_Freespace	evms/interpreter.c	/^    boolean Use_Freespace;$/;"	m	struct:__anon48	file:
+Use_Freespace	evms/interpreter.c	/^    boolean Use_Freespace;$/;"	m	struct:__anon37	file:
 Use_Selected_Objects_Filter	evms/interpreter.c	/^static boolean Use_Selected_Objects_Filter;$/;"	v	file:
 VALID_INPUT_OBJECT	inc/common.h	609;"	d
 VERSION_NUMBER	evms/evms.c	98;"	d	file:
@@ -1545,9 +1565,9 @@ VOLFLAG_REDISCOVER	inc/common.h	330;"	d
 VOLFLAG_SUSPENDED	inc/common.h	329;"	d
 VOLFLAG_SYNC_FS	inc/common.h	323;"	d
 VOLFLAG_UNMKFS	inc/common.h	321;"	d
-VOLUME	inc/common.h	/^	VOLUME      = (1<<6),$/;"	e	enum:__anon12
-VOL_CHANGES_PENDING	inc/common.h	/^	VOL_CHANGES_PENDING =   (1<<0),$/;"	e	enum:__anon14
-VOL_NO_DISK_GROUP	inc/common.h	/^	VOL_NO_DISK_GROUP =     (1<<1)$/;"	e	enum:__anon14
+VOLUME	inc/common.h	/^	VOLUME      = (1<<6),$/;"	e	enum:__anon16
+VOL_CHANGES_PENDING	inc/common.h	/^	VOL_CHANGES_PENDING =   (1<<0),$/;"	e	enum:__anon18
+VOL_NO_DISK_GROUP	inc/common.h	/^	VOL_NO_DISK_GROUP =     (1<<1)$/;"	e	enum:__anon18
 Value	evms/parser.c	/^Value(Executable_Node * Current_Node, boolean Optional)$/;"	f	file:
 Verbose	evms/evms.c	/^boolean Verbose = FALSE;$/;"	v
 Verbose_Mode	evms/interpreter.h	/^int       Verbose_Mode = 0;    \/* 0 = no verbose, 1 = EVMS Engine messages reported one per line, 2 = EVMS Engine messages overlayed on top of each other. *\/$/;"	v
@@ -1556,12 +1576,12 @@ VerifyValue	evms/dlist.c	72;"	d	file:
 VolumeStr	evms/screener.h	/^char *   VolumeStr        =  "VOLUME";$/;"	v
 Volume_Filter	evms/parser.c	77;"	d	file:
 VolumesStr	evms/screener.h	/^char *   VolumesStr       =  "VOLUMES";$/;"	v
-WARNING	inc/common.h	/^	WARNING = 3,$/;"	e	enum:__anon17
+WARNING	inc/common.h	/^	WARNING = 3,$/;"	e	enum:__anon21
 WHITE_SPACE	evms/evms.c	1331;"	d	file:
 WHITE_SPACE_NO_NL	evms/evms.c	1332;"	d	file:
 WRITE	inc/plugin.h	220;"	d
-WRITEABLE	inc/common.h	/^	WRITEABLE =             (1<<3),$/;"	e	enum:__anon16
-Wrong_Filter	evms/error.h	/^               Wrong_Filter,$/;"	e	enum:__anon46
+WRITEABLE	inc/common.h	/^	WRITEABLE =             (1<<3),$/;"	e	enum:__anon20
+Wrong_Filter	evms/error.h	/^               Wrong_Filter,$/;"	e	enum:__anon42
 _	inc/common.h	793;"	d
 _	inc/common.h	794;"	d
 _	inc/common.h	801;"	d
@@ -1584,10 +1604,11 @@ _RECVONEFRAME_H	RecvOneFrame.h	4;"	d
 _SYS_CHECKIN_CMD_H_	SysCheckInCmd.h	4;"	d
 _SYS_CONF_EXT_H_	SysConfExt.h	3;"	d
 _UNKNOW_REQUEST_H	UnknownRequest.h	2;"	d
+__BONDINGCMD_H__	BondingCmd.h	2;"	d
 __EVMS_CMD_H__	EvmsCmd.h	2;"	d
+__FUNCTIONS_H__	Functions.h	2;"	d
 __GLOBAL_STATE	NetServer.h	/^typedef struct __GLOBAL_STATE {$/;"	s
 __INFINIBAND_CMD_H__	InfinibandCmd.h	2;"	d
-__INFINIBAND_H__	Infiniband.h	2;"	d
 __ISCSI_CMD_H__	IscsiCmd.h	2;"	d
 __NETERROR_H	NetError.h	2;"	d
 __OBJECTSTRUCTS_H__	evms/ObjectStructs.h	2;"	d
@@ -1649,7 +1670,7 @@ b	inc/options.h	/^	boolean			b;$/;"	m	union:__anon6
 backup_container_metadata	inc/plugfuncs.h	/^	int (*backup_container_metadata)(storage_container_t * container);$/;"	m	struct:container_functions_s
 backup_metadata	inc/plugfuncs.h	/^	int (*backup_metadata)(storage_object_t * object);$/;"	m	struct:plugin_functions_s
 basic	evms/ObjectStructs.h	/^	my_basic_info_t   * basic;$/;"	m	struct:__object_info_s
-bbr	inc/devmapper.h	/^	struct dm_target_bbr		*bbr;$/;"	m	union:__anon26	typeref:struct:__anon26::dm_target_bbr
+bbr	inc/devmapper.h	/^	struct dm_target_bbr		*bbr;$/;"	m	union:__anon25	typeref:struct:__anon25::dm_target_bbr
 bind_mid	SocketMid.c	/^bind_mid (int sockfd, struct sockaddr *addr, socklen_t addrlen)$/;"	f
 bind_textdomain_codeset	inc/gettext.h	56;"	d
 bindtextdomain	inc/gettext.h	55;"	d
@@ -1733,8 +1754,8 @@ cleanup_evms_plugin	inc/plugfuncs.h	/^	void (*cleanup_evms_plugin)(void);$/;"	m	
 close_mid	SocketMid.c	/^close_mid (int sockfd)$/;"	f
 close_object	inc/plugfuncs.h	/^	int (*close_object)(storage_object_t * object,$/;"	m	struct:engine_functions_s
 close_volume	inc/plugfuncs.h	/^	int (*close_volume)(logical_volume_t * volume,$/;"	m	struct:engine_functions_s
-cluster	inc/enginestructs.h	/^		evms_version_t		cluster;		\/* Version of the cluster plug-in API *\/$/;"	m	union:plugin_record_s::__anon28
-cluster	inc/enginestructs.h	/^		struct cluster_functions_s * cluster;$/;"	m	union:plugin_record_s::__anon29	typeref:struct:plugin_record_s::__anon29::cluster_functions_s
+cluster	inc/enginestructs.h	/^		evms_version_t		cluster;		\/* Version of the cluster plug-in API *\/$/;"	m	union:plugin_record_s::__anon10
+cluster	inc/enginestructs.h	/^		struct cluster_functions_s * cluster;$/;"	m	union:plugin_record_s::__anon11	typeref:struct:plugin_record_s::__anon11::cluster_functions_s
 cluster_functions_s	inc/plugfuncs.h	/^typedef struct cluster_functions_s {$/;"	s
 cluster_functions_t	inc/plugfuncs.h	/^} cluster_functions_t;$/;"	t	typeref:struct:cluster_functions_s
 clusterid_to_string	inc/plugfuncs.h	/^	int (*clusterid_to_string)(ece_clusterid_t * clusterid,$/;"	m	struct:cluster_functions_s
@@ -1746,7 +1767,7 @@ commit_changes	inc/plugfuncs.h	/^	int (*commit_changes)(logical_volume_t * volum
 commit_changes	inc/plugfuncs.h	/^	int (*commit_changes)(storage_object_t * object,$/;"	m	struct:plugin_functions_s
 commit_container_changes	inc/plugfuncs.h	/^	int (*commit_container_changes)(storage_container_t * container,$/;"	m	struct:container_functions_s
 commit_in_progress	inc/plugfuncs.h	/^	boolean (*commit_in_progress)(void);$/;"	m	struct:engine_functions_s
-commit_phase_t	inc/enginestructs.h	/^} commit_phase_t;$/;"	t	typeref:enum:__anon30
+commit_phase_t	inc/enginestructs.h	/^} commit_phase_t;$/;"	t	typeref:enum:__anon12
 common_header_s	inc/enginestructs.h	/^typedef struct common_header_s {$/;"	s
 common_header_t	inc/enginestructs.h	/^} common_header_t;$/;"	t	typeref:struct:common_header_s
 compare_function_t	inc/enginestructs.h	/^typedef int (*compare_function_t) (void * thing1, void * thing2, void * user_data);$/;"	t
@@ -1756,7 +1777,7 @@ constraint_type	inc/options.h	/^	collection_type_t         constraint_type;	\/* 
 consuming_container	inc/appstructs.h	/^	object_handle_t         consuming_container;	\/* storage_container that consumed this object *\/$/;"	m	struct:storage_object_info_s
 consuming_container	inc/enginestructs.h	/^	struct storage_container_s * consuming_container;	\/* storage_container that consumed this object *\/$/;"	m	struct:storage_object_s	typeref:struct:storage_object_s::storage_container_s
 consuming_private_data	inc/enginestructs.h	/^	void                       * consuming_private_data;	\/* Optional consuming plug-in's data for the object *\/$/;"	m	struct:storage_object_s
-container	inc/appstructs.h	/^	storage_container_info_t container;$/;"	m	union:__anon21
+container	inc/appstructs.h	/^	storage_container_info_t container;$/;"	m	union:__anon30
 container	inc/enginestructs.h	/^	storage_container_t * container;		\/* Container upon which to do the action *\/$/;"	m	struct:task_context_s
 container	inc/enginestructs.h	/^	storage_container_t * container;$/;"	m	struct:expand_object_info_s
 container	inc/enginestructs.h	/^	storage_container_t * container;$/;"	m	struct:shrink_object_info_s
@@ -1764,7 +1785,7 @@ container_functions	inc/enginestructs.h	/^	struct container_functions_s  * conta
 container_functions_s	inc/plugfuncs.h	/^typedef struct container_functions_s {$/;"	s
 container_functions_t	inc/plugfuncs.h	/^} container_functions_t;$/;"	t	typeref:struct:container_functions_s
 container_search_flags_f	inc/common.h	595;"	d
-container_search_flags_t	inc/common.h	/^} container_search_flags_t;$/;"	t	typeref:enum:__anon15
+container_search_flags_t	inc/common.h	/^} container_search_flags_t;$/;"	t	typeref:enum:__anon19
 copy_cleanup	inc/plugfuncs.h	/^	int (*copy_cleanup)(copy_job_t * copy_job);$/;"	m	struct:engine_functions_s
 copy_dev_s	inc/enginestructs.h	/^typedef struct copy_dev_s {$/;"	s
 copy_dev_t	inc/enginestructs.h	/^} copy_dev_t;$/;"	t	typeref:struct:copy_dev_s
@@ -1776,7 +1797,7 @@ copy_start	inc/plugfuncs.h	/^	int (*copy_start)(copy_job_t * copy_job);$/;"	m	st
 copy_wait	inc/plugfuncs.h	/^	int (*copy_wait)(copy_job_t * copy_job);$/;"	m	struct:engine_functions_s
 corrolator	inc/ece.h	/^	u_int32_t	corrolator;$/;"	m	struct:ece_msg_s
 count	evms/PrivateData.h	/^	int count;$/;"	m	struct:_hash_node_t
-count	evms/scanner.h	/^                 uint                       count;$/;"	m	struct:__anon39
+count	evms/scanner.h	/^                 uint                       count;$/;"	m	struct:__anon44
 count	inc/appstructs.h	/^	uint                count;$/;"	m	struct:expand_handle_array_s
 count	inc/appstructs.h	/^	uint                count;$/;"	m	struct:shrink_handle_array_s
 count	inc/appstructs.h	/^	uint            count;$/;"	m	struct:change_record_array_s
@@ -1795,10 +1816,8 @@ count_c	inc/common.h	99;"	d
 count_f	inc/common.h	100;"	d
 crc	inc/common.h	/^\/*  4*\/ u_int32_t crc;$/;"	m	struct:evms_feature_header
 create	inc/plugfuncs.h	/^	int (*create)(list_anchor_t    input_objects,$/;"	m	struct:plugin_functions_s
-createMoDIS	pl/createMoDIS.pl	/^    createMoDIS::create_lib_project($/;"	l
-createMoDIS	pl/createMoDIS.pl	/^  createMoDIS::create_workspace($/;"	l
 create_container	inc/plugfuncs.h	/^	int (*create_container)(list_anchor_t           objects,$/;"	m	struct:container_functions_s
-crypt	inc/devmapper.h	/^	struct dm_target_crypt		*crypt;$/;"	m	union:__anon26	typeref:struct:__anon26::dm_target_crypt
+crypt	inc/devmapper.h	/^	struct dm_target_crypt		*crypt;$/;"	m	union:__anon25	typeref:struct:__anon25::dm_target_crypt
 ctrl_tid	CtrlLinkTbl.h	/^  pthread_t ctrl_tid;                    \/\/ 控制线程号$/;"	m	struct:__anon52
 curr_col	evms/evms.c	/^    static int curr_col = 0;$/;"	v	file:
 cylinder	inc/enginestructs.h	/^	u_int32_t cylinder;$/;"	m	struct:chs_s
@@ -1810,12 +1829,12 @@ data_type	evms/ReplacedStructs.h	/^	data_type_t		data_type;$/;"	m	struct:__my_st
 data_type	inc/appstructs.h	/^	data_type_t             data_type;		\/* DATA_TYPE, META_DATA_TYPE, FREE_SPACE_TYPE *\/$/;"	m	struct:storage_object_info_s
 data_type	inc/enginestructs.h	/^	data_type_t                  data_type;			\/* DATA_TYPE, META_DATA_TYPE, FREE_SPACE_TYPE *\/$/;"	m	struct:storage_object_s
 data_type_f	inc/common.h	554;"	d
-data_type_t	inc/common.h	/^} data_type_t;$/;"	t	typeref:enum:__anon11
+data_type_t	inc/common.h	/^} data_type_t;$/;"	t	typeref:enum:__anon15
 dcgettext	inc/gettext.h	47;"	d
 dcngettext	inc/gettext.h	52;"	d
 deactivate	inc/plugfuncs.h	/^	int (*deactivate)(storage_object_t * object);$/;"	m	struct:plugin_functions_s
 debug_level_f	inc/common.h	688;"	d
-debug_level_t	inc/common.h	/^} debug_level_t;$/;"	t	typeref:enum:__anon17
+debug_level_t	inc/common.h	/^} debug_level_t;$/;"	t	typeref:enum:__anon21
 declined	inc/options.h	/^	declined_handle_t	declined[0];$/;"	m	struct:declined_handle_array_s
 declined_handle_array_c	inc/options.h	129;"	d
 declined_handle_array_f	inc/options.h	130;"	d
@@ -1863,7 +1882,7 @@ discard	inc/plugfuncs.h	/^	int (*discard)(logical_volume_t * volume);$/;"	m	stru
 discard_container	inc/plugfuncs.h	/^	int (*discard_container)(storage_container_t * container);$/;"	m	struct:container_functions_s
 discover	inc/plugfuncs.h	/^	int (*discover)(list_anchor_t input_objects,$/;"	m	struct:plugin_functions_s
 discover	inc/plugfuncs.h	/^	int (*discover)(list_anchor_t objects);$/;"	m	struct:engine_functions_s
-disk	inc/appstructs.h	/^	storage_object_info_t    disk;$/;"	m	union:__anon21
+disk	inc/appstructs.h	/^	storage_object_info_t    disk;$/;"	m	union:__anon30
 disk	inc/enginestructs.h	/^	storage_object_t * disk;$/;"	m	struct:block_run_s
 disk_group	inc/appstructs.h	/^	object_handle_t         disk_group;		\/* Disk group in which this container resides *\/$/;"	m	struct:storage_container_info_s
 disk_group	inc/appstructs.h	/^	object_handle_t         disk_group;		\/* Disk group in which this object resides *\/$/;"	m	struct:storage_object_info_s
@@ -1921,19 +1940,19 @@ dm_target_sparse_t	inc/devmapper.h	/^} dm_target_sparse_t;$/;"	t	typeref:struct:
 dm_target_stripe	inc/devmapper.h	/^typedef struct dm_target_stripe {$/;"	s
 dm_target_stripe_t	inc/devmapper.h	/^} dm_target_stripe_t;$/;"	t	typeref:struct:dm_target_stripe
 dm_target_t	inc/devmapper.h	/^} dm_target_t;$/;"	t	typeref:struct:dm_target
-dm_target_type	inc/devmapper.h	/^} dm_target_type;$/;"	t	typeref:enum:__anon25
-dm_type_data	inc/devmapper.h	/^} dm_type_data;$/;"	t	typeref:union:__anon26
+dm_target_type	inc/devmapper.h	/^} dm_target_type;$/;"	t	typeref:enum:__anon24
+dm_type_data	inc/devmapper.h	/^} dm_type_data;$/;"	t	typeref:union:__anon25
 dm_update_status	inc/plugfuncs.h	/^	int (*dm_update_status)(storage_object_t * object);$/;"	m	struct:engine_functions_s
 dm_wait	inc/plugfuncs.h	/^	int (*dm_wait)(storage_object_t * object,$/;"	m	struct:engine_functions_s
 dngettext	inc/gettext.h	50;"	d
-ece_callback_class_t	inc/ece.h	/^} ece_callback_class_t;$/;"	t	typeref:enum:__anon24
-ece_callback_type_t	inc/ece.h	/^} ece_callback_type_t;$/;"	t	typeref:enum:__anon22
+ece_callback_class_t	inc/ece.h	/^} ece_callback_class_t;$/;"	t	typeref:enum:__anon28
+ece_callback_type_t	inc/ece.h	/^} ece_callback_type_t;$/;"	t	typeref:enum:__anon26
 ece_cb_t	inc/ece.h	/^typedef void (*ece_cb_t)(const ece_callback_class_t class,$/;"	t
 ece_clusterid_s	inc/ece.h	/^typedef struct ece_clusterid_s {$/;"	s
 ece_clusterid_t	inc/ece.h	/^} ece_clusterid_t;$/;"	t	typeref:struct:ece_clusterid_s
 ece_event_s	inc/ece.h	/^typedef struct ece_event_s {$/;"	s
 ece_event_t	inc/ece.h	/^} ece_event_t;$/;"	t	typeref:struct:ece_event_s
-ece_event_type_t	inc/ece.h	/^} ece_event_type_t;$/;"	t	typeref:enum:__anon23
+ece_event_type_t	inc/ece.h	/^} ece_event_type_t;$/;"	t	typeref:enum:__anon27
 ece_msg_s	inc/ece.h	/^typedef struct ece_msg_s {$/;"	s
 ece_msg_t	inc/ece.h	/^} ece_msg_t;$/;"	t	typeref:struct:ece_msg_s
 ece_nodeid_s	inc/ece.h	/^typedef struct ece_nodeid_s {$/;"	s
@@ -1945,7 +1964,7 @@ engine_functions_t	inc/plugfuncs.h	/^} engine_functions_t;$/;"	t	typeref:struct:
 engine_handle_f	inc/common.h	380;"	d
 engine_handle_t	inc/common.h	/^typedef u_int32_t       engine_handle_t;$/;"	t
 engine_mode_f	inc/common.h	423;"	d
-engine_mode_t	inc/common.h	/^} engine_mode_t;$/;"	t	typeref:enum:__anon9
+engine_mode_t	inc/common.h	/^} engine_mode_t;$/;"	t	typeref:enum:__anon13
 engine_realloc	inc/plugfuncs.h	/^	void * (*engine_realloc)(void * pBuf,$/;"	m	struct:engine_functions_s
 engine_strdup	inc/plugfuncs.h	/^	char * (*engine_strdup)(const char * string);$/;"	m	struct:engine_functions_s
 engine_version	inc/common.h	/^\/* 20*\/ evms_version_t engine_version;$/;"	m	struct:evms_feature_header
@@ -2194,9 +2213,9 @@ fs_size	inc/appstructs.h	/^	sector_count_t          fs_size;		\/* Size of the fi
 fs_size	inc/enginestructs.h	/^	sector_count_t               fs_size;			\/* Size of the file system *\/$/;"	m	struct:logical_volume_s
 fsck	inc/plugfuncs.h	/^	int (*fsck)(logical_volume_t * volume,$/;"	m	struct:fsim_functions_s
 fsck_options	inc/enginestructs.h	/^	option_array_t             * fsck_options;		\/* Options for fsck *\/$/;"	m	struct:logical_volume_s
-fsim	inc/appstructs.h	/^		evms_version_t fsim;			\/* Version of the Engine FSIM API *\/$/;"	m	union:plugin_info_s::__anon20
-fsim	inc/enginestructs.h	/^		evms_version_t		fsim;			\/* Version of the Engine FSIM API *\/$/;"	m	union:plugin_record_s::__anon28
-fsim	inc/enginestructs.h	/^		struct fsim_functions_s   * fsim;$/;"	m	union:plugin_record_s::__anon29	typeref:struct:plugin_record_s::__anon29::fsim_functions_s
+fsim	inc/appstructs.h	/^		evms_version_t fsim;			\/* Version of the Engine FSIM API *\/$/;"	m	union:plugin_info_s::__anon29
+fsim	inc/enginestructs.h	/^		evms_version_t		fsim;			\/* Version of the Engine FSIM API *\/$/;"	m	union:plugin_record_s::__anon10
+fsim	inc/enginestructs.h	/^		struct fsim_functions_s   * fsim;$/;"	m	union:plugin_record_s::__anon11	typeref:struct:plugin_record_s::__anon11::fsim_functions_s
 fsim_functions_s	inc/plugfuncs.h	/^typedef struct fsim_functions_s {$/;"	s
 fsim_functions_t	inc/plugfuncs.h	/^} fsim_functions_t;$/;"	t	typeref:struct:fsim_functions_s
 func	test/ReferanceTest.c	/^void func(int & par)$/;"	f
@@ -2211,7 +2230,7 @@ function_info_array_t	inc/options.h	/^} __attribute__ ((packed)) function_info_a
 function_info_f	inc/options.h	92;"	d
 function_info_s	inc/options.h	/^typedef struct function_info_s {$/;"	s
 function_info_t	inc/options.h	/^} __attribute__ ((packed)) function_info_t;$/;"	t	typeref:struct:function_info_s
-functions	inc/enginestructs.h	/^	} functions;$/;"	m	struct:plugin_record_s	typeref:union:plugin_record_s::__anon29
+functions	inc/enginestructs.h	/^	} functions;$/;"	m	struct:plugin_record_s	typeref:union:plugin_record_s::__anon11
 g_PktHandler	LinkCtrl.c	/^PktHandler g_PktHandler[MSG_TYPE_NUM] = {$/;"	v
 g_debug_level	Main.c	/^int g_debug_level = 0;$/;"	v
 g_left_len	Client.c	/^int g_left_len = 0;$/;"	v
@@ -2326,7 +2345,7 @@ init_evms_cli	EvmsCmd.c	/^init_evms_cli (int sock_fd, char *oneframe, int len)$/
 init_task	inc/plugfuncs.h	/^	int (*init_task)(task_context_t * context);$/;"	m	struct:fsim_functions_s
 init_task	inc/plugfuncs.h	/^	int (*init_task)(task_context_t * context);$/;"	m	struct:plugin_functions_s
 insert_element	inc/plugfuncs.h	/^	list_element_t (*insert_element)(list_anchor_t  list,$/;"	m	struct:engine_functions_s
-insert_flags_t	inc/enginestructs.h	/^} insert_flags_t;$/;"	t	typeref:enum:__anon27
+insert_flags_t	inc/enginestructs.h	/^} insert_flags_t;$/;"	t	typeref:enum:__anon9
 insert_thing	inc/plugfuncs.h	/^	list_element_t (*insert_thing)(list_anchor_t  list,$/;"	m	struct:engine_functions_s
 int_c	inc/common.h	105;"	d
 int_f	inc/common.h	106;"	d
@@ -2334,7 +2353,6 @@ ioctl_object	inc/plugfuncs.h	/^	int (*ioctl_object)(storage_object_t * object,$/
 ioctl_volume	inc/plugfuncs.h	/^	int (*ioctl_volume)(logical_volume_t * volume,$/;"	m	struct:engine_functions_s
 ipaddr	CtrlLinkTbl.h	/^  unsigned long ipaddr;                  \/\/ 客户端IP$/;"	m	struct:__anon52
 is_2_4_kernel	inc/plugfuncs.h	/^	boolean (*is_2_4_kernel)(void);$/;"	m	struct:engine_functions_s
-is_available	shell/test.sh	/^is_available ()$/;"	f
 is_in_list1	pl/createMoDIS.pl	/^sub is_in_list1 {$/;"	s
 is_mounted	inc/plugfuncs.h	/^	boolean (*is_mounted)(char   * volume_name,$/;"	m	struct:engine_functions_s
 is_number_based	inc/options.h	/^	boolean         is_number_based;\/* TRUE if number-based *\/$/;"	m	struct:key_value_pair_s
@@ -2357,7 +2375,7 @@ len	Protocol.h	/^  unsigned short len;               \/\/ 数据包长度； , includi
 len	inc/enginestructs.h	/^	sector_count_t     len;$/;"	m	struct:copy_dev_s
 length	inc/devmapper.h	/^	u_int64_t		length;$/;"	m	struct:dm_target
 length	inc/enginestructs.h	/^	sector_count_t length;$/;"	m	struct:metadata_db_entry_s
-linear	inc/devmapper.h	/^	struct dm_device		*linear;$/;"	m	union:__anon26	typeref:struct:__anon26::dm_device
+linear	inc/devmapper.h	/^	struct dm_device		*linear;$/;"	m	union:__anon25	typeref:struct:__anon25::dm_device
 list	inc/options.h	/^	struct value_list_s	*list;$/;"	m	union:__anon6	typeref:struct:__anon6::value_list_s
 list	inc/options.h	/^	value_list_t	*list;		\/* Array of values of the same type *\/$/;"	m	union:__anon7
 list_anchor_t	inc/enginestructs.h	/^typedef struct anchor_s *  list_anchor_t;$/;"	t	typeref:struct:anchor_s
@@ -2376,7 +2394,7 @@ logical_volume_info_s	inc/appstructs.h	/^typedef struct logical_volume_info_s {$
 logical_volume_info_t	inc/appstructs.h	/^} __attribute__ ((packed)) logical_volume_info_t;$/;"	t	typeref:struct:logical_volume_info_s
 logical_volume_s	inc/enginestructs.h	/^typedef struct logical_volume_s {$/;"	s
 logical_volume_t	inc/enginestructs.h	/^} logical_volume_t;$/;"	t	typeref:struct:logical_volume_s
-lognum	NetLog.c	/^unsigned int lognum = 0;$/;"	v
+lognum	NetLog.c	/^$/;"	v
 long_name	evms/ReplacedStructs.h	/^	char 			long_name[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_plugin_info_s
 long_name	inc/appstructs.h	/^	char          * long_name;$/;"	m	struct:plugin_info_s
 long_name	inc/enginestructs.h	/^	char                          * long_name;$/;"	m	struct:plugin_record_s
@@ -2385,7 +2403,6 @@ lsn_t	inc/common.h	/^typedef u_int64_t       lsn_t;$/;"	t
 m_debug_level	Debuger.h	/^	int m_debug_level;$/;"	m	class:CDebuger
 main	Client.c	/^int main(int argc, char *argv[])$/;"	f
 main	Main.c	/^main (int argc, char *argv[]) $/;"	f
-main	test.c	/^int main()$/;"	f
 main	test/ReferanceTest.c	/^int main()$/;"	f
 major	inc/common.h	/^	u_int32_t major;$/;"	m	struct:evms_version
 major	inc/devmapper.h	/^	int32_t		major;$/;"	m	struct:dm_device
@@ -2417,7 +2434,7 @@ min_len	inc/options.h	/^	u_int32_t                 min_len;		\/* Minimum length 
 min_selected_objects	inc/enginestructs.h	/^	u_int32_t             min_selected_objects;	\/* Minimum number of objects that must be selected. *\/$/;"	m	struct:task_context_s
 minor	inc/common.h	/^	u_int32_t minor;$/;"	m	struct:evms_version
 minor	inc/devmapper.h	/^	int32_t		minor;$/;"	m	struct:dm_device
-mirror	inc/devmapper.h	/^	struct dm_target_mirror		*mirror;$/;"	m	union:__anon26	typeref:struct:__anon26::dm_target_mirror
+mirror	inc/devmapper.h	/^	struct dm_target_mirror		*mirror;$/;"	m	union:__anon25	typeref:struct:__anon25::dm_target_mirror
 mirror	inc/enginestructs.h	/^	storage_object_t * mirror;$/;"	m	struct:copy_job_s
 mkfs	inc/plugfuncs.h	/^	int (*mkfs)(logical_volume_t * volume,$/;"	m	struct:fsim_functions_s
 mkfs_options	inc/enginestructs.h	/^	option_array_t             * mkfs_options;		\/* Options for mkfs *\/$/;"	m	struct:logical_volume_s
@@ -2428,9 +2445,9 @@ mount_point	evms/ReplacedStructs.h	/^	char			mount_point[EVMS_NAME_SIZE + 1];$/;
 mount_point	inc/appstructs.h	/^	char                  * mount_point;		\/* Dir where the volume is mounted, NULL if not mounted *\/$/;"	m	struct:logical_volume_info_s
 mount_point	inc/enginestructs.h	/^	char                       * mount_point;		\/* Dir where the volume is mounted, NULL if not mounted *\/$/;"	m	struct:logical_volume_s
 msg	inc/ece.h	/^	void	      * msg;$/;"	m	struct:ece_msg_s
-multipath	inc/devmapper.h	/^	struct dm_target_multipath	*multipath;$/;"	m	union:__anon26	typeref:struct:__anon26::dm_target_multipath
+multipath	inc/devmapper.h	/^	struct dm_target_multipath	*multipath;$/;"	m	union:__anon25	typeref:struct:__anon25::dm_target_multipath
 mutex	CtrlLinkTbl.h	/^  pthread_mutex_t mutex;                 \/\/ 互斥变量$/;"	m	struct:__anon52
-mutex	DeadThreadTbl.h	/^  pthread_mutex_t mutex;		 \/\/ 互斥变量$/;"	m	struct:__anon37
+mutex	DeadThreadTbl.h	/^  pthread_mutex_t mutex;		 \/\/ 互斥变量$/;"	m	struct:__anon54
 my_advance_info_t	evms/ObjectStructs.h	/^}my_advance_info_t;$/;"	t	typeref:struct:__advance_info_s
 my_basic_info_t	evms/ObjectStructs.h	/^}my_basic_info_t;$/;"	t	typeref:struct:__basic_info_s
 my_feature_t	evms/ObjectStructs.h	/^}my_feature_t;$/;"	t	typeref:struct:__feature_s
@@ -2438,7 +2455,7 @@ my_function_info_t	evms/ReplacedStructs.h	/^}my_function_info_t;$/;"	t	typeref:s
 my_logical_volume_info_t	evms/ReplacedStructs.h	/^}my_logical_volume_info_t;$/;"	t	typeref:struct:__my_logical_volume_info_s
 my_object_info_t	evms/ObjectStructs.h	/^}my_object_info_t;$/;"	t	typeref:struct:__object_info_s
 my_operation_t	evms/ObjectStructs.h	/^}my_operation_t;$/;"	t	typeref:struct:__operation_s
-my_operation_type	evms/ObjectStructs.h	/^} my_operation_type;$/;"	t	typeref:enum:__anon44
+my_operation_type	evms/ObjectStructs.h	/^} my_operation_type;$/;"	t	typeref:enum:__anon38
 my_option_descriptor_t	evms/ReplacedStructs.h	/^}my_option_descriptor_t;$/;"	t	typeref:struct:__my_option_descriptor_s
 my_plugin_info_t	evms/ReplacedStructs.h	/^}my_plugin_info_t;$/;"	t	typeref:struct:__my_plugin_info_s
 my_send	LinkCtrl.c	/^ssize_t my_send(int s, const void * buf, size_t len)$/;"	f
@@ -2476,7 +2493,7 @@ ngettext	inc/gettext.h	48;"	d
 node	inc/ece.h	/^	ece_nodeid_t	node;$/;"	m	struct:ece_msg_s
 node	inc/ece.h	/^	ece_nodeid_t     node[1];$/;"	m	struct:ece_event_s
 node_flags_f	inc/common.h	697;"	d
-node_flags_t	inc/common.h	/^} node_flags_t;$/;"	t	typeref:enum:__anon18
+node_flags_t	inc/common.h	/^} node_flags_t;$/;"	t	typeref:enum:__anon22
 node_info	inc/common.h	/^	node_info_t     node_info[0];$/;"	m	struct:node_list_s
 node_info_f	inc/common.h	710;"	d
 node_info_s	inc/common.h	/^typedef struct node_info_s {$/;"	s
@@ -2486,7 +2503,7 @@ node_list_s	inc/common.h	/^typedef struct node_list_s {$/;"	s
 node_list_t	inc/common.h	/^} __attribute__ ((packed)) node_list_t;$/;"	t	typeref:struct:node_list_s
 node_name	inc/common.h	/^	const char    * node_name;$/;"	m	struct:node_info_s
 node_search_flags_f	inc/common.h	703;"	d
-node_search_flags_t	inc/common.h	/^} node_search_flags_t;$/;"	t	typeref:enum:__anon19
+node_search_flags_t	inc/common.h	/^} node_search_flags_t;$/;"	t	typeref:enum:__anon23
 nodeid_to_string	inc/plugfuncs.h	/^	int (*nodeid_to_string)(const ece_nodeid_t * nodeid,$/;"	m	struct:cluster_functions_s
 nodeid_to_string	inc/plugfuncs.h	/^	int (*nodeid_to_string)(ece_nodeid_t * nodeid,$/;"	m	struct:engine_functions_s
 notinformcnt	CtrlLinkTbl.h	/^  int notinformcnt;                      \/\/ 未收到“握手”报文的次数（每次30秒）$/;"	m	struct:__anon52
@@ -2507,7 +2524,7 @@ object	evms/interpreter.c	/^    void *object;$/;"	m	struct:dlist_node_s	file:
 object	inc/appstructs.h	/^	object_handle_t         object;			\/* Handle of the top level object for *\/$/;"	m	struct:logical_volume_info_s
 object	inc/appstructs.h	/^	object_handle_t     object;$/;"	m	struct:expand_handle_s
 object	inc/appstructs.h	/^	object_handle_t     object;$/;"	m	struct:shrink_handle_s
-object	inc/appstructs.h	/^	storage_object_info_t    object;$/;"	m	union:__anon21
+object	inc/appstructs.h	/^	storage_object_info_t    object;$/;"	m	union:__anon30
 object	inc/enginestructs.h	/^	storage_object_t           * object;			\/* Top level storage_object_t for the volume *\/$/;"	m	struct:logical_volume_s
 object	inc/enginestructs.h	/^	storage_object_t    * object;			\/* Object upon which to do the action *\/$/;"	m	struct:task_context_s
 object	inc/enginestructs.h	/^	storage_object_t    * object;$/;"	m	struct:expand_object_info_s
@@ -2516,15 +2533,15 @@ object	inc/enginestructs.h	/^	void * object;$/;"	m	struct:declined_object_s
 object_depth	inc/common.h	/^\/*100*\/ u_int32_t object_depth;$/;"	m	struct:evms_feature_header
 object_handle_f	inc/common.h	386;"	d
 object_handle_t	inc/common.h	/^typedef engine_handle_t object_handle_t;$/;"	t
-object_info_t	inc/appstructs.h	/^} object_info_t;$/;"	t	typeref:union:__anon21
+object_info_t	inc/appstructs.h	/^} object_info_t;$/;"	t	typeref:union:__anon30
 object_name	inc/common.h	/^\/*104*\/ char object_name[EVMS_VOLUME_NAME_SIZE + 1];$/;"	m	struct:evms_feature_header
 object_search_flags_f	inc/common.h	607;"	d
-object_search_flags_t	inc/common.h	/^} object_search_flags_t;$/;"	t	typeref:enum:__anon16
+object_search_flags_t	inc/common.h	/^} object_search_flags_t;$/;"	t	typeref:enum:__anon20
 object_type	evms/ReplacedStructs.h	/^	object_type_t		object_type;$/;"	m	struct:__my_storage_object_info_s
 object_type	inc/appstructs.h	/^	object_type_t           object_type;		\/* SEGMENT, REGION, DISK ,... *\/$/;"	m	struct:storage_object_info_s
 object_type	inc/enginestructs.h	/^	object_type_t                object_type;		\/* SEGMENT, REGION, DISK ,... *\/$/;"	m	struct:storage_object_s
 object_type_f	inc/common.h	569;"	d
-object_type_t	inc/common.h	/^} object_type_t;$/;"	t	typeref:enum:__anon12
+object_type_t	inc/common.h	/^} object_type_t;$/;"	t	typeref:enum:__anon16
 objects_consumed	inc/appstructs.h	/^	handle_array_t        * objects_consumed;	\/* Handles of objects consumed *\/$/;"	m	struct:storage_container_info_s
 objects_consumed	inc/enginestructs.h	/^	list_anchor_t                objects_consumed;		\/* List of objects in this container *\/$/;"	m	struct:storage_container_s
 objects_produced	inc/appstructs.h	/^	handle_array_t        * objects_produced;	\/* Handles of objects produced *\/$/;"	m	struct:storage_container_info_s
@@ -2563,7 +2580,7 @@ original_fsim	inc/enginestructs.h	/^	plugin_record_t            * original_fsim;
 original_fsim_private_data	inc/enginestructs.h	/^	void                       * original_fsim_private_data;$/;"	m	struct:logical_volume_s
 original_vol_size	inc/enginestructs.h	/^	sector_count_t               original_vol_size;		\/* Size of the file system before expand or shrink *\/$/;"	m	struct:logical_volume_s
 orphan_child	inc/plugfuncs.h	/^	int (*orphan_child)(storage_object_t * child);$/;"	m	struct:engine_functions_s
-pDebuger	Debuger.c	/^CDebuger * CDebuger::pDebuger = NULL;$/;"	m	class:CDebuger	file:
+pDebuger	Debuger.c	/^	$/;"	m	class:CDebuger	file:
 pDebuger	Debuger.h	/^	static CDebuger *pDebuger;$/;"	m	class:CDebuger
 pad	inc/common.h	/^\/*360*\/ unsigned char pad[152];$/;"	m	struct:evms_feature_header
 params	inc/devmapper.h	/^	char			*params;$/;"	m	struct:dm_target
@@ -2578,12 +2595,12 @@ persistent	inc/devmapper.h	/^	u_int32_t		persistent;$/;"	m	struct:dm_target_mirr
 persistent	inc/devmapper.h	/^	u_int32_t		persistent;$/;"	m	struct:dm_target_snapshot
 pkthdr	SysCheckInCmd.h	/^	PACKET_HDR pkthdr;                $/;"	m	struct:__SYS_CHECK_IN_RSP_PKT
 pkthdr	SysCheckInCmd.h	/^      	PACKET_HDR pkthdr;$/;"	m	struct:__SYS_CHECK_IN_REQ_PKT
-plugin	inc/appstructs.h	/^		evms_version_t plugin;			\/* Version of the Engine plug-in API *\/$/;"	m	union:plugin_info_s::__anon20
+plugin	inc/appstructs.h	/^		evms_version_t plugin;			\/* Version of the Engine plug-in API *\/$/;"	m	union:plugin_info_s::__anon29
 plugin	inc/appstructs.h	/^	plugin_handle_t         plugin;			\/* Handle of the plug-in that *\/$/;"	m	struct:storage_container_info_s
 plugin	inc/appstructs.h	/^	plugin_handle_t         plugin;			\/* Handle of the plug-in that manages *\/$/;"	m	struct:storage_object_info_s
-plugin	inc/appstructs.h	/^	plugin_info_t            plugin;$/;"	m	union:__anon21
-plugin	inc/enginestructs.h	/^		evms_version_t		plugin;			\/* Version of the Engine plug-in API *\/$/;"	m	union:plugin_record_s::__anon28
-plugin	inc/enginestructs.h	/^		struct plugin_functions_s * plugin;$/;"	m	union:plugin_record_s::__anon29	typeref:struct:plugin_record_s::__anon29::plugin_functions_s
+plugin	inc/appstructs.h	/^	plugin_info_t            plugin;$/;"	m	union:__anon30
+plugin	inc/enginestructs.h	/^		evms_version_t		plugin;			\/* Version of the Engine plug-in API *\/$/;"	m	union:plugin_record_s::__anon10
+plugin	inc/enginestructs.h	/^		struct plugin_functions_s * plugin;$/;"	m	union:plugin_record_s::__anon11	typeref:struct:plugin_record_s::__anon11::plugin_functions_s
 plugin	inc/enginestructs.h	/^	plugin_record_t            * plugin;			\/* Plug-in record of plug-in that manages this object *\/$/;"	m	struct:storage_object_s
 plugin	inc/enginestructs.h	/^	plugin_record_t            * plugin;			\/* Plug-in record of the plug-in that manages *\/$/;"	m	struct:storage_container_s
 plugin	inc/enginestructs.h	/^	plugin_record_t     * plugin;			\/* Plug-in being communicated with *\/$/;"	m	struct:task_context_s
@@ -2605,7 +2622,7 @@ plugin_private_data	inc/common.h	/^	void          * plugin_private_data;$/;"	m	s
 plugin_record_s	inc/enginestructs.h	/^typedef struct plugin_record_s {$/;"	s
 plugin_record_t	inc/enginestructs.h	/^} plugin_record_t;$/;"	t	typeref:struct:plugin_record_s
 plugin_search_flags_f	inc/common.h	577;"	d
-plugin_search_flags_t	inc/common.h	/^} plugin_search_flags_t;$/;"	t	typeref:enum:__anon13
+plugin_search_flags_t	inc/common.h	/^} plugin_search_flags_t;$/;"	t	typeref:enum:__anon17
 plugin_type_f	inc/common.h	404;"	d
 plugin_type_t	inc/common.h	/^typedef u_int8_t        plugin_type_t;$/;"	t
 previous_element	inc/plugfuncs.h	/^	list_element_t (*previous_element)(list_element_t element);$/;"	m	struct:engine_functions_s
@@ -2627,7 +2644,7 @@ progress_s	inc/common.h	/^typedef struct progress_s {$/;"	s
 progress_t	inc/common.h	/^} __attribute__ ((packed)) progress_t;$/;"	t	typeref:struct:progress_s
 progress_tid	inc/enginestructs.h	/^	pthread_t          progress_tid;	\/\/ TID of the pthread that is$/;"	m	struct:copy_job_s
 progress_type_f	inc/common.h	460;"	d
-progress_type_t	inc/common.h	/^} progress_type_t;$/;"	t	typeref:enum:__anon10
+progress_type_t	inc/common.h	/^} progress_type_t;$/;"	t	typeref:enum:__anon14
 ptr_c	inc/common.h	120;"	d
 ptr_f	inc/common.h	121;"	d
 quorum_flag	inc/ece.h	/^	uint             quorum_flag;$/;"	m	struct:ece_event_s
@@ -2635,7 +2652,7 @@ r32	evms/ReplacedStructs.h	/^	float			r32;$/;"	m	struct:__my_value_s
 r32	inc/options.h	/^	float			r32;$/;"	m	union:__anon6
 r64	evms/ReplacedStructs.h	/^	double			r64;$/;"	m	struct:__my_value_s
 r64	inc/options.h	/^	double			r64;$/;"	m	union:__anon6
-raid	inc/devmapper.h	/^	struct dm_target_raid		*raid;$/;"	m	union:__anon26	typeref:struct:__anon26::dm_target_raid
+raid	inc/devmapper.h	/^	struct dm_target_raid		*raid;$/;"	m	union:__anon25	typeref:struct:__anon25::dm_target_raid
 range	inc/options.h	/^	value_range_t	*range;		\/* Range of values for numeric types *\/$/;"	m	union:__anon7
 read	inc/plugfuncs.h	/^	int (*read)(storage_object_t * object,$/;"	m	struct:plugin_functions_s
 read_object	inc/plugfuncs.h	/^	int32_t (*read_object)(storage_object_t * object,$/;"	m	struct:engine_functions_s
@@ -2645,7 +2662,7 @@ reason	inc/options.h	/^	u_int32_t	reason;		\/* Reason for being declined *\/$/;"
 recv_mid	SocketMid.c	/^recv_mid (int sockfd, void *buf, size_t len, int flags)$/;"	f
 rediscover_containers	inc/plugfuncs.h	/^	int (*rediscover_containers)(list_anchor_t containers);$/;"	m	struct:engine_functions_s
 rediscover_objects	inc/plugfuncs.h	/^	int (*rediscover_objects)(list_anchor_t objects);$/;"	m	struct:engine_functions_s
-region	inc/appstructs.h	/^	storage_object_info_t    region;$/;"	m	union:__anon21
+region	inc/appstructs.h	/^	storage_object_info_t    region;$/;"	m	union:__anon30
 register_callback	inc/plugfuncs.h	/^	int (*register_callback)(ece_callback_type_t type,$/;"	m	struct:cluster_functions_s
 register_name	inc/plugfuncs.h	/^	int (*register_name)(char * name);$/;"	m	struct:engine_functions_s
 remaining_seconds	inc/common.h	/^	uint            remaining_seconds;$/;"	m	struct:progress_s
@@ -2658,32 +2675,38 @@ required_container_api_version	inc/appstructs.h	/^	evms_version_t  required_cont
 required_container_api_version	inc/enginestructs.h	/^	evms_version_t                  required_container_api_version;$/;"	m	struct:plugin_record_s
 required_engine_api_version	inc/appstructs.h	/^	evms_version_t  required_engine_api_version;	\/* Version of the Engine services API *\/$/;"	m	struct:plugin_info_s
 required_engine_api_version	inc/enginestructs.h	/^	evms_version_t                  required_engine_api_version;$/;"	m	struct:plugin_record_s
-required_plugin_api_version	inc/appstructs.h	/^	} required_plugin_api_version;$/;"	m	struct:plugin_info_s	typeref:union:plugin_info_s::__anon20
-required_plugin_api_version	inc/enginestructs.h	/^	} required_plugin_api_version;$/;"	m	struct:plugin_record_s	typeref:union:plugin_record_s::__anon28
+required_plugin_api_version	inc/appstructs.h	/^	} required_plugin_api_version;$/;"	m	struct:plugin_info_s	typeref:union:plugin_info_s::__anon29
+required_plugin_api_version	inc/enginestructs.h	/^	} required_plugin_api_version;$/;"	m	struct:plugin_record_s	typeref:union:plugin_record_s::__anon10
 resize	evms/ReplacedStructs.h	/^	sector_count_t 		resize;$/;"	m	struct:__my_logical_volume_info_s
 resize	evms/ReplacedStructs.h	/^	sector_count_t 		resize;$/;"	m	struct:__my_storage_container_info_s
 resize	evms/ReplacedStructs.h	/^	sector_count_t 		resize;$/;"	m	struct:__my_storage_object_info_s
 retcode	Protocol.h	/^  unsigned short retcode;           \/\/ 操作返回码；$/;"	m	struct:__PACKET_HDR
 s	evms/ReplacedStructs.h	/^	char			s[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_value_s
 s	inc/options.h	/^	char			*s;	\/* string pointer *\/$/;"	m	union:__anon6
-s_check_modules_script	Infiniband.c	/^static const char *s_check_modules_script = "\/usr\/sbin\/sanager\/CheckIBRunningEnv.sh";$/;"	v	file:
+s_bonding_add_bonding	BondingCmd.c	/^const char * s_bonding_add_bonding      = "AddBonding";$/;"	v
+s_bonding_del_bonding	BondingCmd.c	/^const char * s_bonding_del_bonding      = "DelBonding";$/;"	v
+s_bonding_get_all_bondings	BondingCmd.c	/^const char * s_bonding_get_all_bondings = "GetAllBondings";$/;"	v
+s_bonding_get_all_eth_ports	BondingCmd.c	/^const char * s_bonding_get_all_eth_ports= "GetAllEthPorts";$/;"	v
+s_bonding_mod_bonding	BondingCmd.c	/^const char * s_bonding_mod_bonding      = "ModBonding";$/;"	v
+s_bonding_script	BondingCmd.c	/^const char * s_bonding_script = "\/usr\/sbin\/sanager\/Bonding.pl";$/;"	v
+s_check_modules_script	Main.c	/^static const char *s_check_modules_script = "\/usr\/sbin\/sanager\/CheckRunningEnv.sh";$/;"	v	file:
 s_delim	EvmsCmd.c	/^static char *s_delim = " ";$/;"	v	file:
-s_device_param	Infiniband.c	/^static const char *s_device_param = "device=";$/;"	v	file:
+s_device_param	InfinibandCmd.c	/^static const char *s_device_param = "device=";$/;"	v	file:
 s_evms	EvmsCmd.c	/^static char *s_evms = "evms";$/;"	v	file:
-s_group_param	Infiniband.c	/^static const char *s_group_param = "group=";$/;"	v	file:
+s_group_param	InfinibandCmd.c	/^static const char *s_group_param = "group=";$/;"	v	file:
 s_iscsi_add_target_func	IscsiCmd.c	/^const char * s_iscsi_add_target_func    = "AddTarget";$/;"	v
-s_iscsi_add_target_func	test.c	/^static const char * s_iscsi_add_target_func    = "AddTarget";$/;"	v	file:
 s_iscsi_del_target_func	IscsiCmd.c	/^const char * s_iscsi_del_target_func    = "DelTarget";$/;"	v
 s_iscsi_get_all_targets	IscsiCmd.c	/^const char * s_iscsi_get_all_targets    = "GetAllTargets";$/;"	v
 s_iscsi_script	IscsiCmd.c	/^const char * s_iscsi_script = "\/usr\/sbin\/sanager\/Iscsi.pl";$/;"	v
 s_iscsi_target_access_ctrl	IscsiCmd.c	/^const char * s_iscsi_target_access_ctrl = "TargetAccessCtrl";$/;"	v
-s_lun_param	Infiniband.c	/^static const char *s_lun_param = "lun=";$/;"	v	file:
-s_param_delim	Infiniband.c	/^static const char *s_param_delim = "|";$/;"	v	file:
-s_permission_param	Infiniband.c	/^static const char *s_permission_param = "readonly=";$/;"	v	file:
-s_port_param	Infiniband.c	/^static const char *s_port_param = "port=";$/;"	v	file:
-s_record_splitter	Infiniband.c	/^static const char  s_record_splitter = '|';$/;"	v	file:
-s_resource_mapping_script	Infiniband.c	/^static const char *s_resource_mapping_script = "\/usr\/sbin\/sanager\/ResourceMapping.sh";$/;"	v	file:
-s_return_value_file	Infiniband.c	/^static const char * s_return_value_file = "\/tmp\/return_value";$/;"	v	file:
+s_lun_param	InfinibandCmd.c	/^static const char *s_lun_param = "lun=";$/;"	v	file:
+s_param_delim	InfinibandCmd.c	/^static const char *s_param_delim = "|";$/;"	v	file:
+s_permission_param	InfinibandCmd.c	/^static const char *s_permission_param = "readonly=";$/;"	v	file:
+s_port_param	InfinibandCmd.c	/^static const char *s_port_param = "port=";$/;"	v	file:
+s_record_splitter	InfinibandCmd.c	/^static const char  s_record_splitter = '|';$/;"	v	file:
+s_resource_mapping_script	InfinibandCmd.c	/^static const char *s_resource_mapping_script = "\/usr\/sbin\/sanager\/ResourceMapping.sh";$/;"	v	file:
+s_return_value_file	BondingCmd.c	/^static const char * s_return_value_file = "\/tmp\/return_value_bonding";$/;"	v	file:
+s_return_value_file	InfinibandCmd.c	/^static const char * s_return_value_file = "\/tmp\/return_value";$/;"	v	file:
 s_return_value_file	IscsiCmd.c	/^static const char * s_return_value_file = "\/tmp\/return_value_iscsi";$/;"	v	file:
 s_system_cmd_script	SystemCmd.c	/^static const char * s_system_cmd_script = "\/usr\/sbin\/sanager\/System.sh";$/;"	v	file:
 save_metadata	inc/plugfuncs.h	/^	int (*save_metadata)(char         * parent,$/;"	m	struct:engine_functions_s
@@ -2694,7 +2717,7 @@ sector_count_t	inc/common.h	/^typedef u_int64_t       sector_count_t;$/;"	t
 sector_offset	inc/enginestructs.h	/^	lsn_t              sector_offset;$/;"	m	struct:kill_sector_record_s
 sectors_per_track	inc/common.h	/^	u_int32_t   sectors_per_track;$/;"	m	struct:geometry_s
 sectors_to_bytes	inc/common.h	/^static inline u_int64_t sectors_to_bytes(u_int64_t sectors)$/;"	f
-segment	inc/appstructs.h	/^	storage_object_info_t    segment;$/;"	m	union:__anon21
+segment	inc/appstructs.h	/^	storage_object_info_t    segment;$/;"	m	union:__anon30
 selected_objects	inc/enginestructs.h	/^	list_anchor_t         selected_objects;		\/* Current list of selected parameters *\/$/;"	m	struct:task_context_s
 selector	inc/devmapper.h	/^	char		selector[DM_SELECTOR_NAME_SIZE];$/;"	m	struct:dm_priority_group
 send_mid	SocketMid.c	/^send_mid (int sockfd, void *pMsg, size_t len, int flags)$/;"	f
@@ -2743,14 +2766,14 @@ size	inc/ece.h	/^	size_t		size;$/;"	m	struct:ece_msg_s
 size	inc/enginestructs.h	/^	sector_count_t               size;			\/* Size of object in sectors *\/$/;"	m	struct:storage_object_s
 size	inc/enginestructs.h	/^	sector_count_t               size;			\/* Total size of all objects on the objects_produced list *\/$/;"	m	struct:storage_container_s
 snapshot	inc/devmapper.h	/^	struct dm_device	snapshot;$/;"	m	struct:dm_target_snapshot	typeref:struct:dm_target_snapshot::dm_device
-snapshot	inc/devmapper.h	/^	struct dm_target_snapshot	*snapshot;$/;"	m	union:__anon26	typeref:struct:__anon26::dm_target_snapshot
+snapshot	inc/devmapper.h	/^	struct dm_target_snapshot	*snapshot;$/;"	m	union:__anon25	typeref:struct:__anon25::dm_target_snapshot
 so_record	inc/enginestructs.h	/^	so_record_t                   * so_record;		\/* Record for the shared object from *\/$/;"	m	struct:plugin_record_s
 so_record_s	inc/enginestructs.h	/^typedef struct so_record_s {$/;"	s
 so_record_t	inc/enginestructs.h	/^} so_record_t;$/;"	t	typeref:struct:so_record_s
 socket_fd	CtrlLinkTbl.h	/^  int socket_fd;                         \/\/ socket号$/;"	m	struct:__anon52
 socket_mid	SocketMid.c	/^socket_mid (int domain, int type, int protocol)$/;"	f
 sort_list	inc/plugfuncs.h	/^	int (*sort_list)(list_anchor_t      list,$/;"	m	struct:engine_functions_s
-sparse	inc/devmapper.h	/^	struct dm_target_sparse		*sparse;$/;"	m	union:__anon26	typeref:struct:__anon26::dm_target_sparse
+sparse	inc/devmapper.h	/^	struct dm_target_sparse		*sparse;$/;"	m	union:__anon25	typeref:struct:__anon25::dm_target_sparse
 src	inc/enginestructs.h	/^	copy_dev_t         src;$/;"	m	struct:copy_job_s
 start	inc/appstructs.h	/^	lba_t                   start;			\/* Relative starting block of this object *\/$/;"	m	struct:storage_object_info_s
 start	inc/devmapper.h	/^	u_int64_t		start;$/;"	m	struct:dm_target
@@ -2777,7 +2800,7 @@ string_to_nodeid	inc/plugfuncs.h	/^	int (*string_to_nodeid)(const char   * strin
 string_to_nodeid	inc/plugfuncs.h	/^	int (*string_to_nodeid)(const char   * string,$/;"	m	struct:engine_functions_s
 strings_c	inc/common.h	126;"	d
 strings_f	inc/common.h	127;"	d
-stripe	inc/devmapper.h	/^	struct dm_target_stripe		*stripe;$/;"	m	union:__anon26	typeref:struct:__anon26::dm_target_stripe
+stripe	inc/devmapper.h	/^	struct dm_target_stripe		*stripe;$/;"	m	union:__anon25	typeref:struct:__anon25::dm_target_stripe
 subtype	Protocol.h	/^  unsigned char subtype;            \/\/ 命令字：子类型；$/;"	m	struct:__PACKET_HDR
 supported_features	evms/ObjectStructs.h	/^	my_feature_t   * supported_features[MAX_FEATURE_NUM];$/;"	m	struct:__advance_info_s
 supported_operations	evms/ObjectStructs.h	/^	my_operation_t * supported_operations[MAX_OPERATION_NUM];$/;"	m	struct:__advance_info_s
@@ -2797,10 +2820,11 @@ task_effect_t	inc/options.h	/^} task_effect_t;$/;"	t	typeref:enum:__anon8
 task_handle_f	inc/options.h	45;"	d
 task_handle_t	inc/options.h	/^typedef u_int32_t task_handle_t;$/;"	t
 task_num	evms/ObjectStructs.h	/^	int task_num;				\/\/ object may support many tasks$/;"	m	struct:__advance_info_s
+test	pl/pl.pl	/^sub test()$/;"	s
 test_thread_id	NetServer.h	/^  pthread_t test_thread_id;	  	  \/\/ 测试线程ID$/;"	m	struct:__GLOBAL_STATE
 textdomain	inc/gettext.h	54;"	d
 thread_id	evms/PrivateData.h	/^	pthread_t thread_id;$/;"	m	struct:_hash_node_t
-tid_tbl	DeadThreadTbl.h	/^  pthread_t tid_tbl[MAX_CONN_NUM]; \/\/ 死亡线程ID列表$/;"	m	struct:__anon37
+tid_tbl	DeadThreadTbl.h	/^  pthread_t tid_tbl[MAX_CONN_NUM]; \/\/ 死亡线程ID列表$/;"	m	struct:__anon54
 timer_data	inc/common.h	/^	struct timer_data_s * timer_data;$/;"	m	struct:progress_s	typeref:struct:progress_s::timer_data_s
 timer_thread_id	NetServer.h	/^  pthread_t timer_thread_id;		  \/\/ 定时线程ID$/;"	m	struct:__GLOBAL_STATE
 tip	evms/ReplacedStructs.h	/^	char 			tip[EVMS_NAME_SIZE   + 1];$/;"	m	struct:__my_option_descriptor_s
@@ -2905,16 +2929,16 @@ version	inc/enginestructs.h	/^	evms_version_t                  version;		\/* Plu
 vol_size	evms/ReplacedStructs.h	/^	sector_count_t		vol_size;$/;"	m	struct:__my_logical_volume_info_s
 vol_size	inc/appstructs.h	/^	sector_count_t          vol_size;		\/* Size of the volume *\/$/;"	m	struct:logical_volume_info_s
 vol_size	inc/enginestructs.h	/^	sector_count_t               vol_size;			\/* Size of the volume *\/$/;"	m	struct:logical_volume_s
-volume	inc/appstructs.h	/^	logical_volume_info_t    volume;$/;"	m	union:__anon21
+volume	inc/appstructs.h	/^	logical_volume_info_t    volume;$/;"	m	union:__anon30
 volume	inc/appstructs.h	/^	object_handle_t         volume;			\/* Volume to which this object belongs *\/$/;"	m	struct:storage_object_info_s
 volume	inc/enginestructs.h	/^	logical_volume_t    * volume;			\/* Volume upon which to do the action *\/$/;"	m	struct:task_context_s
 volume	inc/enginestructs.h	/^	struct logical_volume_s    * volume;			\/* Volume which comprises this object *\/$/;"	m	struct:storage_object_s	typeref:struct:storage_object_s::logical_volume_s
 volume_name	inc/common.h	/^\/*232*\/ char volume_name[EVMS_VOLUME_NAME_SIZE + 1];$/;"	m	struct:evms_feature_header
 volume_search_flags_f	inc/common.h	586;"	d
-volume_search_flags_t	inc/common.h	/^} volume_search_flags_t;$/;"	t	typeref:enum:__anon14
+volume_search_flags_t	inc/common.h	/^} volume_search_flags_t;$/;"	t	typeref:enum:__anon18
 volume_serial_number	inc/common.h	/^\/* 88*\/ u_int64_t volume_serial_number;$/;"	m	struct:evms_feature_header
 volume_system_id	inc/common.h	/^\/* 96*\/ u_int32_t volume_system_id;$/;"	m	struct:evms_feature_header
 write	inc/plugfuncs.h	/^	int (*write)(storage_object_t * object,$/;"	m	struct:plugin_functions_s
 write_object	inc/plugfuncs.h	/^	int32_t (*write_object)(storage_object_t * object,$/;"	m	struct:engine_functions_s
 write_volume	inc/plugfuncs.h	/^	int32_t (*write_volume)(logical_volume_t * volume,$/;"	m	struct:engine_functions_s
-~CDebuger	Debuger.c	/^CDebuger::~CDebuger () $/;"	f	class:CDebuger
+~CDebuger	Debuger.c	/^$/;"	f	class:CDebuger

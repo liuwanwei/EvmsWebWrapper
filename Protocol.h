@@ -66,7 +66,8 @@ typedef enum
         ISCSI_ADD_TARGET        = 0x21, // Make a volume into iscsi target
         ISCSI_DEL_TARGET        = 0x22, // Delete one iscsi target
         ISCSI_GET_ALL_TARGETS   = 0x23, //
-        ISCSI_TARGET_ACCESS_CTRL= 0x24  // Set iscsi target access ctrl modes
+        ISCSI_TARGET_ACCESS_CTRL= 0x24, // Set iscsi target access ctrl modes
+        ISCSI_TARGET_CTRL_LIST  = 0x25
 }ISCSI_RELATED_OPERATIONS;
 
 typedef enum

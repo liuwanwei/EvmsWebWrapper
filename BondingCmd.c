@@ -30,17 +30,17 @@ int GetAllBondings(char ** reply, int * reply_len)
 
 int AddBonding(char * msg_body,   int msg_body_len)
 {
-        return CallShell(s_bonding_script, s_bonding_add_bonding, NULL);;
+        return CallShell(s_bonding_script, s_bonding_add_bonding, msg_body);;
 }
 
 int ModBonding(char * msg_body,   int msg_body_len)
 {
-        return CallShell(s_bonding_script, s_bonding_mod_bonding, NULL);;
+        return CallShell(s_bonding_script, s_bonding_mod_bonding, msg_body);;
 }
 
 int DelBonding(char * msg_body,   int msg_body_len)
 {
-        return CallShell(s_bonding_script, s_bonding_del_bonding, NULL);
+        return CallShell(s_bonding_script, s_bonding_del_bonding, msg_body);
 }
 
 int GetAllEthPorts(char ** reply, int * reply_len)

@@ -157,6 +157,7 @@ sub GetAllTargets()
 	my $name;
 
 	system("rm $tmp_file -rf");
+        system("touch $tmp_file");
 
 	open(FH, $volume_file) or die $!;
 

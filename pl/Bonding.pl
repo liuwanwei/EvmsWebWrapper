@@ -46,6 +46,10 @@ elsif($ARGV[0] =~ /^GetAllEthPorts/i)
 	#shift(@ARGV);
 	$ret = &GetAllEthPorts();
 }
+else
+{
+	print "Usage: $0 FUNCTION [PARAMETERS]\n";
+}
 
 exit $ret;
 
@@ -129,16 +133,16 @@ sub GetAllBondings()
                 close(FH);
 
                 # Get bonding arp_target parameter.
-                $cfg = $bonding_sys_base.$name.$dir_suffix_arp_target;
-                open(FH, "<$cfg") or die "$?";
-                while(<FH>)
-                {
-                        chomp;
-                        next unless $_ =~/^([0-9.,]+)/i;
+                #$cfg = $bonding_sys_base.$name.$dir_suffix_arp_target;
+                #open(FH, "<$cfg") or die "$?";
+                #while(<FH>)
+                #{
+                        #chomp;
+                        #next unless $_ =~/^([0-9.,]+)/i;
 
-                        $record = $record . "|arp_ip_target" . $1;
-                }
-                close();
+                        #$record = $record . "|arp_ip_target" . $1;
+                #}
+                #close(FH);
 
                 # Get slaves
                 my @slaves;
@@ -160,8 +164,6 @@ sub GetAllBondings()
 
                 $record = $record . "\n";
         }
-
-	#print "$record\n";
 
         system("echo \"$record\" > $tmp_file");
 
@@ -306,7 +308,7 @@ sub AddBonding()
 sub ModBonding()
 {
         my @pair_list = split /\|/, $_[0];
-        my ($name, $ip, $mask, $mode, $miimon, $arp_target);
+        my ($master, $ip, $mask, $mode, $miimon, $arp_target);
         my @slaves;
 
         foreach my $pair (@pair_list)
@@ -316,8 +318,8 @@ sub ModBonding()
 
                 if($key eq "device")
                 {
-                        $name = $value;
-                        print "Get name: $name\n";
+                        $master = $value;
+                        print "Get master: $master\n";
                 }
                 elsif($key eq "ip")
                 {
@@ -350,42 +352,49 @@ sub ModBonding()
                 }
         }
 
-        if(! $name)
+        if(! $master)
         {
-                print "Bonding: can't find $name!\n";
+                print "Bonding: can't find $master!\n";
                 return -1;
         }
 
-        if(0 != system("ip -o link | grep -E \"^[0-9]+: $name\" > /dev/null"))
+        if(0 != system("ip -o link | grep -E \"^[0-9]+: $master\" > /dev/null"))
         {
-                print "Bonding: $name not exist!\n";
+                print "Bonding: $master not exist!\n";
                 return -1;
+        }
+
+        # As for bond0, we create config file for it here 
+        # because it always exists,  
+        if($master eq "bond0")
+        {
+                &CreateBondingMasterConfiguration($master, "0.0.0.0", "0.0.0.0");
         }
 
         if($mode)
         {
-                my $mode_ctrl = $bonding_sys_base.$name.$dir_suffix_mode;
-                if(0 != system("ifconfig $name down")
+                my $mode_ctrl = $bonding_sys_base.$master.$dir_suffix_mode;
+                if(0 != system("ifconfig $master down")
                 || 0 != system("echo $mode > $mode_ctrl")
-                || 0 != system("ifconfig $name up"))
+                || 0 != system("ifconfig $master up"))
                 {
                         print "Bonding: modify mode failed\n";
                         return -1;
                 }
 
-		&ModifyBondingMasterConfiguration($name, "mode", $mode);
+		&ModifyBondingMasterConfiguration($master, "mode", $mode);
         }       
 
         if($miimon)
         {
-                my $miimon_ctrl = $bonding_sys_base.$name.$dir_suffix_miimon;
+                my $miimon_ctrl = $bonding_sys_base.$master.$dir_suffix_miimon;
                 if(0 != system("echo $miimon > $miimon_ctrl"))
                 {
                         print "Bonding: modify miimon failed\n";
                         return -1;
                 }
 
-		&ModifyBondingMasterConfiguration($name, "miimon", $miimon);
+		&ModifyBondingMasterConfiguration($master, "miimon", $miimon);
         }
 
         # FIXME if($arp_target)
@@ -394,35 +403,46 @@ sub ModBonding()
 
         if($ip)
         {
-                if(0 != system("ifconfig $name $ip"))
+                if(0 != system("ifconfig $master $ip"))
                 {
                         print "Bonding: modify ip failed\n";
                         return -1;
                 }
 
-		&ModifyBondingMasterConfiguration($name, "IPADDR", $ip);
+		&ModifyBondingMasterConfiguration($master, "IPADDR", $ip);
         }
 
         if($mask)
         {
-                if(0 != system("ifconfig $name netmask $mask"))
+                if(0 != system("ifconfig $master netmask $mask"))
                 {
                         print "Bonding: modify mask failed\n";
                         return -1;
                 }
-		&ModifyBondingMasterConfiguration($name, "NETMASK", $mask);
+		&ModifyBondingMasterConfiguration($master, "NETMASK", $mask);
         }
 
-        my $slave_ctrl = $bonding_sys_base.$name.$dir_suffix_slaves;
-        foreach my $slave (@slaves)
+        my ($cmd, $sign, $slave);
+        my $slave_ctrl = $bonding_sys_base.$master.$dir_suffix_slaves;
+        foreach $cmd (@slaves)
         {
-                if(0 != system("echo $slave > $slave_ctrl"))
+                # Get "+" or "-" sign.
+		$sign  = substr($cmd, 0, 1);
+		$slave = substr($cmd, 1);
+
+                if(0 != system("ifconfig $slave down > /dev/null"))
                 {
-                        print "Bonding: modify slave failed\n";
+                        print "Bonding: slave @ $slave @ already in use!\n";
                         return -1;
                 }
 
-		&ModifyBondingMasterConfiguration($name, "slave", $slave);
+                if(0 != system("echo $cmd > $slave_ctrl"))
+                {
+                        print "Bonding: modify slave @ $slave @ failed\n";
+                        return -1;
+                }
+
+		&ModifyBondingMasterConfiguration($slave, "slave", $slave);
         }
 
 	return 0;
@@ -496,7 +516,6 @@ sub GetAllEthPorts()
 	while(<FH>)
 	{
 		next unless $_ =~ /^[0-9]+: (eth[0-9]+).*link\/ether ([0-9a-f:]+ )/;
-
 		push(@interfaces, $1."\|".$2);
 	}
 
@@ -506,11 +525,51 @@ sub GetAllEthPorts()
 
 	# Generate Ethernet port's information string.
 	# Add append the string to $tmp_file.
+        my $cfg_file;
+        my ($info, $port, $mac);
+        my $record;
 	system("rm $tmp_file -f");
-	for(my $i = 0; $i < scalar(@interfaces); $i ++)
+	foreach $info (@interfaces)
 	{
-		#print $interfaces[$i] . "\n";
-		system("echo \"$interfaces[$i]\" >> $tmp_file")
+                ($port, $mac) = split /\|/, $info;
+                $cfg_file = $cfg_file_prefix . $port;
+
+                undef $record;
+                
+                # We get details from port's configuration file if port has one.
+                if( -e $cfg_file )
+                {
+                        open(FH, "<$cfg_file") or die "Can't open $cfg_file";
+                        while(<FH>)
+                        {
+                                chomp;
+                                next unless $_ =~ /(^\w+)=(.*)/i;
+                                
+                                # We prefer MAC in "ip -o link" to here
+                                if($1 eq "HWADDR")
+                                {
+                                        next;
+                                }
+
+                                if($record)
+                                {
+                                        $record = $record . "|" . lc($_);
+                                }
+                                else
+                                {
+                                        $record = lc($_);
+                                }
+                        }
+                        close(FH);
+
+                        $record = $record . "|hwaddr" . $mac;
+                }
+                else
+                {
+                        $record = "device=" . $port . "|hwaddr=" . $mac;
+                }
+                
+                system("echo \"$record\" >> $tmp_file")
 	}
 
 	return 0;
@@ -525,11 +584,10 @@ sub CreateBondingMasterConfiguration()
 	my ($cfg_file, $cfg_file_bk);
 	$cfg_file=$cfg_file_prefix . $name;
 
-	# Move old configuration file if exists.
+	# Delete old configuration file if it exists.
 	if( -e $cfg_file )
 	{
-		$cfg_file_bk = $cfg_file . "-bk";
-		if(0 != system("mv $cfg_file $cfg_file_bk "))
+		if(0 != system("rm $cfg_file -f"))
 		{
 			print "Bonding: move previous $cfg_file failed\n";
 			return -1;
@@ -538,7 +596,7 @@ sub CreateBondingMasterConfiguration()
 
 	# Create configuration file for this bonding.
 
-	system("echo \"DEVICE=$name \nIPADDR=$ip \nNETMASK=$mask \nONBOOT=yes \nBOOTPROTO=none \nUSERCTRL=no \n\" > $cfg_file");
+	system("echo \"DEVICE=$name\nIPADDR=$ip\nNETMASK=$mask\nONBOOT=yes\nBOOTPROTO=none\nUSERCTRL=no\nTYPE=Ethernet\" > $cfg_file");
 
         if(0 != &ModifyBondingMasterConfiguration($name, "mode",   1))
         {
@@ -571,7 +629,7 @@ sub CreateBondingSlaveConfiguration()
 	}
 
 	# Create configuration file for this bonding.
-	system("echo \"DEVICE=$slave\nUSERCTRL=no\nONBOOT=yes\nMASTER=$master\nSLAVE=yes\nBOOTPROTO=none\n\" > $cfg_file");
+	system("echo \"DEVICE=$slave\nUSERCTRL=no\nONBOOT=yes\nMASTER=$master\nSLAVE=yes\nBOOTPROTO=none\" > $cfg_file");
 	
 	return 0;
 }
