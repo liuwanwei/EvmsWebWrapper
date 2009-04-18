@@ -210,9 +210,11 @@ GetDevicesFromGroup()
 
 GetAllIBPorts()
 {	
+	osmtest_output="./osmtest.dat"
 	inter_file="/tmp/search_inter_file"
 	result_file="/tmp/all_linked_ports"
 
+	rm $osmtest_output -rf
 	rm $inter_file 	-rf
 	rm $result_file -rf
 
@@ -234,15 +236,20 @@ GetAllIBPorts()
 	port2_guid=`printf "0x%016x" $port2_guid`
 
 	# Searching port1's link path
-	osmtest -g $port1_guid -f c > $inter_file
+	echo "osmtest -g $port1_guid -f c 2>&1 >/dev/null"
+	osmtest -g $port1_guid -f c 2>&1 >/dev/null
 	if [ ! $? -eq 0 ] 
 	then
 		echo "$port1_guid link path search failed!"
 		ret=$error_fail
 	fi
 
+	cat $osmtest_output > $inter_file
+	rm  $osmtest_output -rf
+
 	# Searching port2's link path
-	osmtest -g $port2_guid -f c >> $inter_file
+	echo "osmtest -g $port2_guid -f c 2>&1 >/dev/null"
+	osmtest -g $port2_guid -f c 2>&1 >/dev/null
 	if [ ! $? -eq 0 ] 
 	then
 		echo "$port2_guid link path search failed!"
@@ -251,6 +258,8 @@ GetAllIBPorts()
 			return $error_fail
 		fi
 	fi
+
+	cat $osmtest_output >> $inter_file
 
 	# Get port guid on the other peer of the link
 	if [ ! -e $inter_file ]
@@ -262,7 +271,7 @@ GetAllIBPorts()
 	# cat $inter_file | grep port_guid | grep -v grep | awk '{print $2}' > $result_file
 
 	# now use perl scripts to get all ib ports
-	../pl/GetConnectedPorts.pl $port1_guid $port2_guid
+	$shell_scripts_dir"GetConnectedPorts.pl" $port1_guid $port2_guid
 
 	return $error_ok
 }
