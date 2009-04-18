@@ -74,6 +74,15 @@ void print_frame_details(char * frame, int len)
 	printf("\n");
 }
 
+ssize_t my_send(int s, const void * buf, size_t len)
+{
+	//TRACE(10, ("Responsed frame:\n"));
+
+	//print_frame_details((char *)buf, len);
+
+	return send(s, buf, len, 0);
+}
+
 /***************************************************************************************
 * 客户控制连接处理函数，成功返回0，失败返回-1。
 ***************************************************************************************/
@@ -93,15 +102,14 @@ int Link_Ctrl(int socket_fd)
     PktHandler func;
     char one_frame[MAX_FRAME_LEN];
 
+    memset(one_frame, 0, MAX_FRAME_LEN);
+
     while ((len = RecvOneFrame(socket_fd, one_frame)) > 0) {
-	TRACE(10,
-	      ("Receive a command! : %d ------- length : %d\n",
-	       ((PPACKET_HDR) one_frame)->type, len));
+	TRACE(10, ("Received frame:\n"));
+	print_frame_details(one_frame, ((PPACKET_HDR) one_frame)->len);
 
 	if (((PPACKET_HDR) one_frame)->type > 0
 	    && ((PPACKET_HDR) one_frame)->type <= MSG_TYPE_NUM) {
-
-	    print_frame_details(one_frame, ((PPACKET_HDR) one_frame)->len);
 
 	    func = g_PktHandler[((PPACKET_HDR) one_frame)->type];
 	    if (NULL != func) {
@@ -111,6 +119,8 @@ int Link_Ctrl(int socket_fd)
 	} else {
 	    TRACE(10, ("Error Message Type!\n"));
 	}
+
+    	memset(one_frame, 0, MAX_FRAME_LEN);
     }
 
     TRACE(2, ("Control channel is eixt!\n"));

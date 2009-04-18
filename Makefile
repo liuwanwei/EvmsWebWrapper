@@ -41,4 +41,5 @@ clean :
 install:
 	@cp net_server /usr/sbin/sanager/ -rf
 	@cp shell/* /usr/sbin/sanager/ -rf
+	@cp pl/*.pl /usr/sbin/sanager/ -rf
 	make -C evms install

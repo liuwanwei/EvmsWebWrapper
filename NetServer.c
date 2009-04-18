@@ -71,7 +71,7 @@ Timer_Thread (void *pinfo)
 
 			pcld->notinformcnt++;
 
-			TRACE (12, (" Timer Count = %d\n ", pcld->notinformcnt));
+			// TRACE (12, (" Timer Count = %d\n ", pcld->notinformcnt));
 
 			//未收到握手报文时间大于32分钟(30秒 * 64),结束控制线程
 			if (pcld->notinformcnt > MAX_NOTINFORM_CNT)

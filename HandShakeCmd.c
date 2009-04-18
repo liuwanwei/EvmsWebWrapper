@@ -39,7 +39,7 @@ HandShakeCmd (int sock_fd, char *pPacket, int len)
 		rspPkt.retcode = 0x00;
 		*/
 
-		if (send (sock_fd, &rspPkt, sizeof (rspPkt), 0) == -1)
+		if (my_send (sock_fd, &rspPkt, sizeof (rspPkt)) == -1)
 		{
 			perror ("send_mid");
 		}

@@ -23,7 +23,7 @@ GetUnknowCmd (int __sock_fd, char *__pPacket, int __len)
 
 	int ret;
 
-	ret = send (__sock_fd, &rspPkt, sizeof (rspPkt), 0);
+	ret = my_send (__sock_fd, &rspPkt, sizeof (rspPkt));
 	if (ret < 0)
 	{
 		perror ("send");

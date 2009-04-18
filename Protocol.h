@@ -7,6 +7,7 @@
 #ifndef _PROTOCOL_H
 #define _PROTOCOL_H    1
 
+#include <sys/types.h>
 #include "NetServer.h"
 
 // 报文类型：
@@ -107,7 +108,7 @@ typedef struct __PACKET_HDR {       // 协议包包头信息；
 #define MAX_FRAME_LEN		    NET_BUFFER_LEN
 #define MAX_CONTENT_LEN		    (MAX_FRAME_LEN - sizeof(PACKET_HDR))
 
-
-
+// socket send wrap function
+ssize_t my_send(int s, const void * buf, size_t len);
 
 #endif /* Protocol.h */

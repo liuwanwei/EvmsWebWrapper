@@ -205,6 +205,8 @@ int SendCommonFrame(int sock_fd, unsigned short retcode, char * data, int data_l
 		return -1;
 	}
 
+	printf("len: %d\n", data_len);
+	printf("data: %s\n", data);
 
 	PACKET_HDR hdr;
 
@@ -219,7 +221,7 @@ int SendCommonFrame(int sock_fd, unsigned short retcode, char * data, int data_l
 	// now we change data_len's real meaning
 	data_len = PACKET_HDR_LEN + data_len;
 
-	if (data_len != send (sock_fd, one_frame, data_len, 0))
+	if (data_len != my_send (sock_fd, one_frame, data_len))
 	{
 		perror ("send");
 		return -1;
