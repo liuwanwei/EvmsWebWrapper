@@ -1,14 +1,6 @@
 #! /bin/bash
-define_file="Defines.sh"
 
-# If called from parent directory, the CWD will be in parent directory, so we need to change it to "ib" dir  manually.
-if [ -e $define_file ]
-then
-	. $define_file
-else
-	. shell/$define_file
-fi
-
+. /usr/sbin/sanager/Defines.sh
 
 # Chekd if the specific driver module exists.
 CheckModule()

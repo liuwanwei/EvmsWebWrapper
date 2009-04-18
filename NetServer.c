@@ -177,7 +177,7 @@ Server_Thread (void *pinfo)
 	InitCtrlLinkTbl ();			//初始化控制连接组织结构表,该结构描述了每个连接的信息
 
 	//--  回收“死亡线程”启动 --//
-	TRACE (14, ("Begin to thread that joins dead_threads!\n"));
+	TRACE (14, ("Start dead-threads reclaim thread!\n"));
 
 	if (pthread_create
 		(&GlobalState.join_thread_id, NULL, Join_Thread, NULL) != 0)
@@ -186,7 +186,7 @@ Server_Thread (void *pinfo)
 	}
 
 	//--  定时器线程启动 --//
-	TRACE (14, ("Begin to timer thread!\n"));
+	TRACE (14, ("Start timer thread!\n"));
 
 	if (pthread_create
 		(&GlobalState.timer_thread_id, NULL, Timer_Thread, NULL) != 0)
@@ -246,7 +246,7 @@ Server_Thread (void *pinfo)
 
 	while (1)
 	{
-		TRACE (14, ("wait for client connection!\n"));
+		TRACE (14, ("Waiting for connection!\n"));
 
 		socklen_t sin_size = sizeof (client_addr);
 
@@ -262,7 +262,7 @@ Server_Thread (void *pinfo)
 		}
 
 		TRACE (14,
-			   ("Begin to accept to client, _accept return %d !\n",
+			   ("Got connection request, accept return %d !\n",
 				listen_fd));
 
 		//create with detach status defaultly

@@ -1,14 +1,6 @@
 #! /bin/bash
 
-include_file="Defines.sh"
-
-if [ ! -e $include_file ]
-then
-	cd shell
-fi
-
-. Defines.sh
-
+. /usr/sbin/sanager/Defines.sh
 
 AddGroup()
 {

@@ -1,13 +1,6 @@
 #!/bin/bash
 
-defines_file="Defines.sh"
-
-if [ ! -e "$defines_file" ]
-then
-	cd shell
-fi
-
-. $defines_file
+. /usr/sbin/sanager/Defines.sh
 
 
 Usage()

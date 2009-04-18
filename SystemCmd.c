@@ -9,7 +9,7 @@
 #include <sys/socket.h>
 
 // shell scripts used here.
-static const char * s_system_cmd_script = "shell/System.sh";
+static const char * s_system_cmd_script = "/usr/sbin/sanager/System.sh";
 
 // directory content file
 static const char * list_dir_file = "/tmp/dir_content_list";

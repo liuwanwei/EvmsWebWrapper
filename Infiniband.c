@@ -8,10 +8,10 @@
 #include "Protocol.h"
 
 // 工作环境检测脚本文件名
-static const char *s_check_modules_script = "shell/CheckIBRunningEnv.sh";
+static const char *s_check_modules_script = "/usr/sbin/sanager/CheckIBRunningEnv.sh";
 
 // 资源映射脚本文件名
-static const char *s_resource_mapping_script = "shell/ResourceMapping.sh";
+static const char *s_resource_mapping_script = "/usr/sbin/sanager/ResourceMapping.sh";
 
 // 
 static const char * s_return_value_file = "/tmp/return_value";

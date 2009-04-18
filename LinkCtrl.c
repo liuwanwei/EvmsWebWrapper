@@ -60,6 +60,20 @@ static void Link_Ctrl_Cleanup(void *pinfo)
     return;
 }
 
+void print_frame_details(char * frame, int len)
+{
+	int i = 0;
+
+	printf("LEN   T  S  ODR   RET   CONTENT\n");
+
+	for(i = 0; i < len; i ++)
+	{
+		printf("%02x ", frame[i]);
+	}
+
+	printf("\n");
+}
+
 /***************************************************************************************
 * 客户控制连接处理函数，成功返回0，失败返回-1。
 ***************************************************************************************/
@@ -86,6 +100,9 @@ int Link_Ctrl(int socket_fd)
 
 	if (((PPACKET_HDR) one_frame)->type > 0
 	    && ((PPACKET_HDR) one_frame)->type <= MSG_TYPE_NUM) {
+
+	    print_frame_details(one_frame, ((PPACKET_HDR) one_frame)->len);
+
 	    func = g_PktHandler[((PPACKET_HDR) one_frame)->type];
 	    if (NULL != func) {
 		func(socket_fd, (char *) one_frame,

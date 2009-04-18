@@ -3,14 +3,7 @@
 # history
 # 20090323, replace "-P" param with "-E" param used for grep
 
-include_file="Defines.sh"
-
-if [ ! -e $include_file ]
-then
-	cd shell
-fi
-
-. Defines.sh
+. /usr/sbin/sanager/Defines.sh
 
 tmp_dir_file="/tmp/tmp_dir_file"
 result_dir_file="/tmp/dir_content_list"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. Defines.sh
+. /usr/sbin/sanager/Defines.sh
 
 if [ ! -e $vdisk_bk_file ]
 then
@@ -17,11 +17,18 @@ do
 	vdisk=`echo $LINE |  awk '{print $1}'`
 	device=`echo $LINE | awk '{print $4}'`
 
-	echo "wwliu: $vdisk"
-	echo "wwliu: $device"
+	#echo "wwliu: $vdisk"
+	#echo "wwliu: $device"
 
-	is_file=`ls -l -h $device| grep -E "^-([r-][w-][x-]){3}" | wc -l`
-	if [ 1 -eq $is_file ]
+	if [ ! -e $device ]
+	then
+		echo "$device is not here any more!"
+		:
+	fi
+
+
+	is_file_dev=`ls -l -h $device| grep -E "^-([r-][w-][x-]){3}" | wc -l`
+	if [ 1 -eq $is_file_dev ]
 	then
 		# FILEIO mode for file.
 		echo "open $vdisk $device" > $vdisk_ctrl_file
@@ -29,4 +36,14 @@ do
 		# BLOCKIO mode for disk.
 		echo "open $vdisk $device BLOCKIO" > $vdisk_ctrl_file
 	fi
+
+	if [ $? -ne 0 ]
+	then
+		echo "Creat vdisk $vdisk failed!"
+	fi
+
+	:
 done
+
+
+

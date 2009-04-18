@@ -5,7 +5,7 @@
 # As for disk, we use default BLOCK_SIZE:512 bytes, and FLAG set to "BLOCKIO"
 
 
-. Defines.sh
+. /usr/sbin/sanager/Defines.sh
 
 if [ $# -lt 2 ]
 then
