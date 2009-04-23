@@ -221,14 +221,14 @@ int GetAllGroups(char **reply, int *reply_len)
         	/* 每一个while 循环处理一行IB 端口名称*/
         	while (NULL != fgets(line_buffer, 256, group_name_file_p))
         	{
-	
-                	name_len = strlen(line_buffer) + 1;
-                	if (1 == name_len)
+                	name_len = strlen(line_buffer);
+                	if (0 == name_len)
                 	{
                         	break;
                 	}
 			
-			memcpy(names_buffer + names_buffer_len, line_buffer, name_len);
+			// omit the new line char -- '0x0a' -- on the tail.
+			memcpy(names_buffer + names_buffer_len, line_buffer, name_len - 1);
 
 			names_buffer_len += name_len;
 

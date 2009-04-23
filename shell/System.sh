@@ -20,7 +20,9 @@ GetDirContent()
 		exit $error_param
 	fi
 
-	ls -h -p -s -1 $dir | grep -E "^[ 0-9]*\.*\w*[KMGT]" > $result_dir_file
+	# The last '0' in [KMGT0] permitted taken zero length files
+
+	ls -h -p -s -1 $dir | grep -E "^[ 0-9]*\.*\w*[KMGT0]" > $result_dir_file
 
 	# omit the first line the format as "total xxx"
 	# using perl style regular express(-P)

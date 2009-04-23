@@ -70,7 +70,13 @@ void print_frame_details(char * frame, int len)
 	{
 		printf("%02x ", frame[i]);
 	}
+	printf("\n");
 
+	printf("                        ");
+	for(i = 8; i < len; i ++)
+	{
+		printf("%c  ", frame[i]);
+	}
 	printf("\n");
 }
 
