@@ -291,7 +291,7 @@ AddIBPortToGroup()
 		return $error_param
 	fi
 
-	group_ports_ctrl_file=$base_srpt_dir"group/"$group"/names"
+	group_ports_ctrl_file=$base_srpt_dir"groups/"$group"/names"
 
 	echo "add $port_name" > $group_ports_ctrl_file
 
@@ -315,7 +315,7 @@ DelIBPortFromGroup()
 		return $error_param
 	fi
 
-	group_ports_ctrl_file=$base_srpt_dir"group/"$group"/names"
+	group_ports_ctrl_file=$base_srpt_dir"groups/"$group"/names"
 
 	count=`cat $group_ports_ctrl_file | grep $port_name | grep -v grep | wc -l`
 
@@ -339,6 +339,9 @@ GetIBPortsFromGroup()
 }
 
 case "$1" in
+	AddIBPortToGroup)
+		AddIBPortToGroup $@
+		;;
 	DelIBPortFromGroup)
 		DelIBPortFromGroup $@
 		;;
