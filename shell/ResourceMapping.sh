@@ -293,6 +293,8 @@ AddIBPortToGroup()
 
 	group_ports_ctrl_file=$base_srpt_dir"groups/"$group"/names"
 
+	#echo $group_ports_ctrl_file
+
 	echo "add $port_name" > $group_ports_ctrl_file
 
 	$group_backup_script $group "add"

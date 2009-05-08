@@ -727,11 +727,13 @@ int AddIBPortToGroup(char *msg_body, int msg_body_len)
         else if (pid == 0)
         {
                 char *argument[4];
-                char command[64];
+                char command[128];
                 extern char **environ;
 
-                snprintf(command, 64, "%s AddIBPortToGroup %s %s",
+                snprintf(command, 128, "%s AddIBPortToGroup %s %s",
                         s_resource_mapping_script, port_name, group_name);
+
+		// printf("wwliu: %s\n", command);
 
                 argument[0] = "sh";
                 argument[1] = "-c";
