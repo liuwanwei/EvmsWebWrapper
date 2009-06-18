@@ -124,8 +124,8 @@ Join_Thread (void *pinfo)
 			pthread_mutex_unlock (&DeadThreadTbl.mutex);
 		}
 
-		//checking every 0.5 second
-		usleep (500);
+		//checking every 5 second
+		usleep (5000);
 	}
 
 	TRACE (14, (" Thread that joins dead_threads exit!\n"));
