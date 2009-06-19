@@ -286,34 +286,16 @@ Server_Thread (void *pinfo)
 }
 
 int
-StartNetServer (int debug_level)
+StartNetServer ()
 {
-	printf (" # NetServer is starting... # \n ");
-
-	/*
-	CDebuger *pd = CDebuger::Instance();
-	pd->SetDebugLevel(debug_level);
-	printf("   --> Runing in debug level %d \n", pd->GetDebugLevel() );
-	*/
-
-	if (GlobalState.listen_thread_id != 0)
-	{
-		printf (" Net Server is already runing \n");
-	}
 
 	//初始化GlobalState变量, '\0' 用printf输出时跟"(int)0"无差别, 但跟'0'不同
 	memset (&GlobalState, '\0', sizeof (GLOBAL_STATE));
 
 	CurPort = USER_AUTH_PORT + 1;
 
-	//"(void * (*)(void*))", 将Server_Thread函数转换,实际上无意义,是这样吗?
-	if (pthread_create
-		(&GlobalState.listen_thread_id, NULL,
-		 (void *(*)(void *)) Server_Thread, NULL) != 0)
-	{
-		perror ("pthread_create");
-		return -1;
-	}
+	// calling this thread function directlly
+	Server_Thread(NULL);
 
 	return 0;
 }

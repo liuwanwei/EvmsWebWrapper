@@ -61,6 +61,8 @@ public:
 
 #else 
 
+extern int g_debug_level;
+
 #define TRACE(level, info){	\
 	printf info;	\
 	printf("\n");\

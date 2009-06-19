@@ -19,6 +19,7 @@
 
 #define SANAGER_WORKING_DIR 	"/usr/sbin/sanager/"
 
+int g_debug_level = 0;
 char g_pidfile[256];
 
 void catch_hup_sig(int sig)
@@ -59,7 +60,7 @@ int daemon_start(void)
 	pid_t		pid;
 	FILE *		lockfd;
 	sigset_t	sighup;
-    	const char cmdname[]="net_server";
+    	const char cmdname[] = "net_server";
 
 	sprintf(g_pidfile, "/var/log/net_server.pid");
 	
@@ -109,18 +110,30 @@ int daemon_start(void)
 	umask(022);
 
 	chdir(SANAGER_WORKING_DIR);
-	return(1);
+
+	return(0);
 }
 	
 //-- Ö÷³ÌÐò --//
 	int
 main (int argc, char *argv[]) 
 {
-	int debug_level = 0;
+	int c;
+	int running_foreground = 0;
 
-	if (argc > 1)
+	while((c = getopt(argc, argv, "d:f")) != -1)
 	{
-		debug_level = atoi (argv[1]);
+		switch(c)
+		{
+			case 'd':
+				g_debug_level = atoi(optarg);
+				break;
+			case 'f':
+				running_foreground = 1;
+				break;
+			default:
+				break;
+		}
 	}
 
 	if(0 != CheckRunningEnvironment())
@@ -129,12 +142,19 @@ main (int argc, char *argv[])
 	}
 
 	// start as daemon process
-	daemon_start();
-
-	StartNetServer (debug_level);
+	if(! running_foreground)
+	{
+		if(0 != daemon_start())
+		{
+			return 0;
+		}
+	}
 
 	InitHash();
-	
+
+	// blocked here
+	StartNetServer();
+
 	return 0;
 }
 

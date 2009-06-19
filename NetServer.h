@@ -55,7 +55,7 @@ typedef struct __GLOBAL_STATE {
 extern GLOBAL_STATE GlobalState;			      // 线程状态
 
 //-- 引出函数 --//
-extern int StartNetServer(int __debug_level);
+extern int StartNetServer();
 extern int StopNetServer(void);
 
 #endif /* NetServer.h */

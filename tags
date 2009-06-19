@@ -14,7 +14,7 @@ ActStr	evms/screener.h	/^char *   ActStr           =  "ACT";$/;"	v
 ActivateStr	evms/screener.h	/^char *   ActivateStr      =  "ACTIVATE";$/;"	v
 Activate_Lookahead	evms/parser.c	/^static Executable_Node *Activate_Lookahead(void)$/;"	f	file:
 Activate_Node	evms/interpreter.h	/^               Activate_Node,$/;"	e	enum:__anon49
-AddDeviceToGroup	Infiniband.c	/^int AddDeviceToGroup(char *msg_body, int msg_body_len)$/;"	f
+AddDeviceToGroup	Infiniband.c	/^int AddDeviceToGroup(char *msg_body, int msg_body_len, char ** reply, int * reply_len)$/;"	f
 AddDeviceToGroup	shell/ResourceMapping.sh	/^AddDeviceToGroup()$/;"	f
 AddGroup	Infiniband.c	/^int AddGroup(char *msg_body, int msg_body_len)$/;"	f
 AddGroup	shell/ResourceMapping.sh	/^AddGroup()$/;"	f
@@ -145,6 +145,8 @@ Convert_Real	evms/interpreter.c	/^static double Convert_Real(u_int32_t Index, do
 ConvertibleStr	evms/screener.h	/^char *   ConvertibleStr   =  "CONVERTIBLE";$/;"	v
 Convertible_Filter	evms/parser.c	65;"	d	file:
 CopyList	evms/dlist.c	/^CopyList(dlist_t TargetList, dlist_t SourceList,$/;"	f
+CreateDirectory	SystemCmd.c	/^int CreateDirectory(char * msg_body, int msg_body_len)$/;"	f
+CreateDirectory	shell/System.sh	/^CreateDirectory()$/;"	f
 CreateList	evms/dlist.c	/^dlist_t CreateList(void)$/;"	f
 CreateStr	evms/screener.h	/^char *   CreateStr        =  "CREATE";$/;"	v
 Create_Node	evms/interpreter.h	/^               Create_Node,$/;"	e	enum:__anon49
@@ -166,7 +168,7 @@ DEFAULT	inc/common.h	/^	DEFAULT = 5,$/;"	e	enum:__anon17
 DEFAULT_DAEMON_LOG_FILE	inc/appAPI.h	49;"	d
 DEFAULT_LOG_FILE	inc/appAPI.h	48;"	d
 DEFAULT_METADATA_DIR	inc/enginestructs.h	384;"	d
-DEFAULT_RETCODE	Protocol.h	67;"	d
+DEFAULT_RETCODE	Protocol.h	69;"	d
 DELTAS	inc/ece.h	/^	DELTAS,$/;"	e	enum:__anon22
 DELTA_JOIN	inc/ece.h	/^	DELTA_JOIN,$/;"	e	enum:__anon23
 DELTA_LEAVE	inc/ece.h	/^	DELTA_LEAVE,$/;"	e	enum:__anon23
@@ -429,7 +431,7 @@ EVMS_BSD_PLUGIN_LONG_NAME	inc/plugin-ids.h	112;"	d
 EVMS_BSD_PLUGIN_SHORT_NAME	inc/plugin-ids.h	111;"	d
 EVMS_C	evms/evms.c	34;"	d	file:
 EVMS_CLUSTER_MANAGER_INTERFACE_MODULE	inc/common.h	/^	EVMS_CLUSTER_MANAGER_INTERFACE_MODULE,		\/\/ 7$/;"	e	enum:evms_plugin_code
-EVMS_COMMAND_MSG	Protocol.h	43;"	d
+EVMS_COMMAND_MSG	Protocol.h	44;"	d
 EVMS_COMMON_H_INCLUDED	inc/common.h	23;"	d
 EVMS_CSM_PLUGIN_ID	inc/plugin-ids.h	96;"	d
 EVMS_CSM_PLUGIN_LONG_NAME	inc/plugin-ids.h	100;"	d
@@ -437,7 +439,7 @@ EVMS_CSM_PLUGIN_SHORT_NAME	inc/plugin-ids.h	99;"	d
 EVMS_Collection_List	inc/options.h	/^	EVMS_Collection_List,		\/* Use a value_list_t structure *\/$/;"	e	enum:__anon4
 EVMS_Collection_None	inc/options.h	/^	EVMS_Collection_None = 0,	\/* No collection *\/$/;"	e	enum:__anon4
 EVMS_Collection_Range	inc/options.h	/^	EVMS_Collection_Range		\/* Use a value_range_t structure *\/$/;"	e	enum:__anon4
-EVMS_DEINIT_MSG	Protocol.h	44;"	d
+EVMS_DEINIT_MSG	Protocol.h	45;"	d
 EVMS_DEVICE_LOCKABLE	inc/common.h	202;"	d
 EVMS_DEVICE_MANAGER	inc/common.h	/^	EVMS_DEVICE_MANAGER,				\/\/ 1$/;"	e	enum:evms_plugin_code
 EVMS_DEVICE_MEDIA_PRESENT	inc/common.h	200;"	d
@@ -514,7 +516,7 @@ EVMS_HB2_PLUGIN_SHORT_NAME	inc/plugin-ids.h	222;"	d
 EVMS_IBM_OEM_ID	inc/plugin-ids.h	29;"	d
 EVMS_IBM_OEM_NAME	inc/plugin-ids.h	31;"	d
 EVMS_INITIAL_CRC	inc/common.h	39;"	d
-EVMS_INIT_MSG	Protocol.h	42;"	d
+EVMS_INIT_MSG	Protocol.h	43;"	d
 EVMS_JFS_PLUGIN_ID	inc/plugin-ids.h	229;"	d
 EVMS_JFS_PLUGIN_LONG_NAME	inc/plugin-ids.h	233;"	d
 EVMS_JFS_PLUGIN_SHORT_NAME	inc/plugin-ids.h	232;"	d
@@ -556,7 +558,7 @@ EVMS_MULTIPATH_PLUGIN_ID	inc/plugin-ids.h	120;"	d
 EVMS_MULTIPATH_PLUGIN_LONG_NAME	inc/plugin-ids.h	124;"	d
 EVMS_MULTIPATH_PLUGIN_SHORT_NAME	inc/plugin-ids.h	123;"	d
 EVMS_NAME_SIZE	inc/common.h	280;"	d
-EVMS_NEED_USER_INPUT	Protocol.h	37;"	d
+EVMS_NEED_USER_INPUT	Protocol.h	38;"	d
 EVMS_NOVELL_OEM_ID	inc/plugin-ids.h	33;"	d
 EVMS_NOVELL_OEM_NAME	inc/plugin-ids.h	34;"	d
 EVMS_NO_PLUGIN	inc/common.h	/^	EVMS_NO_PLUGIN,					\/\/ 0$/;"	e	enum:evms_plugin_code
@@ -564,7 +566,7 @@ EVMS_NTFS_PLUGIN_ID	inc/plugin-ids.h	253;"	d
 EVMS_NTFS_PLUGIN_LONG_NAME	inc/plugin-ids.h	257;"	d
 EVMS_NTFS_PLUGIN_SHORT_NAME	inc/plugin-ids.h	256;"	d
 EVMS_OBJECT	inc/common.h	/^	EVMS_OBJECT = (1<<4),$/;"	e	enum:__anon12
-EVMS_OBJECT_INFO	Protocol.h	38;"	d
+EVMS_OBJECT_INFO	Protocol.h	39;"	d
 EVMS_OBJECT_NODE_DIR	inc/common.h	57;"	d
 EVMS_OBJECT_NODE_PATH	inc/common.h	58;"	d
 EVMS_OBJECT_NODE_PATH_LEN	inc/common.h	59;"	d
@@ -588,7 +590,7 @@ EVMS_OPTION_IS_REQUIRED	inc/options.h	313;"	d
 EVMS_OPTION_VALUE_IS_LIST	inc/options.h	315;"	d
 EVMS_PLUGFUNCS_H_INCLUDED	inc/plugfuncs.h	23;"	d
 EVMS_PLUGINIDS_H_INCLUDED	inc/plugin-ids.h	23;"	d
-EVMS_PROMPT_MSG	Protocol.h	36;"	d
+EVMS_PROMPT_MSG	Protocol.h	37;"	d
 EVMS_REGION_MANAGER	inc/common.h	/^	EVMS_REGION_MANAGER,				\/\/ 3$/;"	e	enum:evms_plugin_code
 EVMS_REISER_PLUGIN_ID	inc/plugin-ids.h	241;"	d
 EVMS_REISER_PLUGIN_LONG_NAME	inc/plugin-ids.h	245;"	d
@@ -841,6 +843,7 @@ GetCtrlLink	CtrlLinkTbl.c	/^PCTRL_LINK_DESC GetCtrlLink (int sock_fd) $/;"	f
 GetDebugLevel	Debuger.c	/^CDebuger::GetDebugLevel () $/;"	f	class:CDebuger
 GetDevicesFromGroup	Infiniband.c	/^int GetDevicesFromGroup(char *msg_body, int msg_body_len, char **reply, int$/;"	f
 GetDevicesFromGroup	shell/ResourceMapping.sh	/^GetDevicesFromGroup()$/;"	f
+GetDirContent	shell/System.sh	/^GetDirContent()$/;"	f
 GetHandle	evms/dlist.c	/^int GetHandle(dlist_t ListToGetHandleFrom, ADDRESS * Handle)$/;"	f
 GetIBPortsFromGroup	Infiniband.c	/^int GetIBPortsFromGroup(char *msg_body, int msg_body_len, char **reply, int$/;"	f
 GetIBPortsFromGroup	shell/ResourceMapping.sh	/^GetIBPortsFromGroup()$/;"	f
@@ -871,8 +874,8 @@ HANDLE_MANAGER_BAD_HANDLE	evms/error.c	57;"	d	file:
 HANDLE_MANAGER_NOT_INITIALIZED	evms/error.c	56;"	d	file:
 HANDLE_TAG	evms/parser.c	51;"	d	file:
 HANDSHAKE_PERIOD	NetServer.h	19;"	d
-HANDSHAKE_REQ	Protocol.h	31;"	d
-HANDSHAKE_RSP	Protocol.h	32;"	d
+HANDSHAKE_REQ	Protocol.h	32;"	d
+HANDSHAKE_RSP	Protocol.h	33;"	d
 HELPSYS_C	evms/helpsys.c	34;"	d	file:
 HELPSYS_H	evms/helpsys.h	32;"	d
 HandShakeCmd	HandShakeCmd.c	/^HandShakeCmd (int sock_fd, char *pPacket, int len) $/;"	f
@@ -1011,6 +1014,7 @@ LinkNode	evms/dlist.h	/^typedef struct LinkNodeRecord LinkNode;$/;"	t	typeref:st
 LinkNodeRecord	evms/dlist.h	/^struct LinkNodeRecord$/;"	s
 Link_Ctrl	LinkCtrl.c	/^int Link_Ctrl(int socket_fd)$/;"	f
 Link_Ctrl_Cleanup	LinkCtrl.c	/^static void Link_Ctrl_Cleanup(void *pinfo)$/;"	f	file:
+ListDirectory	SystemCmd.c	/^int ListDirectory(char * msg_body, int msg_body_len, char ** reply, int * reply_len)$/;"	f
 ListEmpty	evms/dlist.c	/^boolean ListEmpty(dlist_t ListToCheck)$/;"	f
 ListStr	evms/screener.h	/^char *   ListStr          =  "LIST";$/;"	v
 List_Options	evms/interpreter.c	/^static boolean List_Options = FALSE;$/;"	v	file:
@@ -1020,13 +1024,13 @@ Lookahead_Handles	evms/parser.c	/^static dlist_t Lookahead_Handles = NULL;	\/* U
 Lower_Limit	evms/interpreter.c	/^    u_int64_t Lower_Limit;$/;"	m	struct:__anon47	file:
 MAIN_MSG_TYPE	Protocol.h	/^}MAIN_MSG_TYPE;$/;"	t	typeref:enum:__anon31
 MAX_CONN_NUM	NetServer.h	6;"	d
-MAX_CONTENT_LEN	Protocol.h	107;"	d
-MAX_EVMS_COMMAND_LINE_PARAM	Protocol.h	45;"	d
+MAX_CONTENT_LEN	Protocol.h	109;"	d
+MAX_EVMS_COMMAND_LINE_PARAM	Protocol.h	46;"	d
 MAX_EVMS_VOLUMES	inc/common.h	35;"	d
 MAX_EXPAND_POINTS	evms/PrivateData.h	8;"	d
 MAX_FEATURE_NUM	evms/ObjectStructs.h	11;"	d
 MAX_FILENAME_LEN	NetServer.h	11;"	d
-MAX_FRAME_LEN	Protocol.h	106;"	d
+MAX_FRAME_LEN	Protocol.h	108;"	d
 MAX_NOTINFORM_CNT	NetServer.h	20;"	d
 MAX_NUM_PTZ_PROTOCOL	NetServer.h	29;"	d
 MAX_OPERATION_NUM	evms/ObjectStructs.h	10;"	d
@@ -1126,9 +1130,9 @@ MultiSpace	evms/token.h	/^                MultiSpace,$/;"	e	enum:__anon39
 MultiTab	evms/token.h	/^                MultiTab,$/;"	e	enum:__anon39
 My_Printf	evms/evms.c	/^    int My_Printf(char *format, ...) {$/;"	f
 NAME	evms/Makefile	/^NAME	  = evms-cli$/;"	m
-NET_BUFFER_LEN	Protocol.h	101;"	d
+NET_BUFFER_LEN	Protocol.h	103;"	d
 NODE_ACTIVE	inc/common.h	/^	NODE_ACTIVE =	(1<<0)$/;"	e	enum:__anon18
-NORMAL_BUFFER_LEN	Protocol.h	102;"	d
+NORMAL_BUFFER_LEN	Protocol.h	104;"	d
 NOT_MUST_BE_TOP	inc/common.h	/^	NOT_MUST_BE_TOP =       (1<<2),$/;"	e	enum:__anon16
 NO_DISK_GROUP	inc/common.h	/^	NO_DISK_GROUP =         (1<<4)$/;"	e	enum:__anon16
 N_	inc/common.h	796;"	d
@@ -1165,7 +1169,7 @@ OBJ	test/Makefile	/^OBJ=test.o$/;"	m
 OBJECTS	Makefile	/^OBJECTS  := Main.o NetServer.o LinkCtrl.o SysCheckInCmd.o RecvOneFrame.o \\$/;"	m
 OBJECTS	test/pack/Makefile	/^OBJECTS   := ObjectStructs.o ReplacedStructs.o$/;"	m
 OBJ_CHANGES_PENDING	inc/common.h	/^	OBJ_CHANGES_PENDING =   (1<<0),$/;"	e	enum:__anon16
-OUPUT	Debuger.h	73;"	d
+OUPUT	Debuger.h	75;"	d
 OUTPUT	Debuger.h	54;"	d
 ObjectList	evms/interpreter.h	/^               ObjectList,$/;"	e	enum:__anon49
 ObjectStr	evms/screener.h	/^char *   ObjectStr        =  "OBJECT";$/;"	v
@@ -1179,7 +1183,7 @@ Option_Usage	evms/interpreter.c	/^static boolean *Option_Usage;$/;"	v	file:
 OptionsStr	evms/screener.h	/^char *   OptionsStr       =  "OPTIONS";$/;"	v
 Out_Of_Memory	evms/error.h	/^               Out_Of_Memory,$/;"	e	enum:__anon45
 PACKET_HDR	Protocol.h	/^} PACKET_HDR, *PPACKET_HDR;         \/\/ 报文头结构；$/;"	t	typeref:struct:__PACKET_HDR
-PACKET_HDR_LEN	Protocol.h	99;"	d
+PACKET_HDR_LEN	Protocol.h	101;"	d
 PARSER_C	evms/parser.c	30;"	d	file:
 PARSER_H	evms/parser.h	32;"	d
 PCTRL_LINK_DESC	CtrlLinkTbl.h	/^} CTRL_LINK_DESC, *PCTRL_LINK_DESC;$/;"	t	typeref:struct:__anon51
@@ -1190,7 +1194,7 @@ PLUGIN_ID_MASK	evms/interpreter.c	75;"	d	file:
 POST_ACTIVATE	inc/enginestructs.h	/^	POST_ACTIVATE         = 3,$/;"	e	enum:__anon30
 PPACKET_HDR	Protocol.h	/^} PACKET_HDR, *PPACKET_HDR;         \/\/ 报文头结构；$/;"	t	typeref:struct:__PACKET_HDR
 PRINT	Debuger.h	45;"	d
-PRINT	Debuger.h	69;"	d
+PRINT	Debuger.h	71;"	d
 PRINT_FILE_SYSTEM	evms/RevertStructs.c	18;"	d	file:
 PRIVATE_HASH_SIZE	evms/PrivateData.h	10;"	d
 PROGRESS_NO_TIME_ESTIMATE	inc/common.h	542;"	d
@@ -1270,8 +1274,8 @@ REQUIRE	inc/plugin.h	205;"	d
 REQUIRED_ENGINE_VERSION_MAJOR	evms/evms.c	99;"	d	file:
 REQUIRED_ENGINE_VERSION_MINOR	evms/evms.c	100;"	d	file:
 REQUIRED_ENGINE_VERSION_PATCH	evms/evms.c	101;"	d	file:
-RETCODE_FAIL	Protocol.h	69;"	d
-RETCODE_OK	Protocol.h	68;"	d
+RETCODE_FAIL	Protocol.h	71;"	d
+RETCODE_OK	Protocol.h	70;"	d
 Read_Character	evms/scanner.c	/^static void Read_Character(void)$/;"	f	file:
 RealNumber	evms/token.h	/^                RealNumber,$/;"	e	enum:__anon39
 RealNumberData	evms/interpreter.h	/^               RealNumberData,$/;"	e	enum:__anon49
@@ -1302,6 +1306,7 @@ Restore_Current_Token	evms/parser.c	/^static boolean Restore_Current_Token(Execu
 RevertStr	evms/screener.h	/^char *   RevertStr        =  "REVERT";$/;"	v
 Revert_Node	evms/interpreter.h	/^               Revert_Node,$/;"	e	enum:__anon49
 Row_Delimiter	evms/evms.c	/^    int Row_Delimiter(char ch, char *header) {$/;"	f
+SANAGER_WORKING_DIR	Main.c	20;"	d	file:
 SCANNER_C	evms/scanner.c	142;"	d	file:
 SCANNER_H	evms/scanner.h	145;"	d
 SCFLAG_CLUSTER_DEPORTED	inc/common.h	307;"	d
@@ -1321,7 +1326,7 @@ SET_POWER2_LIST	inc/plugin.h	93;"	d
 SET_POWER2_LIST64	inc/plugin.h	128;"	d
 SET_RANGE32	inc/plugin.h	164;"	d
 SET_RANGE64	inc/plugin.h	187;"	d
-SHORT_BUFFER_LEN	Protocol.h	103;"	d
+SHORT_BUFFER_LEN	Protocol.h	105;"	d
 SNAPSHOT_FEATURE	evms/ObjectStructs.h	15;"	d
 SOFLAG_ACTIVE	inc/common.h	293;"	d
 SOFLAG_BIOS_READABLE	inc/common.h	290;"	d
@@ -1346,9 +1351,10 @@ SPStr	evms/screener.h	/^char *   SPStr            =  "SP";$/;"	v
 STACK_NODE	evms/interpreter.h	43;"	d
 STRING_POINTER	evms/interpreter.c	69;"	d	file:
 SUPPORTS_CONTAINERS	inc/common.h	/^	SUPPORTS_CONTAINERS =   (1<<0)$/;"	e	enum:__anon13
-SYSTEM_LS_DIR	Protocol.h	/^	SYSTEM_LS_DIR = 1		\/\/ list subdirs and files, almost the same as "ls -l" command$/;"	e	enum:__anon33
+SYSTEM_CR_DIR	Protocol.h	/^	SYSTEM_CR_DIR = 0x02		\/\/ create a directory, the dir must has the format of absolute path.$/;"	e	enum:__anon33
+SYSTEM_LS_DIR	Protocol.h	/^	SYSTEM_LS_DIR = 0x01,		\/\/ list subdirs and files, almost the same as "ls -l" command$/;"	e	enum:__anon33
 SYSTEM_RELATED_OPERATIONS	Protocol.h	/^}SYSTEM_RELATED_OPERATIONS;$/;"	t	typeref:enum:__anon33
-SYS_CHECKIN_REQ	Protocol.h	28;"	d
+SYS_CHECKIN_REQ	Protocol.h	29;"	d
 SYS_CHECK_IN_REQ_PKT	SysCheckInCmd.h	/^} SYS_CHECK_IN_REQ_PKT, *PSYS_CHECK_IN_REQ_PKT;$/;"	t	typeref:struct:__SYS_CHECK_IN_REQ_PKT
 SYS_CHECK_IN_RSP_PKT	SysCheckInCmd.h	/^} SYS_CHECK_IN_RSP_PKT, *PSYS_CHECK_IN_RSP_PKT;$/;"	t	typeref:struct:__SYS_CHECK_IN_RSP_PKT
 SaveStr	evms/screener.h	/^char *   SaveStr          =  "SAVE";$/;"	v
@@ -1375,6 +1381,7 @@ SectorsStr	evms/screener.h	/^char *   SectorsStr       =  "SECTORS";$/;"	v
 SegmentStr	evms/screener.h	/^char *   SegmentStr       =  "SEGMENT";$/;"	v
 Segment_Filter	evms/parser.c	74;"	d	file:
 SegmentsStr	evms/screener.h	/^char *   SegmentsStr      =  "SEGMENTS";$/;"	v
+SendCommonFrame	SystemCmd.c	/^int SendCommonFrame(int sock_fd, unsigned short retcode, char * data, int data_len, char main_type, char sub_type)$/;"	f
 SendEvmsCmd	Client.c	/^int SendEvmsCmd(int sock_fd, char *cmd, int cmd_len)$/;"	f
 SendEvmsFrame	evms/SendOneFrame.c	/^SendEvmsFrame (int sock_fd, unsigned short retcode, char *data,$/;"	f
 SendIBCmd	Client.c	/^int SendIBCmd(int sock_fd, char *cmd, int cmd_len)$/;"	f
@@ -1410,7 +1417,7 @@ Space	evms/token.h	/^                Space,$/;"	e	enum:__anon39
 Specify_Object	evms/parser.c	/^Specify_Object(Executable_Node * Current_Node, NodeTypes Node_To_Create,$/;"	f	file:
 Stack	evms/interpreter.c	/^static dlist_t Stack = NULL;$/;"	v	file:
 Start	evms/scanner.c	/^    Start,$/;"	e	enum:__anon41	file:
-StartNetServer	NetServer.c	/^StartNetServer (int debug_level)$/;"	f
+StartNetServer	NetServer.c	/^StartNetServer ()$/;"	f
 StartOfList	evms/dlist.h	/^  LinkNode *      StartOfList;           \/* The address of the LinkNode of the first item in the list. *\/$/;"	m	struct:MasterListRecord
 StartStr	evms/screener.h	/^char *   StartStr         =  "START";$/;"	v
 Start_Comment_Check	evms/scanner.c	/^    Start_Comment_Check,$/;"	e	enum:__anon42	file:
@@ -1427,6 +1434,7 @@ Substitution_Table_Type	evms/scanner.h	/^               } Substitution_Table_Typ
 Substitution_Value	evms/evms.c	/^Substitution_Table_Entry Substitution_Value;$/;"	v
 Substitutions_Allowed	evms/scanner.c	/^static boolean Substitutions_Allowed = TRUE;	\/* Controls whether $(x) is treated as text or a command to replace the $(x) with a parameter #x from the command line used to invoke the EVMS CLI. *\/$/;"	v	file:
 SysCheckInCmd	SysCheckInCmd.c	/^SysCheckInCmd (int sock_fd) $/;"	f
+SystemCmd	SystemCmd.c	/^int SystemCmd(int sock_fd, char * oneframe, int len)$/;"	f
 TAG	evms/dlist.h	/^typedef ulong           TAG;$/;"	t
 TARGET	Makefile	/^TARGET   := net_server client$/;"	m
 TARGET	evms/Makefile	/^TARGET    = lib${NAME}.so$/;"	m
@@ -1439,7 +1447,7 @@ TOKEN_CODE	evms/token.h	56;"	d
 TOKEN_H	evms/token.h	34;"	d
 TOPMOST	inc/common.h	/^	TOPMOST =               (1<<1),$/;"	e	enum:__anon16
 TRACE	Debuger.h	32;"	d
-TRACE	Debuger.h	64;"	d
+TRACE	Debuger.h	66;"	d
 TRUE	evms/dlist.h	151;"	d
 TRUE	evms/token.h	48;"	d
 TRUE	inc/common.h	342;"	d
@@ -1483,12 +1491,12 @@ Unformat_Node	evms/interpreter.h	/^               Unformat_Node,$/;"	e	enum:__an
 Units_Node	evms/interpreter.h	/^               Units_Node,$/;"	e	enum:__anon49
 UnmountStr	evms/screener.h	/^char *   UnmountStr       =  "UNMOUNT";$/;"	v
 Unmount_Node	evms/interpreter.h	/^               Unmount_Node,$/;"	e	enum:__anon49
-UnpackHeader	pl/header.pl	/^sub UnpackHeader()$/;"	s
+UnpackReply	pl/header.pl	/^sub UnpackReply()$/;"	s
 Upper_Limit	evms/interpreter.c	/^    u_int64_t Upper_Limit;$/;"	m	struct:__anon47	file:
+Usage	pl/createMoDIS.pl	/^Usage:$/;"	l
+Usage	pl/createMoDIS.pl	/^sub Usage {$/;"	s
 Usage	pl/header.pl	/^sub Usage()$/;"	s
 Usage	shell/GroupInfoBackup.sh	/^Usage()$/;"	f
-Usage	shell/createMoDIS.pl	/^Usage:$/;"	l
-Usage	shell/createMoDIS.pl	/^sub Usage {$/;"	s
 Use_Current_Token	evms/parser.c	/^static boolean Use_Current_Token = FALSE;	\/* Used to have the current token processed again. *\/$/;"	v	file:
 Use_Freespace	evms/interpreter.c	/^    boolean Use_Freespace;$/;"	m	struct:__anon47	file:
 Use_Selected_Objects_Filter	evms/interpreter.c	/^static boolean Use_Selected_Objects_Filter;$/;"	v	file:
@@ -1674,6 +1682,8 @@ can_shrink_container	inc/plugfuncs.h	/^	int (*can_shrink_container)(storage_cont
 can_shrink_container_by	inc/plugfuncs.h	/^	int (*can_shrink_container_by)(storage_container_t * container,$/;"	m	struct:container_functions_s
 can_unassign	inc/plugfuncs.h	/^	int (*can_unassign)(storage_object_t * object);$/;"	m	struct:plugin_functions_s
 can_unmkfs	inc/plugfuncs.h	/^	int (*can_unmkfs)(logical_volume_t * volume);$/;"	m	struct:fsim_functions_s
+catch_hup_sig	Main.c	/^void catch_hup_sig(int sig)$/;"	f
+catch_term_sig	Main.c	/^void catch_term_sig(int sig)$/;"	f
 change_record_array_c	inc/appstructs.h	343;"	d
 change_record_array_f	inc/appstructs.h	344;"	d
 change_record_array_s	inc/appstructs.h	/^typedef struct change_record_array_s {$/;"	s
@@ -1762,8 +1772,8 @@ count_c	inc/common.h	99;"	d
 count_f	inc/common.h	100;"	d
 crc	inc/common.h	/^\/*  4*\/ u_int32_t crc;$/;"	m	struct:evms_feature_header
 create	inc/plugfuncs.h	/^	int (*create)(list_anchor_t    input_objects,$/;"	m	struct:plugin_functions_s
-createMoDIS	shell/createMoDIS.pl	/^    createMoDIS::create_lib_project($/;"	l
-createMoDIS	shell/createMoDIS.pl	/^  createMoDIS::create_workspace($/;"	l
+createMoDIS	pl/createMoDIS.pl	/^    createMoDIS::create_lib_project($/;"	l
+createMoDIS	pl/createMoDIS.pl	/^  createMoDIS::create_workspace($/;"	l
 create_container	inc/plugfuncs.h	/^	int (*create_container)(list_anchor_t           objects,$/;"	m	struct:container_functions_s
 crypt	inc/devmapper.h	/^	struct dm_target_crypt		*crypt;$/;"	m	union:__anon26	typeref:struct:__anon26::dm_target_crypt
 ctrl_tid	CtrlLinkTbl.h	/^  pthread_t ctrl_tid;                    \/\/ 控制线程号$/;"	m	struct:__anon51
@@ -1771,6 +1781,7 @@ curr_col	evms/evms.c	/^    static int curr_col = 0;$/;"	v	file:
 cylinder	inc/enginestructs.h	/^	u_int32_t cylinder;$/;"	m	struct:chs_s
 cylinders	inc/common.h	/^	u_int64_t   cylinders;$/;"	m	struct:geometry_s
 cypher	inc/devmapper.h	/^	char			cypher[EVMS_NAME_SIZE];$/;"	m	struct:dm_target_crypt
+daemon_start	Main.c	/^int daemon_start(void)$/;"	f
 data	inc/devmapper.h	/^	dm_type_data		data;$/;"	m	struct:dm_target
 data_type	evms/ReplacedStructs.h	/^	data_type_t		data_type;$/;"	m	struct:__my_storage_object_info_s
 data_type	inc/appstructs.h	/^	data_type_t             data_type;		\/* DATA_TYPE, META_DATA_TYPE, FREE_SPACE_TYPE *\/$/;"	m	struct:storage_object_info_s
@@ -2179,8 +2190,10 @@ function_info_s	inc/options.h	/^typedef struct function_info_s {$/;"	s
 function_info_t	inc/options.h	/^} __attribute__ ((packed)) function_info_t;$/;"	t	typeref:struct:function_info_s
 functions	inc/enginestructs.h	/^	} functions;$/;"	m	struct:plugin_record_s	typeref:union:plugin_record_s::__anon29
 g_PktHandler	LinkCtrl.c	/^PktHandler g_PktHandler[MSG_TYPE_NUM] = {$/;"	v
+g_debug_level	Main.c	/^int g_debug_level = 0;$/;"	v
 g_left_len	Client.c	/^int g_left_len = 0;$/;"	v
 g_one_frame	Client.c	/^char g_one_frame[MAX_FRAME_LEN];$/;"	v
+g_pidfile	Main.c	/^char g_pidfile[256];$/;"	v
 g_sock_fd	evms/evms.c	/^int g_sock_fd = -1;$/;"	v
 geometry	inc/appstructs.h	/^	geometry_t              geometry;		\/* Optional object geometry *\/$/;"	m	struct:storage_object_info_s
 geometry	inc/enginestructs.h	/^	geometry_t                   geometry;			\/* Optional geometry of the object *\/$/;"	m	struct:storage_object_s
@@ -2222,6 +2235,7 @@ get_plugin_info	inc/plugfuncs.h	/^	int (*get_plugin_info)(char                  
 get_plugin_info	inc/plugfuncs.h	/^	int (*get_plugin_info)(char                    * info_name,$/;"	m	struct:fsim_functions_s
 get_plugin_info	inc/plugfuncs.h	/^	int (*get_plugin_info)(char                    * info_name,$/;"	m	struct:plugin_functions_s
 get_plugin_list	inc/plugfuncs.h	/^	int (*get_plugin_list)(plugin_type_t         type,$/;"	m	struct:engine_functions_s
+get_running_pid	Main.c	/^pid_t get_running_pid(void)$/;"	f
 get_thing	inc/plugfuncs.h	/^	void * (*get_thing)(list_element_t element);$/;"	m	struct:engine_functions_s
 get_volume_info	inc/plugfuncs.h	/^	int (*get_volume_info)(logical_volume_t        * volume,$/;"	m	struct:fsim_functions_s
 get_volume_list	inc/plugfuncs.h	/^	int (*get_volume_list)(plugin_record_t     * fsim,$/;"	m	struct:engine_functions_s
@@ -2297,7 +2311,7 @@ ioctl_object	inc/plugfuncs.h	/^	int (*ioctl_object)(storage_object_t * object,$/
 ioctl_volume	inc/plugfuncs.h	/^	int (*ioctl_volume)(logical_volume_t * volume,$/;"	m	struct:engine_functions_s
 ipaddr	CtrlLinkTbl.h	/^  unsigned long ipaddr;                  \/\/ 客户端IP$/;"	m	struct:__anon51
 is_2_4_kernel	inc/plugfuncs.h	/^	boolean (*is_2_4_kernel)(void);$/;"	m	struct:engine_functions_s
-is_in_list1	shell/createMoDIS.pl	/^sub is_in_list1 {$/;"	s
+is_in_list1	pl/createMoDIS.pl	/^sub is_in_list1 {$/;"	s
 is_mounted	inc/plugfuncs.h	/^	boolean (*is_mounted)(char   * volume_name,$/;"	m	struct:engine_functions_s
 is_number_based	inc/options.h	/^	boolean         is_number_based;\/* TRUE if number-based *\/$/;"	m	struct:key_value_pair_s
 is_offline	inc/plugfuncs.h	/^	boolean (*is_offline)(storage_object_t   * obj,$/;"	m	struct:engine_functions_s
@@ -2324,6 +2338,7 @@ list	inc/options.h	/^	struct value_list_s	*list;$/;"	m	union:__anon6	typeref:str
 list	inc/options.h	/^	value_list_t	*list;		\/* Array of values of the same type *\/$/;"	m	union:__anon7
 list_anchor_t	inc/enginestructs.h	/^typedef struct anchor_s *  list_anchor_t;$/;"	t	typeref:struct:anchor_s
 list_count	inc/plugfuncs.h	/^	uint (*list_count)(list_anchor_t list);$/;"	m	struct:engine_functions_s
+list_dir_file	SystemCmd.c	/^static const char * list_dir_file = "\/tmp\/dir_content_list";$/;"	v	file:
 list_element_t	inc/enginestructs.h	/^typedef struct element_s * list_element_t;$/;"	t	typeref:struct:element_s
 list_empty	inc/plugfuncs.h	/^	boolean (*list_empty)(list_anchor_t list);$/;"	m	struct:engine_functions_s
 listen_mid	SocketMid.c	/^listen_mid (int sockfd, int backlog)$/;"	f
@@ -2401,6 +2416,7 @@ my_operation_t	evms/ObjectStructs.h	/^}my_operation_t;$/;"	t	typeref:struct:__op
 my_operation_type	evms/ObjectStructs.h	/^} my_operation_type;$/;"	t	typeref:enum:__anon43
 my_option_descriptor_t	evms/ReplacedStructs.h	/^}my_option_descriptor_t;$/;"	t	typeref:struct:__my_option_descriptor_s
 my_plugin_info_t	evms/ReplacedStructs.h	/^}my_plugin_info_t;$/;"	t	typeref:struct:__my_plugin_info_s
+my_send	LinkCtrl.c	/^ssize_t my_send(int s, const void * buf, size_t len)$/;"	f
 my_storage_container_info_t	evms/ReplacedStructs.h	/^}my_storage_container_info_t;$/;"	t	typeref:struct:__my_storage_container_info_s
 my_storage_object_info_t	evms/ReplacedStructs.h	/^}my_storage_object_info_t;$/;"	t	typeref:struct:__my_storage_object_info_s
 my_task_t	evms/ObjectStructs.h	/^}my_task_t;$/;"	t	typeref:struct:__task_s
@@ -2569,6 +2585,7 @@ plugin_type_f	inc/common.h	404;"	d
 plugin_type_t	inc/common.h	/^typedef u_int8_t        plugin_type_t;$/;"	t
 previous_element	inc/plugfuncs.h	/^	list_element_t (*previous_element)(list_element_t element);$/;"	m	struct:engine_functions_s
 previous_thing	inc/plugfuncs.h	/^	void * (*previous_thing)(list_element_t * element);$/;"	m	struct:engine_functions_s
+print_frame_details	LinkCtrl.c	/^void print_frame_details(char * frame, int len)$/;"	f
 private_data	inc/enginestructs.h	/^	void                       * private_data;		\/* Optional plug-in data for the container *\/$/;"	m	struct:storage_container_s
 private_data	inc/enginestructs.h	/^	void                       * private_data;		\/* Optional plug-in's data for the object *\/$/;"	m	struct:storage_object_s
 private_data	inc/enginestructs.h	/^	void                       * private_data;		\/* Private data pointer for FSIMs. *\/$/;"	m	struct:logical_volume_s
@@ -2624,7 +2641,7 @@ resize	evms/ReplacedStructs.h	/^	sector_count_t 		resize;$/;"	m	struct:__my_stor
 retcode	Protocol.h	/^  unsigned short retcode;           \/\/ 操作返回码；$/;"	m	struct:__PACKET_HDR
 s	evms/ReplacedStructs.h	/^	char			s[EVMS_NAME_SIZE + 1];$/;"	m	struct:__my_value_s
 s	inc/options.h	/^	char			*s;	\/* string pointer *\/$/;"	m	union:__anon6
-s_check_modules_script	Infiniband.c	/^static const char *s_check_modules_script = "shell\/CheckIBRunningEnv.sh";$/;"	v	file:
+s_check_modules_script	Infiniband.c	/^static const char *s_check_modules_script = "\/usr\/sbin\/sanager\/CheckIBRunningEnv.sh";$/;"	v	file:
 s_delim	EvmsCmd.c	/^static char *s_delim = " ";$/;"	v	file:
 s_device_param	Infiniband.c	/^static const char *s_device_param = "device=";$/;"	v	file:
 s_evms	EvmsCmd.c	/^static char *s_evms = "evms";$/;"	v	file:
@@ -2634,7 +2651,9 @@ s_param_delim	Infiniband.c	/^static const char *s_param_delim = "|";$/;"	v	file:
 s_permission_param	Infiniband.c	/^static const char *s_permission_param = "readonly=";$/;"	v	file:
 s_port_param	Infiniband.c	/^static const char *s_port_param = "port=";$/;"	v	file:
 s_record_splitter	Infiniband.c	/^static const char  s_record_splitter = '|';$/;"	v	file:
-s_resource_mapping_script	Infiniband.c	/^static const char *s_resource_mapping_script = "shell\/ResourceMapping.sh";$/;"	v	file:
+s_resource_mapping_script	Infiniband.c	/^static const char *s_resource_mapping_script = "\/usr\/sbin\/sanager\/ResourceMapping.sh";$/;"	v	file:
+s_return_value_file	Infiniband.c	/^static const char * s_return_value_file = "\/tmp\/return_value";$/;"	v	file:
+s_system_cmd_script	SystemCmd.c	/^static const char * s_system_cmd_script = "\/usr\/sbin\/sanager\/System.sh";$/;"	v	file:
 save_metadata	inc/plugfuncs.h	/^	int (*save_metadata)(char         * parent,$/;"	m	struct:engine_functions_s
 sector	inc/enginestructs.h	/^	u_int32_t sector;$/;"	m	struct:chs_s
 sector_count	inc/enginestructs.h	/^	sector_count_t     sector_count;$/;"	m	struct:kill_sector_record_s
@@ -2813,7 +2832,7 @@ unmkfs	inc/plugfuncs.h	/^	int (*unmkfs)(logical_volume_t * volume);$/;"	m	struct
 unmkfs_setup	inc/plugfuncs.h	/^	int (*unmkfs_setup)(logical_volume_t * volume);$/;"	m	struct:fsim_functions_s
 unregister_callback	inc/plugfuncs.h	/^	int (*unregister_callback)(ece_cb_t cb);$/;"	m	struct:cluster_functions_s
 unregister_name	inc/plugfuncs.h	/^	int (*unregister_name)(char * name);$/;"	m	struct:engine_functions_s
-update_simulator_compile_option	shell/createMoDIS.pl	/^sub update_simulator_compile_option {$/;"	s
+update_simulator_compile_option	pl/createMoDIS.pl	/^sub update_simulator_compile_option {$/;"	s
 user_communication	inc/appstructs.h	/^	int (*user_communication)(char        * message_text,$/;"	m	struct:ui_callbacks_s
 user_communication	inc/plugfuncs.h	/^	int (*user_communication)(void                * object_instance,$/;"	m	struct:engine_functions_s
 user_communication_args_f	inc/appstructs.h	80;"	d
