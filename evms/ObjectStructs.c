@@ -183,6 +183,24 @@ int MY_ADD_OPERATION(my_advance_info_t * advance, int op_type, int option_num)
 	return (advance->operation_num - 1);
 }
 
+int MY_ADD_TASK(my_advance_info_t * advance, my_task_t * task)
+{
+	if(NULL == advance
+	|| NULL == task)
+	{
+		return -1;
+	}
+
+	if(advance->task_num >= MAX_TASK_NUM)
+	{
+		return -2;
+	}
+
+	advance->supported_tasks[advance->task_num] = task;
+	advance->task_num ++;
+
+	return (advance->task_num - 1);
+}
 
 int MY_ADD_FEATURE(my_advance_info_t * advance, const char * name)
 {

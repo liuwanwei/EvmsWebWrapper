@@ -318,26 +318,25 @@ StopNetServer (void)
 		pthread_join (pcld->ctrl_tid, NULL);
 	}
 
-	//停止TIMER线程
-	pthread_cancel (GlobalState.timer_thread_id);
-
-	//停止JOIN线程
-	GlobalState.stop_join_thread = 1;
-
 	//停止LISTEN线程
+	/*
 	pthread_cancel (GlobalState.listen_thread_id);
 	sleep (1);
 
-	//JOIN线程
 	TRACE (12, ("+++++ Terminating Listen Thread ++++++++\n"));
 	pthread_join (GlobalState.listen_thread_id, NULL);
 	GlobalState.listen_thread_id = 0;
+	*/
 
 	TRACE (12, ("+++++ Terminating Timer Thread ++++++++\n"));
+	//停止TIMER线程
+	pthread_cancel (GlobalState.timer_thread_id);
 	pthread_join (GlobalState.timer_thread_id, NULL);
 	GlobalState.timer_thread_id = 0;
 
 	TRACE (12, ("+++++ Terminating Join Thread ++++++++\n"));
+	//停止JOIN线程
+	GlobalState.stop_join_thread = 1;
 	pthread_join (GlobalState.join_thread_id, NULL);
 	GlobalState.join_thread_id = 0;
 	GlobalState.stop_join_thread = 0;

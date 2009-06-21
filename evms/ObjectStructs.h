@@ -118,6 +118,7 @@ void MY_FREE_MY_OBJECT_INFO_T(my_object_info_t * obj);
 
 void MY_ADD_OPTION_DESCRIPTORS(void * options_header, option_descriptor_t **, int);
 int  MY_ADD_OPERATION(my_advance_info_t * parent, int op_type, int option_num);
+int  MY_ADD_TASK(my_advance_info_t *, my_task_t *);
 int  MY_ADD_FEATURE(my_advance_info_t *, const char * name);
 
 // Get basic info from evms object.

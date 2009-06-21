@@ -105,12 +105,6 @@ int daemon_start(void)
 		fprintf(stderr, "%s: could unblock SIGHUP signal\n", cmdname);
 	}
 
-	(void)signal(SIGHUP, 	catch_hup_sig);
-	(void)signal(SIGTERM, 	catch_term_sig);
-	umask(022);
-
-	chdir(SANAGER_WORKING_DIR);
-
 	return(0);
 }
 	
@@ -151,6 +145,12 @@ main (int argc, char *argv[])
 	}
 
 	InitHash();
+
+	(void)signal(SIGHUP, 	catch_hup_sig);
+	(void)signal(SIGTERM, 	catch_term_sig);
+	umask(022);
+
+	chdir(SANAGER_WORKING_DIR);
 
 	// blocked here
 	StartNetServer();

@@ -302,7 +302,7 @@ static void Print_Expand_Shrink_Move_Slide_Info(task_action_t Start,
 						object_handle_t
 						Object_Handle,
 						my_advance_info_t * advance);
-static void Display_Plugin_Tasks(object_handle_t Handle, my_task_t ** task);
+static void Display_Plugin_Tasks(object_handle_t Handle, my_advance_info_t * advance);
 static char *Determine_Units(u_int64_t Value, double *Result);	/* Input value is in bytes. */
 
 
@@ -4054,7 +4054,7 @@ Print_Object_Info(ADDRESS Object,
 	    if (!Error)
 	    {
 		Display_Plugin_Tasks(Object_Info->info.plugin.handle, 
-				    advance->supported_tasks);
+				    advance);
 	    }
 
 	}
@@ -4235,7 +4235,7 @@ Print_Object_Info(ADDRESS Object,
 
 	    /* Check for plug-in defined tasks. */
 	    Display_Plugin_Tasks(Object_Info->info.object.handle,
-				advance->supported_tasks);
+				advance);
 
 	}
 	break;
@@ -4316,7 +4316,7 @@ Print_Object_Info(ADDRESS Object,
 
 	    /* Check for plug-in defined tasks. */
 	    Display_Plugin_Tasks(Object_Info->info.region.handle,
-				    advance->supported_tasks);
+				    advance);
 
 	}
 	break;
@@ -4356,7 +4356,7 @@ Print_Object_Info(ADDRESS Object,
 
 	    /* Check for plug-in defined tasks. */
 	    Display_Plugin_Tasks(Object_Info->info.container.handle,
-				    advance->supported_tasks);
+				    advance);
 
 	}
 	break;
@@ -4443,7 +4443,7 @@ Print_Object_Info(ADDRESS Object,
 
 	    /* Check for plug-in defined tasks. */
 	    Display_Plugin_Tasks(Object_Info->info.segment.handle,
-				    advance->supported_tasks);
+				    advance);
 
 	}
 	break;
@@ -4509,7 +4509,7 @@ Print_Object_Info(ADDRESS Object,
 
 	    /* Check for plug-in defined tasks. */
 	    Display_Plugin_Tasks(Object_Info->info.disk.handle,
-				    advance->supported_tasks);
+				    advance);
 
 	}
 	break;
@@ -4533,11 +4533,16 @@ Print_Object_Info(ADDRESS Object,
 }
 
 
-static void Display_Plugin_Tasks(object_handle_t Handle, my_task_t ** task)
+static void Display_Plugin_Tasks(object_handle_t Handle, my_advance_info_t * advance)
 {
     unsigned int Error;
     function_info_array_t *Available_Tasks = NULL;
     unsigned int Index;
+
+    if(advance == NULL)
+    {
+	    return;
+    }
 
     my_task_t * one_task = NULL;
 
@@ -4578,9 +4583,8 @@ static void Display_Plugin_Tasks(object_handle_t Handle, my_task_t ** task)
 		Error = Cleanup_Task();
 	    }
 
+	    MY_ADD_TASK(advance, one_task);
 	}
-
-	task[Index] = one_task;
     }
 
 }
