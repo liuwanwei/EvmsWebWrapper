@@ -157,6 +157,9 @@ hash_node_t * SearchNode()
  * return value:
  * 	0, Success.
  * 	-1, Failed.
+ * remark:
+ * 	Because the node may be used frequentlly after prev cli command, 
+ * 	We don't free the node untile system shutdown.
  */
 int ClearNode()
 {
