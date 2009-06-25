@@ -62,6 +62,14 @@ typedef enum
 
 typedef enum
 {
+	ISCSI_ADD_TARGET 	= 0x21, // Make a volume into iscsi target
+	ISCSI_DEL_TARGET 	= 0x22, // Delete one iscsi target
+	ISCSI_GET_ALL_TARGETS	= 0x23, //
+	ISCSI_TARGET_ACCESS_CTRL= 0x24  // Set iscsi target access ctrl modes
+}ISCSI_RELATED_OPERATIONS;
+
+typedef enum
+{
 	SYSTEM_LS_DIR = 0x01,		// list subdirs and files, almost the same as "ls -l" command
 	SYSTEM_CR_DIR = 0x02		// create a directory, the dir must has the format of absolute path.
 }SYSTEM_RELATED_OPERATIONS;
@@ -80,7 +88,7 @@ typedef enum
 typedef enum 
 {
 	IB_ERROR_FAILED = EVMS_ERROR_MAX,
-	IB_ERROR_DEVICE_NOTEXIST,		// 存储资源不存在
+	IB_ERROR_DEVICE_NOTEXIST,	// 存储资源不存在
 	IB_ERROR_PORT_NOTEXIST,		// ib端口不存在
 	IB_ERROR_GROUP_NOT_EXIST,	// 权限组不存在
 	IB_ERROR_MAX
