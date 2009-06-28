@@ -153,14 +153,32 @@ int CallShell(const char * shell_script_name, const char * shell_func_name, char
         else if (pid == 0)
         {
                 char * argument[4];
-                // char command[MAX_SHELL_CMD_LEN];
+                char command[MAX_SHELL_CMD_LEN];
                 extern char **environ;
 
-                argument[0] = (char *)shell_script_name;
-                argument[1] = (char *)shell_func_name;
-                argument[2] = param_list;
+		if(NULL == param_list)
+		{
+			snprintf(command, 
+				MAX_SHELL_CMD_LEN, 
+				"%s %s",
+				shell_script_name,
+				shell_func_name);
+		}
+		else
+		{
+			snprintf(command, 
+				MAX_SHELL_CMD_LEN, 
+				"%s %s \"%s\"",
+				shell_script_name,
+				shell_func_name,
+				param_list);
+		}
+
+		argument[0] = "sh";
+		argument[1] = "-c";
+                argument[2] = command;
 		argument[3] = NULL;
-                execve("/usr/bin/perl", argument, environ);
+                execve("/bin/bash", argument, environ);
                 exit(1);
         }
         else
