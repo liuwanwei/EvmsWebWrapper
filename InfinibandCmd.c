@@ -61,7 +61,7 @@ InfinibandCmd (int sock_fd, char *oneframe, int len)
 	}
 
 
-	TRACE (10, ("### Leave EvmsCmd ###"));
+	TRACE (10, ("### Leave IBCmd ###"));
 
 	if (SendIBFrame
 		(sock_fd, (unsigned short) ret, reply, reply_len,

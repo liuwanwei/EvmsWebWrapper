@@ -4,6 +4,7 @@ use strict;
 my $ret = -1;
 my $volume_file="/proc/net/iet/volume";
 my $session_file="/proc/net/iet/session";
+my $tmp_file="/tmp/return_value_iscsi";
 
 if($#ARGV < 0)
 {
@@ -132,6 +133,36 @@ sub DelTarget()
 
 sub GetAllTargets()
 {
+	my $found = 0;
+	my $record;
+	my $name;
+
+	system("rm $tmp_file -rf");
+
+	open(FH, $volume_file) or die $!;
+
+	while(<FH>)
+	{
+		chomp();
+
+		if($_ =~ /^tid:(\d+) name:(\w+)/)
+		{
+			$name = $2;
+			$found = 1;
+		}
+		elsif($_ =~ /lun:(\d+) state:(\d+) iotype:(\w+) iomode:(\w+) path:(.*)/)
+		{
+			if($found == 1)
+			{
+				$record = "lun=$1|" . "path=$5|" . "iotype=$3|" . "name=$name";
+				system("echo $record >> $tmp_file");
+			}
+
+			$found = 0;
+		}
+	}
+
+	close(FH);
 }
 
 sub TargetAccessCtrl()
@@ -186,7 +217,7 @@ sub GetUnusedTID()
 	{
 		chomp();
 
-		if($_ =~ /^tid:(\d*)/)
+		if($_ =~ /^tid:(\d+)/)
 		{
 			if($1 > $max_tid)
 			{
@@ -211,7 +242,7 @@ sub GetTIDByName()
 	{
 		chomp();
 
-		if($_ =~ /^tid:([/d]*) name:$name/)
+		if($_ =~ /^tid:(\d+) name:$name/)
 		{
 			$tid = $1;
 			last;

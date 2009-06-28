@@ -111,6 +111,7 @@ typedef struct __PACKET_HDR {       // 协议包包头信息；
 #define NET_BUFFER_LEN 		    (64 * 1024 - 1)
 #define NORMAL_BUFFER_LEN           (2048 - 1)
 #define SHORT_BUFFER_LEN            (256 - 1)
+#define MAX_RESPONSE_LEN	    (NET_BUFFER_LEN - )
 
 // 8 bytes header
 #define MAX_FRAME_LEN		    NET_BUFFER_LEN

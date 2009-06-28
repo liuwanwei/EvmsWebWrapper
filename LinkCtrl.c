@@ -129,7 +129,7 @@ int Link_Ctrl(int socket_fd)
     	memset(one_frame, 0, MAX_FRAME_LEN);
     }
 
-    TRACE(2, ("Control channel is eixt!\n"));
+    TRACE(2, ("Leave Link_Ctrl()!\n"));
 
     pthread_cleanup_pop(1);	/* Link_Ctrl_Cleanup(socket_fd) */
 

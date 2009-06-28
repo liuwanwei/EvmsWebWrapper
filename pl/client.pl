@@ -17,6 +17,7 @@ my $addr;
 my $main_msg_type; 
 my $sub_msg_type = 0x00;
 my $msg_content;
+my $msg_len = 0;
 
 while($#ARGV != -1)
 {
@@ -31,21 +32,44 @@ while($#ARGV != -1)
 		{
 			$main_msg_type = 0x03;
 		}
+		elsif($main_msg_type =~ /iscsi/i)
+		{
+			$main_msg_type = 0x04;
+		}
 
 		shift;
 	}
 	elsif($ARGV[0] =~ /-s/i)
 	{
 		$sub_msg_type = $ARGV[1];
+		#print "$sub_msg_type\n";
 		if($sub_msg_type =~ /cmd/i)
 		{
 			$sub_msg_type = 0x26;
 		}
+		# iSCSI related sub message type.
+		elsif($sub_msg_type =~ /AddTarget/i)
+		{
+			$sub_msg_type = 0x21;
+		}
+		elsif($sub_msg_type =~ /DelTarget/i)
+		{
+			$sub_msg_type = 0x22;
+		}
+		elsif($sub_msg_type =~ /GetAllTargets/i)
+		{
+			$sub_msg_type = 0x23;
+		}
+		elsif($sub_msg_type =~ /TargetAccessCtrl/)
+		{
+			$sub_msg_type = 0x24;
+		}
+
 		shift;
 	}
 	else
 	{
-		#print "A: $ARGV[0]\n";
+		print "A: $ARGV[0]\n";
 
 		if($msg_content)
 		{
@@ -56,7 +80,7 @@ while($#ARGV != -1)
 			$msg_content = $ARGV[0];
 		}
 
-		#print "B: $msg_content\n";
+		print "B: $msg_content\n";
 	}
 
 	shift;
@@ -69,9 +93,12 @@ print "net_server: $server:$port\n";
 print "Send message: \n";
 print "main_msg_type : $main_msg_type\n";
 print "sub_msg_type  : $sub_msg_type\n";
-print "msg_content   : $msg_content\n";
-my $msg_len = length($msg_content);
-print "msg_body_len  : $msg_len\n\n\n";
+if($msg_content)
+{
+	print "msg_content   : $msg_content\n";
+	$msg_len = length($msg_content);
+	print "msg_body_len  : $msg_len\n\n\n";
+}
 
 
 socket(SOCK, PF_INET, SOCK_STREAM, 6) or die "Can't create socket: $!";
@@ -80,7 +107,7 @@ connect(SOCK, $dest)		      or die "Can't connect: $!";
 my $header;
 
 # Send header
-$header = &PackHeader($main_msg_type, $sub_msg_type, length($msg_content));
+$header = &PackHeader($main_msg_type, $sub_msg_type, $msg_len);
 syswrite(SOCK, $header, length($header));
 
 # Send body if has
@@ -90,7 +117,7 @@ if($msg_len gt 8)
 }
 
 # Send content
-if($msg_content ne "")
+if($msg_content)
 {
 	syswrite(SOCK, $msg_content, length($msg_content));
 }

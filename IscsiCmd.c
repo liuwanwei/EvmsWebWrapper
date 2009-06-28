@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <assert.h>
 
 #include "IscsiCmd.h"
 #include "Debuger.h"
@@ -28,7 +29,7 @@ int SendIscsiFrame(int, unsigned short , char * , int , int );
 int
 IscsiCmd (int sock_fd, char *oneframe, int len)
 {
-	TRACE (10, ("### Enter IBCmd ###"));
+	TRACE (10, ("### Enter IscsiCmd ###"));
 
 	int ret = -1;
 	PPACKET_HDR hdr;
@@ -60,7 +61,7 @@ IscsiCmd (int sock_fd, char *oneframe, int len)
 		break;
 	}
 
-	TRACE (10, ("### Leave EvmsCmd ###"));
+	TRACE (10, ("### Leave IscsiCmd ###"));
 
 	if (SendIscsiFrame
 		(sock_fd, (unsigned short) ret, reply, reply_len,
@@ -178,6 +179,7 @@ int CallShell(const char * shell_script_name, const char * shell_func_name, char
 		argument[1] = "-c";
                 argument[2] = command;
 		argument[3] = NULL;
+		printf("pl command: %s\n", command);
                 execve("/bin/bash", argument, environ);
                 exit(1);
         }
@@ -185,6 +187,7 @@ int CallShell(const char * shell_script_name, const char * shell_func_name, char
         {
                 int status;
                 waitpid(pid, &status, 0);
+
                 return WEXITSTATUS(status);
         }
 }
@@ -220,12 +223,40 @@ int GetAllIscsiTargets(char ** reply, int * reply_len)
 
 	// Get results from /tmp/file
 	FILE * file = NULL;
+	char response[NET_BUFFER_LEN + 1];
+	char line_buf[SHORT_BUFFER_LEN];
+	char line_len = 0;
+	int response_len = 0;
+	
 	file = fopen(s_return_value_file, "r+");
 
 	if(NULL != file)
 	{
 		fclose(file);
 	}
+
+	while(NULL != fgets(line_buf, SHORT_BUFFER_LEN, file))
+	{
+		line_len = strlen(line_buf);
+
+		if(response_len + line_len > NET_BUFFER_LEN)
+		{
+			printf("NET_BUFFER_LEN(%d) not enough!\n", NET_BUFFER_LEN);
+			break;
+		}
+
+		memcpy(response + response_len, line_buf, line_len);
+		response_len += line_len;
+		response[response_len] = '\0';
+		response_len ++;
+	}
+
+	fclose(file);
+
+	(*reply) = (char *)malloc(response_len);
+	assert(NULL != *reply);
+
+	memcpy(*reply, response, response_len);
 	
 	return 0;
 }
