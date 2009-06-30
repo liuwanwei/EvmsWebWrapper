@@ -6,6 +6,8 @@ my $volume_file="/proc/net/iet/volume";
 my $session_file="/proc/net/iet/session";
 my $tmp_file="/tmp/return_value_iscsi";
 
+#print "Enter Iscsi.pl\n";
+
 if($#ARGV < 0)
 {
 	print "Usage: ./Iscsi.pl FUNC_NAME [PARAM_LIST]\n";
@@ -31,7 +33,12 @@ elsif($ARGV[0] =~ /^TargetAccessCtrl/)
 	shift(@ARGV);
 	$ret = &TargetAccessCtrl(@ARGV);
 }
+else
+{
+	print "can't be here!\n";
+}
 
+#print "ret = $ret\n";
 exit $ret;
 
 
@@ -53,21 +60,25 @@ sub AddTarget()
 		if(lc($key_name) eq "lun")
 		{
 			$lun = $value;
+			print "Get lun: $lun\n";
 		}
 		elsif(lc($key_name) eq "path")
 		{
 			$path = $value;
+			print "Get path: $path\n";
 		}
-		elsif(lc($key_name) eq "type")
+		elsif(lc($key_name) eq "iotype")
 		{
 			$type = $value;
+			print "Get iotype: $type\n";
 		}
 		elsif(lc($key_name) eq "name")
 		{
 			$name = $value;
+			print "Get name: $name\n";
 		}
 	}
-	
+
 	# check the parameters' validity.
 	if(! $lun
 	|| ! $path
@@ -112,12 +123,18 @@ sub AddTarget()
 sub DelTarget()
 {
 	my $tid;
-	my ($key_name, $value) = split(/=/);
+	my $value;
 
-	if(! $key_name =~ /^name/i)
+	if($_[0] =~ /^name=(.*)/i)
+	{
+		$value=$1;
+	}
+	else
 	{
 		return -1;
 	}
+
+	#print $value."\n";
 
 	if(0 == ($tid = &GetTIDByName($value)))
 	{
@@ -145,17 +162,22 @@ sub GetAllTargets()
 	{
 		chomp();
 
-		if($_ =~ /^tid:(\d+) name:(\w+)/)
+		print $_."\n";
+
+		#if($_ =~ /^tid:(\d+) name:([\w.:-]+)/)
+		if($_ =~ /^tid:(\d+) name:(.+)/)
 		{
 			$name = $2;
 			$found = 1;
+
+			#print "found tid and name:$name\n";
 		}
-		elsif($_ =~ /lun:(\d+) state:(\d+) iotype:(\w+) iomode:(\w+) path:(.*)/)
+		elsif($_ =~ /lun:(\d+) state:(\d+) iotype:(\w+) iomode:(\w+) path:(.+)/)
 		{
 			if($found == 1)
 			{
 				$record = "lun=$1|" . "path=$5|" . "iotype=$3|" . "name=$name";
-				system("echo $record >> $tmp_file");
+				system("echo \"$record\" >> $tmp_file");
 			}
 
 			$found = 0;
@@ -163,6 +185,8 @@ sub GetAllTargets()
 	}
 
 	close(FH);
+
+	return 0;
 }
 
 sub TargetAccessCtrl()
@@ -234,7 +258,7 @@ sub GetUnusedTID()
 sub GetTIDByName()
 {
 	my $tid = 0;
-	my $name = $_;
+	my $name = $_[0];
 
 	open(FH, $volume_file) or die $!;
 
@@ -242,10 +266,15 @@ sub GetTIDByName()
 	{
 		chomp();
 
-		if($_ =~ /^tid:(\d+) name:$name/)
+		if($_ =~ /^tid:(\d+) name:(.*)/)
 		{
-			$tid = $1;
-			last;
+			#print "$2\n";
+			#print "$name\n";
+			if($2 eq $name)
+			{
+				$tid = $1;
+				last;
+			}
 		}
 	}
 

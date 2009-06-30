@@ -149,7 +149,7 @@ RecvOneFrame (int s, char *pAppFrame)
 		//客户端关闭连接
 		if (data_received == 0)
 		{
-			TRACE (6, ("recv zero\n"));
+			TRACE (6, ("Connection closed by client!\n"));
 
 			return 0;
 		}

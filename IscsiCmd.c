@@ -4,7 +4,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
-#include <assert.h>
+// #include <assert.h>
 
 #include "IscsiCmd.h"
 #include "Debuger.h"
@@ -62,6 +62,8 @@ IscsiCmd (int sock_fd, char *oneframe, int len)
 	}
 
 	TRACE (10, ("### Leave IscsiCmd ###"));
+
+	// printf("IscsiCmd.c::ret = %d\n", ret);
 
 	if (SendIscsiFrame
 		(sock_fd, (unsigned short) ret, reply, reply_len,
@@ -230,14 +232,17 @@ int GetAllIscsiTargets(char ** reply, int * reply_len)
 	
 	file = fopen(s_return_value_file, "r+");
 
-	if(NULL != file)
+	if(NULL == file)
 	{
-		fclose(file);
+		return -1;
 	}
 
 	while(NULL != fgets(line_buf, SHORT_BUFFER_LEN, file))
 	{
-		line_len = strlen(line_buf);
+		if(0 == (line_len = strlen(line_buf)))
+		{
+			continue;
+		}
 
 		if(response_len + line_len > NET_BUFFER_LEN)
 		{
@@ -254,9 +259,15 @@ int GetAllIscsiTargets(char ** reply, int * reply_len)
 	fclose(file);
 
 	(*reply) = (char *)malloc(response_len);
-	assert(NULL != *reply);
+	if(NULL == (*reply))
+	{
+		return -1;
+	}
+	// assert(NULL != (*reply));
 
 	memcpy(*reply, response, response_len);
+
+	*reply_len = response_len;
 	
 	return 0;
 }
