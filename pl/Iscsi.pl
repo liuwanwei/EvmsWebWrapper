@@ -4,6 +4,8 @@ use strict;
 my $ret = -1;
 my $volume_file="/proc/net/iet/volume";
 my $session_file="/proc/net/iet/session";
+my $ctrl_deny="/etc/initiators.deny";
+my $ctrl_allow="/etc/initiators.allow";
 my $tmp_file="/tmp/return_value_iscsi";
 
 #print "Enter Iscsi.pl\n";
@@ -191,6 +193,97 @@ sub GetAllTargets()
 
 sub TargetAccessCtrl()
 {
+	my @pair_list = split(/\|/, $_[0]);
+
+	my ($ctrl_type, $tgt_name, $ctrl_string);
+
+	foreach my $pair (@pair_list)
+	{
+		# The attributes pair.
+		my ($key_name, $value) = split(/=/, $pair);
+		$key_name = lc($key_name);
+		if(lc($key_name) eq "type")
+		{
+			$ctrl_type = $value;
+			print "Get ctrl_type: $ctrl_type\n";
+		}
+		elsif(lc($key_name) eq "name")
+		{
+			$tgt_name = $value;
+			print "Get target name: $tgt_name\n";
+		}
+		elsif(lc($key_name) eq "ctrl")
+		{
+			$ctrl_string = $value;
+			print "Get ctrl string: $ctrl_string\n";
+		}
+	}
+
+	# check the parameters' validity.
+	if(! $ctrl_type
+	|| ! $tgt_name
+	|| ! $ctrl_string)
+	{
+		print "Not enough parameter\n";
+		return -1;
+	}
+	else
+	{
+		# Check if target already exists.
+		if(0 == &GetTIDByName($tgt_name))
+		{
+			print "Iscsi target \"$tgt_name\" not exist!\n";
+			return -1;
+		}
+		#print "$ctrl_type $tgt_name $ctrl_string\n";
+	}
+
+	if(0 != &CheckIscsiEnv())
+	{
+		return -1;
+	}
+
+	my $ctrl_file;
+	if($ctrl_type eq "allow")
+	{
+		$ctrl_file = $ctrl_allow;
+	}
+	elsif($ctrl_type eq "deny")
+	{
+		$ctrl_file = $ctrl_deny;
+	}
+	else
+	{
+		print "Invalid iSCSI target ctrl type\n";
+		return -1;
+	}
+
+	# grep return 1 if nothing found and 0 if found at least 1 matching line.
+	my $ret = system("grep \"^[ \t]*#\" -v $ctrl_file | grep \"[ \t]*$tgt_name\"");
+
+	if(0 == $ret)
+	{
+		#Convert "/" to "\/"  if $ctrl_string has.
+		$ctrl_string =~ s/\//\\\//g;
+		$ctrl_string =~ s/\[/\\\[/g;
+		$ctrl_string =~ s/\]/\\\]/g;
+
+		# The target already have control string, replace it.
+		$ret = system("sed -e 's/^[ \t]*$tgt_name.*/$tgt_name $ctrl_string/g' $ctrl_file > $tmp_file");
+		if($ret == 0)
+		{
+			system("cp $tmp_file $ctrl_file -f");
+		}
+		else
+		{
+			return $ret;
+		}
+	}
+	else
+	{
+		# The target has not any control string, add it.
+		return system("echo \"$tgt_name $ctrl_string\" >> $ctrl_file");
+	}
 }
 
 # Check if the iscsi running environmenth properly configured.
